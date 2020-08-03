@@ -1,9 +1,12 @@
 [book]
-authors = ["buttercrab"]
-language = "en"
+authors = ["IamCoder"]
+language = "ko"
 multilingual = false
 src = "src"
 title = "IamCoder Wiki"
+description = "IamCoder Wiki"
 
 [output.html]
 mathjax-support = true
+git-repository-url = "https://github.com/iamcoder-wiki/iamcoder-wiki.github.io"
+site-url = "iamcoder.wiki"
