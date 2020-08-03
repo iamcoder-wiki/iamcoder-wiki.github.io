@@ -1,0 +1,6 @@
+[book]
+authors = ["buttercrab"]
+language = "en"
+multilingual = false
+src = "src"
+title = "IamCoder Wiki"
