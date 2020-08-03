@@ -23,4 +23,4 @@
 * [Segment Tree](./datastructure/segmenttree.md)
 * [Advanced](./datastructure/advanced.md)
 ## 기타
-- [Additional Topics](./additional.md)
+- [Additional Topics](./additional/additional.md)
