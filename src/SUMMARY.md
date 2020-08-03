@@ -1,4 +1,3 @@
 # Summary
 
-- [소개](./introduction.md)
-- [Page1](./page1.md)
+- [소개](./mainpage.md)
