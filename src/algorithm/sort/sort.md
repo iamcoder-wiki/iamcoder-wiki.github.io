@@ -23,9 +23,9 @@ int main()
 
 ### 종류
 
-- [Bubble Sort](./sort/bubblesort.md)
-- [Selection Sort](./sort/selectionsort.md)
-- [Insertion Sort](./sort/insertionsort)
+- [Bubble Sort](./bubblesort.md)
+- [Selection Sort](./selectionsort.md)
+- [Insertion Sort](./insertionsort)
 
 ### 여담
 
@@ -35,17 +35,17 @@ int main()
 
 ### 종류
 
-- [Merge Sort](./sort/mergesort)
-- [Heap Sort](./sort/heapsort)
-- [Quick Sort](./sort/quicksort)
+- [Merge Sort](./mergesort)
+- [Heap Sort](./heapsort)
+- [Quick Sort](./quicksort)
 
 ## 기타 정렬
 
 ### 종류
 
-- [Counting Sort](./sort/countingsort)
-- [Radix Sort](./sort/radixsort)
-- [Intro Sort](./sort/introsort)
+- [Counting Sort](./countingsort)
+- [Radix Sort](./radixsort)
+- [Intro Sort](./introsort)
 
 ## 여담
 
