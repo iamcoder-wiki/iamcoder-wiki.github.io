@@ -6,7 +6,7 @@
 
 ## 코드
 
-##### Heap Sort without priority_queue
+### Heap Sort without priority_queue
 
 ```c++
 void in_heap(int num)
@@ -49,9 +49,9 @@ void heapsort()
 }
 ```
 
-##### Heap Sort using priority_queue
+### Heap Sort using priority_queue
 
-힙이란 자료구조는 이미 우선순위 큐의 형태로 구현되어 있으므로 이를 이용하면 코드가 훨씬 간결해진다. 다만 우선순위 큐는 최대 힙으로 원래 수에 \\(-1\\)을 곱해준 값으로 우선순위 큐 안에 넣어주게 되면 최소 힙처럼 사용할 수 있다.
+힙이란 자료구조는 이미 우선순위 큐의 형태로 구현되어 있으므로 이를 이용하면 코드가 훨씬 간결해진다. 다만 우선순위 큐는 최대 힙으로 원래 수에 -1을 곱해준 값으로 우선순위 큐 안에 넣어주게 되면 최소 힙처럼 사용할 수 있다.
 
 ```c++
 void heapsort()
