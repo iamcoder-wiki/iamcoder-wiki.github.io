@@ -28,6 +28,7 @@
 - [자료구조]()
     - [Basic]()
     - [Intermediate]()
+      - [Bitmask](./datastructure/intermediate/bitmask/bitmask.md)
     - [Tree]()
     - [Segment Tree]()
     - [Advanced]()
