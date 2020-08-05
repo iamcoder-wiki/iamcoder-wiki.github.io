@@ -1,14 +1,22 @@
 # Summary
-
 [사이트 소개](./introduction.md)
 [IamCoder란?](./what-is-iamcoder.md)
 
 ---
 
 - [알고리즘]()
-    - [Sort](./algorithm/sort.md)
+    - [Sort](./algorithm/sort/sort.md)
+      - [Bubble Sort](./algorithm/sort/bubblesort.md)
+      - [Selection Sort](./algorithm/sort/selectionsort.md)
+      - [Insertion Sort](./algorithm/sort/insertionsort.md)
+      - [Merge Sort](./algorithm/sort/mergesort.md)
+      - [Heap Sort](./algorithm/sort/heapsort.md)
+      - [Quick Sort](./algorithm/sort/quicksort.md)
+      - [Counting Sort](./algorithm/sort/countingsort.md)
+      - [Radix Sort](./algorithm/sort/radixsort.md)
+      - [Intro Sort](./algorithm/sort/introsort.md)
     - [Graph Traverse]()
-    - [Divide & Conquer]()
+    - [Divide & Conquer](./algorithm/divideandconquer/divideandconquer.md)
     - [Dynamic Programming]()
     - [Shortest Path]()
     - [Query Technique]()

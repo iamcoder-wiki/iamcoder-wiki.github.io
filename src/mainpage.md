@@ -8,7 +8,7 @@
 ## 알고리즘
 - [Sort](./algorithm/sort.md)
 - [Graph Traverse](./algorithm/graphtraverse.md)
-- [Divide & Conquer](./algorithm/divide&conquer.md)
+- [Divide & Conquer](./algorithm/divideandconquer.md)
 - [Dynamic Programming](./algorithm/dp.md)
 - [Shortest Path](./algorithm/shortestpath.md)
 - [Query Technique](./algorithm/query.md)
