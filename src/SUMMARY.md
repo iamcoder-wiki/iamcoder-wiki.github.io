@@ -18,6 +18,7 @@
     - [Graph Traverse]()
     - [Divide & Conquer](./algorithm/divideandconquer/divideandconquer.md)
     - [Dynamic Programming]()
+      - [LCS](./algorithm/dp/lcs.md)
     - [Shortest Path]()
     - [Query Technique]()
     - [DP Optimization]()
