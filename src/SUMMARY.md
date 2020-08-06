@@ -97,3 +97,6 @@
       - [SCC](./additional/scc/scc.md)
       - [BCC](./additional/bcc/bcc.md)
 
+* [Problem Solving](./ps/ps.md)
+  * [OI](./ps/oi/oi.md)
+  * [SITE](./ps/site/site.md)
