@@ -7,6 +7,15 @@
         
         
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174669347-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-174669347-1');
+        </script>
 
         <!-- Custom HTML head -->
         
@@ -140,7 +149,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#bubble-sort" id="bubble-sort"> Bubble Sort</a></h1>
+                        <h1><a class="header" href="#bubble-sort" id="bubble-sort">Bubble Sort</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>\(O(n^2)\)정렬 중에서 구현이 제일 쉽고 유명한 방법이다. 인접한 두개의 항의 대소를 비교하여 작은 것을 앞으로 보내는 방법이다. 이 방법의 정당성은 이해하기 쉽다. <code>(1, 2), (2, 3), … ,(n-1, n)</code> 번을 순차적으로 비교했을 때, 다른 것은 모르지만 <code>n</code>번째 원소의 값이 최대라는 것은 확신할 수 있다. 이를 <code>n</code>번 반복하여 뒤에서부터 올바르게 숫자를 채워나간다면 정렬이 완료될 것이다. 이를 <code>for</code>문 두개를 이용하여 구현할 수 있고, 총 연산이 \(n*(n-1)/2\)번 실행되므로 시간복잡도는 \(O(n^2)\)이다.</p>
 <h2><a class="header" href="#코드" id="코드">2. 코드</a></h2>
