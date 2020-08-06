@@ -11,13 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
-        with:
-          # mdbook-version: '0.4.1'
-          mdbook-version: 'latest'
-
-      - run: mdbook build
+      - run: |
+          wget https://github.com/buttercrab/mdBook/releases/download/v0.4.1-1/mdbook-0.4.1-1-linux-x86-64.tar.gz
+          /bin/tar -zxvf mdbook-0.4.1-1-linux-x86-64.tar.gz
+          ./mdbook build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
