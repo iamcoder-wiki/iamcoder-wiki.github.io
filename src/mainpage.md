@@ -7,7 +7,7 @@
 - [IamCoder](./intro/iamcoder.md)
 ## 알고리즘
 - [Sort](./algorithm/sort/sort.md)
-- [Graph Traverse](./algorithm/graphtraverse/graphtraverse.md)
+- [Graph Traversal](./algorithm/graphtraversal/graphtraversal.md)
 - [Divide & Conquer](./algorithm/divideandconquer/divideandconquer.md)
 - [Dynamic Programming](./algorithm/dp/dp.md)
 - [Shortest Path](./algorithm/shortestpath/shortestpath.md)

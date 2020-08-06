@@ -16,7 +16,7 @@
 
 삽입을 할 때는 완전이진트리의 형태가 유지되도록 가장 마지막 위치에 저장을 하고, 부모와 비교를 해 가며 min heap의 경우 부모가 새로 추가된 자식보다 큰 경우 이 둘을 교환하는 식으로 알맞은 자리를 찾아가게 합니다.
 
-<img src="./insert3.PNG" width = 400 ><img src="./insert2.PNG" width = 400 ><img src="./insert1.PNG" width = 400 >
+<img src="./insert3.PNG" width = 300 ><img src="./insert2.PNG" width = 300 ><img src="./insert1.PNG" width = 300 >
 
 위 그림은 아까의 Heap에 3을 삽입(push)한 경우를 나타낸 것입니다. 완전이진트리의 끝에 삽입된 3은 부모인 7보다 작으므로 min heap의 성질을 유지시키기 위해 이 둘을 바꿉니다. 그 뒤 3과 새로운 부모인 4를 비교해 이 둘을 바꿉니다. 이렇게 생긴 새로운 부모인 1은 3보다 작으므로 3의 위치는 현재 자리로 확정이 됩니다. 이 교환 과정에서 걸리는 시간은 최대가 트리의 깊이이고, 따라서 삽입 연산의 시간복잡도는 \\(O(\log n)\\)이 됩니다.
 
@@ -24,7 +24,7 @@
 
 삭제를 할 때는 완전이진트리의 뿌리에 있는 값을 pop 한 후 가장 끝에 있는 노드를 루트 노드로 가져온 뒤 두 자식들과 비교해 힙의 성질을 유지시키도록 만듭니다.
 
-<img src="./pop1.PNG" width = 400 ><img src="./pop2.PNG" width = 400 ><img src="./pop3.PNG" width = 400 ><img src="./pop4.PNG" width = 400 >
+<img src="./pop1.PNG" width = 300 ><img src="./pop2.PNG" width = 300 ><img src="./pop3.PNG" width = 300 ><img src="./pop4.PNG" width = 300 >
 
 위 그림은 아까의 Heap에서 pop연산을 하는 경우를 나타낸 것입니다. 먼저 뿌리노드의 1이 삭제되고 그 자리를 맨 끝에있는 7이 채웁니다. 그 뒤 자식과 비교하였을 때 2가 3,7보다 작으므로 2와 7의 위치를 바꾸고, 새로운 7의 위치에 대해 이것을 반복하여 7이 자식들보다 더 작아질 때까지 이것을 반복합니다. 이렇게 하면 가장 작은 원소를 빼내면서 Heap의 구조를 유지시킬 수 있습니다. 마찬가지로 pop도 시간복잡도가 \\(O(\log n)\\)이 됩니다.
 
@@ -121,5 +121,5 @@ int pop(){
 
 하지만 힙을 매번마다 구현하기는 어렵습니다. 그래서 실전에서 문제를 풀 때는 stl에 있는 `priority_queue`를 사용하는 것을 추천합니다. `priority_queue`는 `<queue>` 헤더에 있습니다. `priority_queue`는
 `priority_queue <자료형> mypq`
-로 선언하며, 사용할 수 있는 함수는 힙에 `k`라는 값을 push하는  `myq.push(k)`, pop을 진행하는 `myq.pop(),` 힙이 비어있으면 true를 반환하는 `myq.empty()`, 루트노드에 있는 원소를 반환하는 `myq.top()` 등이 있습니다.
+로 선언하며, 사용할 수 있는 함수는 힙에 `k`라는 값을 push하는  `mypq.push(k)`, pop을 진행하는 `mypq.pop(),` 힙이 비어있으면 true를 반환하는 `mypq.empty()`, 루트노드에 있는 원소를 반환하는 `mypq.top()` 등이 있습니다.
 
