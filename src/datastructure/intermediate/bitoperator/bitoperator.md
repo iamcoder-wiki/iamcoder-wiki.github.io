@@ -28,7 +28,7 @@ printf("%d\n", 31 & 31); //31
 
 맨 위의 식을 예로 들어본다면 23은 이진수로 \\(10111_{(2)}\\)이고 9는 이진수로 \\(1001_{(2)}\\)이기 때문에 &연산을 취해준다면
 
-<img src="/Users/retr0/Desktop/iamcoder-wiki.github.io/src/datastructure/intermediate/bitmask/bitmask1.png" width = 200 >
+<img src="./bitoperator1.png" width = 200 >
 
 와 같이 됩니다.
 
@@ -61,7 +61,7 @@ printf("%d\n", 31 | 31); //31
 
 마찬가지로 맨 위의 식을 예로 들어본다면
 
-<img src="/Users/retr0/Desktop/iamcoder-wiki.github.io/src/datastructure/intermediate/bitmask/bitmask2.png" width = 200 >
+<img src="./bitoperator2.png" width = 200 >
 
 와 같이 됩니다.
 
@@ -89,7 +89,7 @@ printf("%d\n", 31 ^ 31); //0
 
 가장 위의 식을 또 예로 들어본다면
 
-<img src="/Users/retr0/Desktop/iamcoder-wiki.github.io/src/datastructure/intermediate/bitmask/bitmask3.png" width = 200 >
+<img src="./bitoperator3.png" width = 200 >
 
 와 같이 됩니다.
 
