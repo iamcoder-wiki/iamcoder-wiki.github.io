@@ -29,6 +29,7 @@
     - [Basic]()
     - [Intermediate]()
       - [Bitmask](./datastructure/intermediate/bitmask/bitmask.md)
+        - [BitOperator](./datastructure/intermediate/bitoperator/bitoperator.md)
     - [Tree]()
     - [Segment Tree]()
     - [Advanced]()
