@@ -106,6 +106,12 @@ a > .hljs {
     cursor: pointer;
 }
 
+.menu-title-anchor {
+    text-decoration: none;
+    color: var(--icons);
+    margin: 0;
+}
+
 .menu-bar,
 .menu-bar:visited,
 .nav-chapters,
