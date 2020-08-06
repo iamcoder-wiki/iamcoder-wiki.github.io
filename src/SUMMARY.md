@@ -3,7 +3,8 @@
 
 [사이트 소개](./intro/site.md)
 
-[IamCoder](./intro/iamcoder.md)
+* [IamCoder](./intro/iamcoder/iamcoder.md)
+  * [How to Change Site?](./intro/iamcoder/fix.md)
 
 ---
 
