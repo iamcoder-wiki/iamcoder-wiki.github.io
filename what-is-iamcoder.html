@@ -78,25 +78,6 @@
             html.classList.add('js');
         </script>
 
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">사이트 소개</a></li><li class="chapter-item expanded affix "><a href="what-is-iamcoder.html" class="active">IamCoder란?</a></li><li class="spacer"></li><li class="chapter-item expanded "><strong aria-hidden="true">1.</strong> 알고리즘</li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithm/sort/sort.html"><strong aria-hidden="true">1.1.</strong> Sort</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithm/sort/bubblesort.html"><strong aria-hidden="true">1.1.1.</strong> Bubble Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/selectionsort.html"><strong aria-hidden="true">1.1.2.</strong> Selection Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/insertionsort.html"><strong aria-hidden="true">1.1.3.</strong> Insertion Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/mergesort.html"><strong aria-hidden="true">1.1.4.</strong> Merge Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/heapsort.html"><strong aria-hidden="true">1.1.5.</strong> Heap Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/quicksort.html"><strong aria-hidden="true">1.1.6.</strong> Quick Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/countingsort.html"><strong aria-hidden="true">1.1.7.</strong> Counting Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/radixsort.html"><strong aria-hidden="true">1.1.8.</strong> Radix Sort</a></li><li class="chapter-item expanded "><a href="algorithm/sort/introsort.html"><strong aria-hidden="true">1.1.9.</strong> Intro Sort</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">1.2.</strong> Graph Traverse</li><li class="chapter-item expanded "><a href="algorithm/divideandconquer/divideandconquer.html"><strong aria-hidden="true">1.3.</strong> Divide &amp; Conquer</a></li><li class="chapter-item expanded "><strong aria-hidden="true">1.4.</strong> Dynamic Programming</li><li><ol class="section"><li class="chapter-item expanded "><a href="algorithm/dp/lcs.html"><strong aria-hidden="true">1.4.1.</strong> LCS</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">1.5.</strong> Shortest Path</li><li class="chapter-item expanded "><strong aria-hidden="true">1.6.</strong> Query Technique</li><li class="chapter-item expanded "><strong aria-hidden="true">1.7.</strong> DP Optimization</li><li class="chapter-item expanded "><strong aria-hidden="true">1.8.</strong> Network Flow</li><li class="chapter-item expanded "><strong aria-hidden="true">1.9.</strong> Geometry</li><li class="chapter-item expanded "><strong aria-hidden="true">1.10.</strong> String</li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> 자료구조</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">2.1.</strong> Basic</li><li class="chapter-item expanded "><strong aria-hidden="true">2.2.</strong> Intermediate</li><li><ol class="section"><li class="chapter-item expanded "><a href="datastructure/intermediate/bitmask/bitmask.html"><strong aria-hidden="true">2.2.1.</strong> Bitmask</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="datastructure/intermediate/bitoperator/bitoperator.html"><strong aria-hidden="true">2.2.1.1.</strong> BitOperator</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.3.</strong> Tree</li><li class="chapter-item expanded "><strong aria-hidden="true">2.4.</strong> Segment Tree</li><li class="chapter-item expanded "><strong aria-hidden="true">2.5.</strong> Advanced</li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> 기타</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Additional Topics</li></ol></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
@@ -104,9 +85,6 @@
                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -162,42 +140,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#iamcoder" id="iamcoder">IamCoder</a></h1>
+                        <h1><a class="header" href="#iamcoder" id="iamcoder"> IamCoder</a></h1>
 
                     </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="algorithm/sort/sort.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
                 </div>
             </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-                    <a rel="next" href="algorithm/sort/sort.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                
-            </nav>
 
         </div>
 

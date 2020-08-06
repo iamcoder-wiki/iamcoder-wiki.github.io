@@ -78,25 +78,6 @@
             html.classList.add('js');
         </script>
 
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">사이트 소개</a></li><li class="chapter-item expanded affix "><a href="../../what-is-iamcoder.html">IamCoder란?</a></li><li class="spacer"></li><li class="chapter-item expanded "><strong aria-hidden="true">1.</strong> 알고리즘</li><li><ol class="section"><li class="chapter-item expanded "><a href="../../algorithm/sort/sort.html" class="active"><strong aria-hidden="true">1.1.</strong> Sort</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../algorithm/sort/bubblesort.html"><strong aria-hidden="true">1.1.1.</strong> Bubble Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/selectionsort.html"><strong aria-hidden="true">1.1.2.</strong> Selection Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/insertionsort.html"><strong aria-hidden="true">1.1.3.</strong> Insertion Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/mergesort.html"><strong aria-hidden="true">1.1.4.</strong> Merge Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/heapsort.html"><strong aria-hidden="true">1.1.5.</strong> Heap Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/quicksort.html"><strong aria-hidden="true">1.1.6.</strong> Quick Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/countingsort.html"><strong aria-hidden="true">1.1.7.</strong> Counting Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/radixsort.html"><strong aria-hidden="true">1.1.8.</strong> Radix Sort</a></li><li class="chapter-item expanded "><a href="../../algorithm/sort/introsort.html"><strong aria-hidden="true">1.1.9.</strong> Intro Sort</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">1.2.</strong> Graph Traverse</li><li class="chapter-item expanded "><a href="../../algorithm/divideandconquer/divideandconquer.html"><strong aria-hidden="true">1.3.</strong> Divide &amp; Conquer</a></li><li class="chapter-item expanded "><strong aria-hidden="true">1.4.</strong> Dynamic Programming</li><li><ol class="section"><li class="chapter-item expanded "><a href="../../algorithm/dp/lcs.html"><strong aria-hidden="true">1.4.1.</strong> LCS</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">1.5.</strong> Shortest Path</li><li class="chapter-item expanded "><strong aria-hidden="true">1.6.</strong> Query Technique</li><li class="chapter-item expanded "><strong aria-hidden="true">1.7.</strong> DP Optimization</li><li class="chapter-item expanded "><strong aria-hidden="true">1.8.</strong> Network Flow</li><li class="chapter-item expanded "><strong aria-hidden="true">1.9.</strong> Geometry</li><li class="chapter-item expanded "><strong aria-hidden="true">1.10.</strong> String</li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> 자료구조</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">2.1.</strong> Basic</li><li class="chapter-item expanded "><strong aria-hidden="true">2.2.</strong> Intermediate</li><li><ol class="section"><li class="chapter-item expanded "><a href="../../datastructure/intermediate/bitmask/bitmask.html"><strong aria-hidden="true">2.2.1.</strong> Bitmask</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../datastructure/intermediate/bitoperator/bitoperator.html"><strong aria-hidden="true">2.2.1.1.</strong> BitOperator</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.3.</strong> Tree</li><li class="chapter-item expanded "><strong aria-hidden="true">2.4.</strong> Segment Tree</li><li class="chapter-item expanded "><strong aria-hidden="true">2.5.</strong> Advanced</li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> 기타</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Additional Topics</li></ol></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
@@ -104,9 +85,6 @@
                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -162,8 +140,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#sort" id="sort">Sort</a></h1>
-<h2><a class="header" href="#sort정렬이란" id="sort정렬이란">Sort(정렬)이란?</a></h2>
+                        <h1><a class="header" href="#sort" id="sort"> Sort</a></h1>
+<h2><a class="header" href="#sort정렬이란" id="sort정렬이란">1. Sort(정렬)이란?</a></h2>
 <p>프로그래밍에서 정렬이란 무작위로 있는 여러 자료들의 순서를 규칙성 있게 재배열하는 것을 뜻한다. 오름차순, 또는 내림차순으로 정렬하는 것이 일반적이나, 내가 임의로 정한 규칙에 따라 정렬해야 하는 경우도 있다. 정렬해야 하는 자료들의 개수가 <code>n</code>일 때, 정렬알고리즘은 크게 시간복잡도가 \(O(n^2)\), \(O(n\log n)\)과 그 이외인 것으로 나뉘는데, 초급단계에서는 이 \(O(n^2)\) 방법만 알아도 큰 무리는 없다. 구현이 5에서 6줄 정도로 매우 짧고 개념도 직관적으로 이해가 쉽기 때문이다. 그러나 중급단계 이상에서는 100000개 이상의 자료들을 정렬해야 하는 경우가 생겨 \(O(n^2)\)방법으로는 시간초과가 나게 된다. 따라서 \(O(nlogn)\)정렬을 기용해야 하는데, 구현이 모두 \(20\)줄 이상으로 생각보다 쉽지만은 않다. 그러나 우리에게는 하나의 무기가 있는데, 그게 뭔지는 차차 알아가 보도록 하자. 이제부터 설명을 시작할 건데, 이하의 예시코드는 다음의 함수 <code>sortarr()</code> 안에 들어갈 코드로 하자. <code>n</code>개의 <code>int</code>형 자료를 오름차순으로 정렬하여 순서대로 출력하는 프로그램을 다음과 같이 구현하자.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
 using namespace std;
@@ -178,65 +156,34 @@ int main()
         printf(&quot;%d &quot;, arr[i]);
 }
 </code></pre>
-<h2><a class="header" href="#-on2--sort" id="-on2--sort">\( O(n^2) \) Sort</a></h2>
-<h3><a class="header" href="#종류" id="종류">종류</a></h3>
+<h2><a class="header" href="#-on2--sort" id="-on2--sort">2. \( O(n^2) \) Sort</a></h2>
+<h3><a class="header" href="#종류" id="종류">2.1. 종류</a></h3>
 <ul>
 <li><a href="./bubblesort.html">Bubble Sort</a></li>
 <li><a href="./selectionsort.html">Selection Sort</a></li>
 <li><a href="./insertionsort">Insertion Sort</a></li>
 </ul>
-<h3><a class="header" href="#여담" id="여담">여담</a></h3>
+<h3><a class="header" href="#여담" id="여담">2.2. 여담</a></h3>
 <p>이로써 기본적인 정렬 알고리즘들을 살펴보았는데, 이 알고리즘들은 정렬할 때 쓰일 뿐만 아니라 문제에도 활용이 되는 기본 중의 기본으로 꼭 익혀둬야 한다. 앞으로의 \(O(n\log n)\) 알고리즘들은 더욱 심화된 자료구조와 기법을 사용하므로 모르는 자료구조가 있으면 같은 책의 앞 또는 뒤에 설명이 있으므로 참고하면 되고, 인터넷에서도 설명이 친절하게 되어 있으니 참고하길 바란다.</p>
-<h2><a class="header" href="#onlog-n-sort" id="onlog-n-sort">\(O(n\log n)\) Sort</a></h2>
-<h3><a class="header" href="#종류-1" id="종류-1">종류</a></h3>
+<h2><a class="header" href="#onlog-n-sort" id="onlog-n-sort">3. \(O(n\log n)\) Sort</a></h2>
+<h3><a class="header" href="#종류-1" id="종류-1">3.1. 종류</a></h3>
 <ul>
 <li><a href="./mergesort">Merge Sort</a></li>
 <li><a href="./heapsort">Heap Sort</a></li>
 <li><a href="./quicksort">Quick Sort</a></li>
 </ul>
-<h2><a class="header" href="#기타-정렬" id="기타-정렬">기타 정렬</a></h2>
-<h3><a class="header" href="#종류-2" id="종류-2">종류</a></h3>
+<h2><a class="header" href="#기타-정렬" id="기타-정렬">4. 기타 정렬</a></h2>
+<h3><a class="header" href="#종류-2" id="종류-2">4.1. 종류</a></h3>
 <ul>
 <li><a href="./countingsort">Counting Sort</a></li>
 <li><a href="./radixsort">Radix Sort</a></li>
 <li><a href="./introsort">Intro Sort</a></li>
 </ul>
-<h2><a class="header" href="#여담-1" id="여담-1">여담</a></h2>
+<h2><a class="header" href="#여담-1" id="여담-1">5. 여담</a></h2>
 
                     </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="../../what-is-iamcoder.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="../../algorithm/sort/bubblesort.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
                 </div>
             </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="../../what-is-iamcoder.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-                    <a rel="next" href="../../algorithm/sort/bubblesort.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                
-            </nav>
 
         </div>
 
