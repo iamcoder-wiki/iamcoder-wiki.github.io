@@ -10,3 +10,4 @@ description = "IamCoder Wiki"
 mathjax-support = true
 git-repository-url = "https://github.com/iamcoder-wiki/iamcoder-wiki.github.io"
 site-url = "iamcoder.wiki"
+google-analytics = "UA-174669347-1"
