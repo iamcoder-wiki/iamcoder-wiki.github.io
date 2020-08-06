@@ -1,9 +1,9 @@
 # Summary
 [Main](./mainpage.md)
 
-[사이트 소개](./introduction.md)
+[사이트 소개](./intro/site.md)
 
-[IamCoder란?](./what-is-iamcoder.md)
+[IamCoder](./intro/iamcoder.md)
 
 ---
 
@@ -30,9 +30,10 @@
     - [String]()
 - [자료구조]()
     - [Basic]()
-    - [Intermediate]()
+    - [Intermediate](./datastructure/intermediate/intermediate.md)
       - [Bitmask](./datastructure/intermediate/bitmask/bitmask.md)
-        - [BitOperator](./datastructure/intermediate/bitoperator/bitoperator.md)
+        - [Bit Operator](./datastructure/intermediate/bitoperator/bitoperator.md)
+      - [Heap](./datastructure/intermediate/heap/heap.md)
     - [Tree]()
     - [Segment Tree]()
     - [Advanced]()
