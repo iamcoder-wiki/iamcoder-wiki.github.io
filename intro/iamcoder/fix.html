@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Main - IamCoder Wiki</title>
+        <title>How to Change Site? - IamCoder Wiki</title>
         
         
 
@@ -16,23 +16,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
         
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -45,7 +45,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -96,10 +96,10 @@
                         
                     </div>
 
-                    <h1 class="menu-title"><a href="" style="text-decoration:none;"><p class="menu-title-anchor">IamCoder Wiki</p></a></h1>
+                    <h1 class="menu-title"><a href="../../" style="text-decoration:none;"><p class="menu-title-anchor">IamCoder Wiki</p></a></h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -125,42 +125,87 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#iamcoder-wiki" id="iamcoder-wiki">IamCoder Wiki</a></h1>
-<p>안녕하세요. IamCoder(나는코더다) 위키입니다.</p>
-<h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
+                        <h1><a class="header" href="#how-to-change-site" id="how-to-change-site">How to Change Site?</a></h1>
+<h2><a class="header" href="#markdown" id="markdown">1. Markdown</a></h2>
 <ul>
-<li><a href="./intro/site.html">사이트 소개</a></li>
-<li><a href="./intro/iamcoder/iamcoder.html">IamCoder</a></li>
+<li>
+<p><a href="https://theorydb.github.io/envops/2019/05/22/envops-blog-how-to-use-md/">이런 사이트</a>에서 기본적인 정보를 얻을 수 있음</p>
+</li>
+<li>
+<p>페이지의 가장 첫 제목은 <code>#</code>으로 표현하고 하위 제목들은 <code>#</code>의 개수 2개, 3개, ... , 6개 순으로 늘리면 됨</p>
+<ul>
+<li>넘버링은 알아서 해주니 <code>#</code> 개수로 하위 제목 표현만 해주면 됨</li>
 </ul>
-<h2><a class="header" href="#알고리즘" id="알고리즘">2. 알고리즘</a></h2>
+<blockquote>
+<p>ex)</p>
+<pre><code>### hello
+### world
+</code></pre>
+<h3><a class="header" href="#hello" id="hello">1.1. hello</a></h3>
+<h3><a class="header" href="#world" id="world">1.2. world</a></h3>
+</blockquote>
+</li>
+<li>
+<p>어떤 __수식__을 문장 내부에 넣고 싶으면 <code>\\(</code>  수식 <code>\\)</code>  형태로 latex에 사용하던 수식들을<code> $  $</code> 대신 <code>\\(</code> 랑<code> \\)</code>로 감싸면 됨</p>
 <ul>
-<li><a href="./algorithm/sort/sort.html">Sort</a></li>
-<li><a href="./algorithm/graphtraversal/graphtraversal.html">Graph Traversal</a></li>
-<li><a href="./algorithm/divideandconquer/divideandconquer.html">Divide &amp; Conquer</a></li>
-<li><a href="./algorithm/dp/dp.html">Dynamic Programming</a></li>
-<li><a href="./algorithm/shortestpath/shortestpath.html">Shortest Path</a></li>
-<li><a href="./algorithm/query/query.html">Query Technique</a></li>
-<li><a href="./algorithm/dpopt/dpopt.html">DP Optimization</a></li>
-<li><a href="./algorithm/networkflow/networkflow.html">Network Flow</a></li>
-<li><a href="./algorithm/geometry/geometry.html">Geometry</a></li>
-<li><a href="./algorithm/string/string.html">String</a></li>
+<li>한줄 전체에 수식을 넣는 경우 <code>$$ comment $$</code> 로 처리 가능</li>
 </ul>
-<h2><a class="header" href="#자료구조" id="자료구조">3. 자료구조</a></h2>
+<blockquote>
+<p>ex)</p>
+<pre><code>\\( N \leq 10 \\)
+</code></pre>
+<p>\( N \leq 10 \)</p>
+</blockquote>
+</li>
+<li>
+<p>__코드__는 <code>``` c++</code> 로 시작해서 한줄 띄우고 코드 작성 후 <code> ```</code>  를 마지막 줄에 넣으면 됨 </p>
+<blockquote>
+<p>ex)</p>
+<pre><code>​``` c++
+#include &lt;stdio.h&gt;
+
+int main(){
+printf(&quot;hello world&quot;);
+return 0;
+}
+​```
+</code></pre>
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+
+int main(){
+printf(&quot;hello world&quot;);
+return 0;
+}
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p>__인용 표현__은 첫줄과 마지막 줄에 <code>&gt;</code>를 쓰면 되고, 인용 내부에서 또 인용은 <code>&gt;</code>의 개수를 2개, 3개 순으로 늘리면 됨. 문제 적을때 인용 표현 내부에 문제, 입력, 출력 순으로 적으면 됨 (<a href="../../datastructure/intermediate/bitmask/bitmask.html">bitmask 문서</a> 마지막 예제 부분 참고)</p>
+<blockquote>
+<p>ex)</p>
+<pre><code>&gt;
+hello 1
+&gt;&gt; 
+hello 2
+&gt;&gt;
+&gt;
+</code></pre>
+<blockquote>
+<p>hello 1
+&gt;</p>
+<blockquote>
+<p>hello 2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>html은 그냥 넣으면 들어간다고 함... 그래서 javascript로 애니메이션을 넣거나 할수 있다고 함...</p>
 <ul>
-<li><a href="./datastructure/basic/basic.html">Basic</a></li>
-<li><a href="./datastructure/intermediate/intermediate.html">Intermediate</a></li>
-<li><a href="./datastructure/tree/tree.html">Tree</a></li>
-<li><a href="./datastructure/segmenttree/segmenttree.html">Segment Tree</a></li>
-<li><a href="./datastructure/advanced/advanced.html">Advanced</a></li>
+<li>youtube embedding 가능</li>
+<li>주석을 처리 가능 <code>&lt;!-- comment --&gt;</code></li>
 </ul>
-<h2><a class="header" href="#기타" id="기타">4. 기타</a></h2>
-<ul>
-<li><a href="./additional/additional.html">Additional Topics</a></li>
-</ul>
-<h2><a class="header" href="#problem-solving" id="problem-solving">5. Problem Solving</a></h2>
-<ul>
-<li><a href="./ps/oi/oi.html">OI</a></li>
-<li><a href="./ps/site.html">SITE</a></li>
+</li>
 </ul>
 
                     </main>
@@ -201,14 +246,14 @@
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
