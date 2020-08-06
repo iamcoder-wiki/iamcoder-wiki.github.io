@@ -12,13 +12,16 @@
   >
   >```
   >### hello
+  >#### hello?
+  >#### world?
   >### world
   >```
   >
   >
   >
   >### hello
-  >
+  >#### hello?
+  >#### world?
   >### world
 
   
@@ -69,21 +72,13 @@
   >
   >```
   >>
-  >hello 1
-  >	>> 
-  >	hello 2
-  >	>>
+  >hello 
+  >world
   >>
   >```
   >
-  >>
-  >>hello 1
-  >>>
-  >>> hello 2
-  >>>
-  >>
-  >
-  >
+  >>hello 
+  >>world
 
 * html은 그냥 넣으면 들어간다고 함... 그래서 javascript로 애니메이션을 넣거나 할수 있다고 함...
 
