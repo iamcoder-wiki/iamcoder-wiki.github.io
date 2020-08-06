@@ -4,7 +4,7 @@
 
 ## 소개
 - [사이트 소개](./intro/site.md)
-- [IamCoder](./intro/iamcoder.md)
+- [IamCoder](./intro/iamcoder/iamcoder.md)
 ## 알고리즘
 - [Sort](./algorithm/sort/sort.md)
 - [Graph Traversal](./algorithm/graphtraversal/graphtraversal.md)
@@ -24,3 +24,8 @@
 * [Advanced](./datastructure/advanced/advanced.md)
 ## 기타
 - [Additional Topics](./additional/additional.md)
+
+## Problem Solving
+
+* [OI](./ps/oi/oi.md)
+* [SITE](./ps/site.md)
