@@ -55,14 +55,9 @@
         <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
         </script>
@@ -130,15 +125,6 @@
                 </div>
                 
 
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#iamcoder-wiki" id="iamcoder-wiki">IamCoder Wiki</a></h1>
@@ -151,7 +137,7 @@
 <h2><a class="header" href="#알고리즘" id="알고리즘">2. 알고리즘</a></h2>
 <ul>
 <li><a href="./algorithm/sort/sort.html">Sort</a></li>
-<li><a href="./algorithm/graphtraverse/graphtraverse.html">Graph Traverse</a></li>
+<li><a href="./algorithm/graphtraversal/graphtraversal.html">Graph Traversal</a></li>
 <li><a href="./algorithm/divideandconquer/divideandconquer.html">Divide &amp; Conquer</a></li>
 <li><a href="./algorithm/dp/dp.html">Dynamic Programming</a></li>
 <li><a href="./algorithm/shortestpath/shortestpath.html">Shortest Path</a></li>
@@ -229,7 +215,6 @@ int main()
                 swap(arr[j], arr[j+1]);
 }
 </code></pre>
-<h3><a class="header" href="#" id="">2.1. </a></h3>
 <h1><a class="header" href="#selection-sort" id="selection-sort">Selection Sort</a></h1>
 <h2><a class="header" href="#소개-2" id="소개-2">1. 소개</a></h2>
 <p>오히려 삽입정렬보다 개념을 이해하기는 더 쉬울지도 모르겠다. 1번 원소부터 <code>n</code>개의 원소를 다 둘러보면서 최솟값을 찾은 뒤, 그 값을 원래 1번원소와 바꾸고, 2번 원소부터 <code>n</code>번원소까지 이를 반복하는 것이다. 긴말없이 코드로 보여주도록 하겠다.</p>
@@ -414,8 +399,22 @@ int main()
 }
 </code></pre>
 <p>위와 같이 코드를 작성하면, 각 구조체 <code>a</code>값이 작은것, <code>c</code>값이 작은 것의 우선순위로 구조체들이 정렬된다. 즉, <code>sort</code>함수에 내장된 코드들이 <code>comp</code> 함수를 호출할때 <code>x</code>가 앞의 원소, <code>y</code>가 뒤의 원소일때 <code>comp(x, y)</code>가 리턴하는 값이 <code>true</code> 이면 바꾸지 않고 <code>false</code>일때 두 자리가 바뀌게 된다. 다른건 몰라도 이 <code>sort</code>함수의 사용법만큼은 꼭 익혀두기 바란다.</p>
-<h1><a class="header" href="#divide--conquer" id="divide--conquer">Divide &amp; Conquer</a></h1>
+<h1><a class="header" href="#graph-traversal" id="graph-traversal">Graph Traversal</a></h1>
 <h2><a class="header" href="#소개-10" id="소개-10">1. 소개</a></h2>
+<p>Graph Traversal(그래프 순회)는 정보과학 문제에서 자주 다루는 Graph를 탐색하는 알고리즘으로, 그래프를 다루는 문제를 풀 때 기본적으로 사용되는 알고리즘들이다.</p>
+<h2><a class="header" href="#종류-3" id="종류-3">2. 종류</a></h2>
+<ul>
+<li><a href="algorithm/graphtraversal/./dfs/dfs.html">DFS</a></li>
+<li><a href="algorithm/graphtraversal/./bfs/bfs.html">BFS</a></li>
+</ul>
+<h1><a class="header" href="#dfs" id="dfs">DFS</a></h1>
+<h2><a class="header" href="#소개-11" id="소개-11">1. 소개</a></h2>
+<h2><a class="header" href="#코드-7" id="코드-7">2. 코드</a></h2>
+<h1><a class="header" href="#bfs" id="bfs">BFS</a></h1>
+<h2><a class="header" href="#소개-12" id="소개-12">1. 소개</a></h2>
+<h2><a class="header" href="#코드-8" id="코드-8">2. 코드</a></h2>
+<h1><a class="header" href="#divide--conquer" id="divide--conquer">Divide &amp; Conquer</a></h1>
+<h2><a class="header" href="#소개-13" id="소개-13">1. 소개</a></h2>
 <p>Divide &amp; Conquer(D&amp;C) 혹은 분할 정복이라 불리는 문제 해결 기법은 최적해를 구할 때 유용하게 사용될 수 있는 기법 중 하나로, 주어진 문제를 두개 이상의 부분 문제들로 분할하고 각각을 해결한 후 이를 다시 합쳐 주어진 문제를 해결하는 방식입니다. 다시 말해, 문제를 여러개의 해결 가능한 부분 문제들로 나누고 각각을 해결한 후 이 결과를 적절히 융합하여 원래 문제의 답을 구하는 방식을 반복하여 문제를 해결하는 방법입니다. 이 방식을 사용하는 이유는 각각을 부분 문제로 분할하고 이를 각각 해결하는 방식이 다른 방식들에 비해 효율적으로 작동하는 경우가 많기 때문입니다. </p>
 <h2><a class="header" href="#방법" id="방법">2. 방법</a></h2>
 <p>일반적으로 분할 정복 알고리즘의 과정을 정리하자면 다음과 같습니다.</p>
@@ -440,17 +439,26 @@ int main()
 <p>이 <a href="https://www.acmicpc.net/problem/2261">문제</a>는 좌표평면 상에 주어진 $n$개의 점들 사이에서 가장 가까운 두 점 사이의 거리를 구해야 하는 문제 입니다. </p>
 <p>일반적으로 이 문제는 모든 점 쌍들 간의 거리를 계산하는 방식으로 \( O(n^2) \)의 시간 복잡도로 문제를 해결할 수 있습니다. 그러나 분할 정복을 이용하면 \(O(n \log n)\)의 시간복잡도로 이 문제를 해결 할 수 있게 됩니다.</p>
 <p>이 문제에서 분할 정복을 이용하기 위해서 <code>n</code>개의 정점들을 <code>x</code> 좌표를 기준으로 정렬 해 줍니다. 이후 <code>x</code>좌표를 기준으로 점을 두 개의 그룹으로 분할 한 후, 각각의 그룹에 대해 가장 가까운 두 점 사이의 거리를 구하고 최솟값 <code>d</code>를 구합니다. 이때 각 그룹에 있는 점 사이의 거리를 고려하지 않았으므로 이를 고려해 주어야 하는데, 두 그룹을 나누는 기준선에서 \(x\)좌표의 차이가 \(d\) 이상인 경우 최소 거리가 될 수 없으므로 제외한다. 그리고 이 점들을 \(y\)좌표를 기준으로 정렬하여, \(y\)좌표의 차이가 \(d\) 이하인 점들 간에 거리를 구해 준다. 이때, 각 점에 대해 \(y\)좌표의 차이가 \(d\) 이하인 점의 개수는 7개를 넘지 않으므로, \(O(n)\)만에 모든 점 쌍 사이의 최소 거리를 구할 수 있게 된다. 이 과정을 반복하여 답을 구할 수 있게 된다. 그리고 이 알고리즘의 시간 복잡도를 계산하면, \(O(n \log n)\)이 됩니다.</p>
+<h1><a class="header" href="#binary-search" id="binary-search">Binary Search</a></h1>
+<h1><a class="header" href="#parametric-search" id="parametric-search">Parametric Search</a></h1>
+<h1><a class="header" href="#dp" id="dp">DP</a></h1>
+<h2><a class="header" href="#소개-14" id="소개-14">1. 소개</a></h2>
+<h2><a class="header" href="#예시-1" id="예시-1">2. 예시</a></h2>
+<ul>
+<li><a href="algorithm/dp/./lcs/lcs.html">LCS</a></li>
+<li><a href="algorithm/dp/./knapsack/knapsack.html">0-1 Knapsack</a></li>
+</ul>
 <h1><a class="header" href="#lcs" id="lcs">LCS</a></h1>
-<h2><a class="header" href="#소개-11" id="소개-11">1. 소개</a></h2>
+<h2><a class="header" href="#소개-15" id="소개-15">1. 소개</a></h2>
 <p>최장 공통 부분 수열은 주어진 여러 개의 수열 모두의 부분 수열이 되는 수열들 중에 가장 긴 것입니다. 부분 수열은 그 수열의 일부 항을 원래 순서대로 나열해 얻을 수 있는 수열입니다. 이때 꼭 연속하지 않아도 되며, 연속한 경우는 최장 공통 문자열이라고 부릅니다.</p>
 <p>사실 최장 공통 부분 수열은 문자를 다룰 수도 있습니다. '공통 부분 수열'과 '공통 문자열'의 차이는 연속해야 하는지의 여부입니다. 따라서 '공통 부분 수열'이 꼭 숫자로만 이루어지지 않을 수도 있습니다. <em>1243</em> 은 <em>ABDC</em>일 수도 있고, _@^$&amp;_일 수도 있음을 유의하시기 바랍니다.</p>
 <p>아래와 같이 짧은 LCS는 매우 간단하므로 눈으로도 쉽게 답을 찾을 수 있습니다.</p>
-<img src="algorithm/dp/./LCS1.JPG" width = 500 >
+<img src="algorithm/dp/lcs/./LCS1.JPG" width = 500 >
 <p><em>123762</em>와 <em>123587</em>의 LCS를 찾아봅시다.</p>
 <p>두 수열 모두 부분 수열로 <em>137</em>, <em>17</em>, <em>237</em> 등을 가지고 있습니다. 이때 LCS는 <em>1237</em>이 되고, 그 길이는 4입니다.</p>
 <h2><a class="header" href="#dp-table" id="dp-table">2. DP Table</a></h2>
 <p>LCS를 찾기 위한 일반적인 방법은 DP(동적계획법) Table을 만드는 것입니다. </p>
-<img src="algorithm/dp/./LCS2.jpg" width = 500 > 
+<img src="algorithm/dp/lcs/./LCS2.jpg" width = 500 > 
 <p>주어진 수열이 <em>123762</em>와 <em>123587</em>라고 합시다. 이 표의 가로축과 세로축은 각각의 수열을 의미합니다. 이 표에서 <code>i</code>번째 행,<code>j</code>번째 열의 수를 <code>ARR[i][j]</code>라 할 때 <code>ARR[i][j]</code>는 <code>A</code>를 <code>i</code>번째 수, <code>B</code>를 <code>j</code>번째 수 까지 고려했을 때 최장 수열의 길이입니다. 첫 번째 열과 첫 번째 행은 아직 아무 수도 고려하지 못한 상태이기 떄문에, 최장 수열의 길이는 0입니다.
 0이 아닌 <code>i</code>, <code>j</code>에 대해 <code>ARR[i][j]</code>를 다음과 같이 정의할 수 있습니다.</p>
 <pre><code class="language-c++">if(A[i]==B[j]){
@@ -526,10 +534,75 @@ int main() {
     printf(&quot;%s\n&quot;, LCS);
 }
 </code></pre>
+<h1><a class="header" href="#shortest-path" id="shortest-path">Shortest Path</a></h1>
+<h2><a class="header" href="#소개-16" id="소개-16">1. 소개</a></h2>
+<p>Shortest Path(최단 거리) 알고리즘은 주어진 가중 그래프에서 두 정점 사이 최단거리를 구하는 문제다. 다양한 최단 거리 알고리즘이 존재하는데, 간선들의 가중치나 최단거리를 구하려는 시작점, 끝점의 개수에 따라 맞는 알고리즘을 잘 선택하여 사용해야 한다.</p>
+<h2><a class="header" href="#종류-4" id="종류-4">2. 종류</a></h2>
+<ul>
+<li>
+<p><a href="algorithm/shortestpath/../graphtraversal/bfs/bfs.html">BFS</a>
+모든 간선의 가중치가 1일때 한 정점에서 모든 정점까지 최단 거리를 \(O(V+E)\)에 구할 수 있다.</p>
+</li>
+<li>
+<p><a href="algorithm/shortestpath/./dijkstra/dijkstra.html">Dijkstra</a>
+모든 간선의 가중치가 0 이상일 때 한 정점에서 모든 정점까지 최단 거리를 \(O(E\log V)\)에 구할 수 있다.</p>
+</li>
+<li>
+<p><a href="algorithm/shortestpath/./bellmanford/bellmanford.html">Bellman-Ford</a>
+음수 사이클이 없는 그래프에서, 한 정점에서 모든 정점까지 최단 거리를 \(O(V\timesE)\)에 구할 수 있다.</p>
+</li>
+<li>
+<p><a href="algorithm/shortestpath/./floydwarshall/floydwarshall.html">Floyd-Warshall</a></p>
+<p>음수 사이클이 없는 그래프에서, 모든 정점쌍에 대한 최단거리를 \(O(V^3)\)에 구할 수 있다.</p>
+</li>
+</ul>
+<h1><a class="header" href="#dijkstra" id="dijkstra">Dijkstra</a></h1>
+<h1><a class="header" href="#bellman-ford" id="bellman-ford">Bellman-Ford</a></h1>
+<h1><a class="header" href="#floyd-warshall" id="floyd-warshall">Floyd-Warshall</a></h1>
+<h1><a class="header" href="#query-technique" id="query-technique">Query Technique</a></h1>
+<h1><a class="header" href="#heavy-light-decomposition" id="heavy-light-decomposition">Heavy-Light Decomposition</a></h1>
+<h1><a class="header" href="#sqrt-decomposition" id="sqrt-decomposition">Sqrt Decomposition</a></h1>
+<h1><a class="header" href="#mos-algorithm" id="mos-algorithm">Mo's Algorithm</a></h1>
+<h1><a class="header" href="#grid-compression" id="grid-compression">Grid Compression</a></h1>
+<h1><a class="header" href="#centroid-decomposition" id="centroid-decomposition">Centroid Decomposition</a></h1>
+<h1><a class="header" href="#dp-optimization" id="dp-optimization">DP Optimization</a></h1>
+<h1><a class="header" href="#divide--conquer-optimization" id="divide--conquer-optimization">Divide &amp; Conquer Optimization</a></h1>
+<h1><a class="header" href="#knuth-optimization" id="knuth-optimization">Knuth Optimization</a></h1>
+<h1><a class="header" href="#convex-hull-trick" id="convex-hull-trick">Convex Hull Trick</a></h1>
+<h1><a class="header" href="#network-flow" id="network-flow">Network Flow</a></h1>
+<h1><a class="header" href="#matching-on-bipartite" id="matching-on-bipartite">Matching on Bipartite</a></h1>
+<h1><a class="header" href="#minimum-cost-maximum-flow" id="minimum-cost-maximum-flow">Minimum Cost Maximum Flow</a></h1>
+<h1><a class="header" href="#geometry" id="geometry">Geometry</a></h1>
+<h1><a class="header" href="#convex-hull" id="convex-hull">Convex Hull</a></h1>
+<h1><a class="header" href="#rotating-callipers" id="rotating-callipers">Rotating Callipers</a></h1>
+<h1><a class="header" href="#string" id="string">String</a></h1>
+<h1><a class="header" href="#kmp" id="kmp">KMP</a></h1>
+<h1><a class="header" href="#manacher-algorithm" id="manacher-algorithm">Manacher Algorithm</a></h1>
+<h1><a class="header" href="#hashing" id="hashing">Hashing</a></h1>
+<h1><a class="header" href="#suffix-array" id="suffix-array">Suffix Array</a></h1>
+<h1><a class="header" href="#aho-corasick" id="aho-corasick">Aho-Corasick</a></h1>
+<h1><a class="header" href="#basic-data-structure" id="basic-data-structure">Basic Data Structure</a></h1>
+<h2><a class="header" href="#소개-17" id="소개-17">1. 소개</a></h2>
+<p>기본 자료구조은 입력받은 데이터를 저장하고, 사용할 수 있도록 하는 기초적인 자료 저장 방식으로 구성되어 있다. 각 자료구조의 특성을 정확히 이해하여, 문제를 푸는 과정에서 필요한 적절한 자료구조를 선택하여 사용할 수 있어야 한다.</p>
+<h2><a class="header" href="#종류-5" id="종류-5">2. 종류</a></h2>
+<ul>
+<li><a href="datastructure/basic/./stack/stack.html">Stack</a></li>
+<li><a href="datastructure/basic/./queue/queue.html">Queue</a></li>
+<li><a href="datastructure/basic/./vector/vector.html">Vector</a></li>
+<li><a href="datastructure/basic/./deque/deque.html">Deque</a></li>
+<li><a href="datastructure/basic/./linkedlist/linkedlist.html">Linked List</a></li>
+<li><a href="datastructure/basic/./structure/structure.html">Structure</a></li>
+</ul>
+<h1><a class="header" href="#stack" id="stack">Stack</a></h1>
+<h1><a class="header" href="#queue" id="queue">Queue</a></h1>
+<h1><a class="header" href="#vector" id="vector">Vector</a></h1>
+<h1><a class="header" href="#deque" id="deque">Deque</a></h1>
+<h1><a class="header" href="#linked-list" id="linked-list">Linked List</a></h1>
+<h1><a class="header" href="#structure" id="structure">Structure</a></h1>
 <h1><a class="header" href="#intermediate-data-structure" id="intermediate-data-structure">Intermediate Data Structure</a></h1>
-<h2><a class="header" href="#소개-12" id="소개-12">1. 소개</a></h2>
+<h2><a class="header" href="#소개-18" id="소개-18">1. 소개</a></h2>
 <p>중급 자료구조는 난이도 있는 문제를 푸는는 과정에서 자주 사용되는 자료구조들로, 대부분은 라이브러리에 작성되어있는 자료구조를 사용하지만 그 내부 원리와 사용 방법을 알아야 문제 없이 사용할 수 있습니다.</p>
-<h2><a class="header" href="#종류-3" id="종류-3">2. 종류</a></h2>
+<h2><a class="header" href="#종류-6" id="종류-6">2. 종류</a></h2>
 <ul>
 <li><a href="datastructure/intermediate/./map/map.html">Map</a></li>
 <li><a href="datastructure/intermediate/./set/set.html">Set</a></li>
@@ -538,8 +611,11 @@ int main() {
 <li><a href="datastructure/intermediate/./heap/heap.html">Heap</a></li>
 <li><a href="datastructure/intermediate/./redblacktree/redblacktree.html">Red Black Tree</a></li>
 </ul>
+<h1><a class="header" href="#map" id="map">Map</a></h1>
+<h1><a class="header" href="#set" id="set">Set</a></h1>
+<h1><a class="header" href="#priority-queue" id="priority-queue">Priority Queue</a></h1>
 <h1><a class="header" href="#bitmask" id="bitmask">Bitmask</a></h1>
-<h2><a class="header" href="#소개-13" id="소개-13">1. 소개</a></h2>
+<h2><a class="header" href="#소개-19" id="소개-19">1. 소개</a></h2>
 <p>그럼 이제 본격적으로 비트마스킹이 뭔지 설명할 차례입니다. 비트마스킹에는 <a href="datastructure/intermediate/bitmask/../bitoperator/bitoperator.html">비트 연산자</a>가 모든 연산을 차지합니다. 먼저 비트마스크(Bitmask)의 정의부터 살펴봅시다. 비트마스크란, 비트를 변경하여 정보를 저장하는 정수를 뜻합니다. 비트마스킹 기법은 이 비트마스크를 사용하여 메모리 및 연산속도를 대폭 줄일 수 있습니다.</p>
 <h2><a class="header" href="#장점" id="장점">2. 장점</a></h2>
 <p>비트마스크는 다음과 같은 주요 장점이 있습니다.</p>
@@ -557,7 +633,7 @@ int main() {
 <p>비트마스크를 쓸 경우 복잡한 코드가 한주로 짧게 줄어들 수 있습니다. 비트마스킹만 잘 안다면, 코드의 가독성이 향상될 것입니다.</p>
 </li>
 </ul>
-<h2><a class="header" href="#코드-7" id="코드-7">3. 코드</a></h2>
+<h2><a class="header" href="#코드-9" id="코드-9">3. 코드</a></h2>
 <p>비트마스킹으로 배열에 있는 많은 기능들을 구현해 봅시다. 대부분의 구현들이 간단한 비트연산 한번으로 가능합니다. 다음 코드를 봅시다.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt; 
 
@@ -664,7 +740,7 @@ int main(){
 <p>현재 도시의 순회 최솟값을 알기 위해 다음 돌아가는 모든 경로를 탐색한 후 그 값을 DP에 저장하면 문제가 풀릴 수 있습니다. 이떄, 집합 visited를 비트마스킹으로 구현할 수 있습니다.</p>
 <p>이 코드는 DP의 원소의 개수가 \(2^{N} \times N\)이고 이를 각 도시마다 한 번씩 N번 탐색하여 총 시간복잡도는 \(O(2^{N} \times N^{2})\)입니다. 만약 다이나믹기법을 쓰지 않았다면 모두 일일이 탐색해야 하므로 시간복잡도는 \(O(N!)\)이 되었을 것입니다. 느리기는 하지만, 확실히 빨라졌습니다. 여기에 비트마스킹으로 연산속도까지 빨라졌으니, 문제에서 주어진 <code>N</code>의 범위쯤은 거뜬합니다.</p>
 <h1><a class="header" href="#bit-operator" id="bit-operator">Bit Operator</a></h1>
-<h2><a class="header" href="#소개-14" id="소개-14">1. 소개</a></h2>
+<h2><a class="header" href="#소개-20" id="소개-20">1. 소개</a></h2>
 <p>비트 연산자란, 각 수의 비트로(즉, 0과 1로) 연산을 진행하는 연산자입니다. 비트 연산자는 다음과 같이 있습니다.</p>
 <ul>
 <li>비트 AND(&amp;)</li>
@@ -737,7 +813,7 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 <p>갑자기 NOT연산의 결과를 통해 부호가 바뀌어서 당황스러울 수 있습니다. 그러나 이건 매우 당연한 것입니다. 첫번째 비트는 부호를 결정하기 때문에 그 비트까지 바뀌어서 부호가 바뀐 것입니다.</p>
 <p>이 NOT연산은 특징이 있습니다. <code>~N</code>은 항상 <code>-N-1</code>이 됩니다. 이 결과는 비트 반전하여 계산하면 쉽게 알 수 있는데, <strong>이 비트 NOT연산을 한 수를 그 수의 보수라고 합니다.</strong></p>
 <h1><a class="header" href="#heap" id="heap">Heap</a></h1>
-<h2><a class="header" href="#소개-15" id="소개-15">1. 소개</a></h2>
+<h2><a class="header" href="#소개-21" id="소개-21">1. 소개</a></h2>
 <p>힙이란 특정한 규칙을 만족하도록 구성된 완전이진트리로써, 최댓값 및 최솟값을 빠르게 찾기 위해 고안되었습니다. 완전이진트리가 무엇인지는 RB tree 단원에서 배웠을 것이라고 생각하고 바로 힙에 대한 설명으로 넘어가겠습니다. 힙은 부모와 자식 사이에 일정한 대소관계 규칙이 있는 트리입니다. 따라서 뿌리노드에는 항상 가장 높은(또는 가장 작은) 우선순위의 노드가 위치하게 됩니다. 부모가 항상 자식보다 크거나 같은 경우는 최대 힙(max heap)이라고 하고 그 반대의 경우는 최소 힙(min heap)이라고 합니다. 이렇게 만들어 놓으면 주어진 값들의 최솟값이나 최댓값을 바로 알 수 있습니다. min heap의 경우 뿌리노드가 최솟값이고, max heap의 경우는 최댓값이겠지요.</p>
 <img src="datastructure/intermediate/heap/./heap1.PNG" width = 500 >
 <p>위 그림은 전형적인 최소 힙의 모습입니다. 그림을 보면 항상 부모노드가 자식노드보다 작으므로 이것은 최소 힙(min heap) 이라고 할 수 있겠습니다.</p>
@@ -745,11 +821,11 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 <p>힙에서는 삽입(push)과 삭제(pop) 연산을 할 수 있습니다. </p>
 <h3><a class="header" href="#push" id="push">2.1. Push</a></h3>
 <p>삽입을 할 때는 완전이진트리의 형태가 유지되도록 가장 마지막 위치에 저장을 하고, 부모와 비교를 해 가며 min heap의 경우 부모가 새로 추가된 자식보다 큰 경우 이 둘을 교환하는 식으로 알맞은 자리를 찾아가게 합니다.</p>
-<p><img src="datastructure/intermediate/heap/./insert3.PNG" width = 400 ><img src="datastructure/intermediate/heap/./insert2.PNG" width = 400 ><img src="datastructure/intermediate/heap/./insert1.PNG" width = 400 ></p>
+<p><img src="datastructure/intermediate/heap/./insert3.PNG" width = 300 ><img src="datastructure/intermediate/heap/./insert2.PNG" width = 300 ><img src="datastructure/intermediate/heap/./insert1.PNG" width = 300 ></p>
 <p>위 그림은 아까의 Heap에 3을 삽입(push)한 경우를 나타낸 것입니다. 완전이진트리의 끝에 삽입된 3은 부모인 7보다 작으므로 min heap의 성질을 유지시키기 위해 이 둘을 바꿉니다. 그 뒤 3과 새로운 부모인 4를 비교해 이 둘을 바꿉니다. 이렇게 생긴 새로운 부모인 1은 3보다 작으므로 3의 위치는 현재 자리로 확정이 됩니다. 이 교환 과정에서 걸리는 시간은 최대가 트리의 깊이이고, 따라서 삽입 연산의 시간복잡도는 \(O(\log n)\)이 됩니다.</p>
 <h3><a class="header" href="#pop" id="pop">2.2. Pop</a></h3>
 <p>삭제를 할 때는 완전이진트리의 뿌리에 있는 값을 pop 한 후 가장 끝에 있는 노드를 루트 노드로 가져온 뒤 두 자식들과 비교해 힙의 성질을 유지시키도록 만듭니다.</p>
-<p><img src="datastructure/intermediate/heap/./pop1.PNG" width = 400 ><img src="datastructure/intermediate/heap/./pop2.PNG" width = 400 ><img src="datastructure/intermediate/heap/./pop3.PNG" width = 400 ><img src="datastructure/intermediate/heap/./pop4.PNG" width = 400 ></p>
+<p><img src="datastructure/intermediate/heap/./pop1.PNG" width = 300 ><img src="datastructure/intermediate/heap/./pop2.PNG" width = 300 ><img src="datastructure/intermediate/heap/./pop3.PNG" width = 300 ><img src="datastructure/intermediate/heap/./pop4.PNG" width = 300 ></p>
 <p>위 그림은 아까의 Heap에서 pop연산을 하는 경우를 나타낸 것입니다. 먼저 뿌리노드의 1이 삭제되고 그 자리를 맨 끝에있는 7이 채웁니다. 그 뒤 자식과 비교하였을 때 2가 3,7보다 작으므로 2와 7의 위치를 바꾸고, 새로운 7의 위치에 대해 이것을 반복하여 7이 자식들보다 더 작아질 때까지 이것을 반복합니다. 이렇게 하면 가장 작은 원소를 빼내면서 Heap의 구조를 유지시킬 수 있습니다. 마찬가지로 pop도 시간복잡도가 \(O(\log n)\)이 됩니다.</p>
 <h2><a class="header" href="#구현" id="구현">3. 구현</a></h2>
 <p>힙을 실제로 C++에서 구현할 때는 주로 1차원 배열이 사용됩니다. <code>a</code>이라는 배열이 있다고 하고 <code>a[1]</code>을 루트 노드로 지정하면 힙은 완전이진트리이기 때문에 <code>a[n]</code>을 부모로 하는 자식들은 <code>a[n*2]</code>와 <code>a[n*2+1]</code>임을 알 수 있습니다. 따라서 어떤 위치 <code>a[n]</code>에 대해 자식은 <code>a[n*2]</code>와 <code>a[n*2+1]</code>, 부모는 <code>a[n/2]</code>로 쉽게 위치를 특정할 수 있습니다.</p>
@@ -818,10 +894,38 @@ int pop(){
 <p>입력에서 0이 주어진 회수만큼 답을 출력한다. 만약 배열이 비어 있는 경우인데 절댓값이 가장 작은 값을 출력하라고 한 경우에는 0을 출력하면 된다.</p>
 </blockquote>
 <p>이 문제는 매우 간단한 Heap 예제입니다. 이 문제는 아까 구현한 코드에서 comp 함수의 비교 기준을 절댓값으로 살짝 바꿔주시기만 하면 됩니다.</p>
-<h2><a class="header" href="#priority-queue" id="priority-queue">5. Priority Queue</a></h2>
+<h2><a class="header" href="#priority-queue-1" id="priority-queue-1">5. Priority Queue</a></h2>
 <p>하지만 힙을 매번마다 구현하기는 어렵습니다. 그래서 실전에서 문제를 풀 때는 stl에 있는 <code>priority_queue</code>를 사용하는 것을 추천합니다. <code>priority_queue</code>는 <code>&lt;queue&gt;</code> 헤더에 있습니다. <code>priority_queue</code>는
 <code>priority_queue &lt;자료형&gt; mypq</code>
-로 선언하며, 사용할 수 있는 함수는 힙에 <code>k</code>라는 값을 push하는  <code>myq.push(k)</code>, pop을 진행하는 <code>myq.pop(),</code> 힙이 비어있으면 true를 반환하는 <code>myq.empty()</code>, 루트노드에 있는 원소를 반환하는 <code>myq.top()</code> 등이 있습니다.</p>
+로 선언하며, 사용할 수 있는 함수는 힙에 <code>k</code>라는 값을 push하는  <code>mypq.push(k)</code>, pop을 진행하는 <code>mypq.pop(),</code> 힙이 비어있으면 true를 반환하는 <code>mypq.empty()</code>, 루트노드에 있는 원소를 반환하는 <code>mypq.top()</code> 등이 있습니다.</p>
+<h1><a class="header" href="#red-black-tree" id="red-black-tree">Red Black Tree</a></h1>
+<h1><a class="header" href="#tree" id="tree">Tree</a></h1>
+<h1><a class="header" href="#disjoint-set" id="disjoint-set">Disjoint Set</a></h1>
+<h1><a class="header" href="#prim-algorithm" id="prim-algorithm">Prim Algorithm</a></h1>
+<h1><a class="header" href="#kruskal-algorithm" id="kruskal-algorithm">Kruskal Algorithm</a></h1>
+<h1><a class="header" href="#topological-sort" id="topological-sort">Topological Sort</a></h1>
+<h1><a class="header" href="#euler-tour" id="euler-tour">Euler Tour</a></h1>
+<h1><a class="header" href="#tree-diameter" id="tree-diameter">Tree Diameter</a></h1>
+<h1><a class="header" href="#lca" id="lca">LCA</a></h1>
+<h1><a class="header" href="#cactus-graph" id="cactus-graph">Cactus Graph</a></h1>
+<h1><a class="header" href="#segment-tree" id="segment-tree">Segment Tree</a></h1>
+<h1><a class="header" href="#fenwick-tree" id="fenwick-tree">Fenwick Tree</a></h1>
+<h1><a class="header" href="#merge-sort-tree" id="merge-sort-tree">Merge Sort Tree</a></h1>
+<h1><a class="header" href="#dynamic-segment-tree" id="dynamic-segment-tree">Dynamic Segment Tree</a></h1>
+<h1><a class="header" href="#lazy-propagation" id="lazy-propagation">Lazy Propagation</a></h1>
+<h1><a class="header" href="#advanced" id="advanced">Advanced</a></h1>
+<h1><a class="header" href="#2d-segment-tree" id="2d-segment-tree">2D Segment Tree</a></h1>
+<h1><a class="header" href="#persistent-segment-tree" id="persistent-segment-tree">Persistent Segment Tree</a></h1>
+<h1><a class="header" href="#splay-tree" id="splay-tree">Splay Tree</a></h1>
+<h1><a class="header" href="#link-cut-tree" id="link-cut-tree">Link Cut Tree</a></h1>
+<h1><a class="header" href="#additional-topics" id="additional-topics">Additional Topics</a></h1>
+<h1><a class="header" href="#nim-game" id="nim-game">Nim Game</a></h1>
+<h1><a class="header" href="#2-sat" id="2-sat">2-SAT</a></h1>
+<h1><a class="header" href="#meet-in-the-middle" id="meet-in-the-middle">Meet in the Middle</a></h1>
+<h1><a class="header" href="#parallel-binary-search" id="parallel-binary-search">Parallel Binary Search</a></h1>
+<h1><a class="header" href="#dynamic-connectivity" id="dynamic-connectivity">Dynamic Connectivity</a></h1>
+<h1><a class="header" href="#scc" id="scc">SCC</a></h1>
+<h1><a class="header" href="#bcc" id="bcc">BCC</a></h1>
 
                     </main>
                 </div>

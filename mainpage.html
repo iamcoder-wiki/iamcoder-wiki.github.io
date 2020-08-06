@@ -53,14 +53,9 @@
         <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
         </script>
@@ -128,15 +123,6 @@
                 </div>
                 
 
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#iamcoder-wiki" id="iamcoder-wiki">IamCoder Wiki</a></h1>
@@ -149,7 +135,7 @@
 <h2><a class="header" href="#알고리즘" id="알고리즘">2. 알고리즘</a></h2>
 <ul>
 <li><a href="./algorithm/sort/sort.html">Sort</a></li>
-<li><a href="./algorithm/graphtraverse/graphtraverse.html">Graph Traverse</a></li>
+<li><a href="./algorithm/graphtraversal/graphtraversal.html">Graph Traversal</a></li>
 <li><a href="./algorithm/divideandconquer/divideandconquer.html">Divide &amp; Conquer</a></li>
 <li><a href="./algorithm/dp/dp.html">Dynamic Programming</a></li>
 <li><a href="./algorithm/shortestpath/shortestpath.html">Shortest Path</a></li>
