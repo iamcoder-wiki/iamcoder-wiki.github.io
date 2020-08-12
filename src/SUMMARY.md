@@ -1,9 +1,9 @@
 # Summary
-[Main](./mainpage.md)
+* [Main](./mainpage.md)
 
-[Tutorial](./tutorial.md)
+* [Tutorial](./tutorial.md)
 
-[사이트 소개](./intro/site.md)
+* [사이트 소개](./intro/site.md)
 
 * [IamCoder](./intro/iamcoder/iamcoder.md)
   * [How to Change Site?](./intro/iamcoder/fix.md)
@@ -34,7 +34,7 @@
       - [Bellman-Ford](./algorithm/shortestpath/bellmanford/bellmanford.md)
       - [Floyd-Warshall](./algorithm/shortestpath/floydwarshall/floydwarshall.md)
     - [Query Technique](./algorithm/query/query.md)
-      - [Heavy-Light Decomposition](./algorithm/query/heavylight/heavylight.md)
+      - [Heavy-Light Decomposition](./algorithm/query/hld/hld.md)
       - [Sqrt Decomposition](./algorithm/query/sqrt/sqrt.md)
       - [Mo's Algorithm](./algorithm/query/mos/mos.md)
       - [Grid Compression](./algorithm/query/gridcompression/gridcompression.md)
