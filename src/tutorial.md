@@ -1,7 +1,5 @@
 # Tutorial
 
-안녕하세요. IamCoder(나는코더다) 위키입니다.   
-
 ## 소개
 
 - [사이트 소개](./intro/site.md)
@@ -35,4 +33,4 @@
 ## Problem Solving
 
 * [OI](./ps/oi/oi.md)
-* [SITE](
+* [SITE](./ps/site.md)
