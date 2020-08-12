@@ -203,13 +203,31 @@
 </ul>
 <h1><a class="header" href="#사이트-소개" id="사이트-소개">사이트 소개</a></h1>
 <p>이 사이트는 정보과학을 공부하고, 알고리즘을 공부하는 학생들을 위해 만든 사이트입니다.</p>
+<ul>
+<li>
+<p>기본적으로 이 사이트는 사용자가 읽고, 수정하기 쉽도록 하기 위해 위키 구조를 갖고 있습니다.</p>
+</li>
+<li>
+<p>정보과학을 공부하는 사람은 누구나 사이트를 통해서 도움을 받을 수 있고, 공부를 할 수 있지만, 사이트의 수정 권한은 <a href="intro/iamcoder/iamcoder.html">IamCoder</a> 부원들에게 있습니다.</p>
+</li>
+<li>
+<p>사이트의 내용은 원래 책을 쓰기 위해 만들어졌기 때문에 선형으로 되어 있었으나 위키 형태로 만드는 과정에서 상위/하위 문서를 갖는 트리가 되었습니다.</p>
+<p>트리의 루트는 <a href="intro/./tutorial.html">Tutorial</a>입니다.</p>
+</li>
+</ul>
 <h1><a class="header" href="#iamcoder-소개" id="iamcoder-소개">IamCoder 소개</a></h1>
 <p>경기과학고등학교 정보과학 동아리 IamCoder입니다.</p>
 <ul>
 <li><a href="intro/iamcoder/./fix.html">How to Add / Fix Document?</a></li>
 </ul>
 <h1><a class="header" href="#how-to-add--fix-document" id="how-to-add--fix-document">How to Add / Fix Document?</a></h1>
-<h2><a class="header" href="#markdown" id="markdown">1. Markdown</a></h2>
+<h2><a class="header" href="#규칙" id="규칙">1. 규칙</a></h2>
+<ul>
+<li>문서는 보통 <em>소개</em> -&gt; <em>내용 (코드, 하위 내용)</em> -&gt; <em>예시(관련 문제, 해답)</em> -&gt; <em>관련 문서 (없으면 생략)</em> -&gt; <em>여담(팁, 응용, 등 / 없으면 생략)</em> 순으로 진행된다.</li>
+<li>관련된 상위 문서 / 하위 문서와 연결하여 문서를 추가한다.</li>
+<li>어떤 문제에 대한 해답을 적을 때, __대부분__의 경우(<em>매우 쉬운 문제 제외</em>) 답안 코드를 적지 않고 답의 아이디어나 코딩 팁 정도만 적는다.</li>
+</ul>
+<h2><a class="header" href="#markdown" id="markdown">2. Markdown</a></h2>
 <ul>
 <li>
 <p><a href="https://theorydb.github.io/envops/2019/05/22/envops-blog-how-to-use-md/">이런 사이트</a>에서 기본적인 정보를 얻을 수 있음</p>
@@ -226,10 +244,10 @@
 #### world?
 ### world
 </code></pre>
-<h3><a class="header" href="#hello" id="hello">1.1. hello</a></h3>
-<h4><a class="header" href="#hello-1" id="hello-1">1.1.1. hello?</a></h4>
-<h4><a class="header" href="#world" id="world">1.1.2. world?</a></h4>
-<h3><a class="header" href="#world-1" id="world-1">1.2. world</a></h3>
+<h3><a class="header" href="#hello" id="hello">2.1. hello</a></h3>
+<h4><a class="header" href="#hello-1" id="hello-1">2.1.1. hello?</a></h4>
+<h4><a class="header" href="#world" id="world">2.1.2. world?</a></h4>
+<h3><a class="header" href="#world-1" id="world-1">2.2. world</a></h3>
 </blockquote>
 </li>
 <li>
@@ -527,7 +545,8 @@ int main()
 <p>위와 같이 코드를 작성하면, 각 구조체 <code>a</code>값이 작은것, <code>c</code>값이 작은 것의 우선순위로 구조체들이 정렬된다. 즉, <code>sort</code>함수에 내장된 코드들이 <code>comp</code> 함수를 호출할때 <code>x</code>가 앞의 원소, <code>y</code>가 뒤의 원소일때 <code>comp(x, y)</code>가 리턴하는 값이 <code>true</code> 이면 바꾸지 않고 <code>false</code>일때 두 자리가 바뀌게 된다. 다른건 몰라도 이 <code>sort</code>함수의 사용법만큼은 꼭 익혀두기 바란다.</p>
 <h1><a class="header" href="#graph-traversal" id="graph-traversal">Graph Traversal</a></h1>
 <h2><a class="header" href="#소개-11" id="소개-11">1. 소개</a></h2>
-<p>Graph Traversal(그래프 순회)는 정보과학 문제에서 자주 다루는 Graph를 탐색하는 알고리즘으로, 그래프를 다루는 문제를 풀 때 기본적으로 사용되는 알고리즘들이다.</p>
+<p>Graph Traversal(그래프 순회)는 정보과학 문제에서 자주 다루는 그래프를 탐색하는 알고리즘으로, 그래프를 다루는 문제를 풀기 위해 기본적으로 알아야 하는 알고리즘이다.</p>
+<p><a href="algorithm/graphtraversal/URL" onclick="window.open(this.href, '_blank', 'width=가로사이즈px,height=세로사이즈px,toolbars=no,scrollbars=no'); return false;">hello</a></p>
 <h2><a class="header" href="#종류-3" id="종류-3">2. 종류</a></h2>
 <ul>
 <li><a href="algorithm/graphtraversal/./dfs/dfs.html">DFS</a></li>
@@ -697,12 +716,117 @@ int main() {
 <li><a href="algorithm/query/./centroid/centroid.html">Centroid Decomposition</a></li>
 </ul>
 <h1><a class="header" href="#heavy-light-decomposition" id="heavy-light-decomposition">Heavy-Light Decomposition</a></h1>
+<h2><a class="header" href="#소개-19" id="소개-19">1. 소개</a></h2>
+<p>HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
+따라서, 이 글을 이해하기 위해서는, Segment Tree,dfs,lca(sparse table)등에 대한 이해가 필요합니다. </p>
+<p>HLD는 Heavy Light Decomposition 의 약자로서, 간선을 무거운 간선과 가벼운 간선으로 나누어 분류해 관리하는 방법입니다. 이를 위해서는 트리가 rooted Tree여야 합니다.(Root를 하나로 정해야 합니다) 그리고 트리의 정점의 무게를 그 정점의 Subtree의 크기로 정의합시다. 그리고 부모와 자식을 잇는 간선 중에 자식이 부모의 무게의 반 이상인 간선을 무거운 간선으로 정의합시다.</p>
+<p>그러면 여기서 두 가지 사실을 이끌어낼 수 있습니다. </p>
+<ul>
+<li>
+<p>한 정점에서 자식으로 가는 간선 중 무거운 간선은 단 한개이다.
+두 자식이 모두 부모의 무게의 반 이상이 될 수는 없기 때문입니다.</p>
+</li>
+<li>
+<p>root에서 한 정점으로 가는 경로에 가벼운 간선은 \(O(\log N)\)개이다. 
+가벼운 간선을 통해서 내려간다면 무게가 반 이상으로 줄어들기 때문에 이 또한 자명합니다.</p>
+</li>
+</ul>
+<p>무거운 간선들이 인접해 있다면 그것을 하나로 이은 것을 무거운 경로라고 합시다.  그 무거운 경로의 맨 위의 가벼운 간선도 경로에 포함시키고, 아래에 무거운 경로가 없는 가벼운 간선은 그것 하나를 무거운 경로로 본다면, 트리의 경로를 여러개의 무거운 경로로 바꾸어 볼 수 있습니다.</p>
+<p>이런 무거운 경로가 끊어지는 것은 가벼운 간선을 만날 때만이기 때문에, 아까 언급한 2번 사실에 의해 트리의 어떤 경로는 항상 \(O(\log N)\)개의 무거운 경로들의 일부의 합으로 나타내어질 수 있습니다.</p>
+<p>이 사실을 이용해서 무거운 경로들을 Segment Tree를 이용해서 관리해준다면 트리의 경로에 대한 연산을 직선에 대한 연산처럼 할 수 있을 것입니다.((ex)RMQ,구간 합 쿼리)  이것이 바로 HLD입니다.</p>
+<h2><a class="header" href="#예시-2" id="예시-2">2. 예시</a></h2>
+<p><a href="algorithm/query/hld/acmicpc.net/problem/13510">HLD를 통해 풀 수 있는 쿼리 문제 하나</a>를 소개하고자 합니다. 문제를 요약하면 다음과 같습니다.</p>
+<blockquote>
+<p><code>N</code>개의 정점으로 이루어진 트리(무방향 사이클이 없는 연결 그래프)가 있다. 정점은 1번부터 <code>N</code>번까지 번호가 매겨져 있고, 간선은 1번부터 <code>N</code>-1번까지 번호가 매겨져 있다.</p>
+<p>아래의 두 쿼리를 수행하는 프로그램을 작성하시오.</p>
+<p>1 <code>i</code> <code>c</code>: <code>i</code>번 간선의 비용을 <code>c</code>로 바꾼다.</p>
+<p>2 <code>u</code> <code>v</code>: <code>u</code>에서 <code>v</code>로 가는 경로에 존재하는 비용 중에서 가장 큰 것을 출력한다.</p>
+<p>첫째 줄에 N (2 \(\leq\) N \(\leq\) 100,000)이 주어진다.
+둘째 줄부터 N-1개의 줄에는 i번 간선이 연결하는 두 정점 번호 u와 v와 비용 w가 주어진다.
+다음 줄에는 쿼리의 개수 M (1 \(\leq\) M \(\leq\) 100,000)이 주어진다.
+다음 M개의 줄에는 쿼리가 한 줄에 하나씩 주어진다.
+간선의 비용은 항상 1,000,000보다 작거나 같은 자연수이다.</p>
+</blockquote>
+<p>트리 경로에서의 구간 최대 쿼리, 업데이트 연산을 수행해주면 되는 문제입니다.
+HLD 를 사용해 \(O(M\log^2N)\)에 풀 수 있습니다. </p>
+<p>밑에는 코드 부분부분에 관한 설명이 있습니다. Segment Tree를 만드는 부분, lca에 관련된 spars table, dfs를 이용한 무게 구하기와 깊이 구하기 등은 이미 알고 있다고 생각하고 설명을 생략했습니다.</p>
+<h3><a class="header" href="#hld" id="hld">2.1. HLD</a></h3>
+<pre><code class="language-c++">void hld(int root){
+    queue&lt;int&gt; q;
+    q.push(root);
+    while(!q.empty()){
+        int now=q.front();
+        q.pop();
+        for(auto i:children[now]){
+            q.push(i);
+        }
+        if(now==root) continue;
+        int prt=parent[0][now];
+        if(weight[now]*2&gt;=weight[prt]&amp;&amp;prt!=root){
+            int prtheavynum=heavynum[prt];
+            heavy_path[prtheavynum].push_back(now);
+            heavynum[now]=prtheavynum;
+        }
+        else{
+            heavynum[now]=(int)heavy_path.size();
+            heavy_path.push_back(vector&lt;int&gt;(2));
+            heavy_path.back()[0]=prt;
+            heavy_path.back()[1]=now;
+        }
+    }
+}
+</code></pre>
+<p><code>root</code>부터 너비 우선 탐색으로 경로를 만들어줍니다. 간선은 번호가 없기에, 간선을 관리하려면 자식의 번호를 이용해서 그 자식과 부모를 잇는 간선을 관리해주는 것이 편리합니다.</p>
+<p><code>heavynum</code>은 각 간선이 포함된 무거운 경로의 번호이고, <code>heavy_path</code>는 무거운 경로들의 모음 <code>vector</code>입니다. </p>
+<p>만약 자신이 <code>root</code>라면 자신 위에 간선이 없기에 아무것도 하지 않습니다.
+만약 부모 무게가 자신의 무게의 2배보다 작고 부모가 <code>root</code>가 아니라면, 무거운 간선이므로 이미 있던 무거운 경로에 추가해줍니다.</p>
+<p>부모가 <code>root</code>이거나 가벼운 간선이면 새로운 무거운 경로의 시작이므로 새로운 무거운 경로를 만들어줍니다.</p>
+<h3><a class="header" href="#update" id="update">2.2. Update</a></h3>
+<pre><code class="language-c++">int findedge(int pathidx,int v){
+    int top=heavy_path[pathidx][0];
+    return depth[v]-depth[top]-1;
+}
+void update(int u,int v,int cost){
+    if(parent[0][u]==v) swap(u,v);
+    int pathidx=findedge(heavynum[v],v);
+    segment_trees[heavynum[v]].update(pathidx,cost);
+}
+</code></pre>
+<p><code>update</code>는 간단합니다.</p>
+<p><code>findedge</code>는 무거운 경로에서 몇번째 간선인지 찾아줍니다. 맨 위의 정점은 나타내는 간선이 없으므로 -1을 해줍니다.</p>
+<p><code>u</code>가 <code>v</code>의 부모로 유지한 뒤, 몇번째 간선인지 Segment Tree에서 찾아서 갱신해주면 끝입니다.</p>
+<h3><a class="header" href="#query" id="query">2.3. Query</a></h3>
+<pre><code class="language-c++">int query_topdown(int p,int v){
+    if(p==v) return -1;
+    if(heavynum[p]==heavynum[v]){
+        int pathidx=heavynum[p];
+        int s=findedge(pathidx, p)+1;
+        int e=findedge(pathidx, v);
+        return segment_trees[pathidx].query(s, e);
+    }
+    
+    int pathidx=heavynum[v];
+    int top=heavy_path[pathidx][0];
+    int e=findedge(pathidx, v);
+    return max(segment_trees[pathidx].query(0, e),query_topdown(p, top));
+}
+int query(int u,int v){
+    int p=lca(u,v);
+    return max(query_topdown(p,v),query_topdown(p,u));
+}
+</code></pre>
+<p><code>query</code>는 조금 복잡합니다.
+우선, <code>u</code>,<code>v</code>의 <code>lca</code>를 구한 뒤 두 부분으로 나누어 계산합니다.</p>
+<p><code>query_topdown</code>에서는 만약 <code>p</code>,<code>v</code>가 같다면 간선이 없으므로 -1을 리턴하고,
+두개가 같은 무거운 경로에 속했다면 Segment Tree에서 계산해줍니다.
+만약 아니라면 <code>v</code>가 속한 무거운 경로의 맨 위 정점까지 올라가면서 그 사이의 간선들에 대한 연산을 Segment Tree로 해주고, 그 맨 위 정점과 p에 대한 연산을 <code>query_topdown</code>으로 다시 처리해줍니다.</p>
+<p><code>query_topdown</code> 은 최대 \(O(\log N)\) 번 호출되는데, 아까 언급했듯이 만날 수 있는 무거운 경로의 개수가 그렇기 때문입니다.</p>
 <h1><a class="header" href="#sqrt-decomposition" id="sqrt-decomposition">Sqrt Decomposition</a></h1>
 <h1><a class="header" href="#mos-algorithm" id="mos-algorithm">Mo's Algorithm</a></h1>
 <h1><a class="header" href="#grid-compression" id="grid-compression">Grid Compression</a></h1>
 <h1><a class="header" href="#centroid-decomposition" id="centroid-decomposition">Centroid Decomposition</a></h1>
 <h1><a class="header" href="#dp-optimization" id="dp-optimization">DP Optimization</a></h1>
-<h2><a class="header" href="#소개-19" id="소개-19">1. 소개</a></h2>
+<h2><a class="header" href="#소개-20" id="소개-20">1. 소개</a></h2>
 <p><a href="algorithm/dpopt/../dp/dp.html">Dynamic Programming</a>을 사용해 문제를 푸는 과정에서 특정 형태의 점화식을 갖는 문제들에서는 최적화 기법을 통해 시간복잡도를 줄일 수 있는데, 이를 DP Optimization(동적 계획법 최적화)라고 한다. 문제에서 구해낸 점화식에 따라 그에 맞는 최적화 기법을 사용하여 더 빠른 시간에 동작하는 코드를 짤 수 있어야 한다.</p>
 <h2><a class="header" href="#종류-6" id="종류-6">2. 종류</a></h2>
 <ul>
@@ -714,7 +838,7 @@ int main() {
 <h1><a class="header" href="#knuth-optimization" id="knuth-optimization">Knuth Optimization</a></h1>
 <h1><a class="header" href="#convex-hull-trick" id="convex-hull-trick">Convex Hull Trick</a></h1>
 <h1><a class="header" href="#network-flow" id="network-flow">Network Flow</a></h1>
-<h2><a class="header" href="#소개-20" id="소개-20">1. 소개</a></h2>
+<h2><a class="header" href="#소개-21" id="소개-21">1. 소개</a></h2>
 <h2><a class="header" href="#응용" id="응용">2. 응용</a></h2>
 <ul>
 <li><a href="algorithm/networkflow/./bimatching/bimatching.html">Matching on Bipartite</a></li>
@@ -723,13 +847,13 @@ int main() {
 <h1><a class="header" href="#matching-on-bipartite" id="matching-on-bipartite">Matching on Bipartite</a></h1>
 <h1><a class="header" href="#minimum-cost-maximum-flow" id="minimum-cost-maximum-flow">Minimum Cost Maximum Flow</a></h1>
 <h1><a class="header" href="#geometry" id="geometry">Geometry</a></h1>
-<h2><a class="header" href="#소개-21" id="소개-21">1. 소개</a></h2>
+<h2><a class="header" href="#소개-22" id="소개-22">1. 소개</a></h2>
 <h2><a class="header" href="#a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla" id="a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla">2. <a href="algorithm/geometry/./convexhull/convexhull">Convex Hull</a></a></h2>
 <h2><a class="header" href="#a-hrefalgorithmgeometryrotatingcallipersrotatingcallipershtmlrotating-callipersa" id="a-hrefalgorithmgeometryrotatingcallipersrotatingcallipershtmlrotating-callipersa">3. <a href="algorithm/geometry/./rotatingcallipers/rotatingcallipers.html">Rotating Callipers</a></a></h2>
 <h1><a class="header" href="#convex-hull" id="convex-hull">Convex Hull</a></h1>
 <h1><a class="header" href="#rotating-callipers" id="rotating-callipers">Rotating Callipers</a></h1>
 <h1><a class="header" href="#string" id="string">String</a></h1>
-<h2><a class="header" href="#소개-22" id="소개-22">1. 소개</a></h2>
+<h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘" id="관련-알고리즘">2. 관련 알고리즘</a></h2>
 <ul>
 <li><a href="algorithm/string/./kmp/kmp.html">KMP</a></li>
@@ -741,7 +865,7 @@ int main() {
 <h1><a class="header" href="#kmp" id="kmp">KMP</a></h1>
 <h1><a class="header" href="#manacher-algorithm" id="manacher-algorithm">Manacher Algorithm</a></h1>
 <h1><a class="header" href="#hashing" id="hashing">Hashing</a></h1>
-<h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
+<h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
 <p>일반적으로 배열에서의 탐색은 전 탐색 시에 \(O(N)\), 정렬하고 이분 탐색 시에 \(O(\log N)\) 으로 처리 가능합니다. 그러나, 어떤 경우에는 이러한 시간복잡도로도 부족하여서, 또는 정렬하고 이분 탐색하는 것이 불가능할 때 해싱이라는 기법을 사용합니다.
 해싱이란 데이터의 효율적인 관리를 위하여 임의의 길이의 데이터를 고정된 길이의 데이터로 변환하여 처리하는 과정입니다.
 해싱은 크게 두 개의 부분으로 이루어지는데, 그것은 해시 테이블과 해시 함수입니다.</p>
@@ -800,7 +924,7 @@ $$ Index = data % size $$ </p>
 <h1><a class="header" href="#suffix-array" id="suffix-array">Suffix Array</a></h1>
 <h1><a class="header" href="#aho-corasick" id="aho-corasick">Aho-Corasick</a></h1>
 <h1><a class="header" href="#basic-data-structure" id="basic-data-structure">Basic Data Structure</a></h1>
-<h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
+<h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
 <p>기본 자료구조은 입력받은 데이터를 저장하고, 사용할 수 있도록 하는 기초적인 자료 저장 방식으로 구성되어 있다. 각 자료구조의 특성을 정확히 이해하여, 문제를 푸는 과정에서 필요한 적절한 자료구조를 선택하여 사용할 수 있어야 한다.</p>
 <h2><a class="header" href="#종류-7" id="종류-7">2. 종류</a></h2>
 <ul>
@@ -818,7 +942,7 @@ $$ Index = data % size $$ </p>
 <h1><a class="header" href="#linked-list" id="linked-list">Linked List</a></h1>
 <h1><a class="header" href="#structure" id="structure">Structure</a></h1>
 <h1><a class="header" href="#intermediate-data-structure" id="intermediate-data-structure">Intermediate Data Structure</a></h1>
-<h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
+<h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
 <p>중급 자료구조는 난이도 있는 문제를 푸는 과정에서 자주 사용되는 자료구조들로, 대부분은 라이브러리에 작성되어있는 자료구조를 사용하지만 그 내부 원리와 사용 방법을 알아야 문제 없이 사용할 수 있습니다.</p>
 <h2><a class="header" href="#종류-8" id="종류-8">2. 종류</a></h2>
 <ul>
@@ -833,7 +957,7 @@ $$ Index = data % size $$ </p>
 <h1><a class="header" href="#set" id="set">Set</a></h1>
 <h1><a class="header" href="#priority-queue" id="priority-queue">Priority Queue</a></h1>
 <h1><a class="header" href="#bitmask" id="bitmask">Bitmask</a></h1>
-<h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
+<h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
 <p>그럼 이제 본격적으로 비트마스킹이 뭔지 설명할 차례입니다. 비트마스킹에는 <a href="datastructure/intermediate/bitmask/../bitoperator/bitoperator.html">비트 연산자</a>가 모든 연산을 차지합니다. 먼저 비트마스크(Bitmask)의 정의부터 살펴봅시다. 비트마스크란, 비트를 변경하여 정보를 저장하는 정수를 뜻합니다. 비트마스킹 기법은 이 비트마스크를 사용하여 메모리 및 연산속도를 대폭 줄일 수 있습니다.</p>
 <h2><a class="header" href="#장점" id="장점">2. 장점</a></h2>
 <p>비트마스크는 다음과 같은 주요 장점이 있습니다.</p>
@@ -958,7 +1082,7 @@ int main(){
 <p>현재 도시의 순회 최솟값을 알기 위해 다음 돌아가는 모든 경로를 탐색한 후 그 값을 DP에 저장하면 문제가 풀릴 수 있습니다. 이떄, 집합 visited를 비트마스킹으로 구현할 수 있습니다.</p>
 <p>이 코드는 DP의 원소의 개수가 \(2^{N} \times N\)이고 이를 각 도시마다 한 번씩 N번 탐색하여 총 시간복잡도는 \(O(2^{N} \times N^{2})\)입니다. 만약 다이나믹기법을 쓰지 않았다면 모두 일일이 탐색해야 하므로 시간복잡도는 \(O(N!)\)이 되었을 것입니다. 느리기는 하지만, 확실히 빨라졌습니다. 여기에 비트마스킹으로 연산속도까지 빨라졌으니, 문제에서 주어진 <code>N</code>의 범위쯤은 거뜬합니다.</p>
 <h1><a class="header" href="#bit-operator" id="bit-operator">Bit Operator</a></h1>
-<h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
+<h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
 <p>비트 연산자란, 각 수의 비트로(즉, 0과 1로) 연산을 진행하는 연산자입니다. 비트 연산자는 다음과 같이 있습니다.</p>
 <ul>
 <li>비트 AND(&amp;)</li>
@@ -1031,7 +1155,7 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 <p>갑자기 NOT연산의 결과를 통해 부호가 바뀌어서 당황스러울 수 있습니다. 그러나 이건 매우 당연한 것입니다. 첫번째 비트는 부호를 결정하기 때문에 그 비트까지 바뀌어서 부호가 바뀐 것입니다.</p>
 <p>이 NOT연산은 특징이 있습니다. <code>~N</code>은 항상 <code>-N-1</code>이 됩니다. 이 결과는 비트 반전하여 계산하면 쉽게 알 수 있는데, <strong>이 비트 NOT연산을 한 수를 그 수의 보수라고 합니다.</strong></p>
 <h1><a class="header" href="#heap" id="heap">Heap</a></h1>
-<h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
+<h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
 <p>힙이란 특정한 규칙을 만족하도록 구성된 완전이진트리로써, 최댓값 및 최솟값을 빠르게 찾기 위해 고안되었습니다. 완전이진트리가 무엇인지는 RB tree 단원에서 배웠을 것이라고 생각하고 바로 힙에 대한 설명으로 넘어가겠습니다. 힙은 부모와 자식 사이에 일정한 대소관계 규칙이 있는 트리입니다. 따라서 뿌리노드에는 항상 가장 높은(또는 가장 작은) 우선순위의 노드가 위치하게 됩니다. 부모가 항상 자식보다 크거나 같은 경우는 최대 힙(max heap)이라고 하고 그 반대의 경우는 최소 힙(min heap)이라고 합니다. 이렇게 만들어 놓으면 주어진 값들의 최솟값이나 최댓값을 바로 알 수 있습니다. min heap의 경우 뿌리노드가 최솟값이고, max heap의 경우는 최댓값이겠지요.</p>
 <img src="datastructure/intermediate/heap/./heap1.PNG" width = 500 >
 <p>위 그림은 전형적인 최소 힙의 모습입니다. 그림을 보면 항상 부모노드가 자식노드보다 작으므로 이것은 최소 힙(min heap) 이라고 할 수 있겠습니다.</p>
@@ -1118,7 +1242,7 @@ int pop(){
 로 선언하며, 사용할 수 있는 함수는 힙에 <code>k</code>라는 값을 push하는  <code>mypq.push(k)</code>, pop을 진행하는 <code>mypq.pop(),</code> 힙이 비어있으면 true를 반환하는 <code>mypq.empty()</code>, 루트노드에 있는 원소를 반환하는 <code>mypq.top()</code> 등이 있습니다.</p>
 <h1><a class="header" href="#red-black-tree" id="red-black-tree">Red Black Tree</a></h1>
 <h1><a class="header" href="#tree" id="tree">Tree</a></h1>
-<h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
+<h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘-1" id="관련-알고리즘-1">2. 관련 알고리즘</a></h2>
 <ul>
 <li><a href="datastructure/tree/./disjointset/disjointset.html">Disjoint Set</a>
@@ -1137,7 +1261,7 @@ int pop(){
 <h1><a class="header" href="#prim-algorithm" id="prim-algorithm">Prim Algorithm</a></h1>
 <h1><a class="header" href="#kruskal-algorithm" id="kruskal-algorithm">Kruskal Algorithm</a></h1>
 <h1><a class="header" href="#topological-sort" id="topological-sort">Topological Sort</a></h1>
-<h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
+<h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
 <p>Topological Sort는 위상 정렬이라고 하며, 방향 그래프에서 정점들을 정점 u에서 정점 v로 가는 간선이 있을 때, 정점 u가 정점 v보다 앞에 오도록 선형으로 정렬하는 것입니다. 이렇게 정점들을 정렬하면 어떤 작업을 수행할 때 올바른 순서를 알아낼 수 있습니다. 예를 들어, 수강해야 할 여러 수업들 중 한 수업보다 먼저 들어야 하는 수업이 있을 때, 위상 정렬을 이용하면 가능한 수강 순서를 알아낼 수 있을 것입니다. 그러나 이러한 위상 정렬을 하려면, 정렬하려고 하는 그래프가 사이클이 없는 방향성 비순환 그래프 (directed acyclic graph 또는 DAG) 이어야 합니다. 당연하게도 사이클이 존재한다면 사이클을 이루는 정점 간의 우선 순위를 결정할 수 없기 때문입니다. 그리고 정렬이 된 순서는 그래프의 구조에 따라 여러 종류가 나올 수 있게 됩니다.</p>
 <p>실제 컴퓨터 분야에서 이 알고리즘은 논리 합성, 데이터 직렬화, 코드 최적화의 한 방법인 Instruction Scheduling 등에서 사용됩니다. </p>
 <h2><a class="header" href="#kahns-algorithm" id="kahns-algorithm">2. Kahn's Algorithm</a></h2>
@@ -1200,7 +1324,7 @@ for(u : V){
 }
 </code></pre>
 <p>이 알고리즘은 위상 정렬을 할 때와 마찬가지로 시간복잡도가 \(O(V+E)\)입니다. 따라서 선형이므로 꽤나 빠르게 최단 경로를 찾을 수 있습니다. 그러나 이와 비슷한 시간복잡도를 가지고 좀 더 간결하게 코드를 짤 수 있는 dijkstra 알고리즘을 사용하는 것이 실전에서는 더 도움이 될 것입니다.</p>
-<h2><a class="header" href="#예시-2" id="예시-2">5. 예시</a></h2>
+<h2><a class="header" href="#예시-3" id="예시-3">5. 예시</a></h2>
 <p>위상 정렬을 사용하여 해결할 수 있는 문제 중 대표적인 문제로는 <a href="https://www.acmicpc.net/problem/2252">줄 세우기</a>가 있습니다. 이 문제는 vector 자료구조로 인접 리스트를 만들어 위상 정렬을 수행하면 바로 답을 구할 수 있습니다. 이에 대한 코드는 다음과 같습니다.</p>
 <pre><code class="language-c++">int main(void) {
    for(i = 1; i &lt;= m; i++) {
@@ -1236,17 +1360,17 @@ for(u : V){
 <h1><a class="header" href="#lca" id="lca">LCA</a></h1>
 <h1><a class="header" href="#cactus-graph" id="cactus-graph">Cactus Graph</a></h1>
 <h1><a class="header" href="#segment-tree" id="segment-tree">Segment Tree</a></h1>
-<h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
+<h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
 <p>Segment Tree는 STL에서 지원하지 않는 자료구조이지만 아주 강력한 자료구조중 하나입니다. Segment Tree는 일반적으로 \(O(\log N)\)시간에 값의 변경과 값에 대한 쿼리를 수행할 수 있고, 그 활용성 또한 아주 다양해 구간 합 쿼리, 구간 최솟값/최댓값 쿼리등을 수행할 수 있습니다.</p>
 <p>Segment Tree의 유래를 찾아보자면 버킷에서 찾아볼 수 있다고 할 수 있습니다. 다음 그림은 원소 2개당 하나의 버킷을 만들어 최솟값을 저장한 모습입니다.</p>
 <img src="datastructure/segmenttree/./segment1.pdf" width = 400 >
-<p>RMQ쿼리를 처리할 때, 그림과 같이 \(\lceilN/2\rceil\) 개의 버킷을 생각해봅시다. 그리고 이 버킷들은 두 원소중 작은 원소의 값을 가지고 있습니다.
+<p>RMQ쿼리를 처리할 때, 그림과 같이 \(\lceil N/2 \rceil\) 개의 버킷을 생각해봅시다. 그리고 이 버킷들은 두 원소중 작은 원소의 값을 가지고 있습니다.
 그렇다면 어떤 구간의 RMQ쿼리를 처리할 때에는, 봐야 하는 값이 반으로 줄어들게 됩니다. 그리고 값을 갱신하면 자기 자신과, 자신을 포함하는 버킷을 갱신해주면 되겠죠. </p>
 <p>이것을 더 빠르게 하고 싶다면 버킷의 버킷을 만들 수 있습니다. 이런 방법을 사용한다면 봐야 하는 값의 개수가 더욱 줄어들게 되겠죠. 하지만 이런 방법으로는 시간 복잡도에는 영향이 없습니다. </p>
 <p>하지만 이 과정을 계속 반복한다면 봐야 하는 값의 개수가 크게 줄어들 것입니다. 이런 아이디어의 연장이 Segment Tree라고 할 수 있습니다. Segment Tree는 저 과정을 계속 반복해 그림과 같이 한 원소는 약 \(\log N\) 개의 노드의 부분에 속하게 됩니다.</p>
 <img src="datastructure/segmenttree/./segment2.pdf" width = 400 >
 <p>또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \(O(\log N)\) 개가 되어 쿼리를 \(O(\log N)\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. </p>
-<h2><a class="header" href="#예시-3" id="예시-3">2. 예시</a></h2>
+<h2><a class="header" href="#예시-4" id="예시-4">2. 예시</a></h2>
 <p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. 문제를 요약하면 다음과 같다.</p>
 <blockquote>
 <p>어떤 <code>N</code>개의 수가 주어져 있다. 그런데 중간에 수의 변경이 <code>M</code>번 일어나고 그 중간에 어떤 부분의 합을 <code>K</code>번 구하려 한다. </p>
@@ -1323,10 +1447,10 @@ int main(){
 <li><a href="datastructure/segmenttree/./lazypropagation/lazypropagation.html">Lazy Propagation</a></li>
 </ul>
 <h1><a class="header" href="#fenwick-tree" id="fenwick-tree">Fenwick Tree</a></h1>
-<h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
+<h2><a class="header" href="#소개-33" id="소개-33">1. 소개</a></h2>
 <p>펜윅 트리는 구간 트리의 한 종류입니다. 주로 구간 합을 빠르게 구할 때 사용되고 BIT(Binary Indexed Tree)라고도 불립니다. 펜윅 트리는 기존의 구간 합을 구할 때 사용항였던 구간 트리인 세그먼트 트리 등에서 미리 계산하여 저장한 정보들 중 많은 양의 정보가 실제로 필요하지 않다는 점을 이용합니다. 부분 합(1번째 원소부터의 합)을 구할 때 필요한 정보들만을 계산하여 부분 합을 구하여 <code>s</code>부터 <code>e</code>까지의 구간 합을 계산한다고 하면 <code>e</code>까지의 부분 합에서 <code>s-1</code>까지의 부분 합을 빼서 구간 합을 구합니다. 기존의 세그먼트 트리에서 부분 합을 구할 때 각 노드의 오른쪽 자식은 필요로 하지 않습니다. 부모와 왼쪽 자식을 안다면 오른쪽 자식의 값도 알 수 있기 때문입니다. 필요 없는 정보들이 차지한 공간을 제외한 펜윅 트리는 다음 그림과 같습니다.</p>
 <h1><a class="header" href="#merge-sort-tree" id="merge-sort-tree">Merge Sort Tree</a></h1>
-<h2><a class="header" href="#소개-33" id="소개-33">1. 소개</a></h2>
+<h2><a class="header" href="#소개-34" id="소개-34">1. 소개</a></h2>
 <p>머지 소트 트리란 특수한 세그먼트 트리의 일종으로,  병합 정렬에서 정렬하는  과정이 그대로 트리의 노드에 저장된 트리를 말합니다 (<a href="datastructure/segmenttree/mergesorttree/../segmenttree.html">세그먼트 트리</a>, <a href="datastructure/segmenttree/mergesorttree/../../../algorithm/sort/mergesort.html">머지 소트</a> 참고). 다음 그림은 머지 소트 과정의 예시입니다. </p>
 <img src="datastructure/segmenttree/mergesorttree/./mergesorttree1.png" width = 500 >
 <p>머지 소트 트리는 위 과정에서 나타난 각각의 배열들을 노드로 삼아 만들어지는 트리입니다. 우리는 저 과정에서 나타난 배열들을 저장해서 새로운 트리를 만드는 것으로, 전체 수열의 부분수열에 대한 탐색을 매우 빠른 속도로 탐색할 수 있습니다. 머지 소트 트리를 만드는 것으로, 어떤 구간을 최대\(\log n\)개의 정렬된 구간으로 나타낼 수 있게 해줍니다. 위 그림의 머지 소트 과정을 활용하여 머지 소트 트리를 만든 결과는 다음과 같습니다.</p>
@@ -1367,7 +1491,7 @@ int main()
 }
 </code></pre>
 <p>머지 소트 트리는 실행시간이 작지만, 그 특성상 업데이트는 시간복잡도로 인해서 커다란 의미를 가지지는 않습니다. 하나의 값을 업데이트하기 위해서는 그 값을 포함하는 \(\log n\)개의 노드를 모두 업데이트해야 하고, 업데이트에는 최대 그 노드의 길이만큼의 시간이 걸립니다. \(\log n\)개의 노드의 길이는 \(n, [n/2], ..., 1\)이므로, 그 합은 \(O(n)\)의  시간복잡도를 가지게 되어 머지 소드 트리가 아닌 일반 배열과도 시간복잡도가 같습니다.</p>
-<h2><a class="header" href="#예시-4" id="예시-4">3. 예시</a></h2>
+<h2><a class="header" href="#예시-5" id="예시-5">3. 예시</a></h2>
 <p>그럼 이제 머지 소트 트리를 활용해서 어떤 구간에서 <code>k</code>번째로 작은 수를 구하는 문제를 풀어보도록 합시다. 별다른 알고리즘을 사용하지 않고, 구간을 복사해서 정렬하면 \(O(n\log n)\)의 시간복잡도만에 원하는 답을 구해낼 수 있습니다. 그리고 머지 소트 트리를 만들어서 활용하면 이보다 시간 복잡도를 많이 줄일 수 있습니다.</p>
 <p>단순히 머지 소트 트리만을 활용한다면, 요구받은 구간을 나눈 \(\log n\)개의 정렬된 부분에서, 각 부분의 맨 앞에 있는 \(\log n\)개의 값들중 작은 값부터 빼내는 것으로 \(O(k\log n)\)의 시간복잡도를 가질 수 있습니다.</p>
 <p>파라마트릭 서치(Parametric Search)와 이진탐색(Binary Search)를 활용하면 \(O(log^{3}n)\)의 시간복잡도를 가지고 원하는 답을 구해낼 수 있습니다. 어떤 수 <code>k</code>가 정해졌을 때, 요구받은 구간에서 그 수가 몇번째인지 \(O(log^{2}n)\)만에 구할 수 있습니다. 모든 부분구간들은 정렬되어 있으므로, <code>lower bound</code>를 활용하면 한 부분구간에 대해서 \(O(\log n)\)만에 구할 수 있습니다. 확인해야 하는 부분구간의 수는 최대 \(\log n\)개 이므로 어떤 수 <code>k</code>에 대해서 총 \(O(\log^{2} n)$의 시간복잡도만에 <code>k</code>가 주어진 구간에서 몇번째 수인지를 알 수 있으며, 파라마트릭 서치를 사용하면 전체 시간복잡도는 \(O(log^{3}n)\)이 됩니다. 위 알고리즘을 코드로 구현하면 아래와 같습니다.</p>
@@ -1425,7 +1549,7 @@ int main()
 <h1><a class="header" href="#dynamic-segment-tree" id="dynamic-segment-tree">Dynamic Segment Tree</a></h1>
 <h1><a class="header" href="#lazy-propagation" id="lazy-propagation">Lazy Propagation</a></h1>
 <h1><a class="header" href="#advanced-data-structure" id="advanced-data-structure">Advanced Data Structure</a></h1>
-<h2><a class="header" href="#소개-34" id="소개-34">1. 소개</a></h2>
+<h2><a class="header" href="#소개-35" id="소개-35">1. 소개</a></h2>
 <p>고급 자료구조에서는 어려운 문제를 푸는 과정들에서 필요한 자료구조들을 다룬다. </p>
 <h2><a class="header" href="#종류-9" id="종류-9">2. 종류</a></h2>
 <ul>
