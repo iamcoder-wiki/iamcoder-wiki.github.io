@@ -28,8 +28,8 @@ while(!S.empty()){
     }
   }
 }
-if(L.size()!=N)	return error;				// graph has at least one cycle
-else	return L;											// a topologically sorted order
+if(L.size()!=N)	return error;	// graph has at least one cycle
+else	return L;	// a topologically sorted order
  ```
 
 이 알고리즘은 시간복잡도가 \\(O(V+E)\\)로, 정점의 개수와 간선의 개수를 더한 것이 됩니다. 그 이유는 `S`에서 노드를 총 `n`번 꺼내게 되어 \\(O(V)\\), 모든 간선을 한 번씩 제거해서 \\(O(E)\\)가 되기 때문입니다.
@@ -73,12 +73,14 @@ void topological_sort(){
 
  ``` c++
 d[s] = 0;
+
 for(u : node){
 	if(u!=s)	d[u] = INF;
 }
+
 for(u : V){
   for(v : graph[u]){
-    if(d[v] > d[u] + w)		d[v] = d[u] + w;
+    if(d[v] > d[u] + w)	d[v] = d[u] + w;
   }
 }
  ```
@@ -102,21 +104,21 @@ int main(void) {
 		if(idg[i] == 0)
 			Q.push(i);
   
-  while(!Q.empty()) {
-    u = Q.front();
-    Q.pop();
-    ans[++cnt] = u;
-    siz = V[u].size();
-    for(i = 0; i < siz; i++) {
-      v = V[u][i];
-      idg[v]--;
-      if(idg[v] == 0)
-        Q.push(v);
+    while(!Q.empty()) {
+      u = Q.front();
+      Q.pop();
+      ans[++cnt] = u;
+      siz = V[u].size();
+      for(i = 0; i < siz; i++) {
+        v = V[u][i];
+        idg[v]--;
+        if(idg[v] == 0)
+          Q.push(v);
+      }
     }
-  }
 
-  for(i = 1; i <= cnt; i++)
-    printf("%d ", ans[i]);
+    for(i = 1; i <= cnt; i++)
+      printf("%d ", ans[i]);
 	
 	return 0;
 }
