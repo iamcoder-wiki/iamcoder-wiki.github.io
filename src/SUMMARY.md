@@ -1,6 +1,8 @@
 # Summary
 [Main](./mainpage.md)
 
+[Tutorial](./tutorial.md)
+
 [사이트 소개](./intro/site.md)
 
 * [IamCoder](./intro/iamcoder/iamcoder.md)
@@ -71,8 +73,8 @@
       - [Red Black Tree](./datastructure/intermediate/redblacktree/redblacktree.md)
     - [Tree](./datastructure/tree/tree.md)
       - [Disjoint Set](./datastructure/tree/disjointset/disjointset.md)
-      - [Prim Algorithm](./datastructure/tree/prim/prim.md)
-      - [Kruskal Algorithm](./datastructure/tree/kruskal/kruskal.md)
+        - [Prim Algorithm](./datastructure/tree/disjointset/prim/prim.md)
+        - [Kruskal Algorithm](./datastructure/tree/disjointset/kruskal/kruskal.md)
       - [Topological Sort](./datastructure/tree/topologicalsort/topologicalsort.md)
       - [Euler Tour](./datastructure/tree/eulertour/eulertour.md)
       - [Tree Diameter](./datastructure/tree/diameter/diameter.md)
