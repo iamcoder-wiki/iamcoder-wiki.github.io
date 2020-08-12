@@ -741,10 +741,66 @@ int main() {
 <h1><a class="header" href="#kmp" id="kmp">KMP</a></h1>
 <h1><a class="header" href="#manacher-algorithm" id="manacher-algorithm">Manacher Algorithm</a></h1>
 <h1><a class="header" href="#hashing" id="hashing">Hashing</a></h1>
+<h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
+<p>일반적으로 배열에서의 탐색은 전 탐색 시에 \(O(N)\), 정렬하고 이분 탐색 시에 \(O(\log N)\) 으로 처리 가능합니다. 그러나, 어떤 경우에는 이러한 시간복잡도로도 부족하여서, 또는 정렬하고 이분 탐색하는 것이 불가능할 때 해싱이라는 기법을 사용합니다.
+해싱이란 데이터의 효율적인 관리를 위하여 임의의 길이의 데이터를 고정된 길이의 데이터로 변환하여 처리하는 과정입니다.
+해싱은 크게 두 개의 부분으로 이루어지는데, 그것은 해시 테이블과 해시 함수입니다.</p>
+<h2><a class="header" href="#hash-table" id="hash-table">2. Hash Table</a></h2>
+<p>일반적인 자료구조를 사용하면 위에서 말했듯이, 하나의 원소를 탐색하는데 최소 \(O(\log N)\)의 시간이 필요하게 됩니다. 이를 해시 테이블을 이용하여 시간을 줄일 수 있습니다. 
+해시 테이블은 공간을 담보로 시간을 사는 자료구조입니다. 데이터를 해시 함수에 넣어서 나온 주소에 데이터를 저장하게 되는데, 이때 데이터로 채워지지 않은 공간이 많아야 해시 테이블이 뒤에서 다룰 해시 충돌을 일으키지 않기 때문입니다.</p>
+<img src="algorithm/string/hashing/./hashing1.png" width = 400 >
+<h2><a class="header" href="#hash-function" id="hash-function">3. Hash Function</a></h2>
+<p>해시 함수는 가지고 있는 데이터를 해시 테이블 내의 주소로 변환하는 함수입니다.
+이 해시 함수는 해싱 과정 전체에서 매우 중요한 역할을 맡습니다. 해시 함수를 잘 짜야 해시 충돌이 일어나지 않고, 이론적인 성능에 더 가까워지기 때문입니다.
+다음은 가장 흔히 알려진 해시 함수들입니다.</p>
+<h3><a class="header" href="#나눈셈법" id="나눈셈법">3.1. 나눈셈법</a></h3>
+<p>가장 기본적인 해시 함수입니다.
+주어진 데이터를 <code>integer</code> 값으로 변환한 뒤, 그 <code>integer</code> 값을 해시 테이블의 전체 크기로 나누는 방식입니다.
+$$ Index = data % size $$ </p>
+<p>C++ STL의 <code>unordered_map</code>과 <code>unordered_set</code>도 이와 같은 나눗셈법을 사용한다고 합니다.</p>
+<pre><code class="language-c++">int HashFunction(int Key, int TableSize){
+	return Key%TableSize;
+}
+</code></pre>
+<h3><a class="header" href="#곱셈법" id="곱셈법">3.2. 곱셈법</a></h3>
+<p><code>Key</code>가 실수이고 \(0 \leq A \le 1\)인 <code>A</code>에 대하여, 곱셈법은 다음과 같이 정의합니다.</p>
+<p>$$ Hash(Key) = {KeyA} \times TableSize $$
+단, <code>{x}</code>는 <code>x</code>의 소수 부분의 값이다. <code>TableSize</code>는 중요하지는 않지만, 이진법 연산을 하는 컴퓨터의 특성상 2의 거듭제곱을 사용하는 것이 살짝 더 빠릅니다.</p>
+<pre><code class="language-c++">int HashFunction(double Key, int TableSize){
+	double d=(double)((int)Key);
+	return (int)((Key-d)*TableSize);
+}
+</code></pre>
+<h3><a class="header" href="#문자열" id="문자열">3.3. 문자열</a></h3>
+<p>문자열을 해싱하기 위해 정수로 바꾸는 방법은 여러 가지가 있지만, 가장 흔히 쓰이는 방법은 다음과 같습니다.</p>
+<pre><code class="language-c++">long long HashFunction(char * Key, int KeyLen, int TableSize){
+	long long val=0 ;
+	int Prime[]={/*해싱에 사용되는 소수들의 배열*/}
+	for (int i=0 ; i&lt;KeyLen; i++)
+    val+=Prime[Key[i]];	//val 값을 TableSize에 맞게 해싱해준다.
+	return val;
+}
+</code></pre>
+<h3><a class="header" href="#universal-method" id="universal-method">3.4. Universal Method</a></h3>
+<p>유니버설 해싱은 다음의 특성을 가지는 해시 함수를 선택하기 위한 확률적 알고리즘입니다. 어떤 두 개의 서로 다른 데이터 <code>x, y</code>에 대하여 <code>x</code> 와 <code>y</code> 간에 해시 충돌이 발생할 확률, 다시 말해 <code>F(x)=F(y)</code>일 확률이 <code>F</code>가 랜덤 함수일 확률과 같다. 따라서, <code>F</code>가 정의역의 크기가 <code>r</code>인 함숫값을 가질 때, 특정 해시 충돌이 발생할 확률은 최대 \(r^{-1}\)과 같다.
+이 Universal Method는 특정 함수가 아닌, 위와 같은 조건을 만족하는 함수를 통틀어서 지칭하는 기법입니다. 따라서 다양한 함수들이 Universal Method의 조건을 만족할 수 있습니다.</p>
+<h2><a class="header" href="#hash-collision" id="hash-collision">4. Hash Collision</a></h2>
+<p>해시 충돌은 해시 함수가 중요한 이유입니다. 해시 충돌이란 서로 다른 데이터가 동일한 해시값을 가지게 되어 해시 테이블에서 인덱스가 겹치게 되는 경우입니다. 해시 충돌이 일어나는 경우, 해시 충돌을 처리하는 과정에서 시간이 소모되므로 해시 테이블이 이론적인 성능을 내지 못하게 됩니다. 따라서 해시 충돌이 일어날 때의 해시 테이블에서의 처리도 중요하지만, 해시 충돌 자체가 적게 일어나도록 해시 함수 자체를 해시 충돌이 일어날 확률이 적게 만들어야 합니다.
+해시 충돌을 해시 테이블에서 처리하는 방법은 여러 가지가 있습니다. 대표적으로는 해시 충돌이 일어났을 때 해당 인덱스에 Linked List를 만들어서 처리하는 방법이나, 다른 인덱스로 넘어가서 데이터를 저장하는 방법 등이 있습니다. 전자는 해당 인덱스의 원소 개수만큼의 시간복잡도를 소모하지만 다른 인덱스에 간섭을 안하고, 후자는 다음으로 나오는 빈 인덱스까지의 거리 만큼의 시간복잡도만 소모하지만 다른 인덱스를 차지하게 되어 해당 인덱스를 해시값으로 가지는 데이터의 탐색 시간까지 늘려버릴 수 있습니다.
+이처럼, 해시 충돌이 일어나게 되면 극단적이면 전탐색과 비슷한 시간복잡도가 나올 수 있으므로 해시 함수 자체에서 해시 충돌을 방지하는 코드를 짜는 것이 좋습니다.</p>
+<h2><a class="header" href="#예제" id="예제">5. 예제</a></h2>
+<p><a href="https://www.acmicpc.net/problem/10840">구간 성분(KOI 2015 고등부 2번)</a></p>
+<p>이 문제는 \(S_A\)와 \(S_B\)내의 구성 성분이 같은 가장 긴 부분 문자열의 길이를 구하는 문제입니다.</p>
+<p>일단 단순하게 생각한다면 길이가 같은 \(S_A\)와 \(S_B\)의 부분 문자열을 서로 모두 비교해 보는 방식으로 \(O(N^4)\)으로 구할 수 있습니다. Time Limit이 1000ms이므로 이를 통해 부분문제 1을 통과할 수 있습니다.</p>
+<p>Set이나 Map 등의 \(O(\log N)\)만에 탐색을 해주는 자료구조에 \(S_A\)의 구간성분을 저장한 26칸짜리 배열을 넣어주어서 \(S_B\)의 구간성분과 비교하여 준다면 시간복잡도 자체는 \(O(N^2\log N)\)이 되지만, 상수로 26이 붙게 되므로 부분문제 2만을 추가적으로 통과하게 됩니다.</p>
+<p>해싱을 적용하여 \(O(\log N)\)만에 탐색을 해주는 자료구조에 의 각 구간의 구간성분을 해싱하여 넣어준다면, 의 각 구간의 구간성분이 Table에 존재하는지 \(O(\log N)\)만에 확인이 가능합니다. 또한, 구간성분의 길이가 바뀔 때마다 초기화를 해준다면 최대 <code>long long</code> 크기의 <code>integer</code> 1500개만을 자료구조에 저장하게 되므로 ML도 넉넉하게 만족하게 됩니다. 따라서 전체 시간복잡도는 \(O(N^2\log N)\)이 되어, 간단하게 부분문제 3, 4를 통과하게 됩니다.</p>
+<h2><a class="header" href="#여담-2" id="여담-2">6. 여담</a></h2>
+<p>해싱은 Problem Solving 이외에도 해시값과 원본 데이터 사이의 관계가 없다는 점을 이용하여 보안에 널리 이용됩니다. 특히 최근 비트코인 등으로 인해 화제가 되었던 암호화폐에 적용되는 위변조 방지 기술인 ‘블록체인’에 사용됩니다.
+사실 해싱은 PS보다는 실제 개발 등에서 많이 쓰이는 기법이지만, 해싱 이외의 풀이로는 TLE나 MLE가 나는 문제에서 시간, 공간 복잡도를 줄이기에 좋은 방법이 될 수 있습니다.</p>
 <h1><a class="header" href="#suffix-array" id="suffix-array">Suffix Array</a></h1>
 <h1><a class="header" href="#aho-corasick" id="aho-corasick">Aho-Corasick</a></h1>
 <h1><a class="header" href="#basic-data-structure" id="basic-data-structure">Basic Data Structure</a></h1>
-<h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
+<h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
 <p>기본 자료구조은 입력받은 데이터를 저장하고, 사용할 수 있도록 하는 기초적인 자료 저장 방식으로 구성되어 있다. 각 자료구조의 특성을 정확히 이해하여, 문제를 푸는 과정에서 필요한 적절한 자료구조를 선택하여 사용할 수 있어야 한다.</p>
 <h2><a class="header" href="#종류-7" id="종류-7">2. 종류</a></h2>
 <ul>
@@ -762,7 +818,7 @@ int main() {
 <h1><a class="header" href="#linked-list" id="linked-list">Linked List</a></h1>
 <h1><a class="header" href="#structure" id="structure">Structure</a></h1>
 <h1><a class="header" href="#intermediate-data-structure" id="intermediate-data-structure">Intermediate Data Structure</a></h1>
-<h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
+<h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
 <p>중급 자료구조는 난이도 있는 문제를 푸는 과정에서 자주 사용되는 자료구조들로, 대부분은 라이브러리에 작성되어있는 자료구조를 사용하지만 그 내부 원리와 사용 방법을 알아야 문제 없이 사용할 수 있습니다.</p>
 <h2><a class="header" href="#종류-8" id="종류-8">2. 종류</a></h2>
 <ul>
@@ -777,7 +833,7 @@ int main() {
 <h1><a class="header" href="#set" id="set">Set</a></h1>
 <h1><a class="header" href="#priority-queue" id="priority-queue">Priority Queue</a></h1>
 <h1><a class="header" href="#bitmask" id="bitmask">Bitmask</a></h1>
-<h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
+<h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
 <p>그럼 이제 본격적으로 비트마스킹이 뭔지 설명할 차례입니다. 비트마스킹에는 <a href="datastructure/intermediate/bitmask/../bitoperator/bitoperator.html">비트 연산자</a>가 모든 연산을 차지합니다. 먼저 비트마스크(Bitmask)의 정의부터 살펴봅시다. 비트마스크란, 비트를 변경하여 정보를 저장하는 정수를 뜻합니다. 비트마스킹 기법은 이 비트마스크를 사용하여 메모리 및 연산속도를 대폭 줄일 수 있습니다.</p>
 <h2><a class="header" href="#장점" id="장점">2. 장점</a></h2>
 <p>비트마스크는 다음과 같은 주요 장점이 있습니다.</p>
@@ -869,7 +925,7 @@ int main(){
 <h3><a class="header" href="#부분집합-순회" id="부분집합-순회">4.12. 부분집합 순회</a></h3>
 <p>마지막으로 부분집합 순회입니다. 저 순회는 다른거에 비해 굉장히 강력합니다. 매우 간단하게 모든 부분집합을 탐색하는 코드를 만들 수 있기 떄문이죠. 먼저 1을 뺀다면 최하위 비트와 그 밑의 0들은 전부 반전됩니다. 그 후 원래 집합과의 교집합을 구한다면, 그 원집합에 속하지 않는 원소들은 모두 꺼지게 됩니다. 그리하여 모든 부분집합을 탐색해나갈 수 있습니다.</p>
 <p>시간복잡도는 \(O(2^{N})\)입니다.</p>
-<h2><a class="header" href="#예제" id="예제">5. 예제</a></h2>
+<h2><a class="header" href="#예제-1" id="예제-1">5. 예제</a></h2>
 <p>비트마스킹은 주로 동적계획법, 즉 다이나믹 프로그래밍과 같이 자주 쓰입니다. 다음 예제를 봅시다. 이 문제는 백준 OJ의 <a href="https://www.acmicpc.net/problem/2098">외판원 순회</a> 문제입니다.</p>
 <blockquote>
 <p>외판원 순회 문제는 영어로 Traveling Salesman problem (TSP) 라고 불리는 문제로 computer science 분야에서 가장 중요하게 취급되는 문제 중 하나이다. 여러 가지 변종 문제가 있으나, 여기서는 가장 일반적인 형태의 문제를 살펴보자.</p>
@@ -902,7 +958,7 @@ int main(){
 <p>현재 도시의 순회 최솟값을 알기 위해 다음 돌아가는 모든 경로를 탐색한 후 그 값을 DP에 저장하면 문제가 풀릴 수 있습니다. 이떄, 집합 visited를 비트마스킹으로 구현할 수 있습니다.</p>
 <p>이 코드는 DP의 원소의 개수가 \(2^{N} \times N\)이고 이를 각 도시마다 한 번씩 N번 탐색하여 총 시간복잡도는 \(O(2^{N} \times N^{2})\)입니다. 만약 다이나믹기법을 쓰지 않았다면 모두 일일이 탐색해야 하므로 시간복잡도는 \(O(N!)\)이 되었을 것입니다. 느리기는 하지만, 확실히 빨라졌습니다. 여기에 비트마스킹으로 연산속도까지 빨라졌으니, 문제에서 주어진 <code>N</code>의 범위쯤은 거뜬합니다.</p>
 <h1><a class="header" href="#bit-operator" id="bit-operator">Bit Operator</a></h1>
-<h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
+<h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
 <p>비트 연산자란, 각 수의 비트로(즉, 0과 1로) 연산을 진행하는 연산자입니다. 비트 연산자는 다음과 같이 있습니다.</p>
 <ul>
 <li>비트 AND(&amp;)</li>
@@ -975,7 +1031,7 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 <p>갑자기 NOT연산의 결과를 통해 부호가 바뀌어서 당황스러울 수 있습니다. 그러나 이건 매우 당연한 것입니다. 첫번째 비트는 부호를 결정하기 때문에 그 비트까지 바뀌어서 부호가 바뀐 것입니다.</p>
 <p>이 NOT연산은 특징이 있습니다. <code>~N</code>은 항상 <code>-N-1</code>이 됩니다. 이 결과는 비트 반전하여 계산하면 쉽게 알 수 있는데, <strong>이 비트 NOT연산을 한 수를 그 수의 보수라고 합니다.</strong></p>
 <h1><a class="header" href="#heap" id="heap">Heap</a></h1>
-<h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
+<h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
 <p>힙이란 특정한 규칙을 만족하도록 구성된 완전이진트리로써, 최댓값 및 최솟값을 빠르게 찾기 위해 고안되었습니다. 완전이진트리가 무엇인지는 RB tree 단원에서 배웠을 것이라고 생각하고 바로 힙에 대한 설명으로 넘어가겠습니다. 힙은 부모와 자식 사이에 일정한 대소관계 규칙이 있는 트리입니다. 따라서 뿌리노드에는 항상 가장 높은(또는 가장 작은) 우선순위의 노드가 위치하게 됩니다. 부모가 항상 자식보다 크거나 같은 경우는 최대 힙(max heap)이라고 하고 그 반대의 경우는 최소 힙(min heap)이라고 합니다. 이렇게 만들어 놓으면 주어진 값들의 최솟값이나 최댓값을 바로 알 수 있습니다. min heap의 경우 뿌리노드가 최솟값이고, max heap의 경우는 최댓값이겠지요.</p>
 <img src="datastructure/intermediate/heap/./heap1.PNG" width = 500 >
 <p>위 그림은 전형적인 최소 힙의 모습입니다. 그림을 보면 항상 부모노드가 자식노드보다 작으므로 이것은 최소 힙(min heap) 이라고 할 수 있겠습니다.</p>
@@ -1039,7 +1095,7 @@ int pop(){
 }
 </code></pre>
 <p>이렇게 구현이 가능합니다.</p>
-<h2><a class="header" href="#예제-1" id="예제-1">4. 예제</a></h2>
+<h2><a class="header" href="#예제-2" id="예제-2">4. 예제</a></h2>
 <blockquote>
 <p><a href="https://www.acmicpc.net/problem/11286">문제</a></p>
 <p>절댓값 힙은 다음과 같은 연산을 지원하는 자료구조이다.</p>
@@ -1062,7 +1118,7 @@ int pop(){
 로 선언하며, 사용할 수 있는 함수는 힙에 <code>k</code>라는 값을 push하는  <code>mypq.push(k)</code>, pop을 진행하는 <code>mypq.pop(),</code> 힙이 비어있으면 true를 반환하는 <code>mypq.empty()</code>, 루트노드에 있는 원소를 반환하는 <code>mypq.top()</code> 등이 있습니다.</p>
 <h1><a class="header" href="#red-black-tree" id="red-black-tree">Red Black Tree</a></h1>
 <h1><a class="header" href="#tree" id="tree">Tree</a></h1>
-<h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
+<h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘-1" id="관련-알고리즘-1">2. 관련 알고리즘</a></h2>
 <ul>
 <li><a href="datastructure/tree/./disjointset/disjointset.html">Disjoint Set</a>
@@ -1081,7 +1137,7 @@ int pop(){
 <h1><a class="header" href="#prim-algorithm" id="prim-algorithm">Prim Algorithm</a></h1>
 <h1><a class="header" href="#kruskal-algorithm" id="kruskal-algorithm">Kruskal Algorithm</a></h1>
 <h1><a class="header" href="#topological-sort" id="topological-sort">Topological Sort</a></h1>
-<h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
+<h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
 <p>Topological Sort는 위상 정렬이라고 하며, 방향 그래프에서 정점들을 정점 u에서 정점 v로 가는 간선이 있을 때, 정점 u가 정점 v보다 앞에 오도록 선형으로 정렬하는 것입니다. 이렇게 정점들을 정렬하면 어떤 작업을 수행할 때 올바른 순서를 알아낼 수 있습니다. 예를 들어, 수강해야 할 여러 수업들 중 한 수업보다 먼저 들어야 하는 수업이 있을 때, 위상 정렬을 이용하면 가능한 수강 순서를 알아낼 수 있을 것입니다. 그러나 이러한 위상 정렬을 하려면, 정렬하려고 하는 그래프가 사이클이 없는 방향성 비순환 그래프 (directed acyclic graph 또는 DAG) 이어야 합니다. 당연하게도 사이클이 존재한다면 사이클을 이루는 정점 간의 우선 순위를 결정할 수 없기 때문입니다. 그리고 정렬이 된 순서는 그래프의 구조에 따라 여러 종류가 나올 수 있게 됩니다.</p>
 <p>실제 컴퓨터 분야에서 이 알고리즘은 논리 합성, 데이터 직렬화, 코드 최적화의 한 방법인 Instruction Scheduling 등에서 사용됩니다. </p>
 <h2><a class="header" href="#kahns-algorithm" id="kahns-algorithm">2. Kahn's Algorithm</a></h2>
@@ -1180,8 +1236,86 @@ for(u : V){
 <h1><a class="header" href="#lca" id="lca">LCA</a></h1>
 <h1><a class="header" href="#cactus-graph" id="cactus-graph">Cactus Graph</a></h1>
 <h1><a class="header" href="#segment-tree" id="segment-tree">Segment Tree</a></h1>
-<h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
-<h2><a class="header" href="#관련-자료구조" id="관련-자료구조">2. 관련 자료구조</a></h2>
+<h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
+<p>Segment Tree는 STL에서 지원하지 않는 자료구조이지만 아주 강력한 자료구조중 하나입니다. Segment Tree는 일반적으로 \(O(\log N)\)시간에 값의 변경과 값에 대한 쿼리를 수행할 수 있고, 그 활용성 또한 아주 다양해 구간 합 쿼리, 구간 최솟값/최댓값 쿼리등을 수행할 수 있습니다.</p>
+<p>Segment Tree의 유래를 찾아보자면 버킷에서 찾아볼 수 있다고 할 수 있습니다. 다음 그림은 원소 2개당 하나의 버킷을 만들어 최솟값을 저장한 모습입니다.</p>
+<img src="datastructure/segmenttree/./segment1.pdf" width = 400 >
+<p>RMQ쿼리를 처리할 때, 그림과 같이 \(\ceil{N/2}\) 개의 버킷을 생각해봅시다. 그리고 이 버킷들은 두 원소중 작은 원소의 값을 가지고 있습니다.
+그렇다면 어떤 구간의 RMQ쿼리를 처리할 때에는, 봐야 하는 값이 반으로 줄어들게 됩니다. 그리고 값을 갱신하면 자기 자신과, 자신을 포함하는 버킷을 갱신해주면 되겠죠. </p>
+<p>이것을 더 빠르게 하고 싶다면 버킷의 버킷을 만들 수 있습니다. 이런 방법을 사용한다면 봐야 하는 값의 개수가 더욱 줄어들게 되겠죠. 하지만 이런 방법으로는 시간 복잡도에는 영향이 없습니다. </p>
+<p>하지만 이 과정을 계속 반복한다면 봐야 하는 값의 개수가 크게 줄어들 것입니다. 이런 아이디어의 연장이 Segment Tree라고 할 수 있습니다. Segment Tree는 저 과정을 계속 반복해 그림과 같이 한 원소는 약 \(\log N\) 개의 노드의 부분에 속하게 됩니다.</p>
+<img src="datastructure/segmenttree/./segment2.pdf" width = 400 >
+<p>또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \(O(\log N)\) 개가 되어 쿼리를 \(O(\log N)\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. </p>
+<h2><a class="header" href="#예시-3" id="예시-3">2. 예시</a></h2>
+<p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042">아주 기본적인 부분 합 쿼리</a>를 처리해보자. 문제를 요약하면 다음과 같다.</p>
+<blockquote>
+<p>어떤 <code>N</code>개의 수가 주어져 있다. 그런데 중간에 수의 변경이 <code>M</code>번 일어나고 그 중간에 어떤 부분의 합을 <code>K</code>번 구하려 한다. </p>
+<p>\(N\leq1,000,000, M\leq10,000, K\leq10,000\)</p>
+<p>첫째 줄에 수의 개수  <code>N</code>, 수의 변경이 일어나는 횟수 <code>M</code>,부분의 합을 구해야 하는 횟수 <code>K</code>가 입력된다.</p>
+<p>그리고 둘째 줄부터 <code>N+1</code>번째 줄까지 <code> N</code>개의 수가 주어진다.</p>
+<p><code>N+2</code>번째 줄부터 <code>N+M+K+1</code>번째 줄까지 세 개의 정수 <code>a</code>,<code>b</code>,<code>c</code>가 주어지는데, <code>a</code>가 1인 경우 <code>b</code>번째 수를 <code>c</code>로 바꾸고 <code>a</code>가 2인 경우에는 <code>b</code>번째 수부터 <code>c</code>번째 수까지의 합을 구하여 출력하면 된다.</p>
+</blockquote>
+<p>간단한 구간 합 문제이므로 Segment Tree를 이용해 해결할 수 있습니다.</p>
+<p>Segment Tree를 구현할 때, 대략 2가지 방법이 있는데, 재귀함수를 이용하는 방법을 사용해보겠습니다.</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long int ll;
+
+ll tree[4400000]; //it is safe to have size*4
+ll arr[1100000];
+int N,M,K;
+void init(int s,int e,int node){
+    if(s==e) tree[node]=arr[s]; //leaf node
+    else{
+        int m=(s+e)&gt;&gt;1;
+        init(s,m,node*2);
+        init(m+1,e,node*2+1); //recursive
+        tree[node]=tree[node*2]+tree[node*2+1];
+    }
+}
+ll range(int s,int e,int node,int l,int r){//l~r
+    if(e&lt;l||r&lt;s) return 0;//not in range
+    if(l&lt;=s&amp;&amp;e&lt;=r) return tree[node]; // node range inside l~r
+    int m=(s+e)&gt;&gt;1;
+    return range(s,m,node*2,l,r)+range(m+1,e,node*2+1,l,r); //calls its leaf
+}
+void update(int s,int e,int node,int pos,int val){
+    if(pos&lt;s||e&lt;pos) return ;
+    if(s==e){
+        tree[node]=val;
+        return ;
+    }
+    int m=(s+e)&gt;&gt;1;
+    update(s,m,node*2,pos,val);
+    update(m+1,e,node*2+1,pos,val);
+    tree[node]=tree[node*2]+tree[node*2+1];//update its value
+}
+
+
+
+int main(){
+    scanf(&quot;%d %d %d&quot;,&amp;N,&amp;M,&amp;K);
+    for(int i=1;i&lt;=N;i++){
+        scanf(&quot;%lld&quot;,&amp;arr[i]);
+    }
+    init(1,N,1);
+    for(int i=0;i&lt;M+K;i++){
+        int a,b,c;
+        scanf(&quot;%d %d %d&quot;,&amp;a,&amp;b,&amp;c);
+        if(a==1){
+            update(1,N,1,b,c);
+        }
+        else{
+            printf(&quot;%lld\n&quot;,range(1,N,1,b,c));
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>tree의 크기는 그 트리가 담당하는 구간의 4배 정도로 하면 안전합니다.
+<code>s</code>,<code>e</code>는 그 트리가 담당하는 구간이고 <code>node</code>는 그 트리의 번호입니다. tree의 왼쪽 자식을 나타낼 때에는 (원래 번호)*2를 해주고, 오른쪽 자식을 나타낼 때에는 (원래 번호)*2+1을 해 주어 노드 번호를 변화시킵니다. <code>update</code>나 <code>range</code>의 특징은 범위에 자신이 해당되지 않거나 완벽히 해당되면 바로 <code>return </code>한다는 것입니다. 이 특징 때문에 쿼리당 시간 복잡도는 \(O(\logN)\)입니다.</p>
+<h2><a class="header" href="#관련-자료구조" id="관련-자료구조">3. 관련 자료구조</a></h2>
 <ul>
 <li><a href="datastructure/segmenttree/./fenwick/fenwick.html">Fenwick Tree</a></li>
 <li><a href="datastructure/segmenttree/./mergesorttree/mergesorttree.html">Merge Sort Tree</a></li>
@@ -1189,8 +1323,10 @@ for(u : V){
 <li><a href="datastructure/segmenttree/./lazypropagation/lazypropagation.html">Lazy Propagation</a></li>
 </ul>
 <h1><a class="header" href="#fenwick-tree" id="fenwick-tree">Fenwick Tree</a></h1>
+<h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
+<p>펜윅 트리는 구간 트리의 한 종류입니다. 주로 구간 합을 빠르게 구할 때 사용되고 BIT(Binary Indexed Tree)라고도 불립니다. 펜윅 트리는 기존의 구간 합을 구할 때 사용항였던 구간 트리인 세그먼트 트리 등에서 미리 계산하여 저장한 정보들 중 많은 양의 정보가 실제로 필요하지 않다는 점을 이용합니다. 부분 합(1번째 원소부터의 합)을 구할 때 필요한 정보들만을 계산하여 부분 합을 구하여 <code>s</code>부터 <code>e</code>까지의 구간 합을 계산한다고 하면 <code>e</code>까지의 부분 합에서 <code>s-1</code>까지의 부분 합을 빼서 구간 합을 구합니다. 기존의 세그먼트 트리에서 부분 합을 구할 때 각 노드의 오른쪽 자식은 필요로 하지 않습니다. 부모와 왼쪽 자식을 안다면 오른쪽 자식의 값도 알 수 있기 때문입니다. 필요 없는 정보들이 차지한 공간을 제외한 펜윅 트리는 다음 그림과 같습니다.</p>
 <h1><a class="header" href="#merge-sort-tree" id="merge-sort-tree">Merge Sort Tree</a></h1>
-<h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
+<h2><a class="header" href="#소개-33" id="소개-33">1. 소개</a></h2>
 <p>머지 소트 트리란 특수한 세그먼트 트리의 일종으로,  병합 정렬에서 정렬하는  과정이 그대로 트리의 노드에 저장된 트리를 말합니다 (<a href="datastructure/segmenttree/mergesorttree/../segmenttree.html">세그먼트 트리</a>, <a href="datastructure/segmenttree/mergesorttree/../../../algorithm/sort/mergesort.html">머지 소트</a> 참고). 다음 그림은 머지 소트 과정의 예시입니다. </p>
 <img src="datastructure/segmenttree/mergesorttree/./mergesorttree1.png" width = 500 >
 <p>머지 소트 트리는 위 과정에서 나타난 각각의 배열들을 노드로 삼아 만들어지는 트리입니다. 우리는 저 과정에서 나타난 배열들을 저장해서 새로운 트리를 만드는 것으로, 전체 수열의 부분수열에 대한 탐색을 매우 빠른 속도로 탐색할 수 있습니다. 머지 소트 트리를 만드는 것으로, 어떤 구간을 최대\(\log n\)개의 정렬된 구간으로 나타낼 수 있게 해줍니다. 위 그림의 머지 소트 과정을 활용하여 머지 소트 트리를 만든 결과는 다음과 같습니다.</p>
@@ -1231,7 +1367,7 @@ int main()
 }
 </code></pre>
 <p>머지 소트 트리는 실행시간이 작지만, 그 특성상 업데이트는 시간복잡도로 인해서 커다란 의미를 가지지는 않습니다. 하나의 값을 업데이트하기 위해서는 그 값을 포함하는 \(\log n\)개의 노드를 모두 업데이트해야 하고, 업데이트에는 최대 그 노드의 길이만큼의 시간이 걸립니다. \(\log n\)개의 노드의 길이는 \(n, [n/2], ..., 1\)이므로, 그 합은 \(O(n)\)의  시간복잡도를 가지게 되어 머지 소드 트리가 아닌 일반 배열과도 시간복잡도가 같습니다.</p>
-<h2><a class="header" href="#예시-3" id="예시-3">3. 예시</a></h2>
+<h2><a class="header" href="#예시-4" id="예시-4">3. 예시</a></h2>
 <p>그럼 이제 머지 소트 트리를 활용해서 어떤 구간에서 <code>k</code>번째로 작은 수를 구하는 문제를 풀어보도록 합시다. 별다른 알고리즘을 사용하지 않고, 구간을 복사해서 정렬하면 \(O(n\log n)\)의 시간복잡도만에 원하는 답을 구해낼 수 있습니다. 그리고 머지 소트 트리를 만들어서 활용하면 이보다 시간 복잡도를 많이 줄일 수 있습니다.</p>
 <p>단순히 머지 소트 트리만을 활용한다면, 요구받은 구간을 나눈 \(\log n\)개의 정렬된 부분에서, 각 부분의 맨 앞에 있는 \(\log n\)개의 값들중 작은 값부터 빼내는 것으로 \(O(k\log n)\)의 시간복잡도를 가질 수 있습니다.</p>
 <p>파라마트릭 서치(Parametric Search)와 이진탐색(Binary Search)를 활용하면 \(O(log^{3}n)\)의 시간복잡도를 가지고 원하는 답을 구해낼 수 있습니다. 어떤 수 <code>k</code>가 정해졌을 때, 요구받은 구간에서 그 수가 몇번째인지 \(O(log^{2}n)\)만에 구할 수 있습니다. 모든 부분구간들은 정렬되어 있으므로, <code>lower bound</code>를 활용하면 한 부분구간에 대해서 \(O(\log n)\)만에 구할 수 있습니다. 확인해야 하는 부분구간의 수는 최대 \(\log n\)개 이므로 어떤 수 <code>k</code>에 대해서 총 \(O(\log^{2} n)$의 시간복잡도만에 <code>k</code>가 주어진 구간에서 몇번째 수인지를 알 수 있으며, 파라마트릭 서치를 사용하면 전체 시간복잡도는 \(O(log^{3}n)\)이 됩니다. 위 알고리즘을 코드로 구현하면 아래와 같습니다.</p>
@@ -1289,7 +1425,7 @@ int main()
 <h1><a class="header" href="#dynamic-segment-tree" id="dynamic-segment-tree">Dynamic Segment Tree</a></h1>
 <h1><a class="header" href="#lazy-propagation" id="lazy-propagation">Lazy Propagation</a></h1>
 <h1><a class="header" href="#advanced-data-structure" id="advanced-data-structure">Advanced Data Structure</a></h1>
-<h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
+<h2><a class="header" href="#소개-34" id="소개-34">1. 소개</a></h2>
 <p>고급 자료구조에서는 어려운 문제를 푸는 과정들에서 필요한 자료구조들을 다룬다. </p>
 <h2><a class="header" href="#종류-9" id="종류-9">2. 종류</a></h2>
 <ul>
@@ -1304,6 +1440,75 @@ int main()
 <h1><a class="header" href="#link-cut-tree" id="link-cut-tree">Link Cut Tree</a></h1>
 <h1><a class="header" href="#additional-topics" id="additional-topics">Additional Topics</a></h1>
 <h1><a class="header" href="#nim-game" id="nim-game">Nim Game</a></h1>
+<h2><a class="header" href="#알고리즘에서의-게임" id="알고리즘에서의-게임">1. 알고리즘에서의 게임</a></h2>
+<p>이 챕터에서는 필승 전략 게임의 승패를 판별하는 알고리즘을 다룹니다. 조약돌 게임과 Nim 게임처럼 간단한 게임에서 시작해, 그룬디 수를 이용하여 보다 일반적인 게임에 대응하는 알고리즘을 작성하는 방법까지를 설명할 것입니다.</p>
+<p>수학에서 이야기하는 게임은 대부분 다음 조건들을 만족합니다.</p>
+<ul>
+<li>
+<p>순차적 게임: 참가자는 다음 참가자가 행동을 정하기 전에 먼저 행동합니다.</p>
+</li>
+<li>
+<p>완전 정보 게임: 모든 참가자는 게임을 완벽하게 이해하고 있고, 게임의 진행 상황도 알 수 있기 때문에 항상 최적의 선택을 합니다. </p>
+</li>
+<li>
+<p>동일한 상황에 대해 가능한 선택은 참가자에 관계없이 동일합니다.</p>
+<p>앞으로 설명할 조약돌 게임과 Nim 게임 등이 이런 조건을 만족시키는 게임입니다. 반면 체스처럼 플레이어마다 옮길 수 있는 기물이 구분되어 있거나, 포커처럼 확률이 작용하는 게임은 이런 조건을 만족하지 않는 게임입니다.</p>
+</li>
+</ul>
+<h2><a class="header" href="#조약돌-게임" id="조약돌-게임">2. 조약돌 게임</a></h2>
+<p>조약돌 게임은 <code>N</code>개의 조약돌을 한 번에 허용된 개수만큼 가져오다가, 더 이상 가져올 조약돌이 없는 사람이 지는 게임입니다. 수학에서는 보통 두 사람이 번갈아서 하는 경우를 다루며, 이 경우 선공이 반드시 이기거나 후공이 반드시 이기게 됩니다.</p>
+<p><code>N=31</code>이고, 한 번에 1개, 2개 또는 3개의 돌을 가져올 수 있는 경우를 생각해 봅시다. 이 경우 선공에게 필승 전략이 있습니다. 처음에 3개를 가져오고, 다음 차례부터는  &quot;\(4-\mbox{\ (바로 전에 후공이 가져간 개수)}\)&quot;만큼을 가져가면 됩니다. 이렇게 생각하면, <code>N</code>이 4의 배수일 때만 후공이 이길 수 있다는 것도 알 수 있습니다. 가져올 수 있는 돌의 개수가 연속된 자연수일 때 이런 식으로 전체 돌의 개수의 나머지를 유지시키는 전략은 꽤 유명합니다.</p>
+<img src="additional/nimgame/./nim1.JPG" width = 400 >
+<p>그렇다면 가져올 수 있는 돌의 개수가 복잡하면 어떨까요? 사실 조약돌 게임에는 항상  필승전략이 존재합니다. 다만 위처럼 간단하게 정리할 수는 없습니다. 대신 간단한 알고리즘으로, 남은 돌의 개수에 따라 선공이 반드시 이길 수 있는지, 아니면 반드시 지는지를 판단할 수 있습니다.</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int arg[3] = {1,2,5};
+
+char f(int N) {
+    if(N==0) return 'L';
+
+    char ret = 'L';
+
+    for(int i:arg) {
+        if(N-i &lt; 0)	continue;
+        if(f(N-i) == 'L')	ret = 'W';
+    }
+    return ret;
+}
+</code></pre>
+<p>위 코드는 한 번에 가져갈 수 있는 조약돌이 1, 2 또는 5개일 때 처음 조약돌의 개수에 따라 선공의 승패를 판단해 주는 함수입니다. 다르게 말하면, 내 차례가 시작될 때 조약돌의 개수에 따라 나의 승패를 알 수 있습니다.</p>
+<p>L은 무슨 선택을 해도 선공이 지는 상황을, W는 선공이 반드시 이길 수 있는 상황을 의미합니다. 만약 내가 어떤 선택을 통해 상대방에게 L 상황을 만들어줄 수 있다면, 나는 반드시 이길 수 있는 W 상황에 있습니다. 반대로, 내가 할 수 있는 모든 선택이 상대방에게 W 상황을 만들어준다면 나는 무조건 지는 L 상황에 있습니다.</p>
+<h2><a class="header" href="#nim-game-1" id="nim-game-1">3. Nim Game</a></h2>
+<p>Nim 게임은 매우 유명한 수학적 게임으로, 조약돌 게임을 확장한 것으로 볼 수도 있습니다. 조약돌이 <code>K</code>개의 줄을 이루고 있고, 각각의 줄에는 \(n_{1}, n_{2}, ..., n_{K}\)개의 조약돌이 있습니다. 참가자는 한 번에 한 줄에서만 조약돌을 가져올 수 있고, 한 번에 가져올 수 있는 개수에는 제한이 없습니다(물론 아예 안 가져오는 것은 불가능합니다). 돌을 가져올 수 없는 사람이 패배합니다.</p>
+<img src="additional/nimgame/./nim2.JPG" width = 400 >
+<p>얼핏 보면 조약돌 게임에 비해 많이 복잡해 보입니다. 그러나 Nim 게임에서 선공의 승패를 판단하는 알고리즘은 너무나도 간단합니다.</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int K;
+int n[1000];
+
+int main() {
+    scanf(&quot;%d&quot;,&amp;K);
+    for(int i=0; i&lt;K; i++)	scanf(&quot;%d&quot;,&amp;n[i]);
+        
+    int ret = n[0];
+    for(int i=1; i&lt;K; i++)	n[0] ^= n[i];
+    
+    if(ret==0)	printf(&quot;L&quot;);
+    else	printf(&quot;W&quot;);
+    
+    return 0;
+}
+</code></pre>
+<p>앞에서와 같은 W,L 기호를 사용했습니다. \(n_{1}, n_{2}, ..., n_{K}\)끼리 xor 연산을 한 뒤, 결과값이 0이면 L 상황이고 그 외에는 모두 W 상황입니다. </p>
+<p>이렇게 단순한 방법이 왜 성립할까요? Nim 게임과 xor 연산 사이의 관계를 이해하기 위해, <code>K</code>가 작을 때부터 살펴봅시다. </p>
+<p>먼저 <code>K=1</code>일 때는, 당연히 선공의 승리입니다. 조약돌을 모두 가져가면 이깁니다. <code>K=2</code>일 때는 어떨까요? 이때는 \(n_{1}=n_{2}\)일 경우 후공이, 아닐 경우 선공이 반드시 이깁니다. \(n{1}=n{2}\)에서 선공이 먼저 돌을 가져가면, 후공은 다른 줄에서 선공과 같은 수의 돌을 가져가는 것이 필승전략입니다. \(n_{1}\neq n_{2}\) 이면, 선공은 \(n{1}=n{2}\)상황을 만들어 후공에게 넘겨서 이길 수 있습니다.
+<code>K=1</code>, <code>K=2</code>일 때의 상황을 위의 xor 알고리즘으로 설명할 수 있음을 간단히 알 수 있습니다.</p>
+<h2><a class="header" href="#변형된-nim-게임" id="변형된-nim-게임">4. 변형된 Nim 게임</a></h2>
+<p>PS 문제에서는 때로 Nim 게임을 다양하게 변형한 문제를 제시합니다.</p>
+<h2><a class="header" href="#여담-3" id="여담-3">5. 여담</a></h2>
+<p>그룬디 수를 이용해 승패를 판정하는 원리와 관련된 이론으로 <a href="https://en.wikipedia.org/wiki/Sprague-Grundy_theorem#Proof">스프라그-그룬디 정리</a>가 있습니다. 조합적 게임 이론에 관심이 있거나, 이 정리의 정확한 증명을 알고 싶은 사람은 추가로 참고해 보면 좋을 것입니다.</p>
 <h1><a class="header" href="#2-sat" id="2-sat">2-SAT</a></h1>
 <h1><a class="header" href="#meet-in-the-middle" id="meet-in-the-middle">Meet in the Middle</a></h1>
 <h1><a class="header" href="#parallel-binary-search" id="parallel-binary-search">Parallel Binary Search</a></h1>
