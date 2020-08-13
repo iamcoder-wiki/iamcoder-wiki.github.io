@@ -1,6 +1,22 @@
-# IamCoder Wiki
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-안녕하세요. IamCoder(나는코더다) 위키입니다.   
+async function writeTitle() {
+    let s = ['i', 'ia', 'iam', 'iamc', 'iamco', 'iamcod', 'iamcode', 'iamcoder', 'iamcoder:', 'iamcoder:ㄷ', 'iamcoder:대', 'iamcoder:대ㅁ', 'iamcoder:대무', 'iamcoder:대문'];
+    for(let i in s) {
+        document.getElementById('title').innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = writeTitle;
+</script>
+
+<h1 id="title">  </h1>
+
+안녕하세요. IamCoder(나는코더다) 위키입니다.
 
 ## 소개
 - [사이트 소개](./intro/site.md)
