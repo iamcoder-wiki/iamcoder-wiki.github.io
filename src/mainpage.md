@@ -4,7 +4,12 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ['i', 'ia', 'iam', 'iamc', 'iamco', 'iamcod', 'iamcode', 'iamcoder', 'iamcoder:', 'iamcoder:ㄷ', 'iamcoder:대', 'iamcoder:대ㅁ', 'iamcoder:대무', 'iamcoder:대문'];
+    let s = ['i_', 'ia_', 'iam_', 'iamc_', 'iamco_', 'iamcod_', 'iamcode_', 
+    'iamcoder_', 'iamcoder:_', 'iamcoder:ㄷ_', 'iamcoder:대_', 'iamcoder:대ㅁ_', 
+    'iamcoder:대무_', 'iamcoder:대문_', 'iamcoder:대문_', 'iamcoder:대문_', 
+    'iamcoder:대문_', 'iamcoder:대문', 'iamcoder:대문', 'iamcoder:대문', 'iamcoder:대문',
+    'iamcoder:대문_', 'iamcoder:대문_', 'iamcoder:대문_', 'iamcoder:대문_', 
+    'iamcoder:대문'];
     for(let i in s) {
         document.getElementById('title').innerHTML = s[i];
         await sleep(100);
@@ -14,7 +19,7 @@ async function writeTitle() {
 window.onload = writeTitle;
 </script>
 
-<h1 id="title">  </h1>
+<h1 id="title">_</h1>
 
 안녕하세요. IamCoder(나는코더다) 위키입니다.
 
