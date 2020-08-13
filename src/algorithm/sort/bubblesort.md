@@ -15,5 +15,3 @@ void sortarr()
                 swap(arr[j], arr[j+1]);
 }
 ```
-
-### 
