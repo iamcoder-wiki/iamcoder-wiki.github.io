@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#site" id="site">SITE</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["S_", "SI_", "SIT_", "SITE_", "SITE_", "SITE_", "SITE_", "SITE", "SITE", "SITE", "SITE", "SITE_", "SITE_", "SITE_", "SITE_", "SITE"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#site" id="site">_</a></h1>
 
                     </main>
                 </div>

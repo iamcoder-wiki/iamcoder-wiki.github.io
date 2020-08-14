@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#rotating-callipers" id="rotating-callipers">Rotating Callipers</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["R_", "Ro_", "Rot_", "Rota_", "Rotat_", "Rotati_", "Rotatin_", "Rotating_", "Rotating _", "Rotating C_", "Rotating Ca_", "Rotating Cal_", "Rotating Call_", "Rotating Calli_", "Rotating Callip_", "Rotating Callipe_", "Rotating Calliper_", "Rotating Callipers_", "Rotating Callipers_", "Rotating Callipers_", "Rotating Callipers_", "Rotating Callipers", "Rotating Callipers", "Rotating Callipers", "Rotating Callipers", "Rotating Callipers_", "Rotating Callipers_", "Rotating Callipers_", "Rotating Callipers_", "Rotating Callipers"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#rotating-callipers" id="rotating-callipers">_</a></h1>
 
                     </main>
                 </div>

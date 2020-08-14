@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Kruskal's Algorithm - IamCoder Wiki</title>
+        <title>Kruskal&#x27;s Algorithm - IamCoder Wiki</title>
         
         
 
@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#kruskals-algorithm" id="kruskals-algorithm">Kruskal's Algorithm</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["K_", "Kr_", "Kru_", "Krus_", "Krusk_", "Kruska_", "Kruskal_", "Kruskal\'_", "Kruskal\'s_", "Kruskal\'s _", "Kruskal\'s A_", "Kruskal\'s Al_", "Kruskal\'s Alg_", "Kruskal\'s Algo_", "Kruskal\'s Algor_", "Kruskal\'s Algori_", "Kruskal\'s Algorit_", "Kruskal\'s Algorith_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm", "Kruskal\'s Algorithm", "Kruskal\'s Algorithm", "Kruskal\'s Algorithm", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm_", "Kruskal\'s Algorithm"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#kruskals-algorithm" id="kruskals-algorithm">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>크루스칼의 알고리즘은 가중치가 작은 간선부터 최소 스패닝 트리에 추가해가며 그래프의 최소 스패닝 트리를 구하는 방법으로, <a href="../disjointset/disjointset.html">상호 배타적 집합 자료 구조(Disjoint-set)</a>을 사용합니다.</p>
 <h2><a class="header" href="#과정" id="과정">2. 과정</a></h2>

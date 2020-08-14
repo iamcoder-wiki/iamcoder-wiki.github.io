@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#2d-segment-tree" id="2d-segment-tree">2D Segment Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["2_", "2D_", "2D _", "2D S_", "2D Se_", "2D Seg_", "2D Segm_", "2D Segme_", "2D Segmen_", "2D Segment_", "2D Segment _", "2D Segment T_", "2D Segment Tr_", "2D Segment Tre_", "2D Segment Tree_", "2D Segment Tree_", "2D Segment Tree_", "2D Segment Tree_", "2D Segment Tree", "2D Segment Tree", "2D Segment Tree", "2D Segment Tree", "2D Segment Tree_", "2D Segment Tree_", "2D Segment Tree_", "2D Segment Tree_", "2D Segment Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#2d-segment-tree" id="2d-segment-tree">_</a></h1>
 
                     </main>
                 </div>

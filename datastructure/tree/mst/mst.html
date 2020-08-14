@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#minimum-spanning-tree" id="minimum-spanning-tree">Minimum Spanning Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Mi_", "Min_", "Mini_", "Minim_", "Minimu_", "Minimum_", "Minimum _", "Minimum S_", "Minimum Sp_", "Minimum Spa_", "Minimum Span_", "Minimum Spann_", "Minimum Spanni_", "Minimum Spannin_", "Minimum Spanning_", "Minimum Spanning _", "Minimum Spanning T_", "Minimum Spanning Tr_", "Minimum Spanning Tre_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree", "Minimum Spanning Tree", "Minimum Spanning Tree", "Minimum Spanning Tree", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#minimum-spanning-tree" id="minimum-spanning-tree">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>어떤 그래프의 스패닝 트리(Spanning Tree)는 원래 그래프의 정점 전부와 간선 일부로 구성된 트리 형태의 부분 그래프를 말합니다. 
 최소 스패닝 트리(MST, Minimum Spanning Tree)란 어떠한 가중치 그래프의 스패닝 트리 중 간선의 가중치 합이 가장 작은 것을 말합니다.</p>

@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#linked-list" id="linked-list">Linked List</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["L_", "Li_", "Lin_", "Link_", "Linke_", "Linked_", "Linked _", "Linked L_", "Linked Li_", "Linked Lis_", "Linked List_", "Linked List_", "Linked List_", "Linked List_", "Linked List", "Linked List", "Linked List", "Linked List", "Linked List_", "Linked List_", "Linked List_", "Linked List_", "Linked List"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#linked-list" id="linked-list">_</a></h1>
 
                     </main>
                 </div>

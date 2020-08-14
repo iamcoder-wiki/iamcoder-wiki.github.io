@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#additional-topics" id="additional-topics">Additional Topics</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["A_", "Ad_", "Add_", "Addi_", "Addit_", "Additi_", "Additio_", "Addition_", "Additiona_", "Additional_", "Additional _", "Additional T_", "Additional To_", "Additional Top_", "Additional Topi_", "Additional Topic_", "Additional Topics_", "Additional Topics_", "Additional Topics_", "Additional Topics_", "Additional Topics", "Additional Topics", "Additional Topics", "Additional Topics", "Additional Topics_", "Additional Topics_", "Additional Topics_", "Additional Topics_", "Additional Topics"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#additional-topics" id="additional-topics">_</a></h1>
 
                     </main>
                 </div>

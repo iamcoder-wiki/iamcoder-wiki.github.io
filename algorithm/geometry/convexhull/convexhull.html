@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#convex-hull" id="convex-hull">Convex Hull</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["C_", "Co_", "Con_", "Conv_", "Conve_", "Convex_", "Convex _", "Convex H_", "Convex Hu_", "Convex Hul_", "Convex Hull_", "Convex Hull_", "Convex Hull_", "Convex Hull_", "Convex Hull", "Convex Hull", "Convex Hull", "Convex Hull", "Convex Hull_", "Convex Hull_", "Convex Hull_", "Convex Hull_", "Convex Hull"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#convex-hull" id="convex-hull">_</a></h1>
 
                     </main>
                 </div>

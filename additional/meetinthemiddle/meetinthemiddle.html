@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#meet-in-the-middle" id="meet-in-the-middle">Meet in the Middle</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Me_", "Mee_", "Meet_", "Meet _", "Meet i_", "Meet in_", "Meet in _", "Meet in t_", "Meet in th_", "Meet in the_", "Meet in the _", "Meet in the M_", "Meet in the Mi_", "Meet in the Mid_", "Meet in the Midd_", "Meet in the Middl_", "Meet in the Middle_", "Meet in the Middle_", "Meet in the Middle_", "Meet in the Middle_", "Meet in the Middle", "Meet in the Middle", "Meet in the Middle", "Meet in the Middle", "Meet in the Middle_", "Meet in the Middle_", "Meet in the Middle_", "Meet in the Middle_", "Meet in the Middle"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#meet-in-the-middle" id="meet-in-the-middle">_</a></h1>
 
                     </main>
                 </div>

@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#parallel-binary-search" id="parallel-binary-search">Parallel Binary Search</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["P_", "Pa_", "Par_", "Para_", "Paral_", "Parall_", "Paralle_", "Parallel_", "Parallel _", "Parallel B_", "Parallel Bi_", "Parallel Bin_", "Parallel Bina_", "Parallel Binar_", "Parallel Binary_", "Parallel Binary _", "Parallel Binary S_", "Parallel Binary Se_", "Parallel Binary Sea_", "Parallel Binary Sear_", "Parallel Binary Searc_", "Parallel Binary Search_", "Parallel Binary Search_", "Parallel Binary Search_", "Parallel Binary Search_", "Parallel Binary Search", "Parallel Binary Search", "Parallel Binary Search", "Parallel Binary Search", "Parallel Binary Search_", "Parallel Binary Search_", "Parallel Binary Search_", "Parallel Binary Search_", "Parallel Binary Search"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#parallel-binary-search" id="parallel-binary-search">_</a></h1>
 
                     </main>
                 </div>

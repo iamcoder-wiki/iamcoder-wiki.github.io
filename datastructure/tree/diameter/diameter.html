@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#tree-diameter" id="tree-diameter">Tree Diameter</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["T_", "Tr_", "Tre_", "Tree_", "Tree _", "Tree D_", "Tree Di_", "Tree Dia_", "Tree Diam_", "Tree Diame_", "Tree Diamet_", "Tree Diamete_", "Tree Diameter_", "Tree Diameter_", "Tree Diameter_", "Tree Diameter_", "Tree Diameter", "Tree Diameter", "Tree Diameter", "Tree Diameter", "Tree Diameter_", "Tree Diameter_", "Tree Diameter_", "Tree Diameter_", "Tree Diameter"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#tree-diameter" id="tree-diameter">_</a></h1>
 
                     </main>
                 </div>

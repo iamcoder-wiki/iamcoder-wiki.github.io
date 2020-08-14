@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#persistent-segment-tree" id="persistent-segment-tree">Persistent Segment Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["P_", "Pe_", "Per_", "Pers_", "Persi_", "Persis_", "Persist_", "Persiste_", "Persisten_", "Persistent_", "Persistent _", "Persistent S_", "Persistent Se_", "Persistent Seg_", "Persistent Segm_", "Persistent Segme_", "Persistent Segmen_", "Persistent Segment_", "Persistent Segment _", "Persistent Segment T_", "Persistent Segment Tr_", "Persistent Segment Tre_", "Persistent Segment Tree_", "Persistent Segment Tree_", "Persistent Segment Tree_", "Persistent Segment Tree_", "Persistent Segment Tree", "Persistent Segment Tree", "Persistent Segment Tree", "Persistent Segment Tree", "Persistent Segment Tree_", "Persistent Segment Tree_", "Persistent Segment Tree_", "Persistent Segment Tree_", "Persistent Segment Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#persistent-segment-tree" id="persistent-segment-tree">_</a></h1>
 
                     </main>
                 </div>

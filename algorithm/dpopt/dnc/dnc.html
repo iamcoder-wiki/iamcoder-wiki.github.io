@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#divide--conquer-optimization" id="divide--conquer-optimization">Divide &amp; Conquer Optimization</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["D_", "Di_", "Div_", "Divi_", "Divid_", "Divide_", "Divide _", "Divide &_", "Divide &a_", "Divide &am_", "Divide &amp_", "Divide &amp;_", "Divide &amp; _", "Divide &amp; C_", "Divide &amp; Co_", "Divide &amp; Con_", "Divide &amp; Conq_", "Divide &amp; Conqu_", "Divide &amp; Conque_", "Divide &amp; Conquer_", "Divide &amp; Conquer _", "Divide &amp; Conquer O_", "Divide &amp; Conquer Op_", "Divide &amp; Conquer Opt_", "Divide &amp; Conquer Opti_", "Divide &amp; Conquer Optim_", "Divide &amp; Conquer Optimi_", "Divide &amp; Conquer Optimiz_", "Divide &amp; Conquer Optimiza_", "Divide &amp; Conquer Optimizat_", "Divide &amp; Conquer Optimizati_", "Divide &amp; Conquer Optimizatio_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization", "Divide &amp; Conquer Optimization", "Divide &amp; Conquer Optimization", "Divide &amp; Conquer Optimization", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization_", "Divide &amp; Conquer Optimization"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#divide--conquer-optimization" id="divide--conquer-optimization">_</a></h1>
 
                     </main>
                 </div>

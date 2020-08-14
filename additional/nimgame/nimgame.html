@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#nim-game" id="nim-game">Nim Game</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["N_", "Ni_", "Nim_", "Nim _", "Nim G_", "Nim Ga_", "Nim Gam_", "Nim Game_", "Nim Game_", "Nim Game_", "Nim Game_", "Nim Game", "Nim Game", "Nim Game", "Nim Game", "Nim Game_", "Nim Game_", "Nim Game_", "Nim Game_", "Nim Game"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#nim-game" id="nim-game">_</a></h1>
 <h2><a class="header" href="#알고리즘에서의-게임" id="알고리즘에서의-게임">1. 알고리즘에서의 게임</a></h2>
 <p>이 챕터에서는 필승 전략 게임의 승패를 판별하는 알고리즘을 다룹니다. 조약돌 게임과 Nim 게임처럼 간단한 게임에서 시작해, 그룬디 수를 이용하여 보다 일반적인 게임에 대응하는 알고리즘을 작성하는 방법까지를 설명할 것입니다.</p>
 <p>수학에서 이야기하는 게임은 대부분 다음 조건들을 만족합니다.</p>

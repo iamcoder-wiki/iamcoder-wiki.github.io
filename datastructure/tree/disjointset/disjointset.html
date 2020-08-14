@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#disjoint-set" id="disjoint-set">Disjoint Set</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["D_", "Di_", "Dis_", "Disj_", "Disjo_", "Disjoi_", "Disjoin_", "Disjoint_", "Disjoint _", "Disjoint S_", "Disjoint Se_", "Disjoint Set_", "Disjoint Set_", "Disjoint Set_", "Disjoint Set_", "Disjoint Set", "Disjoint Set", "Disjoint Set", "Disjoint Set", "Disjoint Set_", "Disjoint Set_", "Disjoint Set_", "Disjoint Set_", "Disjoint Set"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#disjoint-set" id="disjoint-set">_</a></h1>
 
                     </main>
                 </div>

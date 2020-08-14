@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#euler-tour" id="euler-tour">Euler Tour</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["E_", "Eu_", "Eul_", "Eule_", "Euler_", "Euler _", "Euler T_", "Euler To_", "Euler Tou_", "Euler Tour_", "Euler Tour_", "Euler Tour_", "Euler Tour_", "Euler Tour", "Euler Tour", "Euler Tour", "Euler Tour", "Euler Tour_", "Euler Tour_", "Euler Tour_", "Euler Tour_", "Euler Tour"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#euler-tour" id="euler-tour">_</a></h1>
 
                     </main>
                 </div>

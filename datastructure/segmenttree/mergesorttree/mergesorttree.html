@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#merge-sort-tree" id="merge-sort-tree">Merge Sort Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Me_", "Mer_", "Merg_", "Merge_", "Merge _", "Merge S_", "Merge So_", "Merge Sor_", "Merge Sort_", "Merge Sort _", "Merge Sort T_", "Merge Sort Tr_", "Merge Sort Tre_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree", "Merge Sort Tree", "Merge Sort Tree", "Merge Sort Tree", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#merge-sort-tree" id="merge-sort-tree">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>머지 소트 트리란 특수한 세그먼트 트리의 일종으로,  병합 정렬에서 정렬하는  과정이 그대로 트리의 노드에 저장된 트리를 말합니다 (<a href="../segmenttree.html">세그먼트 트리</a>, <a href="../../../algorithm/sort/mergesort.html">머지 소트</a> 참고). 다음 그림은 머지 소트 과정의 예시입니다. </p>
 <img src="./mergesorttree1.png" width = 500 >

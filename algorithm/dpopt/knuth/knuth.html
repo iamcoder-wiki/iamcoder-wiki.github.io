@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#knuth-optimization" id="knuth-optimization">Knuth Optimization</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["K_", "Kn_", "Knu_", "Knut_", "Knuth_", "Knuth _", "Knuth O_", "Knuth Op_", "Knuth Opt_", "Knuth Opti_", "Knuth Optim_", "Knuth Optimi_", "Knuth Optimiz_", "Knuth Optimiza_", "Knuth Optimizat_", "Knuth Optimizati_", "Knuth Optimizatio_", "Knuth Optimization_", "Knuth Optimization_", "Knuth Optimization_", "Knuth Optimization_", "Knuth Optimization", "Knuth Optimization", "Knuth Optimization", "Knuth Optimization", "Knuth Optimization_", "Knuth Optimization_", "Knuth Optimization_", "Knuth Optimization_", "Knuth Optimization"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#knuth-optimization" id="knuth-optimization">_</a></h1>
 
                     </main>
                 </div>

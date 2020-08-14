@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#dynamic-segment-tree" id="dynamic-segment-tree">Dynamic Segment Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["D_", "Dy_", "Dyn_", "Dyna_", "Dynam_", "Dynami_", "Dynamic_", "Dynamic _", "Dynamic S_", "Dynamic Se_", "Dynamic Seg_", "Dynamic Segm_", "Dynamic Segme_", "Dynamic Segmen_", "Dynamic Segment_", "Dynamic Segment _", "Dynamic Segment T_", "Dynamic Segment Tr_", "Dynamic Segment Tre_", "Dynamic Segment Tree_", "Dynamic Segment Tree_", "Dynamic Segment Tree_", "Dynamic Segment Tree_", "Dynamic Segment Tree", "Dynamic Segment Tree", "Dynamic Segment Tree", "Dynamic Segment Tree", "Dynamic Segment Tree_", "Dynamic Segment Tree_", "Dynamic Segment Tree_", "Dynamic Segment Tree_", "Dynamic Segment Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#dynamic-segment-tree" id="dynamic-segment-tree">_</a></h1>
 
                     </main>
                 </div>

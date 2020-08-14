@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#intermediate-data-structure" id="intermediate-data-structure">Intermediate Data Structure</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["I_", "In_", "Int_", "Inte_", "Inter_", "Interm_", "Interme_", "Intermed_", "Intermedi_", "Intermedia_", "Intermediat_", "Intermediate_", "Intermediate _", "Intermediate D_", "Intermediate Da_", "Intermediate Dat_", "Intermediate Data_", "Intermediate Data _", "Intermediate Data S_", "Intermediate Data St_", "Intermediate Data Str_", "Intermediate Data Stru_", "Intermediate Data Struc_", "Intermediate Data Struct_", "Intermediate Data Structu_", "Intermediate Data Structur_", "Intermediate Data Structure_", "Intermediate Data Structure_", "Intermediate Data Structure_", "Intermediate Data Structure_", "Intermediate Data Structure", "Intermediate Data Structure", "Intermediate Data Structure", "Intermediate Data Structure", "Intermediate Data Structure_", "Intermediate Data Structure_", "Intermediate Data Structure_", "Intermediate Data Structure_", "Intermediate Data Structure"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#intermediate-data-structure" id="intermediate-data-structure">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>중급 자료구조는 난이도 있는 문제를 푸는 과정에서 자주 사용되는 자료구조들로, 대부분은 라이브러리에 작성되어있는 자료구조를 사용하지만 그 내부 원리와 사용 방법을 알아야 문제 없이 사용할 수 있습니다.</p>
 <h2><a class="header" href="#종류" id="종류">2. 종류</a></h2>

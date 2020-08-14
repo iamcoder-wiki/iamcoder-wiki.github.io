@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#matching-on-bipartite" id="matching-on-bipartite">Matching on Bipartite</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Ma_", "Mat_", "Matc_", "Match_", "Matchi_", "Matchin_", "Matching_", "Matching _", "Matching o_", "Matching on_", "Matching on _", "Matching on B_", "Matching on Bi_", "Matching on Bip_", "Matching on Bipa_", "Matching on Bipar_", "Matching on Bipart_", "Matching on Biparti_", "Matching on Bipartit_", "Matching on Bipartite_", "Matching on Bipartite_", "Matching on Bipartite_", "Matching on Bipartite_", "Matching on Bipartite", "Matching on Bipartite", "Matching on Bipartite", "Matching on Bipartite", "Matching on Bipartite_", "Matching on Bipartite_", "Matching on Bipartite_", "Matching on Bipartite_", "Matching on Bipartite"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#matching-on-bipartite" id="matching-on-bipartite">_</a></h1>
 
                     </main>
                 </div>

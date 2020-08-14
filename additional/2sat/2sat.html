@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#2-sat" id="2-sat">2-SAT</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["2_", "2-_", "2-S_", "2-SA_", "2-SAT_", "2-SAT_", "2-SAT_", "2-SAT_", "2-SAT", "2-SAT", "2-SAT", "2-SAT", "2-SAT_", "2-SAT_", "2-SAT_", "2-SAT_", "2-SAT"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#2-sat" id="2-sat">_</a></h1>
 
                     </main>
                 </div>

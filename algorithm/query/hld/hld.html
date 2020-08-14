@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#heavy-light-decomposition" id="heavy-light-decomposition">Heavy-Light Decomposition</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["H_", "He_", "Hea_", "Heav_", "Heavy_", "Heavy-_", "Heavy-L_", "Heavy-Li_", "Heavy-Lig_", "Heavy-Ligh_", "Heavy-Light_", "Heavy-Light _", "Heavy-Light D_", "Heavy-Light De_", "Heavy-Light Dec_", "Heavy-Light Deco_", "Heavy-Light Decom_", "Heavy-Light Decomp_", "Heavy-Light Decompo_", "Heavy-Light Decompos_", "Heavy-Light Decomposi_", "Heavy-Light Decomposit_", "Heavy-Light Decompositi_", "Heavy-Light Decompositio_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition", "Heavy-Light Decomposition", "Heavy-Light Decomposition", "Heavy-Light Decomposition", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#heavy-light-decomposition" id="heavy-light-decomposition">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
 따라서, 이 글을 이해하기 위해서는, Segment Tree,dfs,lca(sparse table)등에 대한 이해가 필요합니다. </p>

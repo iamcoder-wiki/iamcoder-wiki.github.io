@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#grid-compression" id="grid-compression">Grid Compression</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["G_", "Gr_", "Gri_", "Grid_", "Grid _", "Grid C_", "Grid Co_", "Grid Com_", "Grid Comp_", "Grid Compr_", "Grid Compre_", "Grid Compres_", "Grid Compress_", "Grid Compressi_", "Grid Compressio_", "Grid Compression_", "Grid Compression_", "Grid Compression_", "Grid Compression_", "Grid Compression", "Grid Compression", "Grid Compression", "Grid Compression", "Grid Compression_", "Grid Compression_", "Grid Compression_", "Grid Compression_", "Grid Compression"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#grid-compression" id="grid-compression">_</a></h1>
 
                     </main>
                 </div>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Mo's Algorithm - IamCoder Wiki</title>
+        <title>Mo&#x27;s Algorithm - IamCoder Wiki</title>
         
         
 
@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#mos-algorithm" id="mos-algorithm">Mo's Algorithm</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Mo_", "Mo\'_", "Mo\'s_", "Mo\'s _", "Mo\'s A_", "Mo\'s Al_", "Mo\'s Alg_", "Mo\'s Algo_", "Mo\'s Algor_", "Mo\'s Algori_", "Mo\'s Algorit_", "Mo\'s Algorith_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm", "Mo\'s Algorithm", "Mo\'s Algorithm", "Mo\'s Algorithm", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#mos-algorithm" id="mos-algorithm">_</a></h1>
 
                     </main>
                 </div>

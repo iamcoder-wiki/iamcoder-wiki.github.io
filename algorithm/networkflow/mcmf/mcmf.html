@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#minimum-cost-maximum-flow" id="minimum-cost-maximum-flow">Minimum Cost Maximum Flow</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Mi_", "Min_", "Mini_", "Minim_", "Minimu_", "Minimum_", "Minimum _", "Minimum C_", "Minimum Co_", "Minimum Cos_", "Minimum Cost_", "Minimum Cost _", "Minimum Cost M_", "Minimum Cost Ma_", "Minimum Cost Max_", "Minimum Cost Maxi_", "Minimum Cost Maxim_", "Minimum Cost Maximu_", "Minimum Cost Maximum_", "Minimum Cost Maximum _", "Minimum Cost Maximum F_", "Minimum Cost Maximum Fl_", "Minimum Cost Maximum Flo_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow", "Minimum Cost Maximum Flow", "Minimum Cost Maximum Flow", "Minimum Cost Maximum Flow", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow_", "Minimum Cost Maximum Flow"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#minimum-cost-maximum-flow" id="minimum-cost-maximum-flow">_</a></h1>
 
                     </main>
                 </div>

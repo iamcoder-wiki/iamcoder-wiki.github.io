@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#suffix-array" id="suffix-array">Suffix Array</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["S_", "Su_", "Suf_", "Suff_", "Suffi_", "Suffix_", "Suffix _", "Suffix A_", "Suffix Ar_", "Suffix Arr_", "Suffix Arra_", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array", "Suffix Array", "Suffix Array", "Suffix Array", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#suffix-array" id="suffix-array">_</a></h1>
 
                     </main>
                 </div>

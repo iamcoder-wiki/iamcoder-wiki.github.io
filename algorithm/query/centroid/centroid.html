@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#centroid-decomposition" id="centroid-decomposition">Centroid Decomposition</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["C_", "Ce_", "Cen_", "Cent_", "Centr_", "Centro_", "Centroi_", "Centroid_", "Centroid _", "Centroid D_", "Centroid De_", "Centroid Dec_", "Centroid Deco_", "Centroid Decom_", "Centroid Decomp_", "Centroid Decompo_", "Centroid Decompos_", "Centroid Decomposi_", "Centroid Decomposit_", "Centroid Decompositi_", "Centroid Decompositio_", "Centroid Decomposition_", "Centroid Decomposition_", "Centroid Decomposition_", "Centroid Decomposition_", "Centroid Decomposition", "Centroid Decomposition", "Centroid Decomposition", "Centroid Decomposition", "Centroid Decomposition_", "Centroid Decomposition_", "Centroid Decomposition_", "Centroid Decomposition_", "Centroid Decomposition"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#centroid-decomposition" id="centroid-decomposition">_</a></h1>
 
                     </main>
                 </div>

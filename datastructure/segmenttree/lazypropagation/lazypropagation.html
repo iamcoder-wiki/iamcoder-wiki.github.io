@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#lazy-propagation" id="lazy-propagation">Lazy Propagation</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["L_", "La_", "Laz_", "Lazy_", "Lazy _", "Lazy P_", "Lazy Pr_", "Lazy Pro_", "Lazy Prop_", "Lazy Propa_", "Lazy Propag_", "Lazy Propaga_", "Lazy Propagat_", "Lazy Propagati_", "Lazy Propagatio_", "Lazy Propagation_", "Lazy Propagation_", "Lazy Propagation_", "Lazy Propagation_", "Lazy Propagation", "Lazy Propagation", "Lazy Propagation", "Lazy Propagation", "Lazy Propagation_", "Lazy Propagation_", "Lazy Propagation_", "Lazy Propagation_", "Lazy Propagation"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#lazy-propagation" id="lazy-propagation">_</a></h1>
 
                     </main>
                 </div>

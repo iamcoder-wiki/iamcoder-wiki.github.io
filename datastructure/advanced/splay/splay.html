@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#splay-tree" id="splay-tree">Splay Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["S_", "Sp_", "Spl_", "Spla_", "Splay_", "Splay _", "Splay T_", "Splay Tr_", "Splay Tre_", "Splay Tree_", "Splay Tree_", "Splay Tree_", "Splay Tree_", "Splay Tree", "Splay Tree", "Splay Tree", "Splay Tree", "Splay Tree_", "Splay Tree_", "Splay Tree_", "Splay Tree_", "Splay Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#splay-tree" id="splay-tree">_</a></h1>
 
                     </main>
                 </div>

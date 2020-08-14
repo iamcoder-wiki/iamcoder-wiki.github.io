@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#binary-search" id="binary-search">Binary Search</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["B_", "Bi_", "Bin_", "Bina_", "Binar_", "Binary_", "Binary _", "Binary S_", "Binary Se_", "Binary Sea_", "Binary Sear_", "Binary Searc_", "Binary Search_", "Binary Search_", "Binary Search_", "Binary Search_", "Binary Search", "Binary Search", "Binary Search", "Binary Search", "Binary Search_", "Binary Search_", "Binary Search_", "Binary Search_", "Binary Search"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#binary-search" id="binary-search">_</a></h1>
 
                     </main>
                 </div>

@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#counting-sort" id="counting-sort">Counting Sort</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["C_", "Co_", "Cou_", "Coun_", "Count_", "Counti_", "Countin_", "Counting_", "Counting _", "Counting S_", "Counting So_", "Counting Sor_", "Counting Sort_", "Counting Sort_", "Counting Sort_", "Counting Sort_", "Counting Sort", "Counting Sort", "Counting Sort", "Counting Sort", "Counting Sort_", "Counting Sort_", "Counting Sort_", "Counting Sort_", "Counting Sort"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#counting-sort" id="counting-sort">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>정렬하는 수들의 크기가 그리 크지 않고, 모두 0이상일 때 쓰는 정렬인데, 다른 정렬들과 달리 메모리가 굉장히 많이 필요하다. 그러나 수들이 전부 많이 작으면 이보다 빠른 정렬은 없을 것이다. 시간복잡도가 무려 \(O(n+max(arr[i]))\)로, 배열값만 적당하다면 선형시간 안에 정렬을 할수 있기 때문이다. 정렬의 이름답게 각 원소의 개수를 배열에 저장해 둔 뒤 그 자료를 이용해 정렬을 하는 것이다. 다만 최댓값이 9백만 정도가 넘어가면 일반적인 문제에서 메모리 초과가 나게 되는 치명적인 단점이 있다.</p>
 <h2><a class="header" href="#코드" id="코드">2. 코드</a></h2>

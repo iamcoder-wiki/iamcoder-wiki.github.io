@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#red-black-tree" id="red-black-tree">Red Black Tree</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["R_", "Re_", "Red_", "Red _", "Red B_", "Red Bl_", "Red Bla_", "Red Blac_", "Red Black_", "Red Black _", "Red Black T_", "Red Black Tr_", "Red Black Tre_", "Red Black Tree_", "Red Black Tree_", "Red Black Tree_", "Red Black Tree_", "Red Black Tree", "Red Black Tree", "Red Black Tree", "Red Black Tree", "Red Black Tree_", "Red Black Tree_", "Red Black Tree_", "Red Black Tree_", "Red Black Tree"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#red-black-tree" id="red-black-tree">_</a></h1>
 
                     </main>
                 </div>

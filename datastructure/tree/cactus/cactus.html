@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#cactus-graph" id="cactus-graph">Cactus Graph</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["C_", "Ca_", "Cac_", "Cact_", "Cactu_", "Cactus_", "Cactus _", "Cactus G_", "Cactus Gr_", "Cactus Gra_", "Cactus Grap_", "Cactus Graph_", "Cactus Graph_", "Cactus Graph_", "Cactus Graph_", "Cactus Graph", "Cactus Graph", "Cactus Graph", "Cactus Graph", "Cactus Graph_", "Cactus Graph_", "Cactus Graph_", "Cactus Graph_", "Cactus Graph"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#cactus-graph" id="cactus-graph">_</a></h1>
 
                     </main>
                 </div>

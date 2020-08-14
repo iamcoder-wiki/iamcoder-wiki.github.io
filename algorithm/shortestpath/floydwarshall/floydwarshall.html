@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#floyd-warshall" id="floyd-warshall">Floyd-Warshall</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["F_", "Fl_", "Flo_", "Floy_", "Floyd_", "Floyd-_", "Floyd-W_", "Floyd-Wa_", "Floyd-War_", "Floyd-Wars_", "Floyd-Warsh_", "Floyd-Warsha_", "Floyd-Warshal_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall", "Floyd-Warshall", "Floyd-Warshall", "Floyd-Warshall", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#floyd-warshall" id="floyd-warshall">_</a></h1>
 
                     </main>
                 </div>

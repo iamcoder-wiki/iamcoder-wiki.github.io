@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#manacher-algorithm" id="manacher-algorithm">Manacher Algorithm</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["M_", "Ma_", "Man_", "Mana_", "Manac_", "Manach_", "Manache_", "Manacher_", "Manacher _", "Manacher A_", "Manacher Al_", "Manacher Alg_", "Manacher Algo_", "Manacher Algor_", "Manacher Algori_", "Manacher Algorit_", "Manacher Algorith_", "Manacher Algorithm_", "Manacher Algorithm_", "Manacher Algorithm_", "Manacher Algorithm_", "Manacher Algorithm", "Manacher Algorithm", "Manacher Algorithm", "Manacher Algorithm", "Manacher Algorithm_", "Manacher Algorithm_", "Manacher Algorithm_", "Manacher Algorithm_", "Manacher Algorithm"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#manacher-algorithm" id="manacher-algorithm">_</a></h1>
 
                     </main>
                 </div>

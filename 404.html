@@ -131,7 +131,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#document-not-found-404" id="document-not-found-404">Document not found (404)</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["D_", "Do_", "Doc_", "Docu_", "Docum_", "Docume_", "Documen_", "Document_", "Document _", "Document n_", "Document no_", "Document not_", "Document not _", "Document not f_", "Document not fo_", "Document not fou_", "Document not foun_", "Document not found_", "Document not found _", "Document not found (_", "Document not found (4_", "Document not found (40_", "Document not found (404_", "Document not found (404)_", "Document not found (404)_", "Document not found (404)_", "Document not found (404)_", "Document not found (404)", "Document not found (404)", "Document not found (404)", "Document not found (404)", "Document not found (404)_", "Document not found (404)_", "Document not found (404)_", "Document not found (404)_", "Document not found (404)"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#document-not-found-404" id="document-not-found-404">_</a></h1>
 <p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
 
                     </main>

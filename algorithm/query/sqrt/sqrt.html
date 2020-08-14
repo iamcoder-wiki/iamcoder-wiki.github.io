@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#sqrt-decomposition" id="sqrt-decomposition">Sqrt Decomposition</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["S_", "Sq_", "Sqr_", "Sqrt_", "Sqrt _", "Sqrt D_", "Sqrt De_", "Sqrt Dec_", "Sqrt Deco_", "Sqrt Decom_", "Sqrt Decomp_", "Sqrt Decompo_", "Sqrt Decompos_", "Sqrt Decomposi_", "Sqrt Decomposit_", "Sqrt Decompositi_", "Sqrt Decompositio_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition", "Sqrt Decomposition", "Sqrt Decomposition", "Sqrt Decomposition", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#sqrt-decomposition" id="sqrt-decomposition">_</a></h1>
 
                     </main>
                 </div>

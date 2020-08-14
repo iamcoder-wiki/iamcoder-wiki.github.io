@@ -129,7 +129,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#iamcoder-소개" id="iamcoder-소개">IamCoder 소개</a></h1>
+                        
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["I_", "Ia_", "Iam_", "IamC_", "IamCo_", "IamCod_", "IamCode_", "IamCoder_", "IamCoder _", "IamCoder ㅅ_", "IamCoder 소_", "IamCoder 소_", "IamCoder 소ㄱ_", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개", "IamCoder 소개", "IamCoder 소개", "IamCoder 소개", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개_", "IamCoder 소개"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+window.onload = function() {
+    writeTitle();
+}
+</script><h1><a class="header title" href="#iamcoder-소개" id="iamcoder-소개">_</a></h1>
 <p>경기과학고등학교 정보과학 동아리 IamCoder입니다.</p>
 <ul>
 <li><a href="./fix.html">How to Add / Fix Document?</a></li>
