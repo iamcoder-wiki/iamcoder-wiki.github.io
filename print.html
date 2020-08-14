@@ -723,10 +723,105 @@ int main() {
 </li>
 </ul>
 <h1><a class="header" href="#dijkstra" id="dijkstra">Dijkstra</a></h1>
+<h2><a class="header" href="#소개-18" id="소개-18">1. 소개</a></h2>
+<p>Dijkstra 알고리즘은 그래프의 정점들 사이의 최단경로를 찾기 위한 알고리즘 중 하나입니다.</p>
+<p>Dijkstra 알고리즘은 음수 간선이 없는 그래프에서 사용할 수 있으며, 어떠한 정점과 다른 모든 정점들 사이의 최단경로를 \(O(|E|\log|V|)\)만에 구할 수 있습니다. 최단 거리 문제에서 매우 자주 쓰이는 알고리즘 중 하나입니다.</p>
+<h2><a class="header" href="#과정" id="과정">2. 과정</a></h2>
+<p>Dijkstra 알고리즘의 아이디어는 생각보다 간단합니다. 현재까지 밝혀진 최단거리가 가장 작은 정점을 조사하여 이 정점과 연결된 정점들의 최단경로를 업데이트하는 과정을 반복하는 것이죠. 아래와 같은 그래프를 봅시다. </p>
+<img src="algorithm/shortestpath/dijkstra/./dijk1.svg" width = 500 >
+<p>0번 정점에서 다른 모든 정점까지의 최단경로를 구하려면 어떻게 해야 할까요? 우선 정점 <code>i</code>부터 정점 <code>j</code>까지의 간선의 길이를 <code>d[i][j]</code>라 하고, 최단경로의 배열 <code>dist[]</code>, 현재까지 조사한 최단경로의 배열 <code>cost[]</code>를 정의합시다. </p>
+<p>다익스트라 알고리즘에서는 먼저, <code>cost[0]</code>을 0, \(cost[1]\textasciitilde cost[(|V|-1)]\)을 \(\infty\)로 놓습니다. 그리고 <code>cost</code>값이 가장 작은 정점부터 조사하기 시작합니다. 다른 정점들의 <code>cost</code>값이 모두 이 정점보다 크고, 그래프에 음수 간선이 없다는 것을 알고 있기 때문에 이 간선의 <code>cost</code>값이 최종적인 최단경로의 길이와 같다는 것이 자명합니다. 따라서 이 정점의 <code>dist</code>값은 <code>cost</code>값과 같다는 것을 알 수 있습니다. 여기서는 <code>cost[0]</code>이 제일 작으므로 먼저 0번 정점을 봅시다. 0번 정점과 연결된 다른 정점들(1,2,3) 각각에 대해, 최단경로를 업데이트할 수 있는지 검사해 봅니다. </p>
+<p>기존 <code>cost[i] (i=1, 2, 3)</code>값보다 <code>dist[0]</code>+<code>d[0][i]</code>이 작다면 <code>cost[i]</code>를 <code>dist[0]+d[0][i]</code>로 업데이트합니다. 원래 <code>cost</code>값이 전부 \(\infty\)였으므로 각각의 <code>dist</code>값은 2, 1, 4로 업데이트됩니다. </p>
+<p>이제 남은 정점 중에서 <code>dist</code>값이 가장 작은 2번 정점을 봐야 합니다. 2번 정점에 대해서도 연결되어 있는 각 정점의 최단경로 업데이트를 계속합니다. 나머지 정점들 중에서도 <code>dist[i]</code>값이 가장 작은 점을 찾아내 같은 과정을 계속 반복합니다. 이를 총 \(|V|\)번 반복하면 결과적으로 0번 정점으로부터 다른 모든 정점까지의 최단경로를 계산할 수 있습니다.</p>
+<h2><a class="header" href="#코드-9" id="코드-9">3. 코드</a></h2>
+<p>다익스트라 알고리즘의 실제 구현 방법을 봅시다. 위의 설명 그대로 단순하게 구현한 프로그램은 \(O(|E||V|)\)의 시간에 동작하지만, 우선순위 큐를 이용하면 \(O(|E|\log |V|)\)의 시간에 동작하도록 할 수 있습니다. <code>cost[]</code>배열을 이용하는 대신 우선순위 큐를 사용해 최솟값을 관리하는 것이죠.
+최단거리 업데이트 과정에서 모든 간선은 한 번씩만 사용되므로 우선순위 큐에 각 우선순위 큐에는 최대 총 \(|E|\)번의 삽입/삭제 연산이 일어나게 됩니다. 이에 의한 시간 복잡도는 \(O(|E|\log |E|)\)이고, \(|E|\)는 \(|V|^2\)보다 작으므로 이는 \(O(|E|\log |V|)\)라고 할 수 있습니다.</p>
+<p>아래 코드의 <code>dijkstra()</code> 함수는 STL의 <code>priority_queue</code> 자료구조를 사용하여 Dijkstra 알고리즘을 구현하는 예시입니다. <code>pair&lt;int, int&gt;</code>자료형의 <code>first</code>값은 거리, <code>second</code>값은 노드 번호입니다.
+<code>pair</code>자료형에서 크기 비교 기준은 <code>first</code>값이므로, 우선순위 큐는 자동적으로 거리에 대한 오름차순으로 정렬되게 됩니다. 이미 방문한 정점 검사는 현재 원소의 <code>second</code>값, 즉 거리 값이 <code>dist[(현재 원소의 first값)]</code>보다 크거나 같은지를 이용하면 쉽게 가능합니다. 이미 방문한 정점이라면 <code>dist</code>값이 최단거리 값으로 업데이트되어 있기 때문에 <code>dist</code>값보다 더 작은 거리값은 나올 수 없기 때문이죠.</p>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define V 100000 //maximum number of nodes
+
+using namespace std;
+typedef pair&lt;int, int&gt; pp;
+
+int dist[V];
+
+vector&lt;pp&gt; d[V]; //first=weight, second=node number
+priority_queue&lt;pp, vector&lt;pp&gt;, greater&lt;pp&gt; &gt; cost; //first=distance, second=node number
+
+void dijkstra(int v){
+	int i, j;
+	pp t;
+	for(i=0;i&lt;v;i++) dist[i]=INT_MAX;
+	cost.push(pp(0, 0));
+	for(i=0;i&lt;v;i++){
+		while(cost.top().first&gt;=dist[cost.top().second]) cost.pop(); //delete already visited nodes
+		t=cost.top(), cost.pop();
+		dist[t.second]=t.first;
+		for(j=0;j&lt;d[t.second].size();j++){
+			cost.push(pp(dist[t.second]+d[t.second][j].first, d[t.second][j].second));
+		}
+	}
+}
+</code></pre>
+<h2><a class="header" href="#예시-2" id="예시-2">4. 예시</a></h2>
+<p><a href="https://www.acmicpc.net/problem/5719">거의 최단 경로 문제</a></p>
+<blockquote>
+<p>요즘 많은 자동차에서는 GPS 네비게이션 장비가 설치되어 있다. 네비게이션은 사용자가 입력한 출발점과 도착점 사이의 최단 경로를 검색해 준다. 하지만, 교통 상황을 고려하지 않고 최단 경로를 검색하는 경우에는 극심한 교통 정체를 경험할 수 있다.</p>
+<p>상근이는 오직 자기 자신만 사용 가능한 네비게이션을 만들고 있다. 이 네비게이션은 절대로 최단 경로를 찾아주지 않는다. 항상 거의 최단 경로를 찾아준다.</p>
+<p>거의 최단 경로란 최단 경로에 포함되지 않는 도로로만 이루어진 경로 중 가장 짧은 것을 말한다. </p>
+<p>예를 들어, 도로 지도가 아래와 같을 때를 생각해보자. 원은 장소를 의미하고, 선은 단방향 도로를 나타낸다. 시작점은 S, 도착점은 D로 표시되어 있다. 굵은 선은 최단 경로를 나타낸다. (아래 그림에 최단 경로는 두 개가 있다)거의 최단 경로는 점선으로 표시된 경로이다. 이 경로는 최단 경로에 포함되지 않은 도로로 이루어진 경로 중 가장 짧은 경로이다. 거의 최단 경로는 여러 개 존재할 수도 있다. 예를 들어, 아래 그림의 길이가 3인 도로의 길이가 1이라면, 거의 최단 경로는 두 개가 된다. 또, 거의 최단 경로가 없는 경우도 있다.</p>
+<hr />
+<p><strong>입력</strong></p>
+<p>입력은 여러 개의 테스트 케이스로 이루어져 있다. 각 테스트 케이스의 첫째 줄에는 장소의 수 N (2 ≤ N ≤ 500)과 도로의 수 M (1 ≤ M ≤ 104)가 주어진다. 장소는 0부터 N-1번까지 번호가 매겨져 있다. 둘째 줄에는 시작점 S와 도착점 D가 주어진다. (S ≠ D; 0 ≤ S, D &lt; N) 다음 M개 줄에는 도로의 정보 U, V, P가 주어진다. (U ≠ V ; 0 ≤ U, V &lt; N; 1 ≤ P ≤ 103) 이 뜻은 U에서 V로 가는 도로의 길이가 P라는 뜻이다. U에서 V로 가는 도로는 최대 한 개이다. 또, U에서 V로 가는 도로와 V에서 U로 가는 도로는 다른 도로이다. </p>
+<p>입력의 마지막 줄에는 0이 두 개 주어진다.</p>
+<hr />
+<p><strong>출력</strong></p>
+<p>각 테스트 케이스에 대해서, 거의 최단 경로의 길이를 출력한다. 만약, 거의 최단 경로가 없는 경우에는 -1을 출력한다.</p>
+<hr />
+<p><strong>Input</strong></p>
+<p>7 9
+0 6
+0 1 1
+0 2 1
+0 3 2
+0 4 3
+1 5 2
+2 6 4
+3 6 2
+4 6 4
+5 6 1
+4 6
+0 2
+0 1 1
+1 2 1
+1 3 1
+3 2 1
+2 0 3
+3 0 2
+6 8
+0 1
+0 1 1
+0 2 2
+0 3 3
+2 5 3
+3 4 2
+4 1 1
+5 1 1
+3 0 1
+0 0</p>
+<hr />
+<p><strong>Ouput</strong></p>
+<p>5
+-1
+6</p>
+</blockquote>
+<p>단순한 최단 경로를 계산하려면 다익스트라 알고리즘을 한 번 사용하면 됩니다. 그러나 우리가 찾아야 하는 것은 &quot;거의 최단 경로&quot;이기 때문에, 최단 경로의 간선들을 모두 제거한 후 다시 다익스트라 알고리즘을 사용해야 합니다. 그렇다면 최단 경로의 간선을 제거하는 과정은 어떻게 구현할 수 있을까요? 다익스트라 알고리즘을 약간만 보완하면 됩니다. 각 정점에 대해서 단순히 최단경로의 길이 값만 저장하는 것이 아니라, 그 정점 직전의 정점의 번호도 저장하는 것이죠. 그 후 최단 경로의 간선들을 제거할 때는 간단한 백트래킹을 활용하면 됩니다. 예시 코드에서는 정점 번호를 -1로 바꾸는 방법으로 간선을 제거하였습니다.</p>
+<p>한 가지 주의할 점은 최단경로가 하나가 아닐 수 있다는 것입니다. 따라서 모든 최단 경로를 저장하지 않으면 정답을 내지 못할 수도 있으므로 조심하세요.</p>
 <h1><a class="header" href="#bellman-ford" id="bellman-ford">Bellman-Ford</a></h1>
 <h1><a class="header" href="#floyd-warshall" id="floyd-warshall">Floyd-Warshall</a></h1>
 <h1><a class="header" href="#query-technique" id="query-technique">Query Technique</a></h1>
-<h2><a class="header" href="#소개-18" id="소개-18">1. 소개</a></h2>
+<h2><a class="header" href="#소개-19" id="소개-19">1. 소개</a></h2>
 <p>알고리즘 문제 중에서 주어진 쿼리를 처리하는 코드를 구현하는 문제들이 있다. 쿼리들의 경우 원소를 추가하거나 삭제하는 쿼리, 특정 연산을 하는 쿼리 등 문제에 따라 다양한 종류가 주어진다. 따라서, 쿼리 문제들에 유용하게 사용할 수 있는 기술들을 다양하게 알아놓고, 문제를 풀기 위해서는 주어진 쿼리의 특징에 따라 적절한 기술을 적용해야 한다.</p>
 <h2><a class="header" href="#종류-5" id="종류-5">2. 종류</a></h2>
 <ul>
@@ -737,7 +832,7 @@ int main() {
 <li><a href="algorithm/query/./centroid/centroid.html">Centroid Decomposition</a></li>
 </ul>
 <h1><a class="header" href="#heavy-light-decomposition" id="heavy-light-decomposition">Heavy-Light Decomposition</a></h1>
-<h2><a class="header" href="#소개-19" id="소개-19">1. 소개</a></h2>
+<h2><a class="header" href="#소개-20" id="소개-20">1. 소개</a></h2>
 <p>HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
 따라서, 이 글을 이해하기 위해서는, Segment Tree,dfs,lca(sparse table)등에 대한 이해가 필요합니다. </p>
 <p>HLD는 Heavy Light Decomposition 의 약자로서, 간선을 무거운 간선과 가벼운 간선으로 나누어 분류해 관리하는 방법입니다. 이를 위해서는 트리가 rooted Tree여야 합니다.(Root를 하나로 정해야 합니다) 그리고 트리의 정점의 무게를 그 정점의 Subtree의 크기로 정의합시다. 그리고 부모와 자식을 잇는 간선 중에 자식이 부모의 무게의 반 이상인 간선을 무거운 간선으로 정의합시다.</p>
@@ -755,7 +850,7 @@ int main() {
 <p>무거운 간선들이 인접해 있다면 그것을 하나로 이은 것을 무거운 경로라고 합시다.  그 무거운 경로의 맨 위의 가벼운 간선도 경로에 포함시키고, 아래에 무거운 경로가 없는 가벼운 간선은 그것 하나를 무거운 경로로 본다면, 트리의 경로를 여러개의 무거운 경로로 바꾸어 볼 수 있습니다.</p>
 <p>이런 무거운 경로가 끊어지는 것은 가벼운 간선을 만날 때만이기 때문에, 아까 언급한 2번 사실에 의해 트리의 어떤 경로는 항상 \(O(\log N)\)개의 무거운 경로들의 일부의 합으로 나타내어질 수 있습니다.</p>
 <p>이 사실을 이용해서 무거운 경로들을 Segment Tree를 이용해서 관리해준다면 트리의 경로에 대한 연산을 직선에 대한 연산처럼 할 수 있을 것입니다.((ex)RMQ,구간 합 쿼리)  이것이 바로 HLD입니다.</p>
-<h2><a class="header" href="#예시-2" id="예시-2">2. 예시</a></h2>
+<h2><a class="header" href="#예시-3" id="예시-3">2. 예시</a></h2>
 <p><a href="algorithm/query/hld/acmicpc.net/problem/13510">HLD를 통해 풀 수 있는 쿼리 문제 하나</a>를 소개하고자 합니다. 문제를 요약하면 다음과 같습니다.</p>
 <blockquote>
 <p><code>N</code>개의 정점으로 이루어진 트리(무방향 사이클이 없는 연결 그래프)가 있다. 정점은 1번부터 <code>N</code>번까지 번호가 매겨져 있고, 간선은 1번부터 <code>N</code>-1번까지 번호가 매겨져 있다.</p>
@@ -847,7 +942,7 @@ int query(int u,int v){
 <h1><a class="header" href="#grid-compression" id="grid-compression">Grid Compression</a></h1>
 <h1><a class="header" href="#centroid-decomposition" id="centroid-decomposition">Centroid Decomposition</a></h1>
 <h1><a class="header" href="#dp-optimization" id="dp-optimization">DP Optimization</a></h1>
-<h2><a class="header" href="#소개-20" id="소개-20">1. 소개</a></h2>
+<h2><a class="header" href="#소개-21" id="소개-21">1. 소개</a></h2>
 <p><a href="algorithm/dpopt/../dp/dp.html">Dynamic Programming</a>을 사용해 문제를 푸는 과정에서 특정 형태의 점화식을 갖는 문제들에서는 최적화 기법을 통해 시간복잡도를 줄일 수 있는데, 이를 DP Optimization(동적 계획법 최적화)라고 한다. 문제에서 구해낸 점화식에 따라 그에 맞는 최적화 기법을 사용하여 더 빠른 시간에 동작하는 코드를 짤 수 있어야 한다.</p>
 <h2><a class="header" href="#종류-6" id="종류-6">2. 종류</a></h2>
 <ul>
@@ -859,7 +954,7 @@ int query(int u,int v){
 <h1><a class="header" href="#knuth-optimization" id="knuth-optimization">Knuth Optimization</a></h1>
 <h1><a class="header" href="#convex-hull-trick" id="convex-hull-trick">Convex Hull Trick</a></h1>
 <h1><a class="header" href="#network-flow" id="network-flow">Network Flow</a></h1>
-<h2><a class="header" href="#소개-21" id="소개-21">1. 소개</a></h2>
+<h2><a class="header" href="#소개-22" id="소개-22">1. 소개</a></h2>
 <h2><a class="header" href="#응용" id="응용">2. 응용</a></h2>
 <ul>
 <li><a href="algorithm/networkflow/./bimatching/bimatching.html">Matching on Bipartite</a></li>
@@ -868,13 +963,13 @@ int query(int u,int v){
 <h1><a class="header" href="#matching-on-bipartite" id="matching-on-bipartite">Matching on Bipartite</a></h1>
 <h1><a class="header" href="#minimum-cost-maximum-flow" id="minimum-cost-maximum-flow">Minimum Cost Maximum Flow</a></h1>
 <h1><a class="header" href="#geometry" id="geometry">Geometry</a></h1>
-<h2><a class="header" href="#소개-22" id="소개-22">1. 소개</a></h2>
+<h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
 <h2><a class="header" href="#a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla" id="a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla">2. <a href="algorithm/geometry/./convexhull/convexhull">Convex Hull</a></a></h2>
 <h2><a class="header" href="#a-hrefalgorithmgeometryrotatingcallipersrotatingcallipershtmlrotating-callipersa" id="a-hrefalgorithmgeometryrotatingcallipersrotatingcallipershtmlrotating-callipersa">3. <a href="algorithm/geometry/./rotatingcallipers/rotatingcallipers.html">Rotating Callipers</a></a></h2>
 <h1><a class="header" href="#convex-hull" id="convex-hull">Convex Hull</a></h1>
 <h1><a class="header" href="#rotating-callipers" id="rotating-callipers">Rotating Callipers</a></h1>
 <h1><a class="header" href="#string" id="string">String</a></h1>
-<h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
+<h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘" id="관련-알고리즘">2. 관련 알고리즘</a></h2>
 <ul>
 <li><a href="algorithm/string/./kmp/kmp.html">KMP</a></li>
@@ -886,7 +981,7 @@ int query(int u,int v){
 <h1><a class="header" href="#kmp" id="kmp">KMP</a></h1>
 <h1><a class="header" href="#manacher-algorithm" id="manacher-algorithm">Manacher Algorithm</a></h1>
 <h1><a class="header" href="#hashing" id="hashing">Hashing</a></h1>
-<h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
+<h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
 <p>일반적으로 배열에서의 탐색은 전 탐색 시에 \(O(N)\), 정렬하고 이분 탐색 시에 \(O(\log N)\) 으로 처리 가능합니다. 그러나, 어떤 경우에는 이러한 시간복잡도로도 부족하여서, 또는 정렬하고 이분 탐색하는 것이 불가능할 때 해싱이라는 기법을 사용합니다.
 해싱이란 데이터의 효율적인 관리를 위하여 임의의 길이의 데이터를 고정된 길이의 데이터로 변환하여 처리하는 과정입니다.
 해싱은 크게 두 개의 부분으로 이루어지는데, 그것은 해시 테이블과 해시 함수입니다.</p>
@@ -945,7 +1040,7 @@ $$ Index = data % size $$ </p>
 <h1><a class="header" href="#suffix-array" id="suffix-array">Suffix Array</a></h1>
 <h1><a class="header" href="#aho-corasick" id="aho-corasick">Aho-Corasick</a></h1>
 <h1><a class="header" href="#basic-data-structure" id="basic-data-structure">Basic Data Structure</a></h1>
-<h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
+<h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
 <p>기본 자료구조은 입력받은 데이터를 저장하고, 사용할 수 있도록 하는 기초적인 자료 저장 방식으로 구성되어 있다. 각 자료구조의 특성을 정확히 이해하여, 문제를 푸는 과정에서 필요한 적절한 자료구조를 선택하여 사용할 수 있어야 한다.</p>
 <h2><a class="header" href="#종류-7" id="종류-7">2. 종류</a></h2>
 <ul>
@@ -963,7 +1058,7 @@ $$ Index = data % size $$ </p>
 <h1><a class="header" href="#linked-list" id="linked-list">Linked List</a></h1>
 <h1><a class="header" href="#structure" id="structure">Structure</a></h1>
 <h1><a class="header" href="#intermediate-data-structure" id="intermediate-data-structure">Intermediate Data Structure</a></h1>
-<h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
+<h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
 <p>중급 자료구조는 난이도 있는 문제를 푸는 과정에서 자주 사용되는 자료구조들로, 대부분은 라이브러리에 작성되어있는 자료구조를 사용하지만 그 내부 원리와 사용 방법을 알아야 문제 없이 사용할 수 있습니다.</p>
 <h2><a class="header" href="#종류-8" id="종류-8">2. 종류</a></h2>
 <ul>
@@ -978,7 +1073,7 @@ $$ Index = data % size $$ </p>
 <h1><a class="header" href="#set" id="set">Set</a></h1>
 <h1><a class="header" href="#priority-queue" id="priority-queue">Priority Queue</a></h1>
 <h1><a class="header" href="#bitmask" id="bitmask">Bitmask</a></h1>
-<h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
+<h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
 <p>그럼 이제 본격적으로 비트마스킹이 뭔지 설명할 차례입니다. 비트마스킹에는 <a href="datastructure/intermediate/bitmask/../bitoperator/bitoperator.html">비트 연산자</a>가 모든 연산을 차지합니다. 먼저 비트마스크(Bitmask)의 정의부터 살펴봅시다. 비트마스크란, 비트를 변경하여 정보를 저장하는 정수를 뜻합니다. 비트마스킹 기법은 이 비트마스크를 사용하여 메모리 및 연산속도를 대폭 줄일 수 있습니다.</p>
 <h2><a class="header" href="#장점" id="장점">2. 장점</a></h2>
 <p>비트마스크는 다음과 같은 주요 장점이 있습니다.</p>
@@ -996,7 +1091,7 @@ $$ Index = data % size $$ </p>
 <p>비트마스크를 쓸 경우 복잡한 코드가 한주로 짧게 줄어들 수 있습니다. 비트마스킹만 잘 안다면, 코드의 가독성이 향상될 것입니다.</p>
 </li>
 </ul>
-<h2><a class="header" href="#코드-9" id="코드-9">3. 코드</a></h2>
+<h2><a class="header" href="#코드-10" id="코드-10">3. 코드</a></h2>
 <p>비트마스킹으로 배열에 있는 많은 기능들을 구현해 봅시다. 대부분의 구현들이 간단한 비트연산 한번으로 가능합니다. 다음 코드를 봅시다.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt; 
 
@@ -1103,7 +1198,7 @@ int main(){
 <p>현재 도시의 순회 최솟값을 알기 위해 다음 돌아가는 모든 경로를 탐색한 후 그 값을 DP에 저장하면 문제가 풀릴 수 있습니다. 이떄, 집합 visited를 비트마스킹으로 구현할 수 있습니다.</p>
 <p>이 코드는 DP의 원소의 개수가 \(2^{N} \times N\)이고 이를 각 도시마다 한 번씩 N번 탐색하여 총 시간복잡도는 \(O(2^{N} \times N^{2})\)입니다. 만약 다이나믹기법을 쓰지 않았다면 모두 일일이 탐색해야 하므로 시간복잡도는 \(O(N!)\)이 되었을 것입니다. 느리기는 하지만, 확실히 빨라졌습니다. 여기에 비트마스킹으로 연산속도까지 빨라졌으니, 문제에서 주어진 <code>N</code>의 범위쯤은 거뜬합니다.</p>
 <h1><a class="header" href="#bit-operator" id="bit-operator">Bit Operator</a></h1>
-<h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
+<h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
 <p>비트 연산자란, 각 수의 비트로(즉, 0과 1로) 연산을 진행하는 연산자입니다. 비트 연산자는 다음과 같이 있습니다.</p>
 <ul>
 <li>비트 AND(&amp;)</li>
@@ -1176,7 +1271,7 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 <p>갑자기 NOT연산의 결과를 통해 부호가 바뀌어서 당황스러울 수 있습니다. 그러나 이건 매우 당연한 것입니다. 첫번째 비트는 부호를 결정하기 때문에 그 비트까지 바뀌어서 부호가 바뀐 것입니다.</p>
 <p>이 NOT연산은 특징이 있습니다. <code>~N</code>은 항상 <code>-N-1</code>이 됩니다. 이 결과는 비트 반전하여 계산하면 쉽게 알 수 있는데, <strong>이 비트 NOT연산을 한 수를 그 수의 보수라고 합니다.</strong></p>
 <h1><a class="header" href="#heap" id="heap">Heap</a></h1>
-<h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
+<h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
 <p>힙이란 특정한 규칙을 만족하도록 구성된 완전이진트리로써, 최댓값 및 최솟값을 빠르게 찾기 위해 고안되었습니다. 완전이진트리가 무엇인지는 RB tree 단원에서 배웠을 것이라고 생각하고 바로 힙에 대한 설명으로 넘어가겠습니다. 힙은 부모와 자식 사이에 일정한 대소관계 규칙이 있는 트리입니다. 따라서 뿌리노드에는 항상 가장 높은(또는 가장 작은) 우선순위의 노드가 위치하게 됩니다. 부모가 항상 자식보다 크거나 같은 경우는 최대 힙(max heap)이라고 하고 그 반대의 경우는 최소 힙(min heap)이라고 합니다. 이렇게 만들어 놓으면 주어진 값들의 최솟값이나 최댓값을 바로 알 수 있습니다. min heap의 경우 뿌리노드가 최솟값이고, max heap의 경우는 최댓값이겠지요.</p>
 <img src="datastructure/intermediate/heap/./heap1.PNG" width = 500 >
 <p>위 그림은 전형적인 최소 힙의 모습입니다. 그림을 보면 항상 부모노드가 자식노드보다 작으므로 이것은 최소 힙(min heap) 이라고 할 수 있겠습니다.</p>
@@ -1263,7 +1358,7 @@ int pop(){
 로 선언하며, 사용할 수 있는 함수는 힙에 <code>k</code>라는 값을 push하는  <code>mypq.push(k)</code>, pop을 진행하는 <code>mypq.pop(),</code> 힙이 비어있으면 true를 반환하는 <code>mypq.empty()</code>, 루트노드에 있는 원소를 반환하는 <code>mypq.top()</code> 등이 있습니다.</p>
 <h1><a class="header" href="#red-black-tree" id="red-black-tree">Red Black Tree</a></h1>
 <h1><a class="header" href="#tree" id="tree">Tree</a></h1>
-<h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
+<h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘-1" id="관련-알고리즘-1">2. 관련 알고리즘</a></h2>
 <ul>
 <li><a href="datastructure/tree/./disjointset/disjointset.html">Disjoint Set</a>
@@ -1279,10 +1374,8 @@ int pop(){
 <li><a href="datastructure/tree/./cactus/cactus.html">Cactus Graph</a></li>
 </ul>
 <h1><a class="header" href="#disjoint-set" id="disjoint-set">Disjoint Set</a></h1>
-<h1><a class="header" href="#prim-algorithm" id="prim-algorithm">Prim Algorithm</a></h1>
-<h1><a class="header" href="#kruskal-algorithm" id="kruskal-algorithm">Kruskal Algorithm</a></h1>
 <h1><a class="header" href="#topological-sort" id="topological-sort">Topological Sort</a></h1>
-<h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
+<h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
 <p>Topological Sort는 위상 정렬이라고 하며, 방향 그래프에서 정점들을 정점 u에서 정점 v로 가는 간선이 있을 때, 정점 u가 정점 v보다 앞에 오도록 선형으로 정렬하는 것입니다. 이렇게 정점들을 정렬하면 어떤 작업을 수행할 때 올바른 순서를 알아낼 수 있습니다. 예를 들어, 수강해야 할 여러 수업들 중 한 수업보다 먼저 들어야 하는 수업이 있을 때, 위상 정렬을 이용하면 가능한 수강 순서를 알아낼 수 있을 것입니다. 그러나 이러한 위상 정렬을 하려면, 정렬하려고 하는 그래프가 사이클이 없는 방향성 비순환 그래프 (directed acyclic graph 또는 DAG) 이어야 합니다. 당연하게도 사이클이 존재한다면 사이클을 이루는 정점 간의 우선 순위를 결정할 수 없기 때문입니다. 그리고 정렬이 된 순서는 그래프의 구조에 따라 여러 종류가 나올 수 있게 됩니다.</p>
 <p>실제 컴퓨터 분야에서 이 알고리즘은 논리 합성, 데이터 직렬화, 코드 최적화의 한 방법인 Instruction Scheduling 등에서 사용됩니다. </p>
 <h2><a class="header" href="#kahns-algorithm" id="kahns-algorithm">2. Kahn's Algorithm</a></h2>
@@ -1345,7 +1438,7 @@ for(u : V){
 }
 </code></pre>
 <p>이 알고리즘은 위상 정렬을 할 때와 마찬가지로 시간복잡도가 \(O(V+E)\)입니다. 따라서 선형이므로 꽤나 빠르게 최단 경로를 찾을 수 있습니다. 그러나 이와 비슷한 시간복잡도를 가지고 좀 더 간결하게 코드를 짤 수 있는 dijkstra 알고리즘을 사용하는 것이 실전에서는 더 도움이 될 것입니다.</p>
-<h2><a class="header" href="#예시-3" id="예시-3">5. 예시</a></h2>
+<h2><a class="header" href="#예시-4" id="예시-4">5. 예시</a></h2>
 <p>위상 정렬을 사용하여 해결할 수 있는 문제 중 대표적인 문제로는 <a href="https://www.acmicpc.net/problem/2252">줄 세우기</a>가 있습니다. 이 문제는 vector 자료구조로 인접 리스트를 만들어 위상 정렬을 수행하면 바로 답을 구할 수 있습니다. 이에 대한 코드는 다음과 같습니다.</p>
 <pre><code class="language-c++">int main(void) {
    for(i = 1; i &lt;= m; i++) {
@@ -1379,9 +1472,141 @@ for(u : V){
 <h1><a class="header" href="#euler-tour" id="euler-tour">Euler Tour</a></h1>
 <h1><a class="header" href="#tree-diameter" id="tree-diameter">Tree Diameter</a></h1>
 <h1><a class="header" href="#lca" id="lca">LCA</a></h1>
+<h1><a class="header" href="#minimum-spanning-tree" id="minimum-spanning-tree">Minimum Spanning Tree</a></h1>
+<h2><a class="header" href="#소개-33" id="소개-33">1. 소개</a></h2>
+<p>어떤 그래프의 스패닝 트리(Spanning Tree)는 원래 그래프의 정점 전부와 간선 일부로 구성된 트리 형태의 부분 그래프를 말합니다. 
+최소 스패닝 트리(MST, Minimum Spanning Tree)란 어떠한 가중치 그래프의 스패닝 트리 중 간선의 가중치 합이 가장 작은 것을 말합니다.</p>
+<h2><a class="header" href="#관련-알고리즘-2" id="관련-알고리즘-2">2. 관련 알고리즘</a></h2>
+<ul>
+<li><a href="datastructure/tree/mst/./kruskal/kruskal.html">Kruskal's Algorithm</a></li>
+<li><a href="datastructure/tree/mst/./prim/prim.html">Prim's Algorithm</a></li>
+</ul>
+<h1><a class="header" href="#prims-algorithm" id="prims-algorithm">Prim's Algorithm</a></h1>
+<h2><a class="header" href="#소개-34" id="소개-34">1. 소개</a></h2>
+<p>프림의 알고리즘은 가중치가 작은 간선부터 트리에 추가해 가며 최소 스패닝 트리를 구한다는 면에서는 <a href="datastructure/tree/mst/prim/../kruskal/kruskal.html">크루스칼의 알고리즘</a>과 같습니다.
+<a href="datastructure/tree/mst/prim/../kruskal/kruskal.html">크루스칼의 알고리즘</a>은 간선들이 서로 연결되어 있지 않더라도 가중치가 작으면 트리에 추가하는 반면, 프림의 알고리즘에서는 현재 최소 스패팅 트리에 연결된 간선만 트리에 추가한다는 것이 프림 알고리즘과 <a href="datastructure/tree/mst/prim/../kruskal/kruskal.html">크루스칼의 알고리즘</a>의 차이점입니다.</p>
+<h2><a class="header" href="#과정-1" id="과정-1">2. 과정</a></h2>
+<p>다음 그래프에 프림 알고리즘을 적용하여 MST를 구해보자.</p>
+<img src="datastructure/tree/mst/prim/./prim1.png" width = 500 >
+<img src="datastructure/tree/mst/prim/./prim2.svg" width = 500 >
+<p>파란색 간선은 최소 스패닝 트리에 추가된 간선을 뜻하며, 녹색은 최소 스패팅 트리와 연결되어 있는 간선, 즉 최소 스패닝 트리에 추가될 가능성이 있는 간선을 의미합니다.</p>
+<p>프림의 알고리즘은 먼저 특수한 한 정점을 최소 스패닝 트리에 추가시킵니다. 그 후, 현재의 트리와 연결된 간선들 중에서 가중치가 최소인 간선과 그에 연결된 정점을 계속해서 트리에 포함시킵니다. 이 과정을 모든 정점이 트리에 포함될 때까지, 총 \(|V|\)번 계속합니다.</p>
+<h2><a class="header" href="#코드-11" id="코드-11">3. 코드</a></h2>
+<h3><a class="header" href="#ov2--배열을-이용한-방법" id="ov2--배열을-이용한-방법">3.1. \(O(|V|^2)\) | 배열을 이용한 방법</a></h3>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define V 100000 //maximum number of nodes
+
+using namespace std;
+typedef pair&lt;int, int&gt; pp;
+
+vector&lt;pp&gt; gr[V]; //first=weight, second=node number
+int mincost[V];
+bool check[V];
+
+int prim(int v){
+	int i, j;
+	int ret=0;
+	int mn;
+	mincost[0]=0;
+	for(i=1;i&lt;v;i++) mincost[i]=INT_MAX;
+	for(i=0;i&lt;v;i++){
+		mn=-1;
+		for(j=0;j&lt;v;j++)
+			if(!check[j]&amp;&amp;(mn==-1||mincost[j]&lt;mincost[mn])) mn=j;
+		ret+=mincost[mn];
+		check[mn]=1;
+		for(j=0;j&lt;gr[mn].size();j++)
+			mincost[gr[mn][j].second]=min(mincost[gr[mn][j].second], gr[mn][j].first);
+	}
+	return ret;
+}
+</code></pre>
+<p>배열을 이용한 방법은 \(|V|\)개의 원소의 최솟값을 구하는 과정을 \(|V|\)번 반복하고, \(|E|\)개의 간선을 한 번씩 조사하므로 총 시간 복잡도는 \(O(|E|+|V|^2)\)입니다. 이때 \(|E|&lt;|V|^2\)이므로 결국 시간 복잡도는 \(O(|V|^2)\)이 됩니다.</p>
+<h3><a class="header" href="#oelog-v--우선순위-큐를-이용한-방법" id="oelog-v--우선순위-큐를-이용한-방법">3.2. \(O(|E|\log |V|)\) | 우선순위 큐를 이용한 방법</a></h3>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define V 100000 //number of nodes
+
+using namespace std;
+typedef pair&lt;int, int&gt; pp;
+
+vector&lt;pp&gt; gr[V]; //first=weight, second=node number
+bool check[V];
+priority_queue&lt;pp, vector&lt;pp&gt;, greater&lt;pp&gt; &gt; mincost;
+
+int prim(int v){
+	int i, j;
+	pp t;
+	int ret=0;
+	mincost.push(pp(0, 0));
+	for(i=0;i&lt;v;i++){
+		while(check[mincost.top().second]) mincost.pop(); //delete already visited nodes
+		t=mincost.top(), mincost.pop();
+		check[t.second]=1;
+		ret+=t.first;
+		for(j=0;j&lt;gr[t.second].size();j++){
+			mincost.push(pp(gr[t.second][j].first, gr[t.second][j].second));
+		}
+	}
+	return ret;
+}
+</code></pre>
+<p>우선순위 큐를 이용한 방법은 \(|E|\)개의 원소를 가지는 우선순위 큐에 대한 삽입/삭제 연산을 최대 \(|E|\)번 하므로 시간 복잡도는 \(O(|E|\log |E|)\)이고, 위에서와 마찬가지로 \(|E|&lt;|V|^2\)이므로 이는 \(O(|E|\log |V|)\)와 같습니다.</p>
+<p>밀집된 그래프에서, 즉 \(|E|\)가 \(|V|^2\)에 가까울 경우에는 위의 방식이 아래의 방식보다 더 빠르게 동작합니다. 반면 \(|E|\)가 적당히 작은 경우에는 아래의 방식이 위의 것보다 더 빠르게 동작할 수 있습니다. 따라서 문제의 조건을 정확히 파악하고 그에 알맞은 구현 방법을 사용하는 것이 중요합니다.</p>
+<h2><a class="header" href="#여담-3" id="여담-3">4. 여담</a></h2>
+<p>자세히 살펴보면, 우선순위 큐를 이용한 프림의 알고리즘 구현은 다익스트라의 알고리즘과 상당히 비슷하다는 것을 알 수 있습니다. 이는 두 알고리즘의 아이디어가 상당히 비슷하기 때문인데, 실제로 두 알고리즘의 코드를 한두 줄만 고치면 다른 알고리즘의 코드로 변하는 것을 볼 수 있습니다.</p>
+<h1><a class="header" href="#kruskals-algorithm" id="kruskals-algorithm">Kruskal's Algorithm</a></h1>
+<h2><a class="header" href="#소개-35" id="소개-35">1. 소개</a></h2>
+<p>크루스칼의 알고리즘은 가중치가 작은 간선부터 최소 스패닝 트리에 추가해가며 그래프의 최소 스패닝 트리를 구하는 방법으로, <a href="datastructure/tree/mst/kruskal/../disjointset/disjointset.html">상호 배타적 집합 자료 구조(Disjoint-set)</a>을 사용합니다.</p>
+<h2><a class="header" href="#과정-2" id="과정-2">2. 과정</a></h2>
+<p>크루스칼의 알고리즘은 최소 스패닝 트리에는 가중치가 작은 간선이 들어가야 한다는 아이디어를 바탕으로 MST를 구합니다.</p>
+<p>알고리즘 자체도 아이디어만큼 간단합니다. 모든 간선들을 가중치를 기준으로 정렬한 다음, 가중치가 가장 작은 간선부터 조사합니다. 만약 그 간선이 잇는 두 정점이 이미 연결되어 있다면 다음 간선으로 넘어가고, 연결되어 있지 않다면 그 간선을 최소 스패닝 트리에 추가합니다. 아래 그림들은 주어진 그래프에 대한 크루스칼의 알고리즘의 동작 과정을 보여줍니다.</p>
+<img src="datastructure/tree/mst/kruskal/./kruskal1.png" width = 500 >
+<p>아래 그림에서 색이 같은 정점은 이미 연결된 정점을, 색이 다른 정점은 아직 연결되지 않은 정점을 의미합니다. 붉은색 간선은 현재 보고 있는 간선을 뜻하며 진한 간선은 이미 최소 스패닝 트리에 추가되었음을 나타냅니다.</p>
+<p><img src="datastructure/tree/mst/kruskal/./kruskal2.svg" width = 300 ><img src="datastructure/tree/mst/kruskal/./kruskal3.svg" width = 300 ></p>
+<p>정점들이 연결되어 있는지 확인하거나 연결하는 연산에 <a href="datastructure/tree/mst/kruskal/../disjointset/disjointset.html">상호 배타적 집합 자료 구조(Disjoint-set)</a>를 사용하면, 연산당 시간 복잡도는 \(O(\alpha (|V|))\)이므로 트리를 만드는 부분은 거의 \(O(|E|)\)의 시간에 작동합니다. 따라서 전체 시간 복잡도는 정렬에 걸리는 시간인 \(O(|E|\log |E|)\)가 됩니다. \(|E|&lt;|V|^2\)이므로 이는 \(O(|E|\log |V|)\)로도 나타낼 수 있습니다.</p>
+<h2><a class="header" href="#코드-12" id="코드-12">3. 코드</a></h2>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define V 100000 //maximum number of nodes
+#define E 100000 //maximum number of edges
+
+using namespace std;
+
+int parent[V];
+
+struct Edge{
+	int start, end, value;
+	bool operator &lt;(const Edge &amp;r) const{
+		return value&lt;r.value;
+	}
+}edge[E];
+
+int find(int x){
+	if(parent[x]==x) return x;
+	return parent[x]=find(parent[x]);
+}
+
+bool uni(Edge x){
+	int p=find(x.start), q=find(x.end);
+	if(p==q) return 0;
+	parent[p]=q;
+	return 1;
+}
+
+void initSet(int e){
+	for(int i=0;i&lt;e;i++) parent[i]=i;
+}
+
+int kruskal(int e){
+	int ret=0;
+	initSet(e);
+	sort(edge, edge+e);
+	for(int i=0;i&lt;e;i++) if(uni(edge[i])) ret+=edge[i].value;
+	return ret;
+}
+</code></pre>
 <h1><a class="header" href="#cactus-graph" id="cactus-graph">Cactus Graph</a></h1>
 <h1><a class="header" href="#segment-tree" id="segment-tree">Segment Tree</a></h1>
-<h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
+<h2><a class="header" href="#소개-36" id="소개-36">1. 소개</a></h2>
 <p>Segment Tree는 STL에서 지원하지 않는 자료구조이지만 아주 강력한 자료구조중 하나입니다. Segment Tree는 일반적으로 \(O(\log N)\)시간에 값의 변경과 값에 대한 쿼리를 수행할 수 있고, 그 활용성 또한 아주 다양해 구간 합 쿼리, 구간 최솟값/최댓값 쿼리등을 수행할 수 있습니다.</p>
 <p>Segment Tree의 유래를 찾아보자면 버킷에서 찾아볼 수 있다고 할 수 있습니다. 다음 그림은 원소 2개당 하나의 버킷을 만들어 최솟값을 저장한 모습입니다.</p>
 <img src="datastructure/segmenttree/./segment1.pdf" width = 400 >
@@ -1391,7 +1616,7 @@ for(u : V){
 <p>하지만 이 과정을 계속 반복한다면 봐야 하는 값의 개수가 크게 줄어들 것입니다. 이런 아이디어의 연장이 Segment Tree라고 할 수 있습니다. Segment Tree는 저 과정을 계속 반복해 그림과 같이 한 원소는 약 \(\log N\) 개의 노드의 부분에 속하게 됩니다.</p>
 <img src="datastructure/segmenttree/./segment2.pdf" width = 400 >
 <p>또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \(O(\log N)\) 개가 되어 쿼리를 \(O(\log N)\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. </p>
-<h2><a class="header" href="#예시-4" id="예시-4">2. 예시</a></h2>
+<h2><a class="header" href="#예시-5" id="예시-5">2. 예시</a></h2>
 <p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. 문제를 요약하면 다음과 같다.</p>
 <blockquote>
 <p>어떤 <code>N</code>개의 수가 주어져 있다. 그런데 중간에 수의 변경이 <code>M</code>번 일어나고 그 중간에 어떤 부분의 합을 <code>K</code>번 구하려 한다. </p>
@@ -1468,16 +1693,16 @@ int main(){
 <li><a href="datastructure/segmenttree/./lazypropagation/lazypropagation.html">Lazy Propagation</a></li>
 </ul>
 <h1><a class="header" href="#fenwick-tree" id="fenwick-tree">Fenwick Tree</a></h1>
-<h2><a class="header" href="#소개-33" id="소개-33">1. 소개</a></h2>
+<h2><a class="header" href="#소개-37" id="소개-37">1. 소개</a></h2>
 <p>펜윅 트리는 구간 트리의 한 종류입니다. 주로 구간 합을 빠르게 구할 때 사용되고 BIT(Binary Indexed Tree)라고도 불립니다. 펜윅 트리는 기존의 구간 합을 구할 때 사용항였던 구간 트리인 세그먼트 트리 등에서 미리 계산하여 저장한 정보들 중 많은 양의 정보가 실제로 필요하지 않다는 점을 이용합니다. 부분 합(1번째 원소부터의 합)을 구할 때 필요한 정보들만을 계산하여 부분 합을 구하여 <code>s</code>부터 <code>e</code>까지의 구간 합을 계산한다고 하면 <code>e</code>까지의 부분 합에서 <code>s-1</code>까지의 부분 합을 빼서 구간 합을 구합니다. 기존의 세그먼트 트리에서 부분 합을 구할 때 각 노드의 오른쪽 자식은 필요로 하지 않습니다. 부모와 왼쪽 자식을 안다면 오른쪽 자식의 값도 알 수 있기 때문입니다. 필요 없는 정보들이 차지한 공간을 제외한 펜윅 트리는 다음 그림과 같습니다.</p>
 <h1><a class="header" href="#merge-sort-tree" id="merge-sort-tree">Merge Sort Tree</a></h1>
-<h2><a class="header" href="#소개-34" id="소개-34">1. 소개</a></h2>
+<h2><a class="header" href="#소개-38" id="소개-38">1. 소개</a></h2>
 <p>머지 소트 트리란 특수한 세그먼트 트리의 일종으로,  병합 정렬에서 정렬하는  과정이 그대로 트리의 노드에 저장된 트리를 말합니다 (<a href="datastructure/segmenttree/mergesorttree/../segmenttree.html">세그먼트 트리</a>, <a href="datastructure/segmenttree/mergesorttree/../../../algorithm/sort/mergesort.html">머지 소트</a> 참고). 다음 그림은 머지 소트 과정의 예시입니다. </p>
 <img src="datastructure/segmenttree/mergesorttree/./mergesorttree1.png" width = 500 >
 <p>머지 소트 트리는 위 과정에서 나타난 각각의 배열들을 노드로 삼아 만들어지는 트리입니다. 우리는 저 과정에서 나타난 배열들을 저장해서 새로운 트리를 만드는 것으로, 전체 수열의 부분수열에 대한 탐색을 매우 빠른 속도로 탐색할 수 있습니다. 머지 소트 트리를 만드는 것으로, 어떤 구간을 최대\(\log n\)개의 정렬된 구간으로 나타낼 수 있게 해줍니다. 위 그림의 머지 소트 과정을 활용하여 머지 소트 트리를 만든 결과는 다음과 같습니다.</p>
 <img src="datastructure/segmenttree/mergesorttree/./mergesorttree2.jpg" width = 500 >
 <p>가장 효율적인 정렬 알고리즘은 \(O(n\log n)\)의 시간 복잡도를 가지며, 머지 소트 역시 이런 효율적인 알고리즘중 하나입니다. 그리고 머지 소트 트리는 이런 머지 소트와 매우 유사합니다. 하나의 노드는 일반적인 세그먼트 트리와 같게 최대 두개까지의 자식 노드를 갖고, 두 노드의 배열을 합친 배열을 정렬하여 값으로 가집니다. 이런 과정을 통해 만들어진 전체 트리에서, 같은 깊이의 노드들의 배열을 전부 합치면 처음의 전체 배열에 속하는 배열이 만들어집니다. 하나의 깊이에 대해서 \(O(n)\)의 공간복잡도를 가지고, 깊이는 최대 \(\log n\)까지 존재하므로 총 \(O(n\log n)\)의 공간복잡도를 가집니다. 단순히 머지 소트에서 확인했던 노드들을 저장해두는 과정을 통해 만들어지기 때문에 머지 소트와 동일한 \(O(n\log n)\)의 시간복잡도를 가집니다. </p>
-<h2><a class="header" href="#코드-10" id="코드-10">2. 코드</a></h2>
+<h2><a class="header" href="#코드-13" id="코드-13">2. 코드</a></h2>
 <p>머지 소트 트리를 c++코드를 통해 구현하면 아래와 같습니다.</p>
 <pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
 using namespace std;
@@ -1512,7 +1737,7 @@ int main()
 }
 </code></pre>
 <p>머지 소트 트리는 실행시간이 작지만, 그 특성상 업데이트는 시간복잡도로 인해서 커다란 의미를 가지지는 않습니다. 하나의 값을 업데이트하기 위해서는 그 값을 포함하는 \(\log n\)개의 노드를 모두 업데이트해야 하고, 업데이트에는 최대 그 노드의 길이만큼의 시간이 걸립니다. \(\log n\)개의 노드의 길이는 \(n, [n/2], ..., 1\)이므로, 그 합은 \(O(n)\)의  시간복잡도를 가지게 되어 머지 소드 트리가 아닌 일반 배열과도 시간복잡도가 같습니다.</p>
-<h2><a class="header" href="#예시-5" id="예시-5">3. 예시</a></h2>
+<h2><a class="header" href="#예시-6" id="예시-6">3. 예시</a></h2>
 <p>그럼 이제 머지 소트 트리를 활용해서 어떤 구간에서 <code>k</code>번째로 작은 수를 구하는 문제를 풀어보도록 합시다. 별다른 알고리즘을 사용하지 않고, 구간을 복사해서 정렬하면 \(O(n\log n)\)의 시간복잡도만에 원하는 답을 구해낼 수 있습니다. 그리고 머지 소트 트리를 만들어서 활용하면 이보다 시간 복잡도를 많이 줄일 수 있습니다.</p>
 <p>단순히 머지 소트 트리만을 활용한다면, 요구받은 구간을 나눈 \(\log n\)개의 정렬된 부분에서, 각 부분의 맨 앞에 있는 \(\log n\)개의 값들중 작은 값부터 빼내는 것으로 \(O(k\log n)\)의 시간복잡도를 가질 수 있습니다.</p>
 <p>파라마트릭 서치(Parametric Search)와 이진탐색(Binary Search)를 활용하면 \(O(log^{3}n)\)의 시간복잡도를 가지고 원하는 답을 구해낼 수 있습니다. 어떤 수 <code>k</code>가 정해졌을 때, 요구받은 구간에서 그 수가 몇번째인지 \(O(log^{2}n)\)만에 구할 수 있습니다. 모든 부분구간들은 정렬되어 있으므로, <code>lower bound</code>를 활용하면 한 부분구간에 대해서 \(O(\log n)\)만에 구할 수 있습니다. 확인해야 하는 부분구간의 수는 최대 \(\log n\)개 이므로 어떤 수 <code>k</code>에 대해서 총 \(O(\log^{2} n)$의 시간복잡도만에 <code>k</code>가 주어진 구간에서 몇번째 수인지를 알 수 있으며, 파라마트릭 서치를 사용하면 전체 시간복잡도는 \(O(log^{3}n)\)이 됩니다. 위 알고리즘을 코드로 구현하면 아래와 같습니다.</p>
@@ -1570,7 +1795,7 @@ int main()
 <h1><a class="header" href="#dynamic-segment-tree" id="dynamic-segment-tree">Dynamic Segment Tree</a></h1>
 <h1><a class="header" href="#lazy-propagation" id="lazy-propagation">Lazy Propagation</a></h1>
 <h1><a class="header" href="#advanced-data-structure" id="advanced-data-structure">Advanced Data Structure</a></h1>
-<h2><a class="header" href="#소개-35" id="소개-35">1. 소개</a></h2>
+<h2><a class="header" href="#소개-39" id="소개-39">1. 소개</a></h2>
 <p>고급 자료구조에서는 어려운 문제를 푸는 과정들에서 필요한 자료구조들을 다룬다. </p>
 <h2><a class="header" href="#종류-9" id="종류-9">2. 종류</a></h2>
 <ul>
@@ -1652,7 +1877,7 @@ int main() {
 <code>K=1</code>, <code>K=2</code>일 때의 상황을 위의 xor 알고리즘으로 설명할 수 있음을 간단히 알 수 있습니다.</p>
 <h2><a class="header" href="#변형된-nim-게임" id="변형된-nim-게임">4. 변형된 Nim 게임</a></h2>
 <p>PS 문제에서는 때로 Nim 게임을 다양하게 변형한 문제를 제시합니다.</p>
-<h2><a class="header" href="#여담-3" id="여담-3">5. 여담</a></h2>
+<h2><a class="header" href="#여담-4" id="여담-4">5. 여담</a></h2>
 <p>그룬디 수를 이용해 승패를 판정하는 원리와 관련된 이론으로 <a href="https://en.wikipedia.org/wiki/Sprague-Grundy_theorem#Proof">스프라그-그룬디 정리</a>가 있습니다. 조합적 게임 이론에 관심이 있거나, 이 정리의 정확한 증명을 알고 싶은 사람은 추가로 참고해 보면 좋을 것입니다.</p>
 <h1><a class="header" href="#2-sat" id="2-sat">2-SAT</a></h1>
 <h1><a class="header" href="#meet-in-the-middle" id="meet-in-the-middle">Meet in the Middle</a></h1>
