@@ -266,7 +266,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["M_", "Me_", "Mer_", "Merg_", "Merge_", "Merge _", "Merge S_", "Merge So_", "Merge Sor_", "Merge Sort_", "Merge Sort_", "Merge Sort_", "Merge Sort_", "Merge Sort", "Merge Sort", "Merge Sort", "Merge Sort", "Merge Sort_", "Merge Sort_", "Merge Sort_", "Merge Sort_", "Merge Sort"];
+    let s = ["M_", "Me_", "Mer_", "Merg_", "Merge_", "Merge&nbsp;_", "Merge&nbsp;S_", "Merge&nbsp;So_", "Merge&nbsp;Sor_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort", "Merge&nbsp;Sort", "Merge&nbsp;Sort", "Merge&nbsp;Sort", "Merge&nbsp;Sort_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
