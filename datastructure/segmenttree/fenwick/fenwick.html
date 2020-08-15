@@ -76,8 +76,135 @@
             html.classList.add('js');
         </script>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <script>
+            function addOnload(fun){
+                var last = window.onload;
+                window.onload = function(){
+                    if(last) last();
+                    fun();
+                }
+            }
+        </script>
 
+        <script>
+            // code from https://github.com/hakimel/css/tree/master/progress-nav
+            // thanks for great code!
+            function toc() {
+                var toc = document.querySelector('.toc');
+                var tocPath = document.querySelector('.toc-marker path');
+                var tocItems;
+
+                // Factor of screen size that the element must cross
+                // before it's considered visible
+                var TOP_MARGIN = 0.05,
+                        BOTTOM_MARGIN = 0;
+                var pathLength;
+                var lastPathStart,
+                        lastPathEnd;
+
+                window.addEventListener('resize', drawPath, false);
+                window.addEventListener('scroll', sync, false);
+
+                drawPath();
+
+                function drawPath() {
+                    tocItems = [].slice.call(toc.querySelectorAll('li'));
+
+                    // Cache element references and measurements
+                    tocItems = tocItems.map(function (item) {
+                        var anchor = item.querySelector('a');
+                        var target = document.getElementById(anchor.getAttribute('href').slice(1));
+
+                        return {
+                            listItem: item,
+                            anchor: anchor,
+                            target: target
+                        };
+                    });
+
+                    // Remove missing targets
+                    tocItems = tocItems.filter(function (item) {
+                        return !!item.target;
+                    });
+
+                    var path = [];
+                    var pathIndent;
+
+                    tocItems.forEach(function (item, i) {
+                        var x = item.anchor.offsetLeft - 5,
+                                y = item.anchor.offsetTop,
+                                height = item.anchor.offsetHeight;
+
+                        if (i === 0) {
+                            path.push('M', x, y, 'L', x, y + height);
+                            item.pathStart = 0;
+                        } else {
+                            // Draw an additional line when there's a change in
+                            // indent levels
+                            if (pathIndent !== x) path.push('L', pathIndent, y);
+
+                            path.push('L', x, y);
+
+                            // Set the current path so that we can measure it
+                            tocPath.setAttribute('d', path.join(' '));
+                            item.pathStart = tocPath.getTotalLength() || 0;
+
+                            path.push('L', x, y + height);
+                        }
+
+                        pathIndent = x;
+
+                        tocPath.setAttribute('d', path.join(' '));
+                        item.pathEnd = tocPath.getTotalLength();
+                    });
+
+                    pathLength = tocPath.getTotalLength();
+
+                    sync();
+                }
+
+                function sync() {
+                    var windowHeight = window.innerHeight;
+                    var pathStart = pathLength,
+                            pathEnd = 0;
+                    var visibleItems = 0;
+
+                    tocItems.forEach(function (item) {
+                        var targetBounds = item.target.getBoundingClientRect();
+
+                        if (targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * (1 - BOTTOM_MARGIN)) {
+                            pathStart = Math.min(item.pathStart, pathStart);
+                            pathEnd = Math.max(item.pathEnd, pathEnd);
+
+                            visibleItems += 1;
+
+                            item.listItem.classList.add('visible');
+                        } else {
+                            item.listItem.classList.remove('visible');
+                        }
+                    });
+
+                    // Specify the visible path or hide the path altogether
+                    // if there are no visible items
+                    if (visibleItems > 0 && pathStart < pathEnd) {
+                        if (pathStart !== lastPathStart || pathEnd !== lastPathEnd) {
+                            tocPath.setAttribute('stroke-dashoffset', '1');
+                            tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+                            tocPath.setAttribute('opacity', 1);
+                        }
+                    } else {
+                        tocPath.setAttribute('opacity', 0);
+                    }
+
+                    lastPathStart = pathStart;
+                    lastPathEnd = pathEnd;
+                }
+            }
+
+            addOnload(toc);
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
             <div class="page">
                 
                 <div id="menu-bar-hover-placeholder"></div>
@@ -128,8 +255,9 @@
                 
 
                 <div id="content" class="content">
-                    <main>
-                        
+                    <div id="content-wrap" class="content-wrap">
+                        <main>
+                            
 <script>
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -144,14 +272,22 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#fenwick-tree" id="fenwick-tree">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>펜윅 트리는 구간 트리의 한 종류입니다. 주로 구간 합을 빠르게 구할 때 사용되고 BIT(Binary Indexed Tree)라고도 불립니다. 펜윅 트리는 기존의 구간 합을 구할 때 사용항였던 구간 트리인 세그먼트 트리 등에서 미리 계산하여 저장한 정보들 중 많은 양의 정보가 실제로 필요하지 않다는 점을 이용합니다. 부분 합(1번째 원소부터의 합)을 구할 때 필요한 정보들만을 계산하여 부분 합을 구하여 <code>s</code>부터 <code>e</code>까지의 구간 합을 계산한다고 하면 <code>e</code>까지의 부분 합에서 <code>s-1</code>까지의 부분 합을 빼서 구간 합을 구합니다. 기존의 세그먼트 트리에서 부분 합을 구할 때 각 노드의 오른쪽 자식은 필요로 하지 않습니다. 부모와 왼쪽 자식을 안다면 오른쪽 자식의 값도 알 수 있기 때문입니다. 필요 없는 정보들이 차지한 공간을 제외한 펜윅 트리는 다음 그림과 같습니다.</p>
 
-                    </main>
+                        </main>
+                        <div id="right-bar-outer" class="right-bar-outer">
+                            <nav class="toc">
+                                <ul><li><a href="#소개">1. 소개</a></li></ul>
+                            </nav>
+                            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <path id="toc-path" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

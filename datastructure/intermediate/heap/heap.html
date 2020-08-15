@@ -76,8 +76,135 @@
             html.classList.add('js');
         </script>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <script>
+            function addOnload(fun){
+                var last = window.onload;
+                window.onload = function(){
+                    if(last) last();
+                    fun();
+                }
+            }
+        </script>
 
+        <script>
+            // code from https://github.com/hakimel/css/tree/master/progress-nav
+            // thanks for great code!
+            function toc() {
+                var toc = document.querySelector('.toc');
+                var tocPath = document.querySelector('.toc-marker path');
+                var tocItems;
+
+                // Factor of screen size that the element must cross
+                // before it's considered visible
+                var TOP_MARGIN = 0.05,
+                        BOTTOM_MARGIN = 0;
+                var pathLength;
+                var lastPathStart,
+                        lastPathEnd;
+
+                window.addEventListener('resize', drawPath, false);
+                window.addEventListener('scroll', sync, false);
+
+                drawPath();
+
+                function drawPath() {
+                    tocItems = [].slice.call(toc.querySelectorAll('li'));
+
+                    // Cache element references and measurements
+                    tocItems = tocItems.map(function (item) {
+                        var anchor = item.querySelector('a');
+                        var target = document.getElementById(anchor.getAttribute('href').slice(1));
+
+                        return {
+                            listItem: item,
+                            anchor: anchor,
+                            target: target
+                        };
+                    });
+
+                    // Remove missing targets
+                    tocItems = tocItems.filter(function (item) {
+                        return !!item.target;
+                    });
+
+                    var path = [];
+                    var pathIndent;
+
+                    tocItems.forEach(function (item, i) {
+                        var x = item.anchor.offsetLeft - 5,
+                                y = item.anchor.offsetTop,
+                                height = item.anchor.offsetHeight;
+
+                        if (i === 0) {
+                            path.push('M', x, y, 'L', x, y + height);
+                            item.pathStart = 0;
+                        } else {
+                            // Draw an additional line when there's a change in
+                            // indent levels
+                            if (pathIndent !== x) path.push('L', pathIndent, y);
+
+                            path.push('L', x, y);
+
+                            // Set the current path so that we can measure it
+                            tocPath.setAttribute('d', path.join(' '));
+                            item.pathStart = tocPath.getTotalLength() || 0;
+
+                            path.push('L', x, y + height);
+                        }
+
+                        pathIndent = x;
+
+                        tocPath.setAttribute('d', path.join(' '));
+                        item.pathEnd = tocPath.getTotalLength();
+                    });
+
+                    pathLength = tocPath.getTotalLength();
+
+                    sync();
+                }
+
+                function sync() {
+                    var windowHeight = window.innerHeight;
+                    var pathStart = pathLength,
+                            pathEnd = 0;
+                    var visibleItems = 0;
+
+                    tocItems.forEach(function (item) {
+                        var targetBounds = item.target.getBoundingClientRect();
+
+                        if (targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * (1 - BOTTOM_MARGIN)) {
+                            pathStart = Math.min(item.pathStart, pathStart);
+                            pathEnd = Math.max(item.pathEnd, pathEnd);
+
+                            visibleItems += 1;
+
+                            item.listItem.classList.add('visible');
+                        } else {
+                            item.listItem.classList.remove('visible');
+                        }
+                    });
+
+                    // Specify the visible path or hide the path altogether
+                    // if there are no visible items
+                    if (visibleItems > 0 && pathStart < pathEnd) {
+                        if (pathStart !== lastPathStart || pathEnd !== lastPathEnd) {
+                            tocPath.setAttribute('stroke-dashoffset', '1');
+                            tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+                            tocPath.setAttribute('opacity', 1);
+                        }
+                    } else {
+                        tocPath.setAttribute('opacity', 0);
+                    }
+
+                    lastPathStart = pathStart;
+                    lastPathEnd = pathEnd;
+                }
+            }
+
+            addOnload(toc);
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
             <div class="page">
                 
                 <div id="menu-bar-hover-placeholder"></div>
@@ -128,8 +255,9 @@
                 
 
                 <div id="content" class="content">
-                    <main>
-                        
+                    <div id="content-wrap" class="content-wrap">
+                        <main>
+                            
 <script>
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -144,9 +272,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#heap" id="heap">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>힙이란 특정한 규칙을 만족하도록 구성된 완전이진트리로써, 최댓값 및 최솟값을 빠르게 찾기 위해 고안되었습니다. 완전이진트리가 무엇인지는 RB tree 단원에서 배웠을 것이라고 생각하고 바로 힙에 대한 설명으로 넘어가겠습니다. 힙은 부모와 자식 사이에 일정한 대소관계 규칙이 있는 트리입니다. 따라서 뿌리노드에는 항상 가장 높은(또는 가장 작은) 우선순위의 노드가 위치하게 됩니다. 부모가 항상 자식보다 크거나 같은 경우는 최대 힙(max heap)이라고 하고 그 반대의 경우는 최소 힙(min heap)이라고 합니다. 이렇게 만들어 놓으면 주어진 값들의 최솟값이나 최댓값을 바로 알 수 있습니다. min heap의 경우 뿌리노드가 최솟값이고, max heap의 경우는 최댓값이겠지요.</p>
@@ -234,7 +360,17 @@ int pop(){
 <code>priority_queue &lt;자료형&gt; mypq</code>
 로 선언하며, 사용할 수 있는 함수는 힙에 <code>k</code>라는 값을 push하는  <code>mypq.push(k)</code>, pop을 진행하는 <code>mypq.pop(),</code> 힙이 비어있으면 true를 반환하는 <code>mypq.empty()</code>, 루트노드에 있는 원소를 반환하는 <code>mypq.top()</code> 등이 있습니다.</p>
 
-                    </main>
+                        </main>
+                        <div id="right-bar-outer" class="right-bar-outer">
+                            <nav class="toc">
+                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#연산">2. 연산</a><ul><li><a href="#push">2.1. Push</a></li><li><a href="#pop">2.2. Pop</a></li></ul></li><li><a href="#구현">3. 구현</a></li><li><a href="#예제">4. 예제</a></li><li><a href="#priority-queue">5. Priority Queue</a></li></ul>
+                            </nav>
+                            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <path id="toc-path" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

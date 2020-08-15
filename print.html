@@ -78,8 +78,135 @@
             html.classList.add('js');
         </script>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <script>
+            function addOnload(fun){
+                var last = window.onload;
+                window.onload = function(){
+                    if(last) last();
+                    fun();
+                }
+            }
+        </script>
 
+        <script>
+            // code from https://github.com/hakimel/css/tree/master/progress-nav
+            // thanks for great code!
+            function toc() {
+                var toc = document.querySelector('.toc');
+                var tocPath = document.querySelector('.toc-marker path');
+                var tocItems;
+
+                // Factor of screen size that the element must cross
+                // before it's considered visible
+                var TOP_MARGIN = 0.05,
+                        BOTTOM_MARGIN = 0;
+                var pathLength;
+                var lastPathStart,
+                        lastPathEnd;
+
+                window.addEventListener('resize', drawPath, false);
+                window.addEventListener('scroll', sync, false);
+
+                drawPath();
+
+                function drawPath() {
+                    tocItems = [].slice.call(toc.querySelectorAll('li'));
+
+                    // Cache element references and measurements
+                    tocItems = tocItems.map(function (item) {
+                        var anchor = item.querySelector('a');
+                        var target = document.getElementById(anchor.getAttribute('href').slice(1));
+
+                        return {
+                            listItem: item,
+                            anchor: anchor,
+                            target: target
+                        };
+                    });
+
+                    // Remove missing targets
+                    tocItems = tocItems.filter(function (item) {
+                        return !!item.target;
+                    });
+
+                    var path = [];
+                    var pathIndent;
+
+                    tocItems.forEach(function (item, i) {
+                        var x = item.anchor.offsetLeft - 5,
+                                y = item.anchor.offsetTop,
+                                height = item.anchor.offsetHeight;
+
+                        if (i === 0) {
+                            path.push('M', x, y, 'L', x, y + height);
+                            item.pathStart = 0;
+                        } else {
+                            // Draw an additional line when there's a change in
+                            // indent levels
+                            if (pathIndent !== x) path.push('L', pathIndent, y);
+
+                            path.push('L', x, y);
+
+                            // Set the current path so that we can measure it
+                            tocPath.setAttribute('d', path.join(' '));
+                            item.pathStart = tocPath.getTotalLength() || 0;
+
+                            path.push('L', x, y + height);
+                        }
+
+                        pathIndent = x;
+
+                        tocPath.setAttribute('d', path.join(' '));
+                        item.pathEnd = tocPath.getTotalLength();
+                    });
+
+                    pathLength = tocPath.getTotalLength();
+
+                    sync();
+                }
+
+                function sync() {
+                    var windowHeight = window.innerHeight;
+                    var pathStart = pathLength,
+                            pathEnd = 0;
+                    var visibleItems = 0;
+
+                    tocItems.forEach(function (item) {
+                        var targetBounds = item.target.getBoundingClientRect();
+
+                        if (targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * (1 - BOTTOM_MARGIN)) {
+                            pathStart = Math.min(item.pathStart, pathStart);
+                            pathEnd = Math.max(item.pathEnd, pathEnd);
+
+                            visibleItems += 1;
+
+                            item.listItem.classList.add('visible');
+                        } else {
+                            item.listItem.classList.remove('visible');
+                        }
+                    });
+
+                    // Specify the visible path or hide the path altogether
+                    // if there are no visible items
+                    if (visibleItems > 0 && pathStart < pathEnd) {
+                        if (pathStart !== lastPathStart || pathEnd !== lastPathEnd) {
+                            tocPath.setAttribute('stroke-dashoffset', '1');
+                            tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+                            tocPath.setAttribute('opacity', 1);
+                        }
+                    } else {
+                        tocPath.setAttribute('opacity', 0);
+                    }
+
+                    lastPathStart = pathStart;
+                    lastPathEnd = pathEnd;
+                }
+            }
+
+            addOnload(toc);
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
             <div class="page">
                 
                 <div id="menu-bar-hover-placeholder"></div>
@@ -130,8 +257,9 @@
                 
 
                 <div id="content" class="content">
-                    <main>
-                        
+                    <div id="content-wrap" class="content-wrap">
+                        <main>
+                            
 <script>
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -146,9 +274,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#iamcoder대문" id="iamcoder대문">_</a></h1>
 <p>안녕하세요. IamCoder(나는코더다) 위키입니다.</p>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
@@ -201,9 +327,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#tutorial" id="tutorial">_</a></h1>
 <h2><a class="header" href="#소개-1" id="소개-1">1. 소개</a></h2>
 <ul>
@@ -255,9 +379,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#사이트-소개" id="사이트-소개">_</a></h1>
 <p>이 사이트는 정보과학을 공부하고, 알고리즘을 공부하는 학생들을 위해 만든 사이트입니다.</p>
 <ul>
@@ -286,9 +408,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#iamcoder-소개" id="iamcoder-소개">_</a></h1>
 <p>경기과학고등학교 정보과학 동아리 IamCoder입니다.</p>
 <ul>
@@ -309,9 +429,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#how-to-add--fix-document" id="how-to-add--fix-document">_</a></h1>
 <h2><a class="header" href="#규칙" id="규칙">1. 규칙</a></h2>
 <ul>
@@ -414,9 +532,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#sort" id="sort">_</a></h1>
 <h2><a class="header" href="#sort정렬이란" id="sort정렬이란">1. Sort(정렬)이란?</a></h2>
 <p>프로그래밍에서 정렬이란 무작위로 있는 여러 자료들의 순서를 규칙성 있게 재배열하는 것을 뜻한다. 오름차순, 또는 내림차순으로 정렬하는 것이 일반적이나, 내가 임의로 정한 규칙에 따라 정렬해야 하는 경우도 있다. 정렬해야 하는 자료들의 개수가 <code>n</code>일 때, 정렬알고리즘은 크게 시간복잡도가 \(O(n^2)\), \(O(n\log n)\)과 그 이외인 것으로 나뉘는데, 초급단계에서는 이 \(O(n^2)\) 방법만 알아도 큰 무리는 없다. 구현이 5에서 6줄 정도로 매우 짧고 개념도 직관적으로 이해가 쉽기 때문이다. 그러나 중급단계 이상에서는 100000개 이상의 자료들을 정렬해야 하는 경우가 생겨 \(O(n^2)\)방법으로는 시간초과가 나게 된다. 따라서 \(O(nlogn)\)정렬을 기용해야 하는데, 구현이 모두 \(20\)줄 이상으로 생각보다 쉽지만은 않다. 그러나 우리에게는 하나의 무기가 있는데, 그게 뭔지는 차차 알아가 보도록 하자. 이제부터 설명을 시작할 건데, 이하의 예시코드는 다음의 함수 <code>sortarr()</code> 안에 들어갈 코드로 하자. <code>n</code>개의 <code>int</code>형 자료를 오름차순으로 정렬하여 순서대로 출력하는 프로그램을 다음과 같이 구현하자.</p>
@@ -472,9 +588,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#bubble-sort" id="bubble-sort">_</a></h1>
 <h2><a class="header" href="#소개-2" id="소개-2">1. 소개</a></h2>
 <p>\(O(n^2)\)정렬 중에서 구현이 제일 쉽고 유명한 방법이다. 인접한 두개의 항의 대소를 비교하여 작은 것을 앞으로 보내는 방법이다. 이 방법의 정당성은 이해하기 쉽다. <code>(1, 2), (2, 3), … ,(n-1, n)</code> 번을 순차적으로 비교했을 때, 다른 것은 모르지만 <code>n</code>번째 원소의 값이 최대라는 것은 확신할 수 있다. 이를 <code>n</code>번 반복하여 뒤에서부터 올바르게 숫자를 채워나간다면 정렬이 완료될 것이다. 이를 <code>for</code>문 두개를 이용하여 구현할 수 있고, 총 연산이 \(n*(n-1)/2\)번 실행되므로 시간복잡도는 \(O(n^2)\)이다.</p>
@@ -502,9 +616,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#selection-sort" id="selection-sort">_</a></h1>
 <h2><a class="header" href="#소개-3" id="소개-3">1. 소개</a></h2>
 <p>오히려 삽입정렬보다 개념을 이해하기는 더 쉬울지도 모르겠다. 1번 원소부터 <code>n</code>개의 원소를 다 둘러보면서 최솟값을 찾은 뒤, 그 값을 원래 1번원소와 바꾸고, 2번 원소부터 <code>n</code>번원소까지 이를 반복하는 것이다. 긴말없이 코드로 보여주도록 하겠다.</p>
@@ -536,9 +648,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#insertion-sort" id="insertion-sort">_</a></h1>
 <h2><a class="header" href="#소개-4" id="소개-4">1. 소개</a></h2>
 <p>\(O(n^2)\)중에서는 개념적으로는 선택정렬까지는 아니지만 버블정렬보다는 쉽지만, 사실 잘 쓰지 않는 정렬 기법이다. \(1\)번부터 \(n\)번의 단계가 있는데, <code>i</code>번째 단계에서는 1번부터 <code>i-1</code>번째원소까지 모두 정렬되어 있는 상황에서 1번부터 <code>i</code>번까지 정렬한다. \(1\)번부터 <code>i-1</code>번까지 정렬되어 있으니, 그냥 뒤에서부터 훑어보면서 이 숫자가 들어갈 곳을 찾으면 된다.</p>
@@ -572,9 +682,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#merge-sort" id="merge-sort">_</a></h1>
 <h2><a class="header" href="#소개-5" id="소개-5">1. 소개</a></h2>
 <p>병합정렬은 분할정복, 혹은 <a href="algorithm/sort/../divideandconquer/divideandconquer">Divide &amp; Conquer</a>를 사용한 알고리즘으로, 폰 노이만이 개발했다고 한다. 병합정렬의 아이디어는 어떤 배열을 두 조각으로 자르는 거에서 시작한다. 만약 두 조각으로 자른 것들이 이미 정렬되어 있다고 하면, 두 조각을 합쳐서 원래 배열을 정렬시키는 데에는 \(O(n)\)의 시간복잡도밖에 걸리지 않는다. 어떻게 하느냐면, “3, 6, 8, 9”와 “1, 4, 7, 10”을 합칠 때(병합할 때) 두 배열에 대한 피벗을 각각 잡아 피벗들끼리 비교하여 더 작은 것부터 원래 배열에 담는 것이다. 즉 이 경우 3과 1, 3과 4, 6과 4, 6과 7, 8과 7, 8과 10, 9와 10을 순서대로 비교하여 새 배열에는 “1, 3, 4, 6, 7, 8, 9, 10”이 들어가게 된다. 그렇다면, 이를 재귀적으로 계속 절반씩 나눠가면서 각 배열의 절반씩을 정렬하면 될 것이다. 그런데, <code>n</code>을 계속 절반으로 쪼개나가는 것이니 재귀탐색은 깊어봤자 \(\log n\)번씩 밖에 실행되지 않을 것이다! 따라서 전체 알고리즘은 \(O(n\log n)\)안에 실행될 것이다. <code>main</code>함수의 <code>arrsort()</code>를 <code>mergesort(1, n)</code>으로 바꾸고 구현한 병합정렬의 코드이다.</p>
@@ -611,9 +719,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#heap-sort" id="heap-sort">_</a></h1>
 <h2><a class="header" href="#소개-6" id="소개-6">1. 소개</a></h2>
 <p>우선 힙이라는 자료구조를 안다는 가정하에 설명을 시작하도록 하겠다. 우리는 최소 힙을 이용해 선택정렬의 방법을 최적화할 것이다. 선택정렬에서 어떤 구간의 최솟값을 찾는데 그것을 찾기 위해 <code>n</code>개의 칸을 탐색하던지, 힙을 이용하는지의 차이이다. 힙에서는 원소를 추가하는데 \(\log n\), 삭제하는데 \(\log n\)의 시간복잡도가 필요한 반면, 힙의 최소 혹은 최댓값은 상수시간 안에 구해낼 수 있어 이를 이용해 구현한 힙정렬은 \(O(n\log n)\)의 시간복잡도를 가진다. <code>main</code>함수의 <code>sortarr()</code>을 <code>heapsort()</code>로 바꾼 뒤 작성한 코드이다.</p>
@@ -686,9 +792,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#quick-sort" id="quick-sort">_</a></h1>
 <h2><a class="header" href="#소개-7" id="소개-7">1. 소개</a></h2>
 <p>퀵정렬은 다른 알고리즘과는 다르게 시간복잡도가 딱히 정해져 있지 않다. 그 이유는 시간복잡도가 <code>n</code>이 아닌 입력된 배열에 의존하기 때문이다. 퀵정렬은 분할정복을 기본으로 하는데, 어느 하나의 랜덤한 값을 잡아 그보다 작은 값들은 앞으로, 큰 값을 뒤로 몰아놓은 뒤 두 부분을 각각 재귀적으로 정렬해주는 것이다. 시간복잡도는 이때 랜덤하게 잡은 값에 의존하는데, 모든 과정에서 이 랜덤값이 중앙값이면, 시간복잡도는 \(O(nlogn)\)이 되고, 모든 과정에서 랜덤값이 최소이거나 최대이면 시간복잡도가 \(O(n^2)\)이다. 그런데 사실 이럴 일은 매우 드물기 때문에, 안심하고 써도 문제는 없다. <code>main</code>함수의 <code>arrsort()</code>를 <code>quicksort(1, n)</code>으로 바꾸자. 우리는 이 랜덤한 값을 그냥 정렬하는 수들 중 마지막 수로 하자. 실전에서는 이 랜덤한 값을 난수로 처리하거나, 정렬하는 수들중의 중앙값을 이용한다.</p>
@@ -723,9 +827,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#counting-sort" id="counting-sort">_</a></h1>
 <h2><a class="header" href="#소개-8" id="소개-8">1. 소개</a></h2>
 <p>정렬하는 수들의 크기가 그리 크지 않고, 모두 0이상일 때 쓰는 정렬인데, 다른 정렬들과 달리 메모리가 굉장히 많이 필요하다. 그러나 수들이 전부 많이 작으면 이보다 빠른 정렬은 없을 것이다. 시간복잡도가 무려 \(O(n+max(arr[i]))\)로, 배열값만 적당하다면 선형시간 안에 정렬을 할수 있기 때문이다. 정렬의 이름답게 각 원소의 개수를 배열에 저장해 둔 뒤 그 자료를 이용해 정렬을 하는 것이다. 다만 최댓값이 9백만 정도가 넘어가면 일반적인 문제에서 메모리 초과가 나게 되는 치명적인 단점이 있다.</p>
@@ -760,9 +862,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#radix-sort" id="radix-sort">_</a></h1>
 <h2><a class="header" href="#소개-9" id="소개-9">1. 소개</a></h2>
 <p>카운팅 정렬의 약점을 완벽하게 보완해주는 정렬 방법이다. 시간복잡도의 <code>d</code>는 각 원소의 자릿수중 최댓값인데, 각 자리수별로 카운팅 정렬을 실행하여 정렬하여 큰 수에 대해서도 정렬을 시행할 수 있다. 물론 가장 큰 자릿수부터 정렬을 시행해 주어야 할 것이다. 래딕스 정렬은 Big Integer라 불리는 <code>unsigned long long int</code> 범위를 훨씬 벗어나는, \(10^{100}\)과 같은 수들을 정렬할 때 유용하게 쓰일 수 있다. 코드는 카운팅 정렬의 것을 약간만 수정하면 되므로 생략하도록 하겠다.</p>
@@ -781,9 +881,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#intro-sort" id="intro-sort">_</a></h1>
 <h2><a class="header" href="#소개-10" id="소개-10">1. 소개</a></h2>
 <p>퀵정렬과 힙정렬을 합한 정렬이다. 기본적으로 퀵정렬을 하지만, 어느정도 재귀가 깊어지면 힙정렬을 이용해 퀵정렬에서 나올 수 있는 최악의 시간복잡도를 피해준다. </p>
@@ -830,9 +928,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#graph-traversal" id="graph-traversal">_</a></h1>
 <h2><a class="header" href="#소개-11" id="소개-11">1. 소개</a></h2>
 <p>Graph Traversal(그래프 순회)는 정보과학 문제에서 자주 다루는 그래프를 탐색하는 알고리즘으로, 그래프를 다루는 문제를 풀기 위해 기본적으로 알아야 하는 알고리즘이다.</p>
@@ -856,9 +952,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#dfs" id="dfs">_</a></h1>
 <h2><a class="header" href="#소개-12" id="소개-12">1. 소개</a></h2>
 <h2><a class="header" href="#코드-7" id="코드-7">2. 코드</a></h2>
@@ -877,9 +971,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#bfs" id="bfs">_</a></h1>
 <h2><a class="header" href="#소개-13" id="소개-13">1. 소개</a></h2>
 <h2><a class="header" href="#코드-8" id="코드-8">2. 코드</a></h2>
@@ -898,9 +990,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#divide--conquer" id="divide--conquer">_</a></h1>
 <h2><a class="header" href="#소개-14" id="소개-14">1. 소개</a></h2>
 <p>Divide &amp; Conquer(D&amp;C) 혹은 분할 정복이라 불리는 문제 해결 기법은 최적해를 구할 때 유용하게 사용될 수 있는 기법 중 하나로, 주어진 문제를 두개 이상의 부분 문제들로 분할하고 각각을 해결한 후 이를 다시 합쳐 주어진 문제를 해결하는 방식입니다. 다시 말해, 문제를 여러개의 해결 가능한 부분 문제들로 나누고 각각을 해결한 후 이 결과를 적절히 융합하여 원래 문제의 답을 구하는 방식을 반복하여 문제를 해결하는 방법입니다. 이 방식을 사용하는 이유는 각각을 부분 문제로 분할하고 이를 각각 해결하는 방식이 다른 방식들에 비해 효율적으로 작동하는 경우가 많기 때문입니다. </p>
@@ -942,9 +1032,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#binary-search" id="binary-search">_</a></h1>
 
 <script>
@@ -961,9 +1049,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#parametric-search" id="parametric-search">_</a></h1>
 
 <script>
@@ -980,9 +1066,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#dp" id="dp">_</a></h1>
 <h2><a class="header" href="#소개-15" id="소개-15">1. 소개</a></h2>
 <h2><a class="header" href="#예시-1" id="예시-1">2. 예시</a></h2>
@@ -1005,9 +1089,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#lcs" id="lcs">_</a></h1>
 <h2><a class="header" href="#소개-16" id="소개-16">1. 소개</a></h2>
 <p>최장 공통 부분 수열은 주어진 여러 개의 수열 모두의 부분 수열이 되는 수열들 중에 가장 긴 것입니다. 부분 수열은 그 수열의 일부 항을 원래 순서대로 나열해 얻을 수 있는 수열입니다. 이때 꼭 연속하지 않아도 되며, 연속한 경우는 최장 공통 문자열이라고 부릅니다.</p>
@@ -1109,9 +1191,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#shortest-path" id="shortest-path">_</a></h1>
 <h2><a class="header" href="#소개-17" id="소개-17">1. 소개</a></h2>
 <p>Shortest Path(최단 거리) 알고리즘은 주어진 가중 그래프에서 두 정점 사이 최단거리를 구하는 문제다. 다양한 최단 거리 알고리즘이 존재하는데, 간선들의 가중치나 최단거리를 구하려는 시작점, 끝점의 개수에 따라 맞는 알고리즘을 잘 선택하여 사용해야 한다.</p>
@@ -1149,9 +1229,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#dijkstra" id="dijkstra">_</a></h1>
 <h2><a class="header" href="#소개-18" id="소개-18">1. 소개</a></h2>
 <p>Dijkstra 알고리즘은 그래프의 정점들 사이의 최단경로를 찾기 위한 알고리즘 중 하나입니다.</p>
@@ -1263,9 +1341,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#bellman-ford" id="bellman-ford">_</a></h1>
 
 <script>
@@ -1282,9 +1358,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#floyd-warshall" id="floyd-warshall">_</a></h1>
 
 <script>
@@ -1301,9 +1375,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#query-technique" id="query-technique">_</a></h1>
 <h2><a class="header" href="#소개-19" id="소개-19">1. 소개</a></h2>
 <p>알고리즘 문제 중에서 주어진 쿼리를 처리하는 코드를 구현하는 문제들이 있다. 쿼리들의 경우 원소를 추가하거나 삭제하는 쿼리, 특정 연산을 하는 쿼리 등 문제에 따라 다양한 종류가 주어진다. 따라서, 쿼리 문제들에 유용하게 사용할 수 있는 기술들을 다양하게 알아놓고, 문제를 풀기 위해서는 주어진 쿼리의 특징에 따라 적절한 기술을 적용해야 한다.</p>
@@ -1330,9 +1402,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#heavy-light-decomposition" id="heavy-light-decomposition">_</a></h1>
 <h2><a class="header" href="#소개-20" id="소개-20">1. 소개</a></h2>
 <p>HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
@@ -1454,9 +1524,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#sqrt-decomposition" id="sqrt-decomposition">_</a></h1>
 
 <script>
@@ -1473,9 +1541,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#mos-algorithm" id="mos-algorithm">_</a></h1>
 
 <script>
@@ -1492,9 +1558,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#grid-compression" id="grid-compression">_</a></h1>
 
 <script>
@@ -1511,9 +1575,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#centroid-decomposition" id="centroid-decomposition">_</a></h1>
 
 <script>
@@ -1530,9 +1592,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#dp-optimization" id="dp-optimization">_</a></h1>
 <h2><a class="header" href="#소개-21" id="소개-21">1. 소개</a></h2>
 <p><a href="algorithm/dpopt/../dp/dp">Dynamic Programming</a>을 사용해 문제를 푸는 과정에서 특정 형태의 점화식을 갖는 문제들에서는 최적화 기법을 통해 시간복잡도를 줄일 수 있는데, 이를 DP Optimization(동적 계획법 최적화)라고 한다. 문제에서 구해낸 점화식에 따라 그에 맞는 최적화 기법을 사용하여 더 빠른 시간에 동작하는 코드를 짤 수 있어야 한다.</p>
@@ -1557,9 +1617,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#divide--conquer-optimization" id="divide--conquer-optimization">_</a></h1>
 
 <script>
@@ -1576,9 +1634,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#knuth-optimization" id="knuth-optimization">_</a></h1>
 
 <script>
@@ -1595,9 +1651,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#convex-hull-trick" id="convex-hull-trick">_</a></h1>
 
 <script>
@@ -1614,9 +1668,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#network-flow" id="network-flow">_</a></h1>
 <h2><a class="header" href="#소개-22" id="소개-22">1. 소개</a></h2>
 <h2><a class="header" href="#응용" id="응용">2. 응용</a></h2>
@@ -1639,9 +1691,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#matching-on-bipartite" id="matching-on-bipartite">_</a></h1>
 
 <script>
@@ -1658,9 +1708,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#minimum-cost-maximum-flow" id="minimum-cost-maximum-flow">_</a></h1>
 
 <script>
@@ -1677,9 +1725,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#geometry" id="geometry">_</a></h1>
 <h2><a class="header" href="#소개-23" id="소개-23">1. 소개</a></h2>
 <h2><a class="header" href="#a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla" id="a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla">2. <a href="algorithm/geometry/./convexhull/convexhull">Convex Hull</a></a></h2>
@@ -1699,9 +1745,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#convex-hull" id="convex-hull">_</a></h1>
 
 <script>
@@ -1718,9 +1762,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#rotating-callipers" id="rotating-callipers">_</a></h1>
 
 <script>
@@ -1737,9 +1779,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#string" id="string">_</a></h1>
 <h2><a class="header" href="#소개-24" id="소개-24">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘" id="관련-알고리즘">2. 관련 알고리즘</a></h2>
@@ -1765,9 +1805,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#kmp" id="kmp">_</a></h1>
 
 <script>
@@ -1784,9 +1822,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#manacher-algorithm" id="manacher-algorithm">_</a></h1>
 
 <script>
@@ -1803,9 +1839,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#hashing" id="hashing">_</a></h1>
 <h2><a class="header" href="#소개-25" id="소개-25">1. 소개</a></h2>
 <p>일반적으로 배열에서의 탐색은 전 탐색 시에 \(O(N)\), 정렬하고 이분 탐색 시에 \(O(\log N)\) 으로 처리 가능합니다. 그러나, 어떤 경우에는 이러한 시간복잡도로도 부족하여서, 또는 정렬하고 이분 탐색하는 것이 불가능할 때 해싱이라는 기법을 사용합니다.
@@ -1878,9 +1912,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#suffix-array" id="suffix-array">_</a></h1>
 
 <script>
@@ -1897,9 +1929,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#aho-corasick" id="aho-corasick">_</a></h1>
 
 <script>
@@ -1916,9 +1946,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#basic-data-structure" id="basic-data-structure">_</a></h1>
 <h2><a class="header" href="#소개-26" id="소개-26">1. 소개</a></h2>
 <p>기본 자료구조은 입력받은 데이터를 저장하고, 사용할 수 있도록 하는 기초적인 자료 저장 방식으로 구성되어 있다. 각 자료구조의 특성을 정확히 이해하여, 문제를 푸는 과정에서 필요한 적절한 자료구조를 선택하여 사용할 수 있어야 한다.</p>
@@ -1946,9 +1974,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#stack" id="stack">_</a></h1>
 
 <script>
@@ -1965,9 +1991,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#queue" id="queue">_</a></h1>
 
 <script>
@@ -1984,9 +2008,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#vector" id="vector">_</a></h1>
 
 <script>
@@ -2003,9 +2025,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#deque" id="deque">_</a></h1>
 
 <script>
@@ -2022,9 +2042,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#linked-list" id="linked-list">_</a></h1>
 
 <script>
@@ -2041,9 +2059,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#structure" id="structure">_</a></h1>
 
 <script>
@@ -2060,9 +2076,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#intermediate-data-structure" id="intermediate-data-structure">_</a></h1>
 <h2><a class="header" href="#소개-27" id="소개-27">1. 소개</a></h2>
 <p>중급 자료구조는 난이도 있는 문제를 푸는 과정에서 자주 사용되는 자료구조들로, 대부분은 라이브러리에 작성되어있는 자료구조를 사용하지만 그 내부 원리와 사용 방법을 알아야 문제 없이 사용할 수 있습니다.</p>
@@ -2090,9 +2104,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#map" id="map">_</a></h1>
 
 <script>
@@ -2109,9 +2121,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#set" id="set">_</a></h1>
 
 <script>
@@ -2128,9 +2138,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#priority-queue" id="priority-queue">_</a></h1>
 
 <script>
@@ -2147,9 +2155,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#bitmask" id="bitmask">_</a></h1>
 <h2><a class="header" href="#소개-28" id="소개-28">1. 소개</a></h2>
 <p>그럼 이제 본격적으로 비트마스킹이 뭔지 설명할 차례입니다. 비트마스킹에는 <a href="datastructure/intermediate/bitmask/../bitoperator/bitoperator">비트 연산자</a>가 모든 연산을 차지합니다. 먼저 비트마스크(Bitmask)의 정의부터 살펴봅시다. 비트마스크란, 비트를 변경하여 정보를 저장하는 정수를 뜻합니다. 비트마스킹 기법은 이 비트마스크를 사용하여 메모리 및 연산속도를 대폭 줄일 수 있습니다.</p>
@@ -2290,9 +2296,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#bit-operator" id="bit-operator">_</a></h1>
 <h2><a class="header" href="#소개-29" id="소개-29">1. 소개</a></h2>
 <p>비트 연산자란, 각 수의 비트로(즉, 0과 1로) 연산을 진행하는 연산자입니다. 비트 연산자는 다음과 같이 있습니다.</p>
@@ -2381,9 +2385,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#heap" id="heap">_</a></h1>
 <h2><a class="header" href="#소개-30" id="소개-30">1. 소개</a></h2>
 <p>힙이란 특정한 규칙을 만족하도록 구성된 완전이진트리로써, 최댓값 및 최솟값을 빠르게 찾기 위해 고안되었습니다. 완전이진트리가 무엇인지는 RB tree 단원에서 배웠을 것이라고 생각하고 바로 힙에 대한 설명으로 넘어가겠습니다. 힙은 부모와 자식 사이에 일정한 대소관계 규칙이 있는 트리입니다. 따라서 뿌리노드에는 항상 가장 높은(또는 가장 작은) 우선순위의 노드가 위치하게 됩니다. 부모가 항상 자식보다 크거나 같은 경우는 최대 힙(max heap)이라고 하고 그 반대의 경우는 최소 힙(min heap)이라고 합니다. 이렇게 만들어 놓으면 주어진 값들의 최솟값이나 최댓값을 바로 알 수 있습니다. min heap의 경우 뿌리노드가 최솟값이고, max heap의 경우는 최댓값이겠지요.</p>
@@ -2485,9 +2487,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#red-black-tree" id="red-black-tree">_</a></h1>
 
 <script>
@@ -2504,9 +2504,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#tree" id="tree">_</a></h1>
 <h2><a class="header" href="#소개-31" id="소개-31">1. 소개</a></h2>
 <h2><a class="header" href="#관련-알고리즘-1" id="관련-알고리즘-1">2. 관련 알고리즘</a></h2>
@@ -2538,9 +2536,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#disjoint-set" id="disjoint-set">_</a></h1>
 
 <script>
@@ -2557,9 +2553,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#topological-sort" id="topological-sort">_</a></h1>
 <h2><a class="header" href="#소개-32" id="소개-32">1. 소개</a></h2>
 <p>Topological Sort는 위상 정렬이라고 하며, 방향 그래프에서 정점들을 정점 u에서 정점 v로 가는 간선이 있을 때, 정점 u가 정점 v보다 앞에 오도록 선형으로 정렬하는 것입니다. 이렇게 정점들을 정렬하면 어떤 작업을 수행할 때 올바른 순서를 알아낼 수 있습니다. 예를 들어, 수강해야 할 여러 수업들 중 한 수업보다 먼저 들어야 하는 수업이 있을 때, 위상 정렬을 이용하면 가능한 수강 순서를 알아낼 수 있을 것입니다. 그러나 이러한 위상 정렬을 하려면, 정렬하려고 하는 그래프가 사이클이 없는 방향성 비순환 그래프 (directed acyclic graph 또는 DAG) 이어야 합니다. 당연하게도 사이클이 존재한다면 사이클을 이루는 정점 간의 우선 순위를 결정할 수 없기 때문입니다. 그리고 정렬이 된 순서는 그래프의 구조에 따라 여러 종류가 나올 수 있게 됩니다.</p>
@@ -2670,9 +2664,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#euler-tour" id="euler-tour">_</a></h1>
 
 <script>
@@ -2689,9 +2681,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#tree-diameter" id="tree-diameter">_</a></h1>
 
 <script>
@@ -2708,9 +2698,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#lca" id="lca">_</a></h1>
 
 <script>
@@ -2727,9 +2715,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#minimum-spanning-tree" id="minimum-spanning-tree">_</a></h1>
 <h2><a class="header" href="#소개-33" id="소개-33">1. 소개</a></h2>
 <p>어떤 그래프의 스패닝 트리(Spanning Tree)는 원래 그래프의 정점 전부와 간선 일부로 구성된 트리 형태의 부분 그래프를 말합니다. 
@@ -2754,9 +2740,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#prims-algorithm" id="prims-algorithm">_</a></h1>
 <h2><a class="header" href="#소개-34" id="소개-34">1. 소개</a></h2>
 <p>프림의 알고리즘은 가중치가 작은 간선부터 트리에 추가해 가며 최소 스패닝 트리를 구한다는 면에서는 <a href="datastructure/tree/mst/prim/../kruskal/kruskal">크루스칼의 알고리즘</a>과 같습니다.
@@ -2845,9 +2829,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#kruskals-algorithm" id="kruskals-algorithm">_</a></h1>
 <h2><a class="header" href="#소개-35" id="소개-35">1. 소개</a></h2>
 <p>크루스칼의 알고리즘은 가중치가 작은 간선부터 최소 스패닝 트리에 추가해가며 그래프의 최소 스패닝 트리를 구하는 방법으로, <a href="datastructure/tree/mst/kruskal/../disjointset/disjointset">상호 배타적 집합 자료 구조(Disjoint-set)</a>을 사용합니다.</p>
@@ -2913,9 +2895,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#cactus-graph" id="cactus-graph">_</a></h1>
 
 <script>
@@ -2932,9 +2912,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#segment-tree" id="segment-tree">_</a></h1>
 <h2><a class="header" href="#소개-36" id="소개-36">1. 소개</a></h2>
 <p>Segment Tree는 STL에서 지원하지 않는 자료구조이지만 아주 강력한 자료구조중 하나입니다. Segment Tree는 일반적으로 \(O(\log N)\)시간에 값의 변경과 값에 대한 쿼리를 수행할 수 있고, 그 활용성 또한 아주 다양해 구간 합 쿼리, 구간 최솟값/최댓값 쿼리등을 수행할 수 있습니다.</p>
@@ -3037,9 +3015,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#fenwick-tree" id="fenwick-tree">_</a></h1>
 <h2><a class="header" href="#소개-37" id="소개-37">1. 소개</a></h2>
 <p>펜윅 트리는 구간 트리의 한 종류입니다. 주로 구간 합을 빠르게 구할 때 사용되고 BIT(Binary Indexed Tree)라고도 불립니다. 펜윅 트리는 기존의 구간 합을 구할 때 사용항였던 구간 트리인 세그먼트 트리 등에서 미리 계산하여 저장한 정보들 중 많은 양의 정보가 실제로 필요하지 않다는 점을 이용합니다. 부분 합(1번째 원소부터의 합)을 구할 때 필요한 정보들만을 계산하여 부분 합을 구하여 <code>s</code>부터 <code>e</code>까지의 구간 합을 계산한다고 하면 <code>e</code>까지의 부분 합에서 <code>s-1</code>까지의 부분 합을 빼서 구간 합을 구합니다. 기존의 세그먼트 트리에서 부분 합을 구할 때 각 노드의 오른쪽 자식은 필요로 하지 않습니다. 부모와 왼쪽 자식을 안다면 오른쪽 자식의 값도 알 수 있기 때문입니다. 필요 없는 정보들이 차지한 공간을 제외한 펜윅 트리는 다음 그림과 같습니다.</p>
@@ -3058,9 +3034,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#merge-sort-tree" id="merge-sort-tree">_</a></h1>
 <h2><a class="header" href="#소개-38" id="소개-38">1. 소개</a></h2>
 <p>머지 소트 트리란 특수한 세그먼트 트리의 일종으로,  병합 정렬에서 정렬하는  과정이 그대로 트리의 노드에 저장된 트리를 말합니다 (<a href="datastructure/segmenttree/mergesorttree/../segmenttree">세그먼트 트리</a>, <a href="datastructure/segmenttree/mergesorttree/../../../algorithm/sort/mergesort">머지 소트</a> 참고). 다음 그림은 머지 소트 과정의 예시입니다. </p>
@@ -3173,9 +3147,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#dynamic-segment-tree" id="dynamic-segment-tree">_</a></h1>
 
 <script>
@@ -3192,9 +3164,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#lazy-propagation" id="lazy-propagation">_</a></h1>
 
 <script>
@@ -3211,9 +3181,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#advanced-data-structure" id="advanced-data-structure">_</a></h1>
 <h2><a class="header" href="#소개-39" id="소개-39">1. 소개</a></h2>
 <p>고급 자료구조에서는 어려운 문제를 푸는 과정들에서 필요한 자료구조들을 다룬다. </p>
@@ -3239,9 +3207,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#2d-segment-tree" id="2d-segment-tree">_</a></h1>
 
 <script>
@@ -3258,9 +3224,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#persistent-segment-tree" id="persistent-segment-tree">_</a></h1>
 
 <script>
@@ -3277,9 +3241,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#splay-tree" id="splay-tree">_</a></h1>
 
 <script>
@@ -3296,9 +3258,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#link-cut-tree" id="link-cut-tree">_</a></h1>
 
 <script>
@@ -3315,9 +3275,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#additional-topics" id="additional-topics">_</a></h1>
 
 <script>
@@ -3334,9 +3292,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#nim-game" id="nim-game">_</a></h1>
 <h2><a class="header" href="#알고리즘에서의-게임" id="알고리즘에서의-게임">1. 알고리즘에서의 게임</a></h2>
 <p>이 챕터에서는 필승 전략 게임의 승패를 판별하는 알고리즘을 다룹니다. 조약돌 게임과 Nim 게임처럼 간단한 게임에서 시작해, 그룬디 수를 이용하여 보다 일반적인 게임에 대응하는 알고리즘을 작성하는 방법까지를 설명할 것입니다.</p>
@@ -3422,9 +3378,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#2-sat" id="2-sat">_</a></h1>
 
 <script>
@@ -3441,9 +3395,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#meet-in-the-middle" id="meet-in-the-middle">_</a></h1>
 
 <script>
@@ -3460,9 +3412,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#parallel-binary-search" id="parallel-binary-search">_</a></h1>
 
 <script>
@@ -3479,9 +3429,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#dynamic-connectivity" id="dynamic-connectivity">_</a></h1>
 
 <script>
@@ -3498,9 +3446,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#scc" id="scc">_</a></h1>
 
 <script>
@@ -3517,9 +3463,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#bcc" id="bcc">_</a></h1>
 
 <script>
@@ -3536,9 +3480,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#problem-solving-2" id="problem-solving-2">_</a></h1>
 
 <script>
@@ -3555,9 +3497,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#oi" id="oi">_</a></h1>
 
 <script>
@@ -3574,12 +3514,20 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#site" id="site">_</a></h1>
 
-                    </main>
+                        </main>
+                        <div id="right-bar-outer" class="right-bar-outer">
+                            <nav class="toc">
+                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#알고리즘">2. 알고리즘</a></li><li><a href="#자료구조">3. 자료구조</a></li><li><a href="#기타">4. 기타</a></li><li><a href="#problem-solving">5. Problem Solving</a></li><li><a href="#소개-1">1. 소개</a></li><li><a href="#알고리즘-1">2. 알고리즘</a></li><li><a href="#자료구조-1">3. 자료구조</a></li><li><a href="#기타-1">4. 기타</a></li><li><a href="#problem-solving-1">5. Problem Solving</a></li><li><a href="#규칙">1. 규칙</a></li><li><a href="#markdown">2. Markdown</a><ul><li><a href="#hello">2.1. hello</a><ul><li><a href="#hello-1">2.1.1. hello?</a></li><li><a href="#world">2.1.2. world?</a></li></ul></li><li><a href="#world-1">2.2. world</a></li></ul></li><li><a href="#sort정렬이란">1. Sort(정렬)이란?</a></li><li><a href="#-on2--sort">2. \( O(n^2) \) Sort</a><ul><li><a href="#종류">2.1. 종류</a></li><li><a href="#여담">2.2. 여담</a></li></ul></li><li><a href="#onlog-n-sort">3. \(O(n\log n)\) Sort</a><ul><li><a href="#종류-1">3.1. 종류</a></li></ul></li><li><a href="#기타-정렬">4. 기타 정렬</a><ul><li><a href="#종류-2">4.1. 종류</a></li></ul></li><li><a href="#여담-1">5. 여담</a></li><li><a href="#소개-2">1. 소개</a></li><li><a href="#코드">2. 코드</a></li><li><a href="#소개-3">1. 소개</a></li><li><a href="#코드-1">2. 코드</a></li><li><a href="#소개-4">1. 소개</a></li><li><a href="#코드-2">2. 코드</a></li><li><a href="#소개-5">1. 소개</a></li><li><a href="#코드-3">2. 코드</a></li><li><a href="#소개-6">1. 소개</a></li><li><a href="#코드-4">2. 코드</a><ul><li><a href="#heap-sort-without-priority_queue">2.1. Heap Sort without priority_queue</a></li><li><a href="#heap-sort-using-priority_queue">2.2. Heap Sort using priority_queue</a></li></ul></li><li><a href="#소개-7">1. 소개</a></li><li><a href="#코드-5">2. 코드</a></li><li><a href="#소개-8">1. 소개</a></li><li><a href="#코드-6">2. 코드</a></li><li><a href="#소개-9">1. 소개</a></li><li><a href="#소개-10">1. 소개</a></li><li><a href="#stl-sort">2. STL sort</a><ul><li><a href="#비교-함수">2.1. 비교 함수</a></li></ul></li><li><a href="#소개-11">1. 소개</a></li><li><a href="#종류-3">2. 종류</a></li><li><a href="#소개-12">1. 소개</a></li><li><a href="#코드-7">2. 코드</a></li><li><a href="#소개-13">1. 소개</a></li><li><a href="#코드-8">2. 코드</a></li><li><a href="#소개-14">1. 소개</a></li><li><a href="#방법">2. 방법</a></li><li><a href="#예시">3. 예시</a><ul><li><a href="#a-hrefalgorithmdivideandconquersortmergesortmerge-sorta">3.1. <a href="algorithm/divideandconquer/../sort/mergesort">Merge Sort</a></a></li><li><a href="#히스토그램에서-가장-큰-직사각형">3.2. 히스토그램에서 가장 큰 직사각형</a></li><li><a href="#가장-가까운-두-점-구하기">3.3. 가장 가까운 두 점 구하기</a></li></ul></li><li><a href="#소개-15">1. 소개</a></li><li><a href="#예시-1">2. 예시</a></li><li><a href="#소개-16">1. 소개</a></li><li><a href="#dp-table">2. DP Table</a></li><li><a href="#code">3. Code</a></li><li><a href="#소개-17">1. 소개</a></li><li><a href="#종류-4">2. 종류</a></li><li><a href="#소개-18">1. 소개</a></li><li><a href="#과정">2. 과정</a></li><li><a href="#코드-9">3. 코드</a></li><li><a href="#예시-2">4. 예시</a></li><li><a href="#소개-19">1. 소개</a></li><li><a href="#종류-5">2. 종류</a></li><li><a href="#소개-20">1. 소개</a></li><li><a href="#예시-3">2. 예시</a><ul><li><a href="#hld">2.1. HLD</a></li><li><a href="#update">2.2. Update</a></li><li><a href="#query">2.3. Query</a></li></ul></li><li><a href="#소개-21">1. 소개</a></li><li><a href="#종류-6">2. 종류</a></li><li><a href="#소개-22">1. 소개</a></li><li><a href="#응용">2. 응용</a></li><li><a href="#소개-23">1. 소개</a></li><li><a href="#a-hrefalgorithmgeometryconvexhullconvexhullconvex-hulla">2. <a href="algorithm/geometry/./convexhull/convexhull">Convex Hull</a></a></li><li><a href="#a-hrefalgorithmgeometryrotatingcallipersrotatingcallipersrotating-callipersa">3. <a href="algorithm/geometry/./rotatingcallipers/rotatingcallipers">Rotating Callipers</a></a></li><li><a href="#소개-24">1. 소개</a></li><li><a href="#관련-알고리즘">2. 관련 알고리즘</a></li><li><a href="#소개-25">1. 소개</a></li><li><a href="#hash-table">2. Hash Table</a></li><li><a href="#hash-function">3. Hash Function</a><ul><li><a href="#나눈셈법">3.1. 나눈셈법</a></li><li><a href="#곱셈법">3.2. 곱셈법</a></li><li><a href="#문자열">3.3. 문자열</a></li><li><a href="#universal-method">3.4. Universal Method</a></li></ul></li><li><a href="#hash-collision">4. Hash Collision</a></li><li><a href="#예제">5. 예제</a></li><li><a href="#여담-2">6. 여담</a></li><li><a href="#소개-26">1. 소개</a></li><li><a href="#종류-7">2. 종류</a></li><li><a href="#소개-27">1. 소개</a></li><li><a href="#종류-8">2. 종류</a></li><li><a href="#소개-28">1. 소개</a></li><li><a href="#장점">2. 장점</a></li><li><a href="#코드-10">3. 코드</a></li><li><a href="#코드-설명">4. 코드 설명</a><ul><li><a href="#원소-확인">4.1. 원소 확인</a></li><li><a href="#원소-추가">4.2. 원소 추가</a></li><li><a href="#원소-삭제">4.3. 원소 삭제</a></li><li><a href="#원소-반전토글">4.4. 원소 반전(토글)</a></li><li><a href="#합집합">4.5. 합집합</a></li><li><a href="#교집합">4.6. 교집합</a></li><li><a href="#차집합">4.7. 차집합</a></li><li><a href="#대칭차집합">4.8. 대칭차집합</a></li><li><a href="#여집합">4.9. 여집합</a></li><li><a href="#최소-원소-찾기">4.10. 최소 원소 찾기</a></li><li><a href="#시간복잡도">4.11. 시간복잡도</a></li><li><a href="#부분집합-순회">4.12. 부분집합 순회</a></li></ul></li><li><a href="#예제-1">5. 예제</a></li><li><a href="#소개-29">1. 소개</a></li><li><a href="#bit-and">2. BIT AND</a></li><li><a href="#bit-or">3. BIT OR</a></li><li><a href="#bit-xor">4. BIT XOR</a></li><li><a href="#bit-shift">5. BIT SHIFT</a></li><li><a href="#bit-not">6. BIT NOT</a></li><li><a href="#소개-30">1. 소개</a></li><li><a href="#연산">2. 연산</a><ul><li><a href="#push">2.1. Push</a></li><li><a href="#pop">2.2. Pop</a></li></ul></li><li><a href="#구현">3. 구현</a></li><li><a href="#예제-2">4. 예제</a></li><li><a href="#priority-queue-1">5. Priority Queue</a></li><li><a href="#소개-31">1. 소개</a></li><li><a href="#관련-알고리즘-1">2. 관련 알고리즘</a></li><li><a href="#소개-32">1. 소개</a></li><li><a href="#kahns-algorithm">2. Kahn's Algorithm</a></li><li><a href="#using-dfs">3. Using DFS</a></li><li><a href="#finding-a-shortest-path">4. Finding a Shortest Path</a></li><li><a href="#예시-4">5. 예시</a></li><li><a href="#소개-33">1. 소개</a></li><li><a href="#관련-알고리즘-2">2. 관련 알고리즘</a></li><li><a href="#소개-34">1. 소개</a></li><li><a href="#과정-1">2. 과정</a></li><li><a href="#코드-11">3. 코드</a><ul><li><a href="#ov2--배열을-이용한-방법">3.1. \(O(|V|^2)\) | 배열을 이용한 방법</a></li><li><a href="#oelog-v--우선순위-큐를-이용한-방법">3.2. \(O(|E|\log |V|)\) | 우선순위 큐를 이용한 방법</a></li></ul></li><li><a href="#여담-3">4. 여담</a></li><li><a href="#소개-35">1. 소개</a></li><li><a href="#과정-2">2. 과정</a></li><li><a href="#코드-12">3. 코드</a></li><li><a href="#소개-36">1. 소개</a></li><li><a href="#예시-5">2. 예시</a></li><li><a href="#관련-자료구조">3. 관련 자료구조</a></li><li><a href="#소개-37">1. 소개</a></li><li><a href="#소개-38">1. 소개</a></li><li><a href="#코드-13">2. 코드</a></li><li><a href="#예시-6">3. 예시</a></li><li><a href="#소개-39">1. 소개</a></li><li><a href="#종류-9">2. 종류</a></li><li><a href="#알고리즘에서의-게임">1. 알고리즘에서의 게임</a></li><li><a href="#조약돌-게임">2. 조약돌 게임</a></li><li><a href="#nim-game-1">3. Nim Game</a></li><li><a href="#변형된-nim-게임">4. 변형된 Nim 게임</a></li><li><a href="#여담-4">5. 여담</a></li></ul>
+                            </nav>
+                            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <path id="toc-path" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

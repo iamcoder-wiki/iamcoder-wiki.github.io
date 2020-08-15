@@ -76,8 +76,135 @@
             html.classList.add('js');
         </script>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <script>
+            function addOnload(fun){
+                var last = window.onload;
+                window.onload = function(){
+                    if(last) last();
+                    fun();
+                }
+            }
+        </script>
 
+        <script>
+            // code from https://github.com/hakimel/css/tree/master/progress-nav
+            // thanks for great code!
+            function toc() {
+                var toc = document.querySelector('.toc');
+                var tocPath = document.querySelector('.toc-marker path');
+                var tocItems;
+
+                // Factor of screen size that the element must cross
+                // before it's considered visible
+                var TOP_MARGIN = 0.05,
+                        BOTTOM_MARGIN = 0;
+                var pathLength;
+                var lastPathStart,
+                        lastPathEnd;
+
+                window.addEventListener('resize', drawPath, false);
+                window.addEventListener('scroll', sync, false);
+
+                drawPath();
+
+                function drawPath() {
+                    tocItems = [].slice.call(toc.querySelectorAll('li'));
+
+                    // Cache element references and measurements
+                    tocItems = tocItems.map(function (item) {
+                        var anchor = item.querySelector('a');
+                        var target = document.getElementById(anchor.getAttribute('href').slice(1));
+
+                        return {
+                            listItem: item,
+                            anchor: anchor,
+                            target: target
+                        };
+                    });
+
+                    // Remove missing targets
+                    tocItems = tocItems.filter(function (item) {
+                        return !!item.target;
+                    });
+
+                    var path = [];
+                    var pathIndent;
+
+                    tocItems.forEach(function (item, i) {
+                        var x = item.anchor.offsetLeft - 5,
+                                y = item.anchor.offsetTop,
+                                height = item.anchor.offsetHeight;
+
+                        if (i === 0) {
+                            path.push('M', x, y, 'L', x, y + height);
+                            item.pathStart = 0;
+                        } else {
+                            // Draw an additional line when there's a change in
+                            // indent levels
+                            if (pathIndent !== x) path.push('L', pathIndent, y);
+
+                            path.push('L', x, y);
+
+                            // Set the current path so that we can measure it
+                            tocPath.setAttribute('d', path.join(' '));
+                            item.pathStart = tocPath.getTotalLength() || 0;
+
+                            path.push('L', x, y + height);
+                        }
+
+                        pathIndent = x;
+
+                        tocPath.setAttribute('d', path.join(' '));
+                        item.pathEnd = tocPath.getTotalLength();
+                    });
+
+                    pathLength = tocPath.getTotalLength();
+
+                    sync();
+                }
+
+                function sync() {
+                    var windowHeight = window.innerHeight;
+                    var pathStart = pathLength,
+                            pathEnd = 0;
+                    var visibleItems = 0;
+
+                    tocItems.forEach(function (item) {
+                        var targetBounds = item.target.getBoundingClientRect();
+
+                        if (targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * (1 - BOTTOM_MARGIN)) {
+                            pathStart = Math.min(item.pathStart, pathStart);
+                            pathEnd = Math.max(item.pathEnd, pathEnd);
+
+                            visibleItems += 1;
+
+                            item.listItem.classList.add('visible');
+                        } else {
+                            item.listItem.classList.remove('visible');
+                        }
+                    });
+
+                    // Specify the visible path or hide the path altogether
+                    // if there are no visible items
+                    if (visibleItems > 0 && pathStart < pathEnd) {
+                        if (pathStart !== lastPathStart || pathEnd !== lastPathEnd) {
+                            tocPath.setAttribute('stroke-dashoffset', '1');
+                            tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+                            tocPath.setAttribute('opacity', 1);
+                        }
+                    } else {
+                        tocPath.setAttribute('opacity', 0);
+                    }
+
+                    lastPathStart = pathStart;
+                    lastPathEnd = pathEnd;
+                }
+            }
+
+            addOnload(toc);
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
             <div class="page">
                 
                 <div id="menu-bar-hover-placeholder"></div>
@@ -128,8 +255,9 @@
                 
 
                 <div id="content" class="content">
-                    <main>
-                        
+                    <div id="content-wrap" class="content-wrap">
+                        <main>
+                            
 <script>
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -144,9 +272,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#merge-sort-tree" id="merge-sort-tree">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>머지 소트 트리란 특수한 세그먼트 트리의 일종으로,  병합 정렬에서 정렬하는  과정이 그대로 트리의 노드에 저장된 트리를 말합니다 (<a href="../segmenttree">세그먼트 트리</a>, <a href="../../../algorithm/sort/mergesort">머지 소트</a> 참고). 다음 그림은 머지 소트 과정의 예시입니다. </p>
@@ -245,7 +371,17 @@ int main()
 <p>여기까지만 본다면 머지 소트 트리를 활용하는 이유에 대한 의문이 들 수도 있겠지만, 이런 쿼리를 여러개 처리해야만 한다면 커다란 차이가 발생하게 됩니다. 단순히 정렬을 한다면 매번 새로 정렬을 해야 해서 <code>m</code>개의 쿼리를 처리하는데에 \(O(mn\log n)\)의 시간이 들지만, 머지 소트 트리의 경우에는 처음에 트리를 만들고 나서부터는 \(O(\log^{3}n)\)의 시간복잡도를 가져 총 \(O(n\log n+m\log^{3}n)\)의 시간복잡도를 가지게 됩니다. 이런 상황에서는 둘의 실행시간 차이가 꽤 많이 발생합니다.</p>
 <p>같은 머지 소트 트리라도 조금씩 차이가 존재 할 수도 있습니다. 위에 나와있는 예시 코드처럼 머지 소트를 직접 구현하면서 트리를 만들 수도 있지만, \(\log n\)개의 노드를 <code>c++</code> 내장 함수를 활용하여 하나하나 정렬하는 방식으로 훨씬 편리하게 \(O(n\log^{2}n)\)만에 트리를 만드는 것도 가능하고, <code>set</code>등을 활용하여 업데이트가 가능하게 할 수도 있습니다. 머지 소트 트리를 이해한 후에는 직접 응용할 방법에 대해서 생각해 보도록 합시다.</p>
 
-                    </main>
+                        </main>
+                        <div id="right-bar-outer" class="right-bar-outer">
+                            <nav class="toc">
+                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#코드">2. 코드</a></li><li><a href="#예시">3. 예시</a></li></ul>
+                            </nav>
+                            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <path id="toc-path" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

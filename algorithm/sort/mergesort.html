@@ -76,8 +76,135 @@
             html.classList.add('js');
         </script>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <script>
+            function addOnload(fun){
+                var last = window.onload;
+                window.onload = function(){
+                    if(last) last();
+                    fun();
+                }
+            }
+        </script>
 
+        <script>
+            // code from https://github.com/hakimel/css/tree/master/progress-nav
+            // thanks for great code!
+            function toc() {
+                var toc = document.querySelector('.toc');
+                var tocPath = document.querySelector('.toc-marker path');
+                var tocItems;
+
+                // Factor of screen size that the element must cross
+                // before it's considered visible
+                var TOP_MARGIN = 0.05,
+                        BOTTOM_MARGIN = 0;
+                var pathLength;
+                var lastPathStart,
+                        lastPathEnd;
+
+                window.addEventListener('resize', drawPath, false);
+                window.addEventListener('scroll', sync, false);
+
+                drawPath();
+
+                function drawPath() {
+                    tocItems = [].slice.call(toc.querySelectorAll('li'));
+
+                    // Cache element references and measurements
+                    tocItems = tocItems.map(function (item) {
+                        var anchor = item.querySelector('a');
+                        var target = document.getElementById(anchor.getAttribute('href').slice(1));
+
+                        return {
+                            listItem: item,
+                            anchor: anchor,
+                            target: target
+                        };
+                    });
+
+                    // Remove missing targets
+                    tocItems = tocItems.filter(function (item) {
+                        return !!item.target;
+                    });
+
+                    var path = [];
+                    var pathIndent;
+
+                    tocItems.forEach(function (item, i) {
+                        var x = item.anchor.offsetLeft - 5,
+                                y = item.anchor.offsetTop,
+                                height = item.anchor.offsetHeight;
+
+                        if (i === 0) {
+                            path.push('M', x, y, 'L', x, y + height);
+                            item.pathStart = 0;
+                        } else {
+                            // Draw an additional line when there's a change in
+                            // indent levels
+                            if (pathIndent !== x) path.push('L', pathIndent, y);
+
+                            path.push('L', x, y);
+
+                            // Set the current path so that we can measure it
+                            tocPath.setAttribute('d', path.join(' '));
+                            item.pathStart = tocPath.getTotalLength() || 0;
+
+                            path.push('L', x, y + height);
+                        }
+
+                        pathIndent = x;
+
+                        tocPath.setAttribute('d', path.join(' '));
+                        item.pathEnd = tocPath.getTotalLength();
+                    });
+
+                    pathLength = tocPath.getTotalLength();
+
+                    sync();
+                }
+
+                function sync() {
+                    var windowHeight = window.innerHeight;
+                    var pathStart = pathLength,
+                            pathEnd = 0;
+                    var visibleItems = 0;
+
+                    tocItems.forEach(function (item) {
+                        var targetBounds = item.target.getBoundingClientRect();
+
+                        if (targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * (1 - BOTTOM_MARGIN)) {
+                            pathStart = Math.min(item.pathStart, pathStart);
+                            pathEnd = Math.max(item.pathEnd, pathEnd);
+
+                            visibleItems += 1;
+
+                            item.listItem.classList.add('visible');
+                        } else {
+                            item.listItem.classList.remove('visible');
+                        }
+                    });
+
+                    // Specify the visible path or hide the path altogether
+                    // if there are no visible items
+                    if (visibleItems > 0 && pathStart < pathEnd) {
+                        if (pathStart !== lastPathStart || pathEnd !== lastPathEnd) {
+                            tocPath.setAttribute('stroke-dashoffset', '1');
+                            tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+                            tocPath.setAttribute('opacity', 1);
+                        }
+                    } else {
+                        tocPath.setAttribute('opacity', 0);
+                    }
+
+                    lastPathStart = pathStart;
+                    lastPathEnd = pathEnd;
+                }
+            }
+
+            addOnload(toc);
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
             <div class="page">
                 
                 <div id="menu-bar-hover-placeholder"></div>
@@ -128,8 +255,9 @@
                 
 
                 <div id="content" class="content">
-                    <main>
-                        
+                    <div id="content-wrap" class="content-wrap">
+                        <main>
+                            
 <script>
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -144,9 +272,7 @@ async function writeTitle() {
     }
 }
 
-window.onload = function() {
-    writeTitle();
-}
+addOnload(writeTitle);
 </script><h1><a class="header title" href="#merge-sort" id="merge-sort">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
 <p>병합정렬은 분할정복, 혹은 <a href="../divideandconquer/divideandconquer">Divide &amp; Conquer</a>를 사용한 알고리즘으로, 폰 노이만이 개발했다고 한다. 병합정렬의 아이디어는 어떤 배열을 두 조각으로 자르는 거에서 시작한다. 만약 두 조각으로 자른 것들이 이미 정렬되어 있다고 하면, 두 조각을 합쳐서 원래 배열을 정렬시키는 데에는 \(O(n)\)의 시간복잡도밖에 걸리지 않는다. 어떻게 하느냐면, “3, 6, 8, 9”와 “1, 4, 7, 10”을 합칠 때(병합할 때) 두 배열에 대한 피벗을 각각 잡아 피벗들끼리 비교하여 더 작은 것부터 원래 배열에 담는 것이다. 즉 이 경우 3과 1, 3과 4, 6과 4, 6과 7, 8과 7, 8과 10, 9와 10을 순서대로 비교하여 새 배열에는 “1, 3, 4, 6, 7, 8, 9, 10”이 들어가게 된다. 그렇다면, 이를 재귀적으로 계속 절반씩 나눠가면서 각 배열의 절반씩을 정렬하면 될 것이다. 그런데, <code>n</code>을 계속 절반으로 쪼개나가는 것이니 재귀탐색은 깊어봤자 \(\log n\)번씩 밖에 실행되지 않을 것이다! 따라서 전체 알고리즘은 \(O(n\log n)\)안에 실행될 것이다. <code>main</code>함수의 <code>arrsort()</code>를 <code>mergesort(1, n)</code>으로 바꾸고 구현한 병합정렬의 코드이다.</p>
@@ -169,7 +295,17 @@ window.onload = function() {
 }
 </code></pre>
 
-                    </main>
+                        </main>
+                        <div id="right-bar-outer" class="right-bar-outer">
+                            <nav class="toc">
+                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#코드">2. 코드</a></li></ul>
+                            </nav>
+                            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <path id="toc-path" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

@@ -4,15 +4,17 @@
 :root {
     --sidebar-width: 0px;
     --page-padding: 15px;
-    --content-max-width: 750px;
+    --content-max-width: 600px;
     --menu-bar-height: 50px;
+    --right-bar-width: 250px;
 }
 
 /* Themes */
 
 .ayu {
-    --bg: hsl(210, 25%, 8%);
+    --bg: hsl(213, 27%, 8%);
     --fg: #c5c5c5;
+    --darken-fg: #46494d;
 
     --sidebar-bg: #14191f;
     --sidebar-fg: #c8c9db;
@@ -53,6 +55,7 @@
 .coal {
     --bg: hsl(200, 7%, 8%);
     --fg: #98a3ad;
+    --darken-fg: #3b4043;
 
     --sidebar-bg: #292c2f;
     --sidebar-fg: #a1adb8;
@@ -93,6 +96,7 @@
 .light {
     --bg: hsl(0, 0%, 100%);
     --fg: #333333;
+    --darken-fg: #c2c2c2;
 
     --sidebar-bg: #fafafa;
     --sidebar-fg: #364149;
@@ -133,6 +137,7 @@
 .navy {
     --bg: hsl(226, 23%, 11%);
     --fg: #bcbdd0;
+    --darken-fg: #484a57;
 
     --sidebar-bg: #282d3f;
     --sidebar-fg: #c8c9db;
@@ -173,6 +178,7 @@
 .rust {
     --bg: hsl(60, 9%, 87%);
     --fg: #262625;
+    --darken-fg: #a9a9a4;
 
     --sidebar-bg: #3b2e2a;
     --sidebar-fg: #c8c9db;
@@ -214,6 +220,7 @@
     .light.no-js {
         --bg: hsl(200, 7%, 8%);
         --fg: #98a3ad;
+        --darken-fg: #3b4043;
 
         --sidebar-bg: #292c2f;
         --sidebar-fg: #a1adb8;
