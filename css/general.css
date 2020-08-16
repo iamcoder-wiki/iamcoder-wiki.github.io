@@ -146,7 +146,7 @@ h4 a.header:target {
     margin-right: auto;
     display: flex;
     align-items: flex-start;
-    max-width: calc(100% - 50px);
+    max-width: 100%;
     width: calc(var(--right-bar-width) + var(--content-max-width) + 30px);
 }
 
@@ -159,9 +159,13 @@ h4 a.header:target {
     margin-right: 0;
 }
 
-@media only screen and (max-width: 930px) {
+@media only screen and (max-width: 800px) {
     .content .right-bar-outer {
         display: none !important;
+    }
+
+    .content main {
+        width: 100%;
     }
 }
 
@@ -257,8 +261,20 @@ h4 a.header:target {
     justify-content: flex-end;
 }
 
-@media only screen and (min-width: 930px) {
+@media only screen and (min-width: 800px) {
     .main-wrap {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .mobile-show {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .mobile-hide {
         display: none !important;
     }
 }
