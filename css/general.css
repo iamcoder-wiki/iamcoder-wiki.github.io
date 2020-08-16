@@ -97,14 +97,13 @@ h4 a.header:target {
 }
 
 .content {
-    padding: 0 15px 50px;
+    padding: 0 15px;
 }
 
 .content main {
-    margin-left: 0;
-    margin-right: 0;
     max-width: 100%;
     width: var(--content-max-width);
+    margin: 0 0 50px;
 }
 
 .content p {
@@ -152,6 +151,7 @@ h4 a.header:target {
 
 .content .right-bar-outer {
     width: var(--right-bar-width);
+    height: calc(100vh - 30px - var(--menu-bar-height));
     position: -webkit-sticky;
     position: sticky;
     top: calc(var(--menu-bar-height) + 30px) !important;
@@ -221,6 +221,44 @@ h4 a.header:target {
     transition: all 0.3s ease;
 }
 
+.right-bar-outer p {
+    margin: 0 0 5px;
+    font-size: small;
+}
+
+.main-wrap p {
+    margin: 5px 0 0;
+    font-size: small;
+}
+
+.contributors {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contributors img {
+    border-radius: 50%;
+}
+
+.contributors a {
+    margin: 3px;
+}
+
+.contributors .description {
+    height: 29px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.contributors .description span {
+    font-size: small;
+}
+
+.main-wrap .contributors {
+    justify-content: flex-end;
+}
+
 .github-link {
     display: flex;
     flex-wrap: wrap;
@@ -237,7 +275,7 @@ h4 a.header:target {
     border: 1px solid var(--fg) !important;
     border-radius: 3px;
     padding: 5px 10px;
-    margin: 10px 6px 0 0;
+    margin: 5px 6px 5px 0;
     font-size: small;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -248,7 +286,7 @@ h4 a.header:target {
     border: 1px solid var(--fg) !important;
     border-radius: 3px;
     padding: 5px 10px;
-    margin: 10px 6px 0 0;
+    margin: 5px 6px 5px 0;
     font-size: small;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -259,6 +297,16 @@ h4 a.header:target {
 
 .main-wrap .github-link {
     justify-content: flex-end;
+}
+
+.main-wrap .github-link .link-button,
+.main-wrap .github-link .link-button:active,
+.main-wrap .github-link .link-button:visited {
+    margin: 10px 0 0 6px;
+}
+
+.main-wrap .github-link .link-button:hover {
+    margin: 10px 0 0 6px;
 }
 
 @media only screen and (min-width: 800px) {
