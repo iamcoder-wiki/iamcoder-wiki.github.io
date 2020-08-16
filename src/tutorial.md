@@ -2,35 +2,36 @@
 
 ## 소개
 
-- [사이트 소개](./intro/site.md)
-- [IamCoder](./intro/iamcoder/iamcoder.md)
+- [사이트 소개](./site.md)
+- [IamCoder](./iamcoder.md)
 
 ## 알고리즘
 
-- [Sort](./algorithm/sort/sort.md)
-- [Graph Traversal](./algorithm/graphtraversal/graphtraversal.md)
-- [Divide & Conquer](./algorithm/divideandconquer/divideandconquer.md)
-- [Dynamic Programming](./algorithm/dp/dp.md)
-- [Shortest Path](./algorithm/shortestpath/shortestpath.md)
-- [Query Technique](./algorithm/query/query.md)
-- [DP Optimization](./algorithm/dpopt/dpopt.md)
-- [Network Flow](./algorithm/networkflow/networkflow.md)
-- [Geometry](./algorithm/geometry/geometry.md)
-- [String](./algorithm/string/string.md)
+- [Sort](./sort.md)
+- [Graph Traversal](./graph-traversal.md)
+- [Divide & Conquer](./divide-and-conquer.md)
+- [Dynamic Programming](./dp.md)
+- [Shortest Path](./shortest-path.md)
+- [Query Technique](./query-technique.md)
+- [DP Optimization](./dp-optimization.md)
+- [Network Flow](./network-flow.md)
+- [Geometry](./geometry.md)
+- [String](./string.md)
 
 ## 자료구조
 
-* [Basic](./datastructure/basic/basic.md)
-* [Intermediate](./datastructure/intermediate/intermediate.md)
-* [Tree](./datastructure/tree/tree.md)
-* [Segment Tree](./datastructure/segmenttree/segmenttree.md)
-* [Advanced](./datastructure/advanced/advanced.md)
+* [Basic](./basic-data-structure.md)
+* [Intermediate](./intermediate-data-structure.md)
+* [Tree](./tree.md)
+* [Segment Tree](./segment-tree.md)
+* [Advanced](./advanced-data-structure.md)
 
 ## 기타
 
-- [Additional Topics](./additional/additional.md)
+- [Additional Topics](./additional-topics.md)
 
 ## Problem Solving
 
-* [OI](./ps/oi/oi.md)
-* [SITE](./ps/site.md)
+* [Problem Solving](./problem-solving.md)
+  * [OI](./problem-solving/oi.md)
+  * [SITE](./problem-solving/site.md)
