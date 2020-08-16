@@ -59,7 +59,7 @@
 - [Kruskal's Algorithm](./kruskal-algorithm.md)
 - [Lazy Propagation](./lazy-propagation.md)
 - [LCA](./lca.md)
-- [LCS](,/lcs.md)
+- [LCS](./lcs.md)
 - [Link Cut Tree](./link-cut-tree.md)
 - [Linked List](./linked-list.md)
 - [Manacher Algorithm](./manacher-algorithm.md)
