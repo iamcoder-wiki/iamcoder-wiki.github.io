@@ -52,7 +52,7 @@
 - [Heap](./heap.md)
 - [Heavy-Light Decomposition](./heavy-light-decomposition.md)
 - [Insertion Sort](./insertion-sort.md)
-- [Intermediate Data Structure](./intermediate-data-structure)
+- [Intermediate Data Structure](./intermediate-data-structure.md)
 - [Intro Sort](./intro-sort.md)
 - [KMP](./kmp.md)
 - [Knuth Optimization](./knuth-optimization.md)
