@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Mainpage - IamCoder Wiki</title>
+        <title>Prim&#x27;s Algorithm - IamCoder Wiki</title>
         
         
 
@@ -260,11 +260,11 @@
                         <main>
                             <div class="main-wrap">
                                 <div class="github-link">
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/mainpage.md"><div class="link-button">편집</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/mainpage.md"><div class="link-button">역사</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/mainpage.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5Biamcoder:대문%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5Biamcoder:대문%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/prim-algorithm.md"><div class="link-button">편집</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/prim-algorithm.md"><div class="link-button">역사</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/prim-algorithm.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
                                 <p>최근 수정 시각: 2020-08-16 21:30:14</p>
                                 <div class="contributors">
@@ -279,7 +279,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["i_", "ia_", "iam_", "iamc_", "iamco_", "iamcod_", "iamcode_", "iamcoder_", "iamcoder:_", "iamcoder:ㄷ_", "iamcoder:대_", "iamcoder:대_", "iamcoder:대ㅁ_", "iamcoder:대무_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문"];
+    let s = ["P_", "Pr_", "Pri_", "Prim_", "Prim\'_", "Prim\'s_", "Prim\'s _", "Prim\'s A_", "Prim\'s Al_", "Prim\'s Alg_", "Prim\'s Algo_", "Prim\'s Algor_", "Prim\'s Algori_", "Prim\'s Algorit_", "Prim\'s Algorith_", "Prim\'s Algorithm_", "Prim\'s Algorithm_", "Prim\'s Algorithm_", "Prim\'s Algorithm_", "Prim\'s Algorithm", "Prim\'s Algorithm", "Prim\'s Algorithm", "Prim\'s Algorithm", "Prim\'s Algorithm_", "Prim\'s Algorithm_", "Prim\'s Algorithm_", "Prim\'s Algorithm_", "Prim\'s Algorithm"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
@@ -289,50 +289,85 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<!-- :title=iamcoder:대문: -->
-<h1><a class="header title" href="#iamcoder대문" id="iamcoder대문">_</a></h1>
-<p>안녕하세요. IamCoder(나는코더다) 위키입니다.</p>
+<!-- :title=Prim's Algorithm: -->
+<h1><a class="header title" href="#prims-algorithm" id="prims-algorithm">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
-<ul>
-<li><a href="./site">사이트 소개</a></li>
-<li><a href="./iamcoder">IamCoder</a></li>
-</ul>
-<h2><a class="header" href="#알고리즘" id="알고리즘">2. 알고리즘</a></h2>
-<ul>
-<li><a href="./sort">Sort</a></li>
-<li><a href="./graph-traversal">Graph Traversal</a></li>
-<li><a href="./divide-and-conquer">Divide &amp; Conquer</a></li>
-<li><a href="./dp">Dynamic Programming</a></li>
-<li><a href="./shortest-path">Shortest Path</a></li>
-<li><a href="./query-technique">Query Technique</a></li>
-<li><a href="./dp-optimization">DP Optimization</a></li>
-<li><a href="./network-flow">Network Flow</a></li>
-<li><a href="./geometry">Geometry</a></li>
-<li><a href="./string">String</a></li>
-</ul>
-<h2><a class="header" href="#자료구조" id="자료구조">3. 자료구조</a></h2>
-<ul>
-<li><a href="./basic-data-structure">Basic</a></li>
-<li><a href="./intermediate-data-structure">Intermediate</a></li>
-<li><a href="./tree">Tree</a></li>
-<li><a href="./segment-tree">Segment Tree</a></li>
-<li><a href="./advanced-data-structure">Advanced</a></li>
-</ul>
-<h2><a class="header" href="#기타" id="기타">4. 기타</a></h2>
-<ul>
-<li><a href="./additional-topics">Additional Topics</a></li>
-</ul>
-<h2><a class="header" href="#problem-solving" id="problem-solving">5. Problem Solving</a></h2>
-<ul>
-<li><a href="./problem-solving">Problem Solving</a></li>
-<li><a href="./problem-solving/oi">OI</a></li>
-<li><a href="./problem-solving/site">SITE</a></li>
-</ul>
+<p>프림의 알고리즘은 가중치가 작은 간선부터 트리에 추가해 가며 최소 스패닝 트리를 구한다는 면에서는 <a href="../kruskal/kruskal">크루스칼의 알고리즘</a>과 같습니다.
+<a href="../kruskal/kruskal">크루스칼의 알고리즘</a>은 간선들이 서로 연결되어 있지 않더라도 가중치가 작으면 트리에 추가하는 반면, 프림의 알고리즘에서는 현재 최소 스패팅 트리에 연결된 간선만 트리에 추가한다는 것이 프림 알고리즘과 <a href="../kruskal/kruskal">크루스칼의 알고리즘</a>의 차이점입니다.</p>
+<h2><a class="header" href="#과정" id="과정">2. 과정</a></h2>
+<p>다음 그래프에 프림 알고리즘을 적용하여 MST를 구해보자.</p>
+<img src="./prim1.png" width = 500 >
+<img src="./prim2.svg" width = 500 >
+<p>파란색 간선은 최소 스패닝 트리에 추가된 간선을 뜻하며, 녹색은 최소 스패팅 트리와 연결되어 있는 간선, 즉 최소 스패닝 트리에 추가될 가능성이 있는 간선을 의미합니다.</p>
+<p>프림의 알고리즘은 먼저 특수한 한 정점을 최소 스패닝 트리에 추가시킵니다. 그 후, 현재의 트리와 연결된 간선들 중에서 가중치가 최소인 간선과 그에 연결된 정점을 계속해서 트리에 포함시킵니다. 이 과정을 모든 정점이 트리에 포함될 때까지, 총 \(|V|\)번 계속합니다.</p>
+<h2><a class="header" href="#코드" id="코드">3. 코드</a></h2>
+<h3><a class="header" href="#ov2--배열을-이용한-방법" id="ov2--배열을-이용한-방법">3.1. \(O(|V|^2)\) | 배열을 이용한 방법</a></h3>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define V 100000 //maximum number of nodes
+
+using namespace std;
+typedef pair&lt;int, int&gt; pp;
+
+vector&lt;pp&gt; gr[V]; //first=weight, second=node number
+int mincost[V];
+bool check[V];
+
+int prim(int v){
+	int i, j;
+	int ret=0;
+	int mn;
+	mincost[0]=0;
+	for(i=1;i&lt;v;i++) mincost[i]=INT_MAX;
+	for(i=0;i&lt;v;i++){
+		mn=-1;
+		for(j=0;j&lt;v;j++)
+			if(!check[j]&amp;&amp;(mn==-1||mincost[j]&lt;mincost[mn])) mn=j;
+		ret+=mincost[mn];
+		check[mn]=1;
+		for(j=0;j&lt;gr[mn].size();j++)
+			mincost[gr[mn][j].second]=min(mincost[gr[mn][j].second], gr[mn][j].first);
+	}
+	return ret;
+}
+</code></pre>
+<p>배열을 이용한 방법은 \(|V|\)개의 원소의 최솟값을 구하는 과정을 \(|V|\)번 반복하고, \(|E|\)개의 간선을 한 번씩 조사하므로 총 시간 복잡도는 \(O(|E|+|V|^2)\)입니다. 이때 \(|E|&lt;|V|^2\)이므로 결국 시간 복잡도는 \(O(|V|^2)\)이 됩니다.</p>
+<h3><a class="header" href="#oelog-v--우선순위-큐를-이용한-방법" id="oelog-v--우선순위-큐를-이용한-방법">3.2. \(O(|E|\log |V|)\) | 우선순위 큐를 이용한 방법</a></h3>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+#define V 100000 //number of nodes
+
+using namespace std;
+typedef pair&lt;int, int&gt; pp;
+
+vector&lt;pp&gt; gr[V]; //first=weight, second=node number
+bool check[V];
+priority_queue&lt;pp, vector&lt;pp&gt;, greater&lt;pp&gt; &gt; mincost;
+
+int prim(int v){
+	int i, j;
+	pp t;
+	int ret=0;
+	mincost.push(pp(0, 0));
+	for(i=0;i&lt;v;i++){
+		while(check[mincost.top().second]) mincost.pop(); //delete already visited nodes
+		t=mincost.top(), mincost.pop();
+		check[t.second]=1;
+		ret+=t.first;
+		for(j=0;j&lt;gr[t.second].size();j++){
+			mincost.push(pp(gr[t.second][j].first, gr[t.second][j].second));
+		}
+	}
+	return ret;
+}
+</code></pre>
+<p>우선순위 큐를 이용한 방법은 \(|E|\)개의 원소를 가지는 우선순위 큐에 대한 삽입/삭제 연산을 최대 \(|E|\)번 하므로 시간 복잡도는 \(O(|E|\log |E|)\)이고, 위에서와 마찬가지로 \(|E|&lt;|V|^2\)이므로 이는 \(O(|E|\log |V|)\)와 같습니다.</p>
+<p>밀집된 그래프에서, 즉 \(|E|\)가 \(|V|^2\)에 가까울 경우에는 위의 방식이 아래의 방식보다 더 빠르게 동작합니다. 반면 \(|E|\)가 적당히 작은 경우에는 아래의 방식이 위의 것보다 더 빠르게 동작할 수 있습니다. 따라서 문제의 조건을 정확히 파악하고 그에 알맞은 구현 방법을 사용하는 것이 중요합니다.</p>
+<h2><a class="header" href="#여담" id="여담">4. 여담</a></h2>
+<p>자세히 살펴보면, 우선순위 큐를 이용한 프림의 알고리즘 구현은 다익스트라의 알고리즘과 상당히 비슷하다는 것을 알 수 있습니다. 이는 두 알고리즘의 아이디어가 상당히 비슷하기 때문인데, 실제로 두 알고리즘의 코드를 한두 줄만 고치면 다른 알고리즘의 코드로 변하는 것을 볼 수 있습니다.</p>
 
                         </main>
                         <div id="right-bar-outer" class="right-bar-outer">
                             <nav class="toc">
-                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#알고리즘">2. 알고리즘</a></li><li><a href="#자료구조">3. 자료구조</a></li><li><a href="#기타">4. 기타</a></li><li><a href="#problem-solving">5. Problem Solving</a></li></ul>
+                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#과정">2. 과정</a></li><li><a href="#코드">3. 코드</a><ul><li><a href="#ov2--배열을-이용한-방법">3.1. \(O(|V|^2)\) | 배열을 이용한 방법</a></li><li><a href="#oelog-v--우선순위-큐를-이용한-방법">3.2. \(O(|E|\log |V|)\) | 우선순위 큐를 이용한 방법</a></li></ul></li><li><a href="#여담">4. 여담</a></li></ul>
                             </nav>
                             <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
@@ -345,11 +380,11 @@ addOnload(writeTitle);
                                 <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                             </div>
                             <div class="github-link">
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/mainpage.md"><div class="link-button">편집</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/mainpage.md"><div class="link-button">역사</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/mainpage.md"><div class="link-button">Github에서 보기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5Biamcoder:대문%5D+"><div class="link-button">토론 생성하기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5Biamcoder:대문%5D"><div class="link-button">진행중인 토론</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/prim-algorithm.md"><div class="link-button">편집</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/prim-algorithm.md"><div class="link-button">역사</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/prim-algorithm.md"><div class="link-button">Github에서 보기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="link-button">토론 생성하기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="link-button">진행중인 토론</div></a>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Mainpage - IamCoder Wiki</title>
+        <title>Sort - IamCoder Wiki</title>
         
         
 
@@ -260,11 +260,11 @@
                         <main>
                             <div class="main-wrap">
                                 <div class="github-link">
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/mainpage.md"><div class="link-button">편집</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/mainpage.md"><div class="link-button">역사</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/mainpage.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5Biamcoder:대문%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5Biamcoder:대문%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/sort.md"><div class="link-button">편집</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/sort.md"><div class="link-button">역사</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/sort.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSort%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSort%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
                                 <p>최근 수정 시각: 2020-08-16 21:30:14</p>
                                 <div class="contributors">
@@ -279,7 +279,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["i_", "ia_", "iam_", "iamc_", "iamco_", "iamcod_", "iamcode_", "iamcoder_", "iamcoder:_", "iamcoder:ㄷ_", "iamcoder:대_", "iamcoder:대_", "iamcoder:대ㅁ_", "iamcoder:대무_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문"];
+    let s = ["S_", "So_", "Sor_", "Sort_", "Sort_", "Sort_", "Sort_", "Sort", "Sort", "Sort", "Sort", "Sort_", "Sort_", "Sort_", "Sort_", "Sort"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
@@ -289,50 +289,51 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<!-- :title=iamcoder:대문: -->
-<h1><a class="header title" href="#iamcoder대문" id="iamcoder대문">_</a></h1>
-<p>안녕하세요. IamCoder(나는코더다) 위키입니다.</p>
-<h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
+<!-- :title=Sort: -->
+<h1><a class="header title" href="#sort" id="sort">_</a></h1>
+<h2><a class="header" href="#sort정렬이란" id="sort정렬이란">1. Sort(정렬)이란?</a></h2>
+<p>프로그래밍에서 정렬이란 무작위로 있는 여러 자료들의 순서를 규칙성 있게 재배열하는 것을 뜻한다. 오름차순, 또는 내림차순으로 정렬하는 것이 일반적이나, 내가 임의로 정한 규칙에 따라 정렬해야 하는 경우도 있다. 정렬해야 하는 자료들의 개수가 <code>n</code>일 때, 정렬알고리즘은 크게 시간복잡도가 \(O(n^2)\), \(O(n\log n)\)과 그 이외인 것으로 나뉘는데, 초급단계에서는 이 \(O(n^2)\) 방법만 알아도 큰 무리는 없다. 구현이 5에서 6줄 정도로 매우 짧고 개념도 직관적으로 이해가 쉽기 때문이다. 그러나 중급단계 이상에서는 100000개 이상의 자료들을 정렬해야 하는 경우가 생겨 \(O(n^2)\)방법으로는 시간초과가 나게 된다. 따라서 \(O(nlogn)\)정렬을 기용해야 하는데, 구현이 모두 \(20\)줄 이상으로 생각보다 쉽지만은 않다. 그러나 우리에게는 하나의 무기가 있는데, 그게 뭔지는 차차 알아가 보도록 하자. 이제부터 설명을 시작할 건데, 이하의 예시코드는 다음의 함수 <code>sortarr()</code> 안에 들어갈 코드로 하자. <code>n</code>개의 <code>int</code>형 자료를 오름차순으로 정렬하여 순서대로 출력하는 프로그램을 다음과 같이 구현하자.</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int arr[100010], n;
+int main()  
+{
+    scanf(&quot;%d&quot;, &amp;n);
+    for(int i=1; i&lt;=n; i++)
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+    sortarr();  //여기
+    for(int i=1; i&lt;=n; i++)
+        printf(&quot;%d &quot;, arr[i]);
+}
+</code></pre>
+<h2><a class="header" href="#-on2--sort" id="-on2--sort">2. \( O(n^2) \) Sort</a></h2>
+<h3><a class="header" href="#종류" id="종류">2.1. 종류</a></h3>
 <ul>
-<li><a href="./site">사이트 소개</a></li>
-<li><a href="./iamcoder">IamCoder</a></li>
+<li><a href="./bubble-sort">Bubble Sort</a></li>
+<li><a href="./selection-sort">Selection Sort</a></li>
+<li><a href="./insertion-sort">Insertion Sort</a></li>
 </ul>
-<h2><a class="header" href="#알고리즘" id="알고리즘">2. 알고리즘</a></h2>
+<h3><a class="header" href="#여담" id="여담">2.2. 여담</a></h3>
+<p>이로써 기본적인 정렬 알고리즘들을 살펴보았는데, 이 알고리즘들은 정렬할 때 쓰일 뿐만 아니라 문제에도 활용이 되는 기본 중의 기본으로 꼭 익혀둬야 한다. 앞으로의 \(O(n\log n)\) 알고리즘들은 더욱 심화된 자료구조와 기법을 사용하므로 모르는 자료구조가 있으면 같은 책의 앞 또는 뒤에 설명이 있으므로 참고하면 되고, 인터넷에서도 설명이 친절하게 되어 있으니 참고하길 바란다.</p>
+<h2><a class="header" href="#onlog-n-sort" id="onlog-n-sort">3. \(O(n\log n)\) Sort</a></h2>
+<h3><a class="header" href="#종류-1" id="종류-1">3.1. 종류</a></h3>
 <ul>
-<li><a href="./sort">Sort</a></li>
-<li><a href="./graph-traversal">Graph Traversal</a></li>
-<li><a href="./divide-and-conquer">Divide &amp; Conquer</a></li>
-<li><a href="./dp">Dynamic Programming</a></li>
-<li><a href="./shortest-path">Shortest Path</a></li>
-<li><a href="./query-technique">Query Technique</a></li>
-<li><a href="./dp-optimization">DP Optimization</a></li>
-<li><a href="./network-flow">Network Flow</a></li>
-<li><a href="./geometry">Geometry</a></li>
-<li><a href="./string">String</a></li>
+<li><a href="./merge-sort">Merge Sort</a></li>
+<li><a href="./heap-sort">Heap Sort</a></li>
+<li><a href="./quick-sort">Quick Sort</a></li>
 </ul>
-<h2><a class="header" href="#자료구조" id="자료구조">3. 자료구조</a></h2>
+<h2><a class="header" href="#기타-정렬" id="기타-정렬">4. 기타 정렬</a></h2>
+<h3><a class="header" href="#종류-2" id="종류-2">4.1. 종류</a></h3>
 <ul>
-<li><a href="./basic-data-structure">Basic</a></li>
-<li><a href="./intermediate-data-structure">Intermediate</a></li>
-<li><a href="./tree">Tree</a></li>
-<li><a href="./segment-tree">Segment Tree</a></li>
-<li><a href="./advanced-data-structure">Advanced</a></li>
-</ul>
-<h2><a class="header" href="#기타" id="기타">4. 기타</a></h2>
-<ul>
-<li><a href="./additional-topics">Additional Topics</a></li>
-</ul>
-<h2><a class="header" href="#problem-solving" id="problem-solving">5. Problem Solving</a></h2>
-<ul>
-<li><a href="./problem-solving">Problem Solving</a></li>
-<li><a href="./problem-solving/oi">OI</a></li>
-<li><a href="./problem-solving/site">SITE</a></li>
+<li><a href="./counting-sort">Counting Sort</a></li>
+<li><a href="./radix-sort">Radix Sort</a></li>
+<li><a href="./intro-sort">Intro Sort</a></li>
 </ul>
 
                         </main>
                         <div id="right-bar-outer" class="right-bar-outer">
                             <nav class="toc">
-                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#알고리즘">2. 알고리즘</a></li><li><a href="#자료구조">3. 자료구조</a></li><li><a href="#기타">4. 기타</a></li><li><a href="#problem-solving">5. Problem Solving</a></li></ul>
+                                <ul><li><a href="#sort정렬이란">1. Sort(정렬)이란?</a></li><li><a href="#-on2--sort">2. \( O(n^2) \) Sort</a><ul><li><a href="#종류">2.1. 종류</a></li><li><a href="#여담">2.2. 여담</a></li></ul></li><li><a href="#onlog-n-sort">3. \(O(n\log n)\) Sort</a><ul><li><a href="#종류-1">3.1. 종류</a></li></ul></li><li><a href="#기타-정렬">4. 기타 정렬</a><ul><li><a href="#종류-2">4.1. 종류</a></li></ul></li></ul>
                             </nav>
                             <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
@@ -345,11 +346,11 @@ addOnload(writeTitle);
                                 <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                             </div>
                             <div class="github-link">
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/mainpage.md"><div class="link-button">편집</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/mainpage.md"><div class="link-button">역사</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/mainpage.md"><div class="link-button">Github에서 보기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5Biamcoder:대문%5D+"><div class="link-button">토론 생성하기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5Biamcoder:대문%5D"><div class="link-button">진행중인 토론</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/sort.md"><div class="link-button">편집</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/sort.md"><div class="link-button">역사</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/sort.md"><div class="link-button">Github에서 보기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSort%5D+"><div class="link-button">토론 생성하기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSort%5D"><div class="link-button">진행중인 토론</div></a>
                             </div>
                         </div>
                     </div>

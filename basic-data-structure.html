@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Mainpage - IamCoder Wiki</title>
+        <title>Basic Data Structure - IamCoder Wiki</title>
         
         
 
@@ -260,16 +260,16 @@
                         <main>
                             <div class="main-wrap">
                                 <div class="github-link">
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/mainpage.md"><div class="link-button">편집</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/mainpage.md"><div class="link-button">역사</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/mainpage.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5Biamcoder:대문%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5Biamcoder:대문%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/basic-data-structure.md"><div class="link-button">편집</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/basic-data-structure.md"><div class="link-button">역사</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/basic-data-structure.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBasic Data Structure%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBasic Data Structure%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
-                                <p>최근 수정 시각: 2020-08-16 21:30:14</p>
+                                <p>최근 수정 시각: 2020-08-16 21:45:19</p>
                                 <div class="contributors">
                                     <div class="description"><span>기여자:&nbsp;</span></div>
-                                    <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
+                                    <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
                                 </div>
                             </div>
                             
@@ -279,7 +279,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["i_", "ia_", "iam_", "iamc_", "iamco_", "iamcod_", "iamcode_", "iamcoder_", "iamcoder:_", "iamcoder:ㄷ_", "iamcoder:대_", "iamcoder:대_", "iamcoder:대ㅁ_", "iamcoder:대무_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문_", "iamcoder:대문"];
+    let s = ["B_", "Ba_", "Bas_", "Basi_", "Basic_", "Basic _", "Basic D_", "Basic Da_", "Basic Dat_", "Basic Data_", "Basic Data _", "Basic Data S_", "Basic Data St_", "Basic Data Str_", "Basic Data Stru_", "Basic Data Struc_", "Basic Data Struct_", "Basic Data Structu_", "Basic Data Structur_", "Basic Data Structure_", "Basic Data Structure_", "Basic Data Structure_", "Basic Data Structure_", "Basic Data Structure", "Basic Data Structure", "Basic Data Structure", "Basic Data Structure", "Basic Data Structure_", "Basic Data Structure_", "Basic Data Structure_", "Basic Data Structure_", "Basic Data Structure"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
@@ -289,67 +289,41 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<!-- :title=iamcoder:대문: -->
-<h1><a class="header title" href="#iamcoder대문" id="iamcoder대문">_</a></h1>
-<p>안녕하세요. IamCoder(나는코더다) 위키입니다.</p>
+<!-- :title=Basic Data Structure: -->
+<h1><a class="header title" href="#basic-data-structure" id="basic-data-structure">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
+<p>기본 자료구조은 입력받은 데이터를 저장하고, 사용할 수 있도록 하는 기초적인 자료 저장 방식으로 구성되어 있다. 각 자료구조의 특성을 정확히 이해하여, 문제를 푸는 과정에서 필요한 적절한 자료구조를 선택하여 사용할 수 있어야 한다.</p>
+<h2><a class="header" href="#종류" id="종류">2. 종류</a></h2>
 <ul>
-<li><a href="./site">사이트 소개</a></li>
-<li><a href="./iamcoder">IamCoder</a></li>
-</ul>
-<h2><a class="header" href="#알고리즘" id="알고리즘">2. 알고리즘</a></h2>
-<ul>
-<li><a href="./sort">Sort</a></li>
-<li><a href="./graph-traversal">Graph Traversal</a></li>
-<li><a href="./divide-and-conquer">Divide &amp; Conquer</a></li>
-<li><a href="./dp">Dynamic Programming</a></li>
-<li><a href="./shortest-path">Shortest Path</a></li>
-<li><a href="./query-technique">Query Technique</a></li>
-<li><a href="./dp-optimization">DP Optimization</a></li>
-<li><a href="./network-flow">Network Flow</a></li>
-<li><a href="./geometry">Geometry</a></li>
-<li><a href="./string">String</a></li>
-</ul>
-<h2><a class="header" href="#자료구조" id="자료구조">3. 자료구조</a></h2>
-<ul>
-<li><a href="./basic-data-structure">Basic</a></li>
-<li><a href="./intermediate-data-structure">Intermediate</a></li>
-<li><a href="./tree">Tree</a></li>
-<li><a href="./segment-tree">Segment Tree</a></li>
-<li><a href="./advanced-data-structure">Advanced</a></li>
-</ul>
-<h2><a class="header" href="#기타" id="기타">4. 기타</a></h2>
-<ul>
-<li><a href="./additional-topics">Additional Topics</a></li>
-</ul>
-<h2><a class="header" href="#problem-solving" id="problem-solving">5. Problem Solving</a></h2>
-<ul>
-<li><a href="./problem-solving">Problem Solving</a></li>
-<li><a href="./problem-solving/oi">OI</a></li>
-<li><a href="./problem-solving/site">SITE</a></li>
+<li><a href="./stack">Stack</a></li>
+<li><a href="./queue">Queue</a></li>
+<li><a href="./vector">Vector</a></li>
+<li><a href="./deque">Deque</a></li>
+<li><a href="./linked-list">Linked List</a></li>
+<li><a href="./structure">Structure</a></li>
 </ul>
 
                         </main>
                         <div id="right-bar-outer" class="right-bar-outer">
                             <nav class="toc">
-                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#알고리즘">2. 알고리즘</a></li><li><a href="#자료구조">3. 자료구조</a></li><li><a href="#기타">4. 기타</a></li><li><a href="#problem-solving">5. Problem Solving</a></li></ul>
+                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#종류">2. 종류</a></li></ul>
                             </nav>
                             <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
                             </svg>
                             <p>
-                                최근 수정 시각: 2020-08-16 21:30:14
+                                최근 수정 시각: 2020-08-16 21:45:19
                             </p>
                             <div class="contributors">
                                 <div class="description"><span>기여자:&nbsp;</span></div>
-                                <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
+                                <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
                             </div>
                             <div class="github-link">
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/mainpage.md"><div class="link-button">편집</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/mainpage.md"><div class="link-button">역사</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/mainpage.md"><div class="link-button">Github에서 보기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5Biamcoder:대문%5D+"><div class="link-button">토론 생성하기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5Biamcoder:대문%5D"><div class="link-button">진행중인 토론</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/basic-data-structure.md"><div class="link-button">편집</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/basic-data-structure.md"><div class="link-button">역사</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/basic-data-structure.md"><div class="link-button">Github에서 보기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBasic Data Structure%5D+"><div class="link-button">토론 생성하기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBasic Data Structure%5D"><div class="link-button">진행중인 토론</div></a>
                             </div>
                         </div>
                     </div>
