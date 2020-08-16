@@ -103,7 +103,7 @@ h4 a.header:target {
 .content main {
     margin-left: 0;
     margin-right: 0;
-    max-width: var(--content-max-width);
+    max-width: 100%;
     width: var(--content-max-width);
 }
 
@@ -146,6 +146,7 @@ h4 a.header:target {
     margin-right: auto;
     display: flex;
     align-items: flex-start;
+    max-width: calc(100% - 50px);
     width: calc(var(--right-bar-width) + var(--content-max-width) + 30px);
 }
 
@@ -158,7 +159,7 @@ h4 a.header:target {
     margin-right: 0;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 930px) {
     .content .right-bar-outer {
         display: none !important;
     }
@@ -214,6 +215,52 @@ h4 a.header:target {
 
 .toc-marker path {
     transition: all 0.3s ease;
+}
+
+.github-link {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.github-link a:hover {
+    text-decoration: none;
+}
+
+.github-link .link-button,
+.github-link .link-button:active,
+.github-link .link-button:visited {
+    color: var(--fg) !important;
+    border: 1px solid var(--fg) !important;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 10px 6px 0 0;
+    font-size: small;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.github-link .link-button:hover {
+    color: var(--bg) !important;
+    background: var(--fg);
+    border: 1px solid var(--fg) !important;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 10px 6px 0 0;
+    font-size: small;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.main-wrap {
+    text-align: right;
+}
+
+.main-wrap .github-link {
+    justify-content: flex-end;
+}
+
+@media only screen and (min-width: 930px) {
+    .main-wrap {
+        display: none !important;
+    }
 }
 
 table {
