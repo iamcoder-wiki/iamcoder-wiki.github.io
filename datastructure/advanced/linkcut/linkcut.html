@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["L_", "Li_", "Lin_", "Link_", "Link&nbsp;_", "Link&nbsp;C_", "Link&nbsp;Cu_", "Link&nbsp;Cut_", "Link&nbsp;Cut&nbsp;_", "Link&nbsp;Cut&nbsp;T_", "Link&nbsp;Cut&nbsp;Tr_", "Link&nbsp;Cut&nbsp;Tre_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree", "Link&nbsp;Cut&nbsp;Tree", "Link&nbsp;Cut&nbsp;Tree", "Link&nbsp;Cut&nbsp;Tree", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree_", "Link&nbsp;Cut&nbsp;Tree"];
+    let s = ["L_", "Li_", "Lin_", "Link_", "Link _", "Link C_", "Link Cu_", "Link Cut_", "Link Cut _", "Link Cut T_", "Link Cut Tr_", "Link Cut Tre_", "Link Cut Tree_", "Link Cut Tree_", "Link Cut Tree_", "Link Cut Tree_", "Link Cut Tree", "Link Cut Tree", "Link Cut Tree", "Link Cut Tree", "Link Cut Tree_", "Link Cut Tree_", "Link Cut Tree_", "Link Cut Tree_", "Link Cut Tree"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];

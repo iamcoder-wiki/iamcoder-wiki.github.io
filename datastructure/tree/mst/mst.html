@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["M_", "Mi_", "Min_", "Mini_", "Minim_", "Minimu_", "Minimum_", "Minimum&nbsp;_", "Minimum&nbsp;S_", "Minimum&nbsp;Sp_", "Minimum&nbsp;Spa_", "Minimum&nbsp;Span_", "Minimum&nbsp;Spann_", "Minimum&nbsp;Spanni_", "Minimum&nbsp;Spannin_", "Minimum&nbsp;Spanning_", "Minimum&nbsp;Spanning&nbsp;_", "Minimum&nbsp;Spanning&nbsp;T_", "Minimum&nbsp;Spanning&nbsp;Tr_", "Minimum&nbsp;Spanning&nbsp;Tre_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree", "Minimum&nbsp;Spanning&nbsp;Tree", "Minimum&nbsp;Spanning&nbsp;Tree", "Minimum&nbsp;Spanning&nbsp;Tree", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree_", "Minimum&nbsp;Spanning&nbsp;Tree"];
+    let s = ["M_", "Mi_", "Min_", "Mini_", "Minim_", "Minimu_", "Minimum_", "Minimum _", "Minimum S_", "Minimum Sp_", "Minimum Spa_", "Minimum Span_", "Minimum Spann_", "Minimum Spanni_", "Minimum Spannin_", "Minimum Spanning_", "Minimum Spanning _", "Minimum Spanning T_", "Minimum Spanning Tr_", "Minimum Spanning Tre_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree", "Minimum Spanning Tree", "Minimum Spanning Tree", "Minimum Spanning Tree", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree_", "Minimum Spanning Tree"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];

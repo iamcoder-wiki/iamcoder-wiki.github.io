@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["D_", "Di_", "Div_", "Divi_", "Divid_", "Divide_", "Divide&nbsp;_", "Divide&nbsp;&amp;_", "Divide&nbsp;&amp;&nbsp;_", "Divide&nbsp;&amp;&nbsp;C_", "Divide&nbsp;&amp;&nbsp;Co_", "Divide&nbsp;&amp;&nbsp;Con_", "Divide&nbsp;&amp;&nbsp;Conq_", "Divide&nbsp;&amp;&nbsp;Conqu_", "Divide&nbsp;&amp;&nbsp;Conque_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer", "Divide&nbsp;&amp;&nbsp;Conquer", "Divide&nbsp;&amp;&nbsp;Conquer", "Divide&nbsp;&amp;&nbsp;Conquer", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer_", "Divide&nbsp;&amp;&nbsp;Conquer"];
+    let s = ["D_", "Di_", "Div_", "Divi_", "Divid_", "Divide_", "Divide _", "Divide &amp;_", "Divide &amp; _", "Divide &amp; C_", "Divide &amp; Co_", "Divide &amp; Con_", "Divide &amp; Conq_", "Divide &amp; Conqu_", "Divide &amp; Conque_", "Divide &amp; Conquer_", "Divide &amp; Conquer_", "Divide &amp; Conquer_", "Divide &amp; Conquer_", "Divide &amp; Conquer", "Divide &amp; Conquer", "Divide &amp; Conquer", "Divide &amp; Conquer", "Divide &amp; Conquer_", "Divide &amp; Conquer_", "Divide &amp; Conquer_", "Divide &amp; Conquer_", "Divide &amp; Conquer"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];

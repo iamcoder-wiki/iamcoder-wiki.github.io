@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["S_", "Su_", "Suf_", "Suff_", "Suffi_", "Suffix_", "Suffix&nbsp;_", "Suffix&nbsp;A_", "Suffix&nbsp;Ar_", "Suffix&nbsp;Arr_", "Suffix&nbsp;Arra_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array", "Suffix&nbsp;Array", "Suffix&nbsp;Array", "Suffix&nbsp;Array", "Suffix&nbsp;Array_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array_", "Suffix&nbsp;Array"];
+    let s = ["S_", "Su_", "Suf_", "Suff_", "Suffi_", "Suffix_", "Suffix _", "Suffix A_", "Suffix Ar_", "Suffix Arr_", "Suffix Arra_", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array", "Suffix Array", "Suffix Array", "Suffix Array", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array_", "Suffix Array"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];

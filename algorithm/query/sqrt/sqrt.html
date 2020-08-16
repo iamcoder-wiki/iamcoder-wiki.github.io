@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["S_", "Sq_", "Sqr_", "Sqrt_", "Sqrt&nbsp;_", "Sqrt&nbsp;D_", "Sqrt&nbsp;De_", "Sqrt&nbsp;Dec_", "Sqrt&nbsp;Deco_", "Sqrt&nbsp;Decom_", "Sqrt&nbsp;Decomp_", "Sqrt&nbsp;Decompo_", "Sqrt&nbsp;Decompos_", "Sqrt&nbsp;Decomposi_", "Sqrt&nbsp;Decomposit_", "Sqrt&nbsp;Decompositi_", "Sqrt&nbsp;Decompositio_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition", "Sqrt&nbsp;Decomposition", "Sqrt&nbsp;Decomposition", "Sqrt&nbsp;Decomposition", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition_", "Sqrt&nbsp;Decomposition"];
+    let s = ["S_", "Sq_", "Sqr_", "Sqrt_", "Sqrt _", "Sqrt D_", "Sqrt De_", "Sqrt Dec_", "Sqrt Deco_", "Sqrt Decom_", "Sqrt Decomp_", "Sqrt Decompo_", "Sqrt Decompos_", "Sqrt Decomposi_", "Sqrt Decomposit_", "Sqrt Decompositi_", "Sqrt Decompositio_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition", "Sqrt Decomposition", "Sqrt Decomposition", "Sqrt Decomposition", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition_", "Sqrt Decomposition"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];

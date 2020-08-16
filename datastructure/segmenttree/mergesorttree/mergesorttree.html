@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["M_", "Me_", "Mer_", "Merg_", "Merge_", "Merge&nbsp;_", "Merge&nbsp;S_", "Merge&nbsp;So_", "Merge&nbsp;Sor_", "Merge&nbsp;Sort_", "Merge&nbsp;Sort&nbsp;_", "Merge&nbsp;Sort&nbsp;T_", "Merge&nbsp;Sort&nbsp;Tr_", "Merge&nbsp;Sort&nbsp;Tre_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree", "Merge&nbsp;Sort&nbsp;Tree", "Merge&nbsp;Sort&nbsp;Tree", "Merge&nbsp;Sort&nbsp;Tree", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree_", "Merge&nbsp;Sort&nbsp;Tree"];
+    let s = ["M_", "Me_", "Mer_", "Merg_", "Merge_", "Merge _", "Merge S_", "Merge So_", "Merge Sor_", "Merge Sort_", "Merge Sort _", "Merge Sort T_", "Merge Sort Tr_", "Merge Sort Tre_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree", "Merge Sort Tree", "Merge Sort Tree", "Merge Sort Tree", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree_", "Merge Sort Tree"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];

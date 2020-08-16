@@ -280,7 +280,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["M_", "Mo_", "Mo\'_", "Mo\'s_", "Mo\'s&nbsp;_", "Mo\'s&nbsp;A_", "Mo\'s&nbsp;Al_", "Mo\'s&nbsp;Alg_", "Mo\'s&nbsp;Algo_", "Mo\'s&nbsp;Algor_", "Mo\'s&nbsp;Algori_", "Mo\'s&nbsp;Algorit_", "Mo\'s&nbsp;Algorith_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm", "Mo\'s&nbsp;Algorithm", "Mo\'s&nbsp;Algorithm", "Mo\'s&nbsp;Algorithm", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm_", "Mo\'s&nbsp;Algorithm"];
+    let s = ["M_", "Mo_", "Mo\'_", "Mo\'s_", "Mo\'s _", "Mo\'s A_", "Mo\'s Al_", "Mo\'s Alg_", "Mo\'s Algo_", "Mo\'s Algor_", "Mo\'s Algori_", "Mo\'s Algorit_", "Mo\'s Algorith_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm", "Mo\'s Algorithm", "Mo\'s Algorithm", "Mo\'s Algorithm", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm_", "Mo\'s Algorithm"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
