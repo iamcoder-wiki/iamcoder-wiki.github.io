@@ -4,5 +4,5 @@
 
 
 
-* [How to Add / Fix Document?](./fix.md)
+* [How to Add / Fix Document?](./how-to-fix.md)
 

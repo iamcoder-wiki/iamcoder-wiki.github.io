@@ -3,7 +3,7 @@
 ## 소개
 
 HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
-따라서, 이 글을 이해하기 위해서는, [Segment Tree](./segment-tree.md),[dfs](./dfs.md),[lca(sparse table)](./lca.md)등에 대한 이해가 필요합니다. 
+따라서, 이 글을 이해하기 위해서는, [Segment Tree](./segment-tree.md), [dfs](./dfs.md), [lca(sparse table)](./lca.md) 등에 대한 이해가 필요합니다. 
 
 
 HLD는 Heavy Light Decomposition 의 약자로서, 간선을 무거운 간선과 가벼운 간선으로 나누어 분류해 관리하는 방법입니다. 이를 위해서는 트리가 rooted Tree여야 합니다.(Root를 하나로 정해야 합니다) 그리고 트리의 정점의 무게를 그 정점의 Subtree의 크기로 정의합시다. 그리고 부모와 자식을 잇는 간선 중에 자식이 부모의 무게의 반 이상인 간선을 무거운 간선으로 정의합시다.

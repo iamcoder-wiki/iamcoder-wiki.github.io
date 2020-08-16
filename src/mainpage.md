@@ -28,5 +28,5 @@
 ## Problem Solving
 
 * [Problem Solving](./problem-solving.md)
-* [OI](./problem-solving/oi.md)
-* [SITE](./problem-solving/site.md)
+  * [OI](./problem-solving/oi.md)
+  * [SITE](./problem-solving/site.md)
