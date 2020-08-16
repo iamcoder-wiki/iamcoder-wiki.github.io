@@ -24,7 +24,7 @@
 - [Bellman-Ford](./bellman-ford.md)
 - [BFS](./bfs.md)
 - [Binary Search](./binary-search.md)
-- [Bit Operator](./bit-opeator.md)
+- [Bit Operator](./bit-operator.md)
 - [Bitmask](./bitmask.md)
 - [Bubble Sort](./bubble-sort.md)
 - [Cactus Graph](./cactus-graph.md)
