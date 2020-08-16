@@ -18,7 +18,7 @@ jobs:
           | cut -d '"' -f 4 \
           | wget -qi -
           /bin/tar -zxvf mdbook-x86_64-unknown-linux-gnu.tar.gz
-          /usr/bin/git log -1 --format=%cd src/mainpage.md
+          /usr/bin/git log --format=%cd src/mainpage.md
           ./mdbook build
 
       - name: Deploy
