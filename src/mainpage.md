@@ -3,7 +3,7 @@
 안녕하세요. IamCoder(나는코더다) 위키입니다.
 
 ## 소개
-- [사이트 소개](./site.md)
+- [사이트 소개](./site-info.md)
 - [IamCoder](./iamcoder.md)
 ## 알고리즘
 - [Sort](./sort.md)
@@ -27,6 +27,5 @@
 
 ## Problem Solving
 
-* [Problem Solving](./problem-solving.md)
-  * [OI](./problem-solving/oi.md)
-  * [SITE](./problem-solving/site.md)
+* [OI](./oi.md)
+* [SITE](./site.md)
