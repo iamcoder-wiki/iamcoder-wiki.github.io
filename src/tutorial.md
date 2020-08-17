@@ -2,7 +2,7 @@
 
 ## 소개
 
-- [사이트 소개](./site.md)
+- [사이트 소개](./site-info.md)
 - [IamCoder](./iamcoder.md)
 
 ## 알고리즘
@@ -32,6 +32,5 @@
 
 ## Problem Solving
 
-* [Problem Solving](./problem-solving.md)
-  * [OI](./problem-solving/oi.md)
-  * [SITE](./problem-solving/site.md)
+* [OI](./oi.md)
+* [SITE](./site.md)
