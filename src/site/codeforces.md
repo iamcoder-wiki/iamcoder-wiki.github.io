@@ -2,19 +2,19 @@
 
 ## CFR
 
-Codeforces Round
+__Codeforces Round__
 
 
 
 ## ECR
 
-Educational Codeforces Round
+__Educational Codeforces Round__
 
 
 
 ## CGR
 
-Codeforces Global Round
+__Codeforces Global Round__
 
 ### [CGR 10](./codeforces/cgr10.md)
 
