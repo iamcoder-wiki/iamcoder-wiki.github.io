@@ -266,7 +266,7 @@
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHow to Add / Fix Document?%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHow to Add / Fix Document?%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
-                                <p>최근 수정 시각: 2020-08-18 11:26:24</p>
+                                <p>최근 수정 시각: 2020-08-18 11:44:17</p>
                                 <div class="contributors">
                                     <div class="description"><span>기여자:&nbsp;</span></div>
                                     <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
@@ -294,18 +294,14 @@ addOnload(writeTitle);
 <h2><a class="header" href="#규칙" id="규칙">1. 규칙</a></h2>
 <ul>
 <li>문서는 보통 <em>소개</em> -&gt; <em>내용 (코드, 하위 내용)</em> -&gt; <em>예시(관련 문제, 해답)</em> -&gt; <em>관련 문서 (없으면 생략)</em> -&gt; <em>여담(팁, 응용, 등 / 없으면 생략)</em> 순으로 진행된다.</li>
-<li>관련된 상위 문서 / 하위 문서와 연결하여 문서를 추가한다.</li>
-<li>어떤 문제에 대한 해답을 적을 때, __대부분__의 경우(<em>매우 쉬운 문제 제외</em>) 답안 코드를 적지 않고 답의 아이디어나 코딩 팁 정도만 적는다.</li>
+<li>어떤 문제에 대한 해답을 적을 때, __대부분__의 경우(<em>매우 쉬운 문제 제외</em>) 답안 코드를 적지 않고 답의 아이디어나 코딩 팁, 부분적인 코드 정도만 적는다. 이는 단순히 코드를 복사하여 문제를 푸는 경우를 방지하기 위함이다.</li>
 </ul>
 <h2><a class="header" href="#markdown" id="markdown">2. Markdown</a></h2>
 <ul>
 <li>
-<p><a href="https://theorydb.github.io/envops/2019/05/22/envops-blog-how-to-use-md/">이런 사이트</a>에서 기본적인 정보를 얻을 수 있음</p>
-</li>
-<li>
-<p>페이지의 가장 첫 제목은 <code>#</code>으로 표현하고 하위 제목들은 <code>#</code>의 개수 2개, 3개, ... , 6개 순으로 늘리면 됨</p>
+<p>페이지의 가장 첫 제목은 <code>#</code>으로 표현하고 하위 제목들은 <code>#</code>의 개수 2개, 3개, ... , 6개 순으로 늘리면 된다.</p>
 <ul>
-<li>넘버링은 알아서 해주니 <code>#</code> 개수로 하위 제목 표현만 해주면 됨</li>
+<li>넘버링은 알아서 해주니 <code>#</code> 개수로 하위 제목 표현만 해주면 된다.</li>
 </ul>
 <blockquote>
 <p>ex)</p>
@@ -321,9 +317,9 @@ addOnload(writeTitle);
 </blockquote>
 </li>
 <li>
-<p>어떤 __수식__을 문장 내부에 넣고 싶으면 <code>\\(</code>  수식 <code>\\)</code>  형태로 latex에 사용하던 수식들을<code> $  $</code> 대신 <code>\\(</code> 랑<code> \\)</code>로 감싸면 됨</p>
+<p>어떤 __수식__을 문장 내부에 넣고 싶으면 <code>\\(</code>  수식 <code>\\)</code>  형태로 latex에 사용하던 수식들을<code> $  $</code> 대신 <code>\\(</code> 랑<code> \\)</code>로 감싸면 된다.</p>
 <ul>
-<li>한줄 전체에 수식을 넣는 경우 <code>$$ comment $$</code> 로 처리 가능</li>
+<li>한줄 전체에 수식을 넣는 경우 <code>$$ comment $$</code> 로 처리 가능하다.</li>
 </ul>
 <blockquote>
 <p>ex)</p>
@@ -333,16 +329,18 @@ addOnload(writeTitle);
 </blockquote>
 </li>
 <li>
-<p>링크를 걸거나 다른 문서를 걸 때 <code>[내용](링크)</code> 로 적으면 됨</p>
+<p>링크를 걸거나 다른 문서를 걸 때 <code>[내용](링크)</code> 로 적으면 된다. 다른 문서를 걸 때는 상대 위치를 사용하여 이동하려는 문서 위치를 괄호 안에 넣으면 된다.</p>
 <blockquote>
 <p>ex)</p>
 <pre><code>[IamCoder Wiki](https://iamcoder.wiki)
+[MainPage](./mainpage.md)
 </code></pre>
 <p><a href="https://iamcoder.wiki">IamCoder Wiki</a></p>
+<p><a href="./mainpage">MainPage</a></p>
 </blockquote>
 </li>
 <li>
-<p>__코드__는 <code>``` c++</code> 로 시작해서 한줄 띄우고 코드 작성 후 <code> ```</code>  를 마지막 줄에 넣으면 됨 </p>
+<p>__코드__는 <code>``` c++</code> 로 시작해서 한줄 띄우고 코드 작성 후 <code> ```</code>  를 마지막 줄에 넣으면 된다.</p>
 <blockquote>
 <p>ex)</p>
 <pre><code>​``` c++
@@ -364,7 +362,7 @@ return 0;
 </blockquote>
 </li>
 <li>
-<p>__인용 표현__은 첫줄과 마지막 줄에 <code>&gt;</code>를 쓰면 되고, 인용 내부에서 또 인용은 <code>&gt;</code>의 개수를 2개, 3개 순으로 늘리면 됨. 문제 적을때 인용 표현 내부에 문제, 입력, 출력 순으로 적으면 됨 (<a href="../../datastructure/intermediate/bitmask/bitmask">bitmask 문서</a> 마지막 예제 부분 참고)</p>
+<p>__인용 표현__은 첫줄과 마지막 줄에 <code>&gt;</code>를 쓰면 된다. </p>
 <blockquote>
 <p>ex)</p>
 <pre><code>&gt;
@@ -378,6 +376,31 @@ world</p>
 </blockquote>
 </blockquote>
 </li>
+<li>
+<p><strong>볼드체, 이탤릭체(기울임), 밑줄, 취소선, 수평선</strong></p>
+<blockquote>
+<p>ex) </p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>__볼드체__
+_이탤릭체_
+&lt;u&gt;밑줄&lt;/u&gt;
+~~취소선~~
+---
+수평선
+---
+</code></pre>
+<p><strong>볼드체</strong></p>
+<p>이탤릭체_</p>
+<p><u>밑줄</u></p>
+<p><del>취소선</del></p>
+<hr />
+<p>수평선</p>
+<hr />
+</blockquote>
+<ul>
 <li>
 <p>html은 그냥 넣으면 들어간다고 함... 그래서 javascript로 애니메이션을 넣거나 할수 있다고 함...</p>
 <ul>
@@ -396,7 +419,7 @@ world</p>
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
                             </svg>
                             <p>
-                                최근 수정 시각: 2020-08-18 11:26:24
+                                최근 수정 시각: 2020-08-18 11:44:17
                             </p>
                             <div class="contributors">
                                 <div class="description"><span>기여자:&nbsp;</span></div>
