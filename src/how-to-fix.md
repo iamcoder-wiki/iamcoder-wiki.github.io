@@ -46,6 +46,20 @@
   >
   >\\( N \leq 10 \\)
 
+* 링크를 걸거나 다른 문서를 걸 때 `[내용](링크)` 로 적으면 됨
+
+  >ex)
+  >
+  >```
+  >[IamCoder Wiki](https://iamcoder.wiki)
+  >```
+  >
+  >
+  >
+  >[IamCoder Wiki](https://iamcoder.wiki)
+  
+  
+  
 * __코드__는 `` ``` c++ `` 로 시작해서 한줄 띄우고 코드 작성 후 ``  ``` ``  를 마지막 줄에 넣으면 됨 
 
   >ex)
