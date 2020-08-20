@@ -1,16 +1,16 @@
 # SITE
 
-## [Atcoder](./site/atcoder.md)
+## [Atcoder](./atcoder.md)
 
-## [BOJ](./site/boj.md)
+## [BOJ](./boj.md)
 
-## [Codeforces](./site/codeforces.md)
+## [Codeforces](./codeforces.md)
 
-## [Google Code Jam](./site/google-code-jam.md)
+## [Google Code Jam](./google-code-jam.md)
 
-## [Koistudy](./site/koistudy.md)
+## [Koistudy](./koistudy.md)
 
-## [NYPC](./site/nypc.md)
+## [NYPC](./nypc.md)
 
-## [OJ.UZ](./site/ojuz.md)
+## [OJ.UZ](./ojuz.md)
 
