@@ -1,24 +1,24 @@
 # OI
 
-## [APIO](./oi/apio.md)
+## [APIO](./apio.md)
 
-## [BalkanOI](./oi/balkanoi.md)
+## [BalkanOI](./balkanoi.md)
 
-## [BOI](./oi/boi.md)
+## [BOI](./boi.md)
 
-## [CEOI](./oi/ceoi.md)
+## [CEOI](./ceoi.md)
 
-## [IOI](./oi/ioi.md)
+## [IOI](./ioi.md)
 
-## [JOI](./oi/joi.md)
+## [JOI](./joi.md)
 
-## [JOIOC](./oi/joioc.md)
+## [JOIOC](./joioc.md)
 
-## [JOISC](./oi/joisc.md)
+## [JOISC](./joisc.md)
 
-## [KOI](./oi/koi.md)
+## [KOI](./koi.md)
 
-## [POI](./oi/poi.md)
+## [POI](./poi.md)
 
-## [USACO](./oi/usaco.md)
+## [USACO](./usaco.md)
 
