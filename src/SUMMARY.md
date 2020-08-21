@@ -194,6 +194,7 @@
   - [BOI](./boi.md)
   - [CEOI](./ceoi.md)
     - [CEOI 2015](./ceoi/ceoi2015.md)
+    - [CEOI 2018](./ceoi/ceoi2018.md)
   - [IOI](./ioi.md)
   - [JOI](./joi.md)
   - [JOIOC](./joioc.md)
