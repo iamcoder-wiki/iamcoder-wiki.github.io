@@ -28,7 +28,7 @@
 
 ### [Bitaro's Party](https://oj.uz/problem/view/JOI18_bitaro)
 
-[Sqrt Decomposition](../sqrt-decomposition)을 쓰는 문제다. \\(Y_1 + Y_2 + ... + Y_Q = SUM\\)이라 하고 \\(Sq = \sqrt{SUM}\\)이라 하자.
+[Sqrt Decomposition](../sqrt-decomposition.md)을 쓰는 문제다. \\(Y_1 + Y_2 + ... + Y_Q = SUM\\)이라 하고 \\(Sq = \sqrt{SUM}\\)이라 하자.
 
 1. \\(Y_i < Sq\\) : 전처리로 모든 정점에 대해 최장 거리를 \\(Sq\\)개 저장해 놓고 있으면 \\(O(Y_i)\\)에 해결할 수 있다. 이는 \\(S_j\\)가 작은 에지 순서대로 \\(S_j\\)에서부터 최장거리에 있는 정점들 \\(Sq\\)개를 \\(E_j\\)에 합쳐주는 식으로 \\(O(M \timesSQ)\\)에 처리할 수 있다.
 2. \\(Y_i \ge Sq\\) : Naive하게 \\(T_i\\)에서부터 모든 정점까지 최장거리를 [DP](../dp.md)로 계산하여 답을 구한다.
