@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CEOI - IamCoder Wiki</title>
+        <title>JOISC 2017 - IamCoder Wiki</title>
         
         
 
@@ -260,11 +260,11 @@
                         <main>
                             <div class="main-wrap">
                                 <div class="github-link">
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ceoi.md"><div class="link-button">편집</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/ceoi.md"><div class="link-button">역사</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/ceoi.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/joisc/joisc2017.md"><div class="link-button">편집</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/joisc/joisc2017.md"><div class="link-button">역사</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/joisc/joisc2017.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BJOISC 2017%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BJOISC 2017%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
                                 <p>최근 수정 시각: 2020-08-21 11:13:55</p>
                                 <div class="contributors">
@@ -279,7 +279,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["C_", "CE_", "CEO_", "CEOI_", "CEOI_", "CEOI_", "CEOI_", "CEOI", "CEOI", "CEOI", "CEOI", "CEOI_", "CEOI_", "CEOI_", "CEOI_", "CEOI"];
+    let s = ["J_", "JO_", "JOI_", "JOIS_", "JOISC_", "JOISC _", "JOISC 2_", "JOISC 20_", "JOISC 201_", "JOISC 2017_", "JOISC 2017_", "JOISC 2017_", "JOISC 2017_", "JOISC 2017", "JOISC 2017", "JOISC 2017", "JOISC 2017", "JOISC 2017_", "JOISC 2017_", "JOISC 2017_", "JOISC 2017_", "JOISC 2017"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
@@ -289,16 +289,20 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<!-- :title=CEOI: -->
-<h1><a class="header title" href="#ceoi" id="ceoi">_</a></h1>
-<h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
-<p>Central-European Olympiad in Informatics</p>
-<h2><a class="header" href="#a-hrefceoiceoi2015ceoi-2015a" id="a-hrefceoiceoi2015ceoi-2015a">2. <a href="./ceoi/ceoi2015">CEOI 2015</a></a></h2>
+<!-- :title=JOISC 2017: -->
+<h1><a class="header title" href="#joisc-2017" id="joisc-2017">_</a></h1>
+<h2><a class="header" href="#day1" id="day1">1. Day1</a></h2>
+<h3><a class="header" href="#a-hrefhttpsojuzproblemviewjoi17_cultivationcultivationa" id="a-hrefhttpsojuzproblemviewjoi17_cultivationcultivationa">1.1. <a href="https://oj.uz/problem/view/JOI17_cultivation">Cultivation</a></a></h3>
+<h3><a class="header" href="#a-hrefhttpsojuzproblemviewjoi17_port_facilityport-facilitya" id="a-hrefhttpsojuzproblemviewjoi17_port_facilityport-facilitya">1.2. <a href="https://oj.uz/problem/view/JOI17_port_facility">Port Facility</a></a></h3>
+<p>\(A_i &lt; A_j &lt; B_i &lt; B_j\) 인 경우 <code>i</code>와 <code>j</code>는 다른 영역에 배치되어야 한다. 이 경우에 <code>i</code>와 <code>j</code>에 간선을 만들어주고 마지막에 이분 그래프 검사를 해줘서 시뮬레이션 가능한지 검사할 수 있다. 이러한 모든 <code>(i, j)</code> 쌍을 검사하면 시간 내에 구할 수 없으므로 다른 방법을 찾아 한다. </p>
+<p>\(A_i\)가 작은 순으로 \(B_i\)를 포함하는 <a href="../segment_tree">Segment Tree</a> 내 구간들에 <a href="../vector">Vector</a>를 하나씩 저장하여 이 <a href="../vector">Vector</a>에다가 <code>i</code>를 넣어줄 수 있다. 이후 \(A_j, B_j\)에서 간선을 만들어줄 때 \(A_j\)와 \(B_j\) 사이에 있는 구간에 존재하는 <code>i</code>들과	<code>j</code> 사이에 간선을 만들어 줄 수 있다. 이때 <a href="../segment_tree">Segment Tree</a>에 특정 구간에 있는 <a href="../vector">Vector</a> 내의 모든 <code>i</code>와 <code>j</code>사이에 간선을 만들어 줬다면, 그 <a href="../vector">Vector</a> 내의 모든 <code>i</code>는 <code>j</code>에 의해 이분 그래프를 만들면 반드시 같은 그룹에 속하게 된다. 따라서 이 구간에 <code>i</code>를 1개만 놔두고 나머지는 다 없애도 된다. 이 경우 연산량이 \(O(N \log N\)으로 줄어들게 된다.</p>
+<p>문제에서 구하는 것은 경우의 수이기 때문에 만약 이분 그래프가 아닌 그래프가 하나라도 존재하면 답은 0, 아닌 경우 이분 그래프의 수가 <code>k</code>개라면 답은 \(2^k\)로 구할 수 있다.</p>
+<h3><a class="header" href="#a-hrefhttpsojuzproblemviewjoi17_sparklerssparklersa" id="a-hrefhttpsojuzproblemviewjoi17_sparklerssparklersa">1.3. <a href="https://oj.uz/problem/view/JOI17_sparklers">Sparklers</a></a></h3>
 
                         </main>
                         <div id="right-bar-outer" class="right-bar-outer">
                             <nav class="toc">
-                                <ul><li><a href="#소개">1. 소개</a></li><li><a href="#a-hrefceoiceoi2015ceoi-2015a">2. <a href="./ceoi/ceoi2015">CEOI 2015</a></a></li></ul>
+                                <ul><li><a href="#day1">1. Day1</a><ul><li><a href="#a-hrefhttpsojuzproblemviewjoi17_cultivationcultivationa">1.1. <a href="https://oj.uz/problem/view/JOI17_cultivation">Cultivation</a></a></li><li><a href="#a-hrefhttpsojuzproblemviewjoi17_port_facilityport-facilitya">1.2. <a href="https://oj.uz/problem/view/JOI17_port_facility">Port Facility</a></a></li><li><a href="#a-hrefhttpsojuzproblemviewjoi17_sparklerssparklersa">1.3. <a href="https://oj.uz/problem/view/JOI17_sparklers">Sparklers</a></a></li></ul></li></ul>
                             </nav>
                             <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
@@ -311,11 +315,11 @@ addOnload(writeTitle);
                                 <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
                             </div>
                             <div class="github-link">
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ceoi.md"><div class="link-button">편집</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/ceoi.md"><div class="link-button">역사</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/ceoi.md"><div class="link-button">Github에서 보기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI%5D+"><div class="link-button">토론 생성하기</div></a>
-                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI%5D"><div class="link-button">진행중인 토론</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/joisc/joisc2017.md"><div class="link-button">편집</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/joisc/joisc2017.md"><div class="link-button">역사</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/joisc/joisc2017.md"><div class="link-button">Github에서 보기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BJOISC 2017%5D+"><div class="link-button">토론 생성하기</div></a>
+                                <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BJOISC 2017%5D"><div class="link-button">진행중인 토론</div></a>
                             </div>
                         </div>
                     </div>
