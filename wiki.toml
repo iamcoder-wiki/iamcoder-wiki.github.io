@@ -1,0 +1,7 @@
+[wiki]
+title = "IamCoder Wiki"
+preserve = ["robots.txt"]
+
+[html]
+#ga = "hello"
+github = "https://github.com/iamcoder-wiki/iamcoder-wiki.github.io"
