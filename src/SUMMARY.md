@@ -197,6 +197,7 @@
     - [CEOI 2018](./ceoi/ceoi2018.md)
   - [IOI](./ioi.md)
   - [JOI](./joi.md)
+    - [JOI 2014](./joi/joi2014.md)
   - [JOIOC](./joioc.md)
   - [JOISC](./joisc.md)
     - [JOISC 2017](./joisc/joisc2017.md)
