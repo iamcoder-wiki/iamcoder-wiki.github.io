@@ -1,4 +1,4 @@
-# Divide \& Conquer
+# Divide & Conquer
 
 ## 소개
 
