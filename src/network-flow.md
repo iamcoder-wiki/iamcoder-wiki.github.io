@@ -6,5 +6,5 @@
 
 ## 응용
 
-- [Matching on Bipartite](./bimatching/bimatching.md)
-- [Minimum Cost Maximum Flow](./mcmf/mcmf.md)
+- [[ Matching on Bipartite ]]
+- [[ Minimum Cost Maximum Flow ]]
