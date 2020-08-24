@@ -6,6 +6,6 @@
 
 ## 예시
 
-- [LCS](./lcs.md)
-- [0-1 Knapsack](./knapsack.md)
+- [[ LCS ]]
+- [[ Knapsack ]]
 

@@ -1,24 +1,35 @@
 # OI
 
-## [APIO](./apio.md)
+## APIO
+[[ APIO ]] 참고
 
-## [BalkanOI](./balkanoi.md)
+## BalkanOI
+[[ BalkanOI ]] 참고
 
-## [BOI](./boi.md)
+## BOI
+[[ BOI ]] 참고
 
-## [CEOI](./ceoi.md)
+## CEOI
+[[ CEOI ]] 참고
 
-## [IOI](./ioi.md)
+## IOI
+[[ IOI ]] 참고
 
-## [JOI](./joi.md)
+## JOI
+[[ JOI ]] 참고
 
-## [JOIOC](./joioc.md)
+## JOIOC
+[[ JOIOC ]] 참고
 
-## [JOISC](./joisc.md)
+## JOISC
+[[ JOISC ]] 참고
 
-## [KOI](./koi.md)
+## KOI
+[[ KOI ]] 참고
 
-## [POI](./poi.md)
+## POI 
+[[ POI ]] 참고
 
-## [USACO](./usaco.md)
+## USACO
+[[ USACO ]] 참고
 

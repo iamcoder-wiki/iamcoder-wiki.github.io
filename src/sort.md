@@ -10,26 +10,26 @@
 
 ### 종류
 
-- [Bubble Sort](./bubble-sort.md)
-- [Selection Sort](./selection-sort.md)
-- [Insertion Sort](./insertion-sort)
+- [[ Bubble Sort ]]
+- [[ Selection Sort ]]
+- [[ Insertion Sort ]]
 
 
 ## \\(O(n\log n)\\) Sort
 
 ### 종류
 
-- [Merge Sort](./merge-sort.md)
-- [Heap Sort](./heap-sort.md)
-- [Quick Sort](./quick-sort.md)
+- [[ Merge Sort ]]
+- [[ Heap Sort ]] 
+- [[ Quick Sort ]]
 
 ## 기타 정렬
 
 ### 종류
 
-- [Counting Sort](./counting-sort.md)
-- [Radix Sort](./radix-sort.md)
-- [Intro Sort](./intro-sort.md)
+- [[ Counting Sort ]]
+- [[ Radix Sort ]]
+- [[ Intro Sort ]]
 
 
 [^1]: 구현이 5에서 6줄 정도로 매우 짧고 개념도 직관적으로 이해가 쉽기 때문

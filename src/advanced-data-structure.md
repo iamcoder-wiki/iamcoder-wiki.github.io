@@ -6,8 +6,8 @@
 
 ## 종류
 
-* [2D Segment Tree](./2d-segment-tree.md)
-* [Persistent Segment Tree](./persistent-segment-tree.md)
-* [Splay Tree](./splay-tree.md)
-* [Link Cut Tree](./link-cut-tree.md)
+* [[ 2D Segment Tree ]]
+* [[ Persistent Segment Tree ]]
+* [[ Splay Tree ]]
+* [[ Link Cut Tree ]]
 

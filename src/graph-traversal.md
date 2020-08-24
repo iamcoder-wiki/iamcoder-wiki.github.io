@@ -6,6 +6,6 @@ Graph Traversal(그래프 순회)는 정보과학 문제에서 자주 다루는 
 
 ## 종류
 
-* [DFS](./dfs.md)
-* [BFS](./bfs.md)
+* [[ DFS ]]
+* [[ BFS ]]
 

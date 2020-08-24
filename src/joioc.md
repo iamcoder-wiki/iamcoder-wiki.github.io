@@ -4,5 +4,6 @@
 
 Japanese Olympiad in Informatics Open Contest
 
-## [JOIOC 2016](./joioc/joioc2016.md)
+## JOIOC 2016
+[[ JOIOC 2016 ]] 참고
 

@@ -6,9 +6,9 @@
 
 ## 종류
 
-* [Heavy-Light Decomposition](./heavy-light-decomposition.md)
-* [Sqrt Decomposition](./sqrt-decomposition.md)
-* [Mo's Algorithm](./mos-algorithm.md)
-* [Grid Compression](./grid-compression.md)
-* [Centroid Decomposition](./centroid-decomposition.md)
+* [[ Heavy-Light Decomposition ]]
+* [[ Sqrt Decomposition ]]
+* [[ Mo's Algorithm ]]
+* [[ Grid Compression ]]
+* [[ Centroid Decomposition ]]
 
