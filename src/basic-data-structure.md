@@ -6,12 +6,12 @@
 
 ## 종류
 
-* [Stack](./stack.md)
-* [Queue](./queue.md)
-* [Vector](./vector.md)
-* [Deque](./deque.md)
-* [Linked List](./linked-list.md)
-* [Structure](./structure.md)
+* [[ Stack ]]
+* [[ Queue ]]
+* [[ Vector ]]
+* [[ Deque ]]
+* [[ Linked List ]]
+* [[ Structure ]]
 
 
 
