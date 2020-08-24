@@ -4,5 +4,6 @@
 
 Japanese Olympiad in Informatics Final Round
 
-## [JOI 2014](./joi/joi2014.md)
+## JOI 2014 
+[[ JOI 2014 ]] 참고
 
