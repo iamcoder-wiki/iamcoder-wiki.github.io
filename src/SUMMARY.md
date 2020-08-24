@@ -199,6 +199,7 @@
   - [JOI](./joi.md)
     - [JOI 2014](./joi/joi2014.md)
   - [JOIOC](./joioc.md)
+    - [JOIOC 2016](./joioc/joioc2016.md)
   - [JOISC](./joisc.md)
     - [JOISC 2017](./joisc/joisc2017.md)
     - [JOISC 2018](./joisc/joisc2018.md)
