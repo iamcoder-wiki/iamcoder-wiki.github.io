@@ -4,4 +4,6 @@
 
 [USA Computing Olympiad](http://www.usaco.org/)
 
-## [2017 Open Contest](./usaco/2017oc.md)
+## USACO 2017
+### 2017 US Open Contest
+[[ 2017 US Open Contest ]] 참고
