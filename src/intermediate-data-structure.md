@@ -6,10 +6,10 @@
 
 ## 종류
 
-* [Map](./map.md)
-* [Set](./set.md)
-* [Priority Queue](./priority-queue.md)
-* [Bitmask](./bitmask.md)
-* [Heap](./heap.md)
-* [Red Black Tree](./red-black-tree.md)
+* [[ Map ]]
+* [[ Set ]]
+* [[ Priority Queue ]]
+* [[ Bitmask ]]
+* [[ Heap ]]
+* [[ Red Black Tree ]]
 
