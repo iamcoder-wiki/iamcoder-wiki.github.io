@@ -4,6 +4,7 @@
 
 - [사이트 소개](./site-info.md)
 - [IamCoder](./iamcoder.md)
+- [How to Add / Fix Document?](./how-to-fix.md)
 
 ## 알고리즘
 
