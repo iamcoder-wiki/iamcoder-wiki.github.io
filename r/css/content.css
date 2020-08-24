@@ -135,7 +135,7 @@ main li {
     margin-bottom: 1em;
 }
 
-main li p {
+main li + p {
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -164,6 +164,8 @@ table {
     margin: 0 auto;
     border-collapse: collapse;
     box-sizing: border-box;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
 
 table td {
