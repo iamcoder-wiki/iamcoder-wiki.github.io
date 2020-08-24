@@ -1,0 +1,221 @@
+@import 'variable.css';
+
+.page {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.top-bar {
+    margin: 0;
+    padding: 4px;
+    width: 100%;
+    height: var(--top-bar-height);
+    position: sticky;
+    top: 0;
+    left: 0;
+    border-top: 5px solid var(--point);
+    border-bottom: 1px solid var(--darken-fg);
+    background: var(--bg);
+    z-index: 1001;
+    box-sizing: border-box;
+}
+
+.page-wrap {
+    outline: 0;
+    padding: 0 calc(var(--page-padding) + 10px);
+    margin-top: calc(0 - var(--top-bar-height));
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+    width: calc(var(--right-bar-width) + var(--content-max-width) + 30px);
+}
+
+.sidebar-wrap {
+    width: var(--right-bar-width);
+    height: calc(100vh - 30px - var(--top-bar-height));
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(var(--top-bar-height) + 30px) !important;
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+.mobile-info {
+    text-align: right;
+}
+
+.mobile-info p {
+    margin: 5px 0 0;
+    font-size: small;
+}
+
+.mobile-info .github-link {
+    justify-content: flex-end;
+}
+
+.mobile-info .github-link .link-button,
+.mobile-info .github-link .link-button:active,
+.mobile-info .github-link .link-button:visited {
+    margin: 10px 0 0 6px;
+}
+
+.mobile-info .github-link .link-button:hover {
+    margin: 10px 0 0 6px;
+}
+
+.mobile-info .contributors {
+    justify-content: flex-end;
+}
+
+main {
+    max-width: 100%;
+    width: var(--content-max-width);
+    margin: 0 0 50px;
+}
+
+.toc {
+    padding: 10px;
+    width: 200px;
+}
+
+.toc ul {
+    line-height: 2 !important;
+    font-weight: 500;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc ul ul {
+    padding-left: 1em;
+}
+
+.toc li a,
+.toc li a:hover,
+.toc li a:visited,
+.toc li a:active {
+    display: inline-block;
+    color: var(--darken-fg) !important;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.toc li.visible > a,
+.toc li.visible > a:hover,
+.toc li.visible > a:visited,
+.toc li.visible > a:active {
+    color: var(--fg) !important;
+    transform: translate(5px);
+}
+
+#toc-path {
+    stroke: var(--fg);
+}
+
+.toc-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.toc-marker path {
+    transition: all 0.3s ease;
+}
+
+.sidebar-wrap p {
+    margin: 0 0 5px;
+    font-size: small;
+}
+
+.contributors {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contributors img {
+    border-radius: 50%;
+}
+
+.contributors a {
+    margin: 3px;
+}
+
+.contributors .description {
+    height: 29px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.contributors .description span {
+    font-size: small;
+}
+
+.github-link {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.github-link a:hover {
+    text-decoration: none;
+}
+
+.github-link .link-button,
+.github-link .link-button:active,
+.github-link .link-button:visited {
+    color: var(--fg) !important;
+    border: 1px solid var(--fg) !important;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 5px 6px 5px 0;
+    font-size: small;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.github-link .link-button:hover {
+    color: var(--bg) !important;
+    background: var(--fg);
+    border: 1px solid var(--fg) !important;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 5px 6px 5px 0;
+    font-size: small;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media only screen and (max-width: 850px) {
+    .sidebar-wrap {
+        display: none !important;
+    }
+
+    main, .main-wrap {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .mobile-info {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .mobile-show {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .mobile-hide {
+        display: none !important;
+    }
+}

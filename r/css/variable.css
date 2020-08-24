@@ -1,0 +1,20 @@
+:root {
+    --sidebar-width: 0px;
+    --page-padding: 15px;
+    --content-max-width: 600px;
+    --top-bar-height: 50px;
+    --right-bar-width: 250px;
+}
+
+.dark {
+    --bg: #1a1a1d;
+    --darken-fg: #585759;
+    --fg: #b4b4b4;
+
+    --link: #4d83bc;
+    --point: #4d3c88;
+    --quote-bg: #2d2d29;
+    --quote-side: #a79d68;
+    --outer-link: #af8754;
+    --tooltip-bg: #434345;
+}

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta property="og:title" content="Heap Sort - IamCoder Wiki"/>
+    <title>Heap Sort - IamCoder Wiki</title>
+    <link rel="stylesheet" href="/r/css/style.css">
+    <link rel="stylesheet" href="/r/css/content.css">
+    <link rel="stylesheet" href="/r/css/variable.css">
+    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
+    <script>
+        function addOnload(fun) {
+            let last = window.onload;
+            window.onload = function () {
+                if (last) last();
+                fun();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="page">
+    <div class="top-bar">
+        <div class="top-bar-wrap">
+            
+        </div>
+    </div>
+    <div class="page-wrap">
+        <div class="content">
+            <div class="main-wrap">
+                <div class="mobile-info">
+                    <div class="github-link">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/heap-sort.md"><div class="link-button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/heap-sort.md"><div class="link-button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/heap-sort.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHeap Sort%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHeap Sort%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                    </div>
+                    <p>최근 수정 시각: 2020-08-24 13:44:54</p>
+                    <div class="contributors">
+                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
+                    </div>
+                </div>
+                <main>
+                    
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["H_", "He_", "Hea_", "Heap_", "Heap _", "Heap S_", "Heap So_", "Heap Sor_", "Heap Sort_", "Heap Sort_", "Heap Sort_", "Heap Sort_", "Heap Sort", "Heap Sort", "Heap Sort", "Heap Sort", "Heap Sort_", "Heap Sort_", "Heap Sort_", "Heap Sort_", "Heap Sort"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+addOnload(writeTitle);
+</script>
+<h1 class="header title">_</h1>
+<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<p>힙 정렬에서는 최소 힙을 이용해 <a href="./selection-sort.md">선택 정렬</a>의 방법을 최적화하여 시간복잡도를 줄인다. 선택 정렬에서는 남은 원소들 중에서 최솟값을 찾기 위해 매번 남은 원소를 모두 탐색하지만, 힙 정렬에서는 힙을 사용하여 이를 \O(\log N)\에 처리한다. 따라서 이를 이용해 구현한 힙 정렬은 \(O(n\log n)\)의 시간복잡도를 가진다. </p>
+<h2><a class="header" href="#s-2-" id="s-2-">2. 코드</a></h2>
+<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. Heap Sort without priority_queue</a></h3>
+<pre><code class="language-c++">void in_heap(int num){
+    heap[++siz]=num;
+    int temp=siz;
+    while(temp&gt;1){
+        if(heap[temp/2]&gt;heap[temp])swap(heap[temp/2], heap[temp]);
+        else break;
+        temp/=2;
+    }
+}
+void poptop_heap(){
+    swap(heap[1], heap[siz]);
+    heap[siz] = 987654321;
+    siz--;
+    int temp=1;
+    while(temp&lt;=siz/2){
+        if(heap[temp]&lt;=heap[temp*2]&amp;&amp;heap[temp]&lt;=heap[temp*2+1])break;
+        if(heap[temp*2]&lt;=heap[temp*2+1]){
+            swap(heap[temp], heap[temp*2]);
+            temp*=2;
+        }
+        else{
+            swap(heap[temp], heap[temp*2+1]);
+            temp*=2;
+            temp++;
+        }
+    }
+}
+void Heap_Sort(){
+    for(int i=1; i&lt;=N; i++)
+        in_heap(arr[i]);
+    for(int i=1; i&lt;=N; i++){
+        arr[i]=heap[1];
+        poptop_heap();
+    }
+}
+</code></pre>
+<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. Heap Sort using priority_queue</a></h3>
+<p>힙이란 자료구조는 이미 <a href="./priority-queue.md">우선순위 큐</a>의 형태로 구현되어 있으므로 이를 이용하면 코드가 훨씬 간결해진다. 여기서 주의할 점은 <a href="./priority-queue.md">우선순위 큐</a>는 최대 힙이기 때문에 원래 수에 -1을 곱해준 값으로 우선순위 큐 안에 넣어주게 되면 최소 힙처럼 사용할 수 있다. (우선순위 큐를 최소 힙으로 사용하려면 <code>priority_queue &lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; pq</code> 라고 정의해 주면 된다.)</p>
+<pre><code class="language-c++">void Heap_Sort()
+{
+    priority_queue&lt;int&gt; pq;
+    for(int i=1; i&lt;=n; i++)
+        pq.push(-arr[i]);
+    for(int i=1; i&lt;=n; i++){
+        arr[i]=-pq.top();
+        pq.pop();
+    }
+}
+</code></pre>
+
+                </main>
+            </div>
+
+            <div class="sidebar-wrap">
+                <nav class="toc">
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 코드</a><ul><li><a href="#s-2-1-">2.1. Heap Sort without priority_queue</a></li><li><a href="#s-2-2-">2.2. Heap Sort using priority_queue</a></li></ul></li></ul>
+                </nav>
+                <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
+                          stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
+                </svg>
+                <p>
+                    최근 수정 시각: 2020-08-24 13:44:54
+                </p>
+                <div class="contributors">
+                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
+                </div>
+                <div class="github-link">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/heap-sort.md"><div class="link-button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/heap-sort.md"><div class="link-button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/heap-sort.md"><div class="link-button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHeap Sort%5D+"><div class="link-button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHeap Sort%5D"><div class="link-button">진행중인 토론</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/r/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-174669347-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript" src="/r/js/wiki.js"></script>
+<script>
+    (function footnote() {
+        let map = {};
+        let def = document.getElementsByClassName("footnote-definition");
+
+        for (let i = 0; i < def.length; i++) {
+            let id = def[i].id.substr(2);
+            map[id] = def[i].children[1];
+        }
+
+        let ref = document.getElementsByClassName("footnote-reference");
+
+        for (let i = 0; i < ref.length; i++) {
+            let id = ref[i].children[0].id;
+            let content = map[id.substr(2)];
+            tippy(ref[i], {
+                theme: 'footnote',
+                content: content.innerHTML,
+                allowHTML: true,
+                interactive: true,
+                interactiveBorder: 5,
+            });
+        }
+    })();
+</script>
+</body>
+</html>

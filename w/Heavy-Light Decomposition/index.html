@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta property="og:title" content="Heavy-Light Decomposition - IamCoder Wiki"/>
+    <title>Heavy-Light Decomposition - IamCoder Wiki</title>
+    <link rel="stylesheet" href="/r/css/style.css">
+    <link rel="stylesheet" href="/r/css/content.css">
+    <link rel="stylesheet" href="/r/css/variable.css">
+    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
+    <script>
+        function addOnload(fun) {
+            let last = window.onload;
+            window.onload = function () {
+                if (last) last();
+                fun();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="page">
+    <div class="top-bar">
+        <div class="top-bar-wrap">
+            
+        </div>
+    </div>
+    <div class="page-wrap">
+        <div class="content">
+            <div class="main-wrap">
+                <div class="mobile-info">
+                    <div class="github-link">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/heavy-light-decomposition.md"><div class="link-button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/heavy-light-decomposition.md"><div class="link-button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/heavy-light-decomposition.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHeavy-Light Decomposition%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHeavy-Light Decomposition%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                    </div>
+                    <p>최근 수정 시각: 2020-08-21 00:16:07</p>
+                    <div class="contributors">
+                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/justiceHui" target="_blank"><span title="justiceHui"><img src="https://github.com/justiceHui.png?size=32" width="24" height="24" alt="@justiceHui"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
+                    </div>
+                </div>
+                <main>
+                    
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["H_", "He_", "Hea_", "Heav_", "Heavy_", "Heavy-_", "Heavy-L_", "Heavy-Li_", "Heavy-Lig_", "Heavy-Ligh_", "Heavy-Light_", "Heavy-Light _", "Heavy-Light D_", "Heavy-Light De_", "Heavy-Light Dec_", "Heavy-Light Deco_", "Heavy-Light Decom_", "Heavy-Light Decomp_", "Heavy-Light Decompo_", "Heavy-Light Decompos_", "Heavy-Light Decomposi_", "Heavy-Light Decomposit_", "Heavy-Light Decompositi_", "Heavy-Light Decompositio_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition", "Heavy-Light Decomposition", "Heavy-Light Decomposition", "Heavy-Light Decomposition", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition_", "Heavy-Light Decomposition"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+addOnload(writeTitle);
+</script>
+<h1 class="header title">_</h1>
+<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<p>HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
+따라서, 이 글을 이해하기 위해서는, <a href="./segment-tree.md">Segment Tree</a>, <a href="./dfs.md">dfs</a>, <a href="./lca.md">lca(sparse table)</a> 등에 대한 이해가 필요합니다. </p>
+<p>HLD는 Heavy Light Decomposition 의 약자로서, 간선을 무거운 간선과 가벼운 간선으로 나누어 분류해 관리하는 방법입니다. 이를 위해서는 트리가 rooted Tree여야 합니다.(Root를 하나로 정해야 합니다) 그리고 트리의 정점의 무게를 그 정점의 Subtree의 크기로 정의합시다. 그리고 부모와 자식을 잇는 간선 중에 자식이 부모의 무게의 반 이상인 간선을 무거운 간선으로 정의합시다.</p>
+<p>그러면 여기서 두 가지 사실을 이끌어낼 수 있습니다. </p>
+<ul>
+<li>
+<p>한 정점에서 자식으로 가는 간선 중 무거운 간선은 단 한개이다.<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup></p>
+</li>
+<li>
+<p>root에서 한 정점으로 가는 경로에 가벼운 간선은 \(O(\log N)\)개이다. <sup class="footnote-reference"><a href="#f-2" id="b-2">2</a></sup></p>
+</li>
+</ul>
+<p>무거운 간선들이 인접해 있다면 그것을 하나로 이은 것을 무거운 경로라고 합시다.  그 무거운 경로의 맨 위의 가벼운 간선도 경로에 포함시키고, 아래에 무거운 경로가 없는 가벼운 간선은 그것 하나를 무거운 경로로 본다면, 트리의 경로를 여러개의 무거운 경로로 바꾸어 볼 수 있습니다.</p>
+<p>이런 무거운 경로가 끊어지는 것은 가벼운 간선을 만날 때만이기 때문에, 아까 언급한 2번 사실에 의해 트리의 어떤 경로는 항상 \(O(\log N)\)개의 무거운 경로들의 일부의 합으로 나타내어질 수 있습니다.</p>
+<p>이 사실을 이용해서 무거운 경로들을 <a href="./segment-tree.md">Segment Tree</a>를 이용해서 관리해준다면 트리의 경로에 대한 연산을 직선에 대한 연산처럼 할 수 있을 것입니다.((ex)RMQ,구간 합 쿼리)  이것이 바로 HLD입니다.</p>
+<h2><a class="header" href="#s-2-" id="s-2-">2. 예시</a></h2>
+<p><a href="https://acmicpc.net/problem/13510" class="outer">HLD를 통해 풀 수 있는 쿼리 문제 하나</a>를 소개하고자 합니다. 문제를 요약하면 다음과 같습니다.</p>
+<blockquote>
+<p><code>N</code>개의 정점으로 이루어진 트리(무방향 사이클이 없는 연결 그래프)가 있다. 정점은 1번부터 <code>N</code>번까지 번호가 매겨져 있고, 간선은 1번부터 <code>N</code>-1번까지 번호가 매겨져 있다.</p>
+<p>아래의 두 쿼리를 수행하는 프로그램을 작성하시오.</p>
+<p>1 <code>i</code> <code>c</code>: <code>i</code>번 간선의 비용을 <code>c</code>로 바꾼다.</p>
+<p>2 <code>u</code> <code>v</code>: <code>u</code>에서 <code>v</code>로 가는 경로에 존재하는 비용 중에서 가장 큰 것을 출력한다.</p>
+<p>첫째 줄에 N (2 \(\leq\) N \(\leq\) 100,000)이 주어진다.
+둘째 줄부터 N-1개의 줄에는 i번 간선이 연결하는 두 정점 번호 u와 v와 비용 w가 주어진다.
+다음 줄에는 쿼리의 개수 M (1 \(\leq\) M \(\leq\) 100,000)이 주어진다.
+다음 M개의 줄에는 쿼리가 한 줄에 하나씩 주어진다.
+간선의 비용은 항상 1,000,000보다 작거나 같은 자연수이다.</p>
+</blockquote>
+<p>트리 경로에서의 구간 최대 쿼리, 업데이트 연산을 수행해주면 되는 문제입니다.
+HLD 를 사용해 \(O(M\log^2N)\)에 풀 수 있습니다. </p>
+<p>밑에는 코드 부분부분에 관한 설명이 있습니다. <a href="./segment-tree.md">Segment Tree</a>를 만드는 부분, <a href="./lca.md">lca</a>에 관련된 spars table, <a href="./dfs.md">dfs</a>를 이용한 무게 구하기와 깊이 구하기 등은 이미 알고 있다고 생각하고 설명을 생략했습니다.</p>
+<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. HLD</a></h3>
+<pre><code class="language-c++">void hld(int root){
+    queue&lt;int&gt; q;
+    q.push(root);
+    while(!q.empty()){
+        int now=q.front();
+        q.pop();
+        for(auto i:children[now]){
+            q.push(i);
+        }
+        if(now==root) continue;
+        int prt=parent[0][now];
+        if(weight[now]*2&gt;=weight[prt]&amp;&amp;prt!=root){
+            int prtheavynum=heavynum[prt];
+            heavy_path[prtheavynum].push_back(now);
+            heavynum[now]=prtheavynum;
+        }
+        else{
+            heavynum[now]=(int)heavy_path.size();
+            heavy_path.push_back(vector&lt;int&gt;(2));
+            heavy_path.back()[0]=prt;
+            heavy_path.back()[1]=now;
+        }
+    }
+}
+</code></pre>
+<p><code>root</code>부터 너비 우선 탐색으로 경로를 만들어줍니다. 간선은 번호가 없기에, 간선을 관리하려면 자식의 번호를 이용해서 그 자식과 부모를 잇는 간선을 관리해주는 것이 편리합니다.</p>
+<p><code>heavynum</code>은 각 간선이 포함된 무거운 경로의 번호이고, <code>heavy_path</code>는 무거운 경로들의 모음 <code>vector</code>입니다. </p>
+<p>만약 자신이 <code>root</code>라면 자신 위에 간선이 없기에 아무것도 하지 않습니다.
+만약 부모 무게가 자신의 무게의 2배보다 작고 부모가 <code>root</code>가 아니라면, 무거운 간선이므로 이미 있던 무거운 경로에 추가해줍니다.</p>
+<p>부모가 <code>root</code>이거나 가벼운 간선이면 새로운 무거운 경로의 시작이므로 새로운 무거운 경로를 만들어줍니다.</p>
+<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. Update</a></h3>
+<pre><code class="language-c++">int findedge(int pathidx,int v){
+    int top=heavy_path[pathidx][0];
+    return depth[v]-depth[top]-1;
+}
+void update(int u,int v,int cost){
+    if(parent[0][u]==v) swap(u,v);
+    int pathidx=findedge(heavynum[v],v);
+    segment_trees[heavynum[v]].update(pathidx,cost);
+}
+</code></pre>
+<p><code>update</code>는 간단합니다.</p>
+<p><code>findedge</code>는 무거운 경로에서 몇번째 간선인지 찾아줍니다. 맨 위의 정점은 나타내는 간선이 없으므로 -1을 해줍니다.</p>
+<p><code>u</code>가 <code>v</code>의 부모로 유지한 뒤, 몇번째 간선인지 Segment Tree에서 찾아서 갱신해주면 끝입니다.</p>
+<h3><a class="header" href="#s-2-3-" id="s-2-3-">2.3. Query</a></h3>
+<pre><code class="language-c++">int query_topdown(int p,int v){
+    if(p==v) return -1;
+    if(heavynum[p]==heavynum[v]){
+        int pathidx=heavynum[p];
+        int s=findedge(pathidx, p)+1;
+        int e=findedge(pathidx, v);
+        return segment_trees[pathidx].query(s, e);
+    }
+    
+    int pathidx=heavynum[v];
+    int top=heavy_path[pathidx][0];
+    int e=findedge(pathidx, v);
+    return max(segment_trees[pathidx].query(0, e),query_topdown(p, top));
+}
+int query(int u,int v){
+    int p=lca(u,v);
+    return max(query_topdown(p,v),query_topdown(p,u));
+}
+</code></pre>
+<p><code>query</code>는 조금 복잡합니다.
+우선, <code>u</code>,<code>v</code>의 <code>lca</code>를 구한 뒤 두 부분으로 나누어 계산합니다.</p>
+<p><code>query_topdown</code>에서는 만약 <code>p</code>,<code>v</code>가 같다면 간선이 없으므로 -1을 리턴하고,
+두개가 같은 무거운 경로에 속했다면 Segment Tree에서 계산해줍니다.
+만약 아니라면 <code>v</code>가 속한 무거운 경로의 맨 위 정점까지 올라가면서 그 사이의 간선들에 대한 연산을 Segment Tree로 해주고, 그 맨 위 정점과 p에 대한 연산을 <code>query_topdown</code>으로 다시 처리해줍니다.</p>
+<p><code>query_topdown</code> 은 최대 \(O(\log N)\) 번 호출되는데, 아까 언급했듯이 만날 수 있는 무거운 경로의 개수가 그렇기 때문입니다.</p>
+<div class="footnote-definition" id="f-1"><sup class="footnote-definition-label"><a href="#b-1">1</a></sup>
+<p>두 자식이 모두 부모의 무게의 반 이상이 될 수는 없기 때문</p>
+</div>
+<div class="footnote-definition" id="f-2"><sup class="footnote-definition-label"><a href="#b-2">2</a></sup>
+<p>가벼운 간선을 통해서 내려간다면 무게가 반 이상으로 줄어들기 때문</p>
+</div>
+
+                </main>
+            </div>
+
+            <div class="sidebar-wrap">
+                <nav class="toc">
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 예시</a><ul><li><a href="#s-2-1-">2.1. HLD</a></li><li><a href="#s-2-2-">2.2. Update</a></li><li><a href="#s-2-3-">2.3. Query</a></li></ul></li></ul>
+                </nav>
+                <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
+                          stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
+                </svg>
+                <p>
+                    최근 수정 시각: 2020-08-21 00:16:07
+                </p>
+                <div class="contributors">
+                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/justiceHui" target="_blank"><span title="justiceHui"><img src="https://github.com/justiceHui.png?size=32" width="24" height="24" alt="@justiceHui"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
+                </div>
+                <div class="github-link">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/heavy-light-decomposition.md"><div class="link-button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/heavy-light-decomposition.md"><div class="link-button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/heavy-light-decomposition.md"><div class="link-button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHeavy-Light Decomposition%5D+"><div class="link-button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHeavy-Light Decomposition%5D"><div class="link-button">진행중인 토론</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/r/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-174669347-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript" src="/r/js/wiki.js"></script>
+<script>
+    (function footnote() {
+        let map = {};
+        let def = document.getElementsByClassName("footnote-definition");
+
+        for (let i = 0; i < def.length; i++) {
+            let id = def[i].id.substr(2);
+            map[id] = def[i].children[1];
+        }
+
+        let ref = document.getElementsByClassName("footnote-reference");
+
+        for (let i = 0; i < ref.length; i++) {
+            let id = ref[i].children[0].id;
+            let content = map[id.substr(2)];
+            tippy(ref[i], {
+                theme: 'footnote',
+                content: content.innerHTML,
+                allowHTML: true,
+                interactive: true,
+                interactiveBorder: 5,
+            });
+        }
+    })();
+</script>
+</body>
+</html>

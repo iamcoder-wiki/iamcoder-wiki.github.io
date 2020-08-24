@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta property="og:title" content="JOISC 2018 - IamCoder Wiki"/>
+    <title>JOISC 2018 - IamCoder Wiki</title>
+    <link rel="stylesheet" href="/r/css/style.css">
+    <link rel="stylesheet" href="/r/css/content.css">
+    <link rel="stylesheet" href="/r/css/variable.css">
+    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
+    <script>
+        function addOnload(fun) {
+            let last = window.onload;
+            window.onload = function () {
+                if (last) last();
+                fun();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="page">
+    <div class="top-bar">
+        <div class="top-bar-wrap">
+            
+        </div>
+    </div>
+    <div class="page-wrap">
+        <div class="content">
+            <div class="main-wrap">
+                <div class="mobile-info">
+                    <div class="github-link">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/joisc/joisc2018.md"><div class="link-button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/joisc/joisc2018.md"><div class="link-button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/joisc/joisc2018.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BJOISC 2018%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BJOISC 2018%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                    </div>
+                    <p>최근 수정 시각: 2020-08-22 14:08:31</p>
+                    <div class="contributors">
+                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
+                    </div>
+                </div>
+                <main>
+                    
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["J_", "JO_", "JOI_", "JOIS_", "JOISC_", "JOISC _", "JOISC 2_", "JOISC 20_", "JOISC 201_", "JOISC 2018_", "JOISC 2018_", "JOISC 2018_", "JOISC 2018_", "JOISC 2018", "JOISC 2018", "JOISC 2018", "JOISC 2018", "JOISC 2018_", "JOISC 2018_", "JOISC 2018_", "JOISC 2018_", "JOISC 2018"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+addOnload(writeTitle);
+</script>
+<h1 class="header title">_</h1>
+<h2><a class="header" href="#s-1-" id="s-1-">1. Day1</a></h2>
+<h3><a class="header" href="#s-1-1-" id="s-1-1-">1.1. <a href="https://oj.uz/problem/view/JOI18_construction" class="outer">Construction of Highway</a></a></h3>
+<p>16점은 트리를 만들고 매 쿼리를 \(O(N)\)에 처리하면 어렵지 않게 받을 수 있다.</p>
+<p>매번 정점을 추가할 때마다 \(1\)번 정점에서 \(A_i\)번 정점까지 같은 cost가 된다. 이처럼 같은 cost를 갖는 정점들을 묶으면 코딩은 복잡해지겠지만 시간복잡도는 줄어들 것이라고 생각할 수 있다. <a href="./disjoint-set.md">Disjoint Set</a>로 정점을 합치고, 각 정점 그룹마다 1에 가장 가까운 정점을 저장해 놓으면 새로운 쿼리가 들어올 때마다 1에 도달할 때까지 정점 그룹들을 따라가면서 그 정점 그룹들의 정보를 갱신해줄 수 있다.</p>
+<p>이렇게 처리했을 때 시간복잡도를 잘 계산해보면 \(O(N\log N)\)이여서 문제를 풀 수 있다. <a href="../heavy-light-decomposition.md">Heavy-Light Decomposition</a>의 아이디어를 사용하는 자세한 증명은 <a href="https://codeforces.com/blog/entry/58433?#comment-422455" class="outer">여기</a>서 볼 수 있다.</p>
+<h3><a class="header" href="#s-1-2-" id="s-1-2-">1.2. <a href="https://oj.uz/problem/view/JOI18_fences" class="outer">Fences</a></a></h3>
+<h3><a class="header" href="#s-1-3-" id="s-1-3-">1.3. <a href="https://oj.uz/problem/view/JOI18_tents" class="outer">Tents</a></a></h3>
+<h2><a class="header" href="#s-2-" id="s-2-">2. Day2</a></h2>
+<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. <a href="https://oj.uz/problem/view/JOI18_asceticism" class="outer">Asceticism</a></a></h3>
+<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. <a href="">Road Service</a></a></h3>
+<h3><a class="header" href="#s-2-3-" id="s-2-3-">2.3. <a href="https://oj.uz/problem/view/JOI18_worst_reporter3" class="outer">Worst Reporter 3</a></a></h3>
+<h2><a class="header" href="#s-3-" id="s-3-">3. Day3</a></h2>
+<h3><a class="header" href="#s-3-1-" id="s-3-1-">3.1. <a href="https://oj.uz/problem/view/JOI18_airline" class="outer">Airline Route Map</a></a></h3>
+<h3><a class="header" href="#s-3-2-" id="s-3-2-">3.2. <a href="https://oj.uz/problem/view/JOI18_bitaro" class="outer">Bitaro's Party</a></a></h3>
+<p><a href="../sqrt-decomposition.md">Sqrt Decomposition</a>을 쓰는 문제다. \(Y_1 + Y_2 + ... + Y_Q = SUM\)이라 하고 \(Sq = \sqrt{SUM}\)이라 하자.</p>
+<ol>
+<li>\(Y_i &lt; Sq\) : 전처리로 모든 정점에 대해 최장 거리를 \(Sq\)개 저장해 놓고 있으면 \(O(Y_i)\)에 해결할 수 있다. 이는 \(S_j\)가 작은 에지 순서대로 \(S_j\)에서부터 최장거리에 있는 정점들 \(Sq\)개를 \(E_j\)에 합쳐주는 식으로 \(O(M\times Sq)\)에 전처리해 놓을 수 있다.</li>
+<li>\(Y_i \ge Sq\) : Naive하게 \(T_i\)에서부터 모든 정점까지 최장거리를 <a href="../dp.md">DP</a>로 계산하여 답을 구한다.</li>
+</ol>
+<h3><a class="header" href="#s-3-3-" id="s-3-3-">3.3. <a href="https://oj.uz/problem/view/JOI18_security_gate" class="outer">Security Gate</a></a></h3>
+<h2><a class="header" href="#s-4-" id="s-4-">4. Day4</a></h2>
+<h3><a class="header" href="#s-4-1-" id="s-4-1-">4.1. <a href="https://oj.uz/problem/view/JOI18_candies" class="outer">Candies</a></a></h3>
+<p>APIO 2007 Backup에서 사용한 그리디 아이디어를 비슷하게 사용하면 된다.</p>
+<p>\(K\)개의 캔디를 선택한 상황에서 \(K+1\)개의 캔디를 선택하는 상황으로 넘어갈 때 2가지 경우가 있다. 첫 번째는 양 옆 캔디가 선택되지 않은 캔디 1개를 추가하는 경우다. 두 번째는 현재 선택된 캔디를 O, 아직 선택하지 않은 캔디를 X라 할 때 XXOXO...OXX를 XOXOX...XOX 로 바꾸는 경우다. 매 번 두가지 경우 중 deliciousness의 증가량이 최대인 경우를 택하면 되는데, 이는 <a href="../priority-queue.md">Priority Queue</a>와 <a href="../set.md">Set</a>으로 deliciousness 증가량의 최댓값과 XOXO...OX 꼴의 구간을 관리해줘서 처리할 수 있다.</p>
+<h3><a class="header" href="#s-4-2-" id="s-4-2-">4.2. <a href="https://oj.uz/problem/view/JOI18_library" class="outer">Library</a></a></h3>
+<p>첫 번째 (또는 마지막) 책의 번호는 \(N\)번 질문하여 알 수 있다. \(1\)번째 책부터 \(i\)번째 책의 번호를 알고 있을 때 \(i+1\)번째 책 번호는 이분탐색을 통해 \(2\log N\)정도 안에 찾을 수 있다. \(i+1\)번째 책이 포함되어 있는 책들의 집합은 \(i\)번째 책을 포함하던, 포함하지 않던 <code>Query</code>의 리턴 값이 같으며 \(i+1\)번째 책이 포함되어 있지 않는 책들의 집합은 같은 방식으로 두 번 <code>Query</code>를 호출했을 때 리턴 값에 1 차이가 나게 된다. 이를 이용하면 \(2N\log N\)정도 안에 모든 책 번호를 찾을 수 있다.</p>
+<h3><a class="header" href="#s-4-3-" id="s-4-3-">4.3. <a href="https://oj.uz/problem/view/JOI18_wild_boar" class="outer">Wild Boar</a></a></h3>
+
+                </main>
+            </div>
+
+            <div class="sidebar-wrap">
+                <nav class="toc">
+                    <ul><li><a href="#s-1-">1. Day1</a><ul><li><a href="#s-1-1-">1.1. Construction of Highway</a></li><li><a href="#s-1-2-">1.2. Fences</a></li><li><a href="#s-1-3-">1.3. Tents</a></li></ul></li><li><a href="#s-2-">2. Day2</a><ul><li><a href="#s-2-1-">2.1. Asceticism</a></li><li><a href="#s-2-2-">2.2. Road Service</a></li><li><a href="#s-2-3-">2.3. Worst Reporter 3</a></li></ul></li><li><a href="#s-3-">3. Day3</a><ul><li><a href="#s-3-1-">3.1. Airline Route Map</a></li><li><a href="#s-3-2-">3.2. Bitaro's Party</a></li><li><a href="#s-3-3-">3.3. Security Gate</a></li></ul></li><li><a href="#s-4-">4. Day4</a><ul><li><a href="#s-4-1-">4.1. Candies</a></li><li><a href="#s-4-2-">4.2. Library</a></li><li><a href="#s-4-3-">4.3. Wild Boar</a></li></ul></li></ul>
+                </nav>
+                <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
+                          stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
+                </svg>
+                <p>
+                    최근 수정 시각: 2020-08-22 14:08:31
+                </p>
+                <div class="contributors">
+                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
+                </div>
+                <div class="github-link">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/joisc/joisc2018.md"><div class="link-button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/joisc/joisc2018.md"><div class="link-button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/joisc/joisc2018.md"><div class="link-button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BJOISC 2018%5D+"><div class="link-button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BJOISC 2018%5D"><div class="link-button">진행중인 토론</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/r/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-174669347-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript" src="/r/js/wiki.js"></script>
+<script>
+    (function footnote() {
+        let map = {};
+        let def = document.getElementsByClassName("footnote-definition");
+
+        for (let i = 0; i < def.length; i++) {
+            let id = def[i].id.substr(2);
+            map[id] = def[i].children[1];
+        }
+
+        let ref = document.getElementsByClassName("footnote-reference");
+
+        for (let i = 0; i < ref.length; i++) {
+            let id = ref[i].children[0].id;
+            let content = map[id.substr(2)];
+            tippy(ref[i], {
+                theme: 'footnote',
+                content: content.innerHTML,
+                allowHTML: true,
+                interactive: true,
+                interactiveBorder: 5,
+            });
+        }
+    })();
+</script>
+</body>
+</html>
