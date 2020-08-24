@@ -10,7 +10,7 @@
 
 - [[ Sort ]]
 - [[ Graph Traversal ]]
-- [[ Divide & Conquer ]]
+- [[ Divide \& Conquer ]]
 - [[ DP ]]
 - [[ Shortest Path ]]
 - [[ Query Technique ]]
