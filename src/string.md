@@ -6,8 +6,8 @@
 
 ## 관련 알고리즘
 
-* [KMP](./kmp.md)
-* [Manacher Algorithm](./manacher-algorithm.md)
-* [Hashing](./hashing.md)
-* [Suffix Array](./suffix-array.md)
-* [Aho-Corasick](./aho-corasick.md)
+* [[ KMP ]]
+* [[ Manacher Algorithm ]]
+* [[ Hashing ]]
+* [[ Suffix Array ]]
+* [[ Aho-Corasick ]]
