@@ -9,9 +9,9 @@
 ## 코드
 
 ```c++
-void sortarr(){
-    for(int i=1; i<n; i++){
-        for(int j=1; j<=n-i; j++){
+void Bubble_Sort(){
+    for(int i=1; i<N; i++){
+        for(int j=1; j<=N-i; j++){
             if(arr[j]>arr[j+1]){
                 swap(arr[j], arr[j+1]);
             }
