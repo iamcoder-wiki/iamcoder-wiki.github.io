@@ -1,16 +1,23 @@
 # SITE
 
-## [Atcoder](./atcoder.md)
+## Atcoder
+[[ Atcoder ]] 참고
 
-## [BOJ](./boj.md)
+## BOJ
+[[ BOJ ]] 참고
 
-## [Codeforces](./codeforces.md)
+## Codeforces
+[[ Codeforces ]] 참고
 
-## [Google Code Jam](./google-code-jam.md)
+## Google Code Jam
+[[ Google Code Jam ]] 참고
 
-## [Koistudy](./koistudy.md)
+## Koistudy
+[[ Koistudy ]] 참고
 
-## [NYPC](./nypc.md)
+## NYPC
+[[ NYPC ]] 참고
 
-## [OJ.UZ](./ojuz.md)
+## OJ.UZ
+[[ OJ.UZ ]] 참고
 
