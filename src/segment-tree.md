@@ -106,8 +106,8 @@ tree의 크기는 그 트리가 담당하는 구간의 4배 정도로 하면 안
 
 ## 관련 자료구조
 
-- [Fenwick Tree](./fenwick-tree.md)
-- [Merge Sort Tree](./merge-sort-tree.md)
-- [Dynamic Segment Tree](./dynamic-segment-tree.md)
-- [Lazy Propagation](./lazy-propagation.md)
+- [[ Fenwick Tree ]]
+- [[ Merge Sort Tree ]]
+- [[ Dynamic Segment Tree ]]
+- [[ Lazy Propagation ]]
 
