@@ -4,9 +4,9 @@
 
 
 
-## [Convex Hull](./convex-hull.md)
+## [[ Convex Hull ]]
 
 
 
-## [Rotating Callipers](./rotating-callipers.md)
+## [[ Rotating Callipers ]]
 
