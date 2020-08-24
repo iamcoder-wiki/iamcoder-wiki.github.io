@@ -1,4 +1,4 @@
-# How to Add / Fix Document?
+# iamcoder:문법
 
 ## 규칙
 
