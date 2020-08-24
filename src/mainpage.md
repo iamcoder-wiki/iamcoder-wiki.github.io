@@ -8,4 +8,4 @@
 
 > [[ iamcoder:문법 ]]
 
-> [[ IamCoder 소개 ]]
+> [[ IamCoder ]]
