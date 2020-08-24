@@ -13,7 +13,7 @@
 
   > ex)
   > 
-  > ```
+  > ```markdown
   > ### hello
   > #### hello?
   > #### world?
@@ -35,7 +35,7 @@
 
   > ex)
   > 
-  > ```
+  > ```markdown
   > \\( N \leq 10 \\)
   > ```
   > 
@@ -47,7 +47,7 @@
 
   > ex)
   > 
-  > ```
+  > ```markdown
   > [IamCoder Wiki](https://iamcoder.wiki)
   > [MainPage](./mainpage.md)
   > ```
@@ -64,24 +64,24 @@
 
   > ex)
   > 
-  > ```
+  > ```markdown
   >​``` c++
-  >#include <stdio.h>
-  >
-  >int main(){
-  >	printf("hello world");
-  >	return 0;
-  >}
+  > #include <stdio.h>
+  > 
+  > int main(){
+  >	    printf("hello world");
+  >	    return 0;
+  > }
   >​```
-  >```
+  > ```
   >
-  >``` c++
-  >#include <stdio.h>
-  >
-  >int main(){
-  >	printf("hello world");
-  >	return 0;
-  >}
+  > ``` c++
+  > #include <stdio.h>
+  > 
+  > int main(){
+  >	    printf("hello world");
+  >	    return 0;
+  > }
   >```
 
   
@@ -90,7 +90,7 @@
 
   > ex)
   > 
-  > ```
+  > ```markdown
   > > hello 
   > > hello?
   > >> world!
@@ -106,7 +106,7 @@
 
   > ex)
   > 
-  > ```
+  > ```markdown
   > __볼드체__
   > _이탤릭체_
   > <u>밑줄</u>
