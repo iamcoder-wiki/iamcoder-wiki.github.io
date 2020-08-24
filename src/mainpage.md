@@ -4,8 +4,9 @@
 
 > [사이트 소개](./site-info.md)
 
-> [IamCoder](./iamcoder.md)
+> [Tutorial](./tutorial.md)
 
 > [How to Fix?](./how-to-fix.md)
 
-> [Tutorial](./tutorial.md)
+> [IamCoder](./iamcoder.md)
+
