@@ -4,11 +4,15 @@
 
 JOI Spring Contest
 
-## [JOISC 2017](./joisc/joisc2017.md)
+## JOISC 2017
+[[ JOISC 2017 ]] 참고
 
-## [JOISC 2018](./joisc/joisc2018.md)
+## JOISC 2018
+[[ JOISC 2018 ]] 참고
 
-## [JOISC 2019](./joisc/joisc2019.md)
+## JOISC 2019
+[[ JOISC 2019 ]] 참고
 
-## [JOISC 2020](./joisc/joisc2020.md)
+## JOISC 2020
+[[ JOISC 2020 ]] 참고
 
