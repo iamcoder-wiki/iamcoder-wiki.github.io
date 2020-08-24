@@ -266,7 +266,7 @@
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BJOI 2014%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BJOI 2014%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
-                                <p>최근 수정 시각: 2020-08-22 17:00:09</p>
+                                <p>최근 수정 시각: 2020-08-24 13:44:54</p>
                                 <div class="contributors">
                                     <div class="description"><span>기여자:&nbsp;</span></div>
                                     <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
@@ -291,17 +291,22 @@ addOnload(writeTitle);
 </script>
 <!-- :title=JOI 2014: -->
 <h1><a class="header title" href="#joi-2014" id="joi-2014">_</a></h1>
-<h2><a class="header" href="#a-hrefhttpsojuzproblemviewjoi14_ho_t1joi-문장a" id="a-hrefhttpsojuzproblemviewjoi14_ho_t1joi-문장a">1. <a href="https://oj.uz/problem/view/JOI14_ho_t1">JOI 문장</a></a></h2>
+<h2><a class="header" href="#joi-문장" id="joi-문장">1. JOI 문장</a></h2>
+<p><a href="https://oj.uz/problem/view/JOI14_ho_t1">문제</a></p>
 <p>사각형 한개의 모양을 바꿨을 때 상태가 바뀌는 \(2\times 2\) 사각형의 개수는 4개밖에 안되기 때문에 \(N\times M\)개의 사각형을 하나씩 바꿔보면서 최댓값을 찾아주면 된다.</p>
-<h2><a class="header" href="#a-hrefhttpsojuzproblemviewjoi14_ho_t2만두a" id="a-hrefhttpsojuzproblemviewjoi14_ho_t2만두a">2. <a href="https://oj.uz/problem/view/JOI14_ho_t2">만두</a></a></h2>
+<h2><a class="header" href="#만두" id="만두">2. 만두</a></h2>
+<p><a href="https://oj.uz/problem/view/JOI14_ho_t2">문제</a></p>
 <p>\(k\)개의 만두를 넣는다고 할 때 만두 가격의 합의 최댓값은 단순히 만두를 가격 순으로 정렬하여 가격이 높은 만두 \(k\)개를 고르면 쉽게 구할 수 있다. 또, \(k\)개의 만두를 넣는다고 할 때 상자에 써야 할 가격의 최솟값은 <code>dp[상자 크기]</code>에 최소 가격을 저장하는 <a href="../knapsack">knapsack DP</a>로 구할 수 있다. 따라서 답은 모든 \(k\)에 대해 <code>만두 가격 합의 최댓값 - 상자 가격 합의 최솟값</code>을 계산하여 최댓값을 찾으면 구할 수 있다.</p>
-<h2><a class="header" href="#a-hrefhttpsojuzproblemviewjoi14_ho_t3도넛a" id="a-hrefhttpsojuzproblemviewjoi14_ho_t3도넛a">3. <a href="https://oj.uz/problem/view/JOI14_ho_t3">도넛</a></a></h2>
+<h2><a class="header" href="#도넛" id="도넛">3. 도넛</a></h2>
+<p><a href="https://oj.uz/problem/view/JOI14_ho_t3">문제</a></p>
 <p>처음 고르는 구간의 시작점을 <code>s</code>라 하면 어떤 위치 <code>e</code>를 잡고, 나머지 부분을 최대한 같게 나누어 이등분 된 각 구간의 크기가 <code>s</code>부터 <code>e</code> 구간의 크기보다 크도록 나눌 수 있어야 한다. 나머지 구간을 이등분할 수 있는지는 단순하게 <a href="../binary-search">이분 탐색</a>으로 양 구간을 <code>s</code>부터 <code>e</code> 구간의 크기 이상으로 나눌 수 있는지 검사하면 된다. </p>
 <p><code>s</code>를 고정하고 <code>e</code>를 점점 키운다고 가정하면 한계점 <code>e'</code>이 존재하여 <code>e'</code>이전 모든 <code>e</code>에서는 조건을 만족하고, <code>e'</code>를 넘는 모든 <code>e</code>에서는 조건을 만족하지 않는다는 것을 관찰할 수 있다. 따라서 <a href="../binary-search">이분 탐색</a>을 통해 <code>e'</code>을 구할 수 있다. 따라서 시작점 <code>N</code>개에 대해 <a href="../binary-search">이분 탐색</a>을 2번 하여 \(O(N\log ^{2}N\)에 답을 구할 수 있다.</p>
-<h2><a class="header" href="#a-hrefhttpsojuzproblemviewjoi14_ho_t4날다람쥐a" id="a-hrefhttpsojuzproblemviewjoi14_ho_t4날다람쥐a">4. <a href="https://oj.uz/problem/view/JOI14_ho_t4">날다람쥐</a></a></h2>
+<h2><a class="header" href="#날다람쥐" id="날다람쥐">4. 날다람쥐</a></h2>
+<p><a href="https://oj.uz/problem/view/JOI14_ho_t4">문제</a></p>
 <p>날다람쥐가 한번 높이 0인 상태에 도달하면, 그 이후 다른 나무로 점프한 후에도 높이 0인 상태를 유지할 것이라고 생각할 수 있다. (점프하기 전 그 이상으로 올라갈 필요가 없다.) 따라서 날다람쥐의 높이가 0인 경우와 그렇지 않은 경우로 나눌 수 있다. </p>
 <p>날다람쥐의 높이가 0이 아니면, 시간 \(t\)에 날다람쥐의 높이 \(h = (처음 시작 높이) - t\)로 구할 수 있다. 따라서 날다람쥐의 높이가 0이 아닌 경우는 <a href="../dijkstra">Dijkstra</a>로 각 나무에 도달할 수 있는 최단 시간을 저장하여 처리할 수 있다. 다음으로 각 나무의 높이 0인 지점에 도달할 수 있는 최단 시간을 비슷한 방식으로 구해주면 답을 구할 수 있다.</p>
-<h2><a class="header" href="#a-hrefhttpsojuzproblemviewjoi14_ho_t5절취선a" id="a-hrefhttpsojuzproblemviewjoi14_ho_t5절취선a">5. <a href="https://oj.uz/problem/view/JOI14_ho_t5">절취선</a></a></h2>
+<h2><a class="header" href="#절취선" id="절취선">5. 절취선</a></h2>
+<p><a href="https://oj.uz/problem/view/JOI14_ho_t5">문제</a></p>
 <p>가장 중요한 아이디어는 <code>V - E + F = (연결된 선분 컴포넌트 개수)</code>다. <code>V, E, (연결된 선분 컴포넌트 개수)</code>를 구하면 <code>F</code>를 구할 수 있다.</p>
 <p><code>V</code>와 <code>E</code>는 초기값을 <code>N</code>, <code>2N</code>으로 잡고, 두 직선이 만날 때마다 <code>V-E</code> 값을 1만큼 감소시켜주면 된다. 이는 <a href="../segment-tree">Segment Tree</a>를 사용한 Plane Sweeping으로 처리할 수 있다.</p>
 <p>연결된 선분 컴포넌트들의 개수를 구해주면 되는데, 이는 선분이 만날 때마다 <a href="../disjoint-set">Union &amp; Find</a>로 합쳐주고 마지막에 Group의 개수를 구하면 된다. Plane Sweeping으로 이를 처리하는 방법은 <a href="../lazy-propagation">Lazy Propagation</a>을 쓰는 것인데, Plane Sweeping을 하면서 <a href="../segment-tree">Segment Tree</a>의 구간에 그 구간을 덮는 선분들의 Group을 lazy 값으로 저장하여 새로운 선분이 추가될 때마다 <a href="../disjoint-set">Union &amp; Find</a>를 해주고, 구간의 선분을 없앨 때는 각 구간의 Lazy를 아래 구간으로 내려주고 구간에 저장된 Group을 없애면 된다.</p>
@@ -309,13 +314,13 @@ addOnload(writeTitle);
                         </main>
                         <div id="right-bar-outer" class="right-bar-outer">
                             <nav class="toc">
-                                <ul><li><a href="#a-hrefhttpsojuzproblemviewjoi14_ho_t1joi-문장a">1. <a href="https://oj.uz/problem/view/JOI14_ho_t1">JOI 문장</a></a></li><li><a href="#a-hrefhttpsojuzproblemviewjoi14_ho_t2만두a">2. <a href="https://oj.uz/problem/view/JOI14_ho_t2">만두</a></a></li><li><a href="#a-hrefhttpsojuzproblemviewjoi14_ho_t3도넛a">3. <a href="https://oj.uz/problem/view/JOI14_ho_t3">도넛</a></a></li><li><a href="#a-hrefhttpsojuzproblemviewjoi14_ho_t4날다람쥐a">4. <a href="https://oj.uz/problem/view/JOI14_ho_t4">날다람쥐</a></a></li><li><a href="#a-hrefhttpsojuzproblemviewjoi14_ho_t5절취선a">5. <a href="https://oj.uz/problem/view/JOI14_ho_t5">절취선</a></a></li></ul>
+                                <ul><li><a href="#joi-문장">1. JOI 문장</a></li><li><a href="#만두">2. 만두</a></li><li><a href="#도넛">3. 도넛</a></li><li><a href="#날다람쥐">4. 날다람쥐</a></li><li><a href="#절취선">5. 절취선</a></li></ul>
                             </nav>
                             <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
                             </svg>
                             <p>
-                                최근 수정 시각: 2020-08-22 17:00:09
+                                최근 수정 시각: 2020-08-24 13:44:54
                             </p>
                             <div class="contributors">
                                 <div class="description"><span>기여자:&nbsp;</span></div>

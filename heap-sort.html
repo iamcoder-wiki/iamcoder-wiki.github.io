@@ -266,7 +266,7 @@
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHeap Sort%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHeap Sort%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
-                                <p>최근 수정 시각: 2020-08-16 21:30:14</p>
+                                <p>최근 수정 시각: 2020-08-24 13:44:54</p>
                                 <div class="contributors">
                                     <div class="description"><span>기여자:&nbsp;</span></div>
                                     <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
@@ -292,11 +292,10 @@ addOnload(writeTitle);
 <!-- :title=Heap Sort: -->
 <h1><a class="header title" href="#heap-sort" id="heap-sort">_</a></h1>
 <h2><a class="header" href="#소개" id="소개">1. 소개</a></h2>
-<p>우선 힙이라는 자료구조를 안다는 가정하에 설명을 시작하도록 하겠다. 우리는 최소 힙을 이용해 선택정렬의 방법을 최적화할 것이다. 선택정렬에서 어떤 구간의 최솟값을 찾는데 그것을 찾기 위해 <code>n</code>개의 칸을 탐색하던지, 힙을 이용하는지의 차이이다. 힙에서는 원소를 추가하는데 \(\log n\), 삭제하는데 \(\log n\)의 시간복잡도가 필요한 반면, 힙의 최소 혹은 최댓값은 상수시간 안에 구해낼 수 있어 이를 이용해 구현한 힙정렬은 \(O(n\log n)\)의 시간복잡도를 가진다. <code>main</code>함수의 <code>sortarr()</code>을 <code>heapsort()</code>로 바꾼 뒤 작성한 코드이다.</p>
+<p>힙 정렬에서는 최소 힙을 이용해 <a href="./selection-sort">선택 정렬</a>의 방법을 최적화하여 시간복잡도를 줄인다. 선택 정렬에서는 남은 원소들 중에서 최솟값을 찾기 위해 매번 남은 원소를 모두 탐색하지만, 힙 정렬에서는 힙을 사용하여 이를 \O(\log N)\에 처리한다. 따라서 이를 이용해 구현한 힙 정렬은 \(O(n\log n)\)의 시간복잡도를 가진다. </p>
 <h2><a class="header" href="#코드" id="코드">2. 코드</a></h2>
 <h3><a class="header" href="#heap-sort-without-priority_queue" id="heap-sort-without-priority_queue">2.1. Heap Sort without priority_queue</a></h3>
-<pre><code class="language-c++">void in_heap(int num)
-{
+<pre><code class="language-c++">void in_heap(int num){
     heap[++siz]=num;
     int temp=siz;
     while(temp&gt;1){
@@ -305,10 +304,9 @@ addOnload(writeTitle);
         temp/=2;
     }
 }
-void poptop_heap()
-{
+void poptop_heap(){
     swap(heap[1], heap[siz]);
-    heap[siz]=987654321;
+    heap[siz] = 987654321;
     siz--;
     int temp=1;
     while(temp&lt;=siz/2){
@@ -324,19 +322,18 @@ void poptop_heap()
         }
     }
 }
-void heapsort()
-{
-    for(int i=1; i&lt;=n; i++)
+void Heap_Sort(){
+    for(int i=1; i&lt;=N; i++)
         in_heap(arr[i]);
-    for(int i=1; i&lt;=n; i++){
+    for(int i=1; i&lt;=N; i++){
         arr[i]=heap[1];
         poptop_heap();
     }
 }
 </code></pre>
 <h3><a class="header" href="#heap-sort-using-priority_queue" id="heap-sort-using-priority_queue">2.2. Heap Sort using priority_queue</a></h3>
-<p>힙이란 자료구조는 이미 우선순위 큐의 형태로 구현되어 있으므로 이를 이용하면 코드가 훨씬 간결해진다. 다만 우선순위 큐는 최대 힙으로 원래 수에 -1을 곱해준 값으로 우선순위 큐 안에 넣어주게 되면 최소 힙처럼 사용할 수 있다.</p>
-<pre><code class="language-c++">void heapsort()
+<p>힙이란 자료구조는 이미 <a href="./priority-queue">우선순위 큐</a>의 형태로 구현되어 있으므로 이를 이용하면 코드가 훨씬 간결해진다. 여기서 주의할 점은 <a href="./priority-queue">우선순위 큐</a>는 최대 힙이기 때문에 원래 수에 -1을 곱해준 값으로 우선순위 큐 안에 넣어주게 되면 최소 힙처럼 사용할 수 있다. (우선순위 큐를 최소 힙으로 사용하려면 <code>priority_queue &lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; pq</code> 라고 정의해 주면 된다.)</p>
+<pre><code class="language-c++">void Heap_Sort()
 {
     priority_queue&lt;int&gt; pq;
     for(int i=1; i&lt;=n; i++)
@@ -357,7 +354,7 @@ void heapsort()
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
                             </svg>
                             <p>
-                                최근 수정 시각: 2020-08-16 21:30:14
+                                최근 수정 시각: 2020-08-24 13:44:54
                             </p>
                             <div class="contributors">
                                 <div class="description"><span>기여자:&nbsp;</span></div>

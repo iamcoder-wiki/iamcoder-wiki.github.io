@@ -266,7 +266,7 @@
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI 2015%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI 2015%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
-                                <p>최근 수정 시각: 2020-08-21 12:43:39</p>
+                                <p>최근 수정 시각: 2020-08-24 13:44:54</p>
                                 <div class="contributors">
                                     <div class="description"><span>기여자:&nbsp;</span></div>
                                     <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
@@ -292,12 +292,15 @@ addOnload(writeTitle);
 <!-- :title=CEOI 2015: -->
 <h1><a class="header title" href="#ceoi-2015" id="ceoi-2015">_</a></h1>
 <h2><a class="header" href="#day1" id="day1">1. Day1</a></h2>
-<h3><a class="header" href="#a-hrefhttpswwwacmicpcnetproblem10955potemkin-cyclea" id="a-hrefhttpswwwacmicpcnetproblem10955potemkin-cyclea">1.1. <a href="https://www.acmicpc.net/problem/10955">Potemkin Cycle</a></a></h3>
+<h3><a class="header" href="#potemkin-cycle" id="potemkin-cycle">1.1. Potemkin Cycle</a></h3>
+<p><a href="https://www.acmicpc.net/problem/10955">문제</a></p>
 <p>보통 사이클 문제는 DFS numbering 등으로 풀기 때문에 이런 방법을 사용해 보려고 노력할 수 있지만, 이런 접근 방식으로는 풀기가 어렵다. </p>
 <p>기준 정점 \(v\)를 잡고, \(v\)와 직접 연결된 정점들을 \(c_1, c_2, ..., c_k\)라 하자. \(v\)와 \(c_1, c_2, ..., c_k\)가 아닌 모든 정점들에 대해 간선으로 연결된 모든 정점쌍을 union 해준다. 이렇게 나머지 모든 정점을 집합화할 수 있다. 마지막으로, \(c_i\)와 \(c_j\)가 직접 연결되어 있지 않고 같은 집합에 연결되어 있는 경우, \(c_i , v, c_j, ........, c_i\) 순서의 조건을 만족하는 사이클을 무조건 구할 수 있다.</p>
-<h3><a class="header" href="#a-hrefhttpswwwacmicpcnetproblem10956calvinball-championshipa" id="a-hrefhttpswwwacmicpcnetproblem10956calvinball-championshipa">1.2. <a href="https://www.acmicpc.net/problem/10956">Calvinball Championship</a></a></h3>
+<h3><a class="header" href="#calvinball-championship" id="calvinball-championship">1.2. Calvinball Championship</a></h3>
+<p><a href="https://www.acmicpc.net/problem/10956">문제</a></p>
 <p>여태까지 배열에 있는 최댓값이 <code>i</code>일 때 가짓수, <code>i</code>까지 고려 시 답, 2가지를 DP로 저장하면 된다.</p>
-<h3><a class="header" href="#a-hrefhttpswwwacmicpcnetproblem10957pipesa" id="a-hrefhttpswwwacmicpcnetproblem10957pipesa">1.3. <a href="https://www.acmicpc.net/problem/10957">Pipes</a></a></h3>
+<h3><a class="header" href="#pipes" id="pipes">1.3. Pipes</a></h3>
+<p><a href="https://www.acmicpc.net/problem/10957">문제</a></p>
 <p>단절선을 구하는 문제지만, 메모리 제한이 작기 때문에 모든 에지를 저장하지 않고 단절선을 구할 때 필요한 간선들만 저장해야 한다. </p>
 <p>아이디어는 두 그룹을 합치는 간선은 3개 째부터 무시할 수 있다는 것이다. 1개인지 2개인지는 단절선을 구하는데 영향을 주지만, 2개 이상인지 2개인지는 단절선을 구할 때 영향이 없다. 이는 <a href="../disjoint-set">Disjoint Set</a>을 2개 관리하면서 간선 <code>(a, b)</code>가 추가되면 첫 <a href="../disjoint-set">Disjoint Set</a>에서 <code>a</code>와 <code>b</code>가 같은 그룹인지 검사하여 만약 같은 그룹이면 두 번째 Disjoint Set에서 <code>a</code>와 <code>b</code>의 Union 작업을 해주고, 같지 않으면 첫 <a href="../disjoint-set">Disjoint Set</a>에서 <code>a</code>와 <code>b</code>를 Union 해준다. 만약 두 번째 <a href="../disjoint-set">Disjoint Set</a>에서도 <code>a</code>와 <code>b</code>가 같은 그룹이면 간선 <code>(a, b)</code>는 무시해도 되는 간선이다.</p>
 <h2><a class="header" href="#day2" id="day2">2. Day2</a></h2>
@@ -305,13 +308,13 @@ addOnload(writeTitle);
                         </main>
                         <div id="right-bar-outer" class="right-bar-outer">
                             <nav class="toc">
-                                <ul><li><a href="#day1">1. Day1</a><ul><li><a href="#a-hrefhttpswwwacmicpcnetproblem10955potemkin-cyclea">1.1. <a href="https://www.acmicpc.net/problem/10955">Potemkin Cycle</a></a></li><li><a href="#a-hrefhttpswwwacmicpcnetproblem10956calvinball-championshipa">1.2. <a href="https://www.acmicpc.net/problem/10956">Calvinball Championship</a></a></li><li><a href="#a-hrefhttpswwwacmicpcnetproblem10957pipesa">1.3. <a href="https://www.acmicpc.net/problem/10957">Pipes</a></a></li></ul></li><li><a href="#day2">2. Day2</a></li></ul>
+                                <ul><li><a href="#day1">1. Day1</a><ul><li><a href="#potemkin-cycle">1.1. Potemkin Cycle</a></li><li><a href="#calvinball-championship">1.2. Calvinball Championship</a></li><li><a href="#pipes">1.3. Pipes</a></li></ul></li><li><a href="#day2">2. Day2</a></li></ul>
                             </nav>
                             <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
                             </svg>
                             <p>
-                                최근 수정 시각: 2020-08-21 12:43:39
+                                최근 수정 시각: 2020-08-24 13:44:54
                             </p>
                             <div class="contributors">
                                 <div class="description"><span>기여자:&nbsp;</span></div>

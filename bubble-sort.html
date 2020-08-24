@@ -266,7 +266,7 @@
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBubble Sort%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBubble Sort%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                                 </div>
-                                <p>최근 수정 시각: 2020-08-23 13:40:42</p>
+                                <p>최근 수정 시각: 2020-08-24 13:44:54</p>
                                 <div class="contributors">
                                     <div class="description"><span>기여자:&nbsp;</span></div>
                                     <a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
@@ -295,9 +295,9 @@ addOnload(writeTitle);
 <p>\(O(n^2)\)정렬 중에서 구현이 제일 쉽고 유명한 방법이다. 인접한 두개의 항의 대소를 비교하여 작은 것을 앞으로 보내는 방법이다. </p>
 <p>이 방법의 정당성은 이해하기 쉽다. <code>(1, 2), (2, 3), … ,(n-1, n)</code> 번을 순차적으로 비교하여 swap을 하면, 다른 원소들의 상태는 모르지만 <code>n</code>번째 원소의 값이 최대라는 것은 확신할 수 있다. 이를 <code>n</code>번 반복하여 뒤에서부터 올바르게 숫자를 채워나간다면 정렬이 완료될 것이다. 이를 <code>for</code>문 두개를 이용하여 구현할 수 있고, 총 연산이 \(n*(n-1)/2\)번 실행되므로 시간복잡도는 \(O(n^2)\)이다.</p>
 <h2><a class="header" href="#코드" id="코드">2. 코드</a></h2>
-<pre><code class="language-c++">void sortarr(){
-    for(int i=1; i&lt;n; i++){
-        for(int j=1; j&lt;=n-i; j++){
+<pre><code class="language-c++">void Bubble_Sort(){
+    for(int i=1; i&lt;N; i++){
+        for(int j=1; j&lt;=N-i; j++){
             if(arr[j]&gt;arr[j+1]){
                 swap(arr[j], arr[j+1]);
             }
@@ -315,7 +315,7 @@ addOnload(writeTitle);
                                 <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
                             </svg>
                             <p>
-                                최근 수정 시각: 2020-08-23 13:40:42
+                                최근 수정 시각: 2020-08-24 13:44:54
                             </p>
                             <div class="contributors">
                                 <div class="description"><span>기여자:&nbsp;</span></div>
