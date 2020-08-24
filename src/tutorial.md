@@ -2,36 +2,36 @@
 
 ## 소개
 
-- [사이트 소개](./site-info.md)
-- [IamCoder](./iamcoder.md)
-- [How to Add / Fix Document?](./how-to-fix.md)
+- [[ 사이트 소개 ]]
+- [[ IamCoder ]]
+- [[ iamcoder:문법 ]]
 
 ## 알고리즘
 
-- [Sort](./sort.md)
-- [Graph Traversal](./graph-traversal.md)
-- [Divide & Conquer](./divide-and-conquer.md)
-- [Dynamic Programming](./dp.md)
-- [Shortest Path](./shortest-path.md)
-- [Query Technique](./query-technique.md)
-- [DP Optimization](./dp-optimization.md)
-- [Network Flow](./network-flow.md)
-- [Geometry](./geometry.md)
-- [String](./string.md)
+- [[ Sort ]]
+- [[ Graph Traversal ]]
+- [[ Divide & Conquer ]]
+- [[ DP ]]
+- [[ Shortest Path ]]
+- [[ Query Technique ]]
+- [[ DP Optimization ]]
+- [[ Network Flow ]]
+- [[ Geometry ]]
+- [[ String ]]
 
 ## 자료구조
 
-* [Basic](./basic-data-structure.md)
-* [Intermediate](./intermediate-data-structure.md)
-* [Tree](./tree.md)
-* [Segment Tree](./segment-tree.md)
-* [Advanced](./advanced-data-structure.md)
+* [[ Basic Data Structure ]]
+* [[ Intermediate Data Structure ]]
+* [[ Tree ]]
+* [[ Segment Tree ]]
+* [[ Advanced Data Structure ]]
 
 ## 기타
 
-- [Additional Topics](./additional-topics.md)
+- [[ Additional Topics ]]
 
 ## Problem Solving
 
-* [OI](./oi.md)
-* [SITE](./site.md)
+* [[ OI ]]
+* [[ SITE ]]
