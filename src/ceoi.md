@@ -4,7 +4,9 @@
 
 Central-European Olympiad in Informatics
 
-## [CEOI 2015](./ceoi/ceoi2015.md)
+## CEOI 2015
+[[ CEOI 2015 ]] 참고
 
-## [CEOI 2018](./ceoi/ceoi2018.md)
+## CEOI 2018
+[[ CEOI 2018 ]] 참고
 
