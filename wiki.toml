@@ -3,5 +3,5 @@ title = "IamCoder Wiki"
 preserve = ["robots.txt"]
 
 [html]
-#ga = "hello"
+ga = "UA-174669347-1"
 github = "https://github.com/iamcoder-wiki/iamcoder-wiki.github.io"
