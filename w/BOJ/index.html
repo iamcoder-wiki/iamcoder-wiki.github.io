@@ -28,12 +28,26 @@
 <div class="page">
     <div class="top-bar">
         <div class="top-bar-wrap">
-            
+            <div class="top-bar-title"></div>
+            <div class="search-bar-wrap">
+                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
+                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+            </div>
+            <div class="search-result-wrap" id="t-search-result"></div>
+            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
     <div class="page-wrap">
         <div class="content">
             <div class="main-wrap">
+                <div class="search-mobile-wrap mobile-show">
+                    <div class="search-bar-mobile-wrap">
+                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
+                        </div>
+                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+                    </div>
+                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
+                </div>
                 <div class="mobile-info">
                     <div class="github-link">
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/boj.md"><div class="link-button">편집</div></a>
