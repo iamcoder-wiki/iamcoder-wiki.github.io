@@ -4,7 +4,7 @@
 ## 소개
 Divide & Conquer Optimization은 [[ DP Optimization ]] 기법 중 [[ Divide & Conquer ]]를 사용한 기법이다. 이 최적화 기법은 특정 조건을 만족하는 [[ DP ]의 시간복잡도를 줄이는데 사용된다.
 
-## Divide & Conquer Optimization in 2D DP
+## 2D DP
 2차원 [[ DP ]] 테이블을 채우기 위해서는 일반적으로 \\(O(N^3)\\)의 시간복잡도를 갖는다. 이때 특정 조건을 만족하면 Divide & Conquer Optimization을 통해 시간복잡도를 \\(O(N^2\log N)\\)로 줄일 수 있다.
 
 ### 조건
@@ -46,7 +46,7 @@ void Calc(int i, int s, int e, int p, int q){
 
 보통 Divide & Conquer Optimization을 사용하기 전 문제 조건을 파악하는 과정에서 2번 조건보다 3번 조건을 만족하는지 확인하는 경우가 많기 때문에 이 조건도 추가적으로 알아둘 필요가 있다.
 
-## Divide & Conquer Optimization in 1D DP
+## 1D DP
 1차원 [[ DP ]]에서도 비슷한 조건을 만족하면 \\(O(N^2)\\) 시간복잡도로 [[ DP ]] 테이블을 채우는 과정을 \\(O(N\log N)\\)에 해결할 수 있다.
 ### 조건
 1. 1차원 [[ DP ]]의 점화식이 갖는 꼴
