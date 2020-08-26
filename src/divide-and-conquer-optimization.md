@@ -2,7 +2,7 @@
 # Divide & Conquer Optimization
 
 ## 소개
-Divide & Conquer Optimization은 [[ DP Optimization ]] 기법 중 [[ Divide & Conquer ]]를 사용한 기법이다. 이 최적화 기법은 특정 조건을 만족하는 [[ DP ]의 시간복잡도를 줄이는데 사용된다.
+Divide & Conquer Optimization은 [[ DP Optimization ]] 기법 중 [[ Divide & Conquer ]]를 사용한 기법이다. 이 최적화 기법은 특정 조건을 만족하는 [[ DP ]]의 시간복잡도를 줄이는데 사용된다.
 
 ## 2D DP
 2차원 [[ DP ]] 테이블을 채우기 위해서는 일반적으로 \\(O(N^3)\\)의 시간복잡도를 갖는다. 이때 특정 조건을 만족하면 Divide & Conquer Optimization을 통해 시간복잡도를 \\(O(N^2\log N)\\)로 줄일 수 있다.
