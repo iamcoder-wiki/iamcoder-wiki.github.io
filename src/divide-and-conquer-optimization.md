@@ -29,7 +29,7 @@ void Calc(int i, int s, int e, int p, int q){
 	if(mid < e)	Calc(i, mid+1, e, K[i][mid], q);
 }
 ```
-\\(DP[i][s]\\)부터 \\(DP[i][e]\\)까지 계산하는 함수 `Calc(i, s, e, p, q)`에서 \\(p \leq K[i][s] \leq K[i][e] \leq q\\)인 \\(p, q\\)를 윗 단계에서 부터 받아 사용한다. 이후 \\(mid = (s+e)/2\\)인 \\(mid\\)를 기준으로 구간 `(s, e)`를 반으로 나눠 [[ Divide & Conqer ]]를 해주면 \\(O(N^2\log N\\)의 시간복잡도로 DP 테이블을 채울 수 있다.
+\\(DP[i][s]\\)부터 \\(DP[i][e]\\)까지 계산하는 함수 `Calc(i, s, e, p, q)`에서 \\(p \leq K[i][s] \leq K[i][e] \leq q\\)인 \\(p, q\\)를 윗 단계에서 부터 받아 사용한다. 이후 \\(mid = (s+e)/2\\)인 \\(mid\\)를 기준으로 구간 `(s, e)`를 반으로 나눠 [[ Divide & Conquer ]]를 해주면 \\(O(N^2\log N\\)의 시간복잡도로 DP 테이블을 채울 수 있다.
 
 ### 추가 조건
 문제에서 위에서 제시한 조건 2가 만족하는지 확인하기는 꽤 어렵다. 따라서 조건 2를 만족하며, 더 쉽게 확인할 수 있는 조건 3은 다음과 같다.
