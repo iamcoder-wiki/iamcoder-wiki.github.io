@@ -6,7 +6,7 @@
 
 ## 종류
 
-* [[ Divide \& Conquer Optimization ]]
+* [[ Divide & Conquer Optimization ]]
 * [[ Knuth Optimization ]]
 * [[ Convex Hull Trick ]]
 
