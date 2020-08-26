@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-16 22:13:20</p>
+                    <p>최근 수정 시각: 2020-08-26 19:21:30</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -81,8 +81,8 @@ addOnload(writeTitle);
 </script>
 <h1 class="header title">_</h1>
 <h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
-<p>프림의 알고리즘은 가중치가 작은 간선부터 트리에 추가해 가며 최소 스패닝 트리를 구한다는 면에서는 <a href="./kruskal-algorithm.md">크루스칼의 알고리즘</a>과 같습니다.
-<a href="./kruskal-algorithm.md">크루스칼의 알고리즘</a>은 간선들이 서로 연결되어 있지 않더라도 가중치가 작으면 트리에 추가하는 반면, 프림의 알고리즘에서는 현재 최소 스패팅 트리에 연결된 간선만 트리에 추가한다는 것이 프림 알고리즘과 <a href="./kruskal-algorithm.md">크루스칼의 알고리즘</a>의 차이점입니다.</p>
+<p>프림의 알고리즘은 가중치가 작은 간선부터 트리에 추가해 가며 최소 스패닝 트리를 구한다는 면에서는 <a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a>과 같습니다.
+<a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a>은 간선들이 서로 연결되어 있지 않더라도 가중치가 작으면 트리에 추가하는 반면, 프림의 알고리즘에서는 현재 최소 스패팅 트리에 연결된 간선만 트리에 추가한다는 것이 프림 알고리즘과 <a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a>의 차이점입니다.</p>
 <h2><a class="header" href="#s-2-" id="s-2-">2. 과정</a></h2>
 <p>다음 그래프에 프림 알고리즘을 적용하여 MST를 구해보자.</p>
 <img src="/r/img/prim1-4265bf6589dd4e81.png" width = 500 >
@@ -151,7 +151,7 @@ int prim(int v){
 <p>우선순위 큐를 이용한 방법은 \(|E|\)개의 원소를 가지는 우선순위 큐에 대한 삽입/삭제 연산을 최대 \(|E|\)번 하므로 시간 복잡도는 \(O(|E|\log |E|)\)이고, 위에서와 마찬가지로 \(|E|&lt;|V|^2\)이므로 이는 \(O(|E|\log |V|)\)와 같습니다.</p>
 <p>밀집된 그래프에서, 즉 \(|E|\)가 \(|V|^2\)에 가까울 경우에는 위의 방식이 아래의 방식보다 더 빠르게 동작합니다. 반면 \(|E|\)가 적당히 작은 경우에는 아래의 방식이 위의 것보다 더 빠르게 동작할 수 있습니다. 따라서 문제의 조건을 정확히 파악하고 그에 알맞은 구현 방법을 사용하는 것이 중요합니다.</p>
 <h2><a class="header" href="#s-4-" id="s-4-">4. 여담</a></h2>
-<p>자세히 살펴보면, 우선순위 큐를 이용한 프림의 알고리즘 구현은 다익스트라의 알고리즘과 상당히 비슷하다는 것을 알 수 있습니다. 이는 두 알고리즘의 아이디어가 상당히 비슷하기 때문인데, 실제로 두 알고리즘의 코드를 한두 줄만 고치면 다른 알고리즘의 코드로 변하는 것을 볼 수 있습니다.</p>
+<p>자세히 살펴보면, 우선순위 큐를 이용한 프림의 알고리즘 구현은 <a href="/w/Dijkstra">Dijkstra</a> 상당히 비슷하다는 것을 알 수 있습니다. 이는 두 알고리즘의 아이디어가 상당히 비슷하기 때문인데, 실제로 두 알고리즘의 코드를 한두 줄만 고치면 다른 알고리즘의 코드로 변하는 것을 볼 수 있습니다.</p>
 
                 </main>
             </div>
@@ -165,7 +165,7 @@ int prim(int v){
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-16 22:13:20
+                    최근 수정 시각: 2020-08-26 19:21:30
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
