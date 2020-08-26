@@ -68,3 +68,13 @@ void Calc(int s, int e, int p, int q){
 ```
 ## 관련 문제
 [BOJ 11001 김치](https://www.acmicpc.net/problem/11001)
+[BOJ 18444 우체국 3](https://www.acmicpc.net/problem/18444)
+[BOJ 14179 크리스마스 이브](https://www.acmicpc.net/problem/14179)
+[BOJ 13262 수열의 OR 점수](https://www.acmicpc.net/problem/13262)
+[BOJ 13261 탈옥](https://www.acmicpc.net/problem/13261)
+[BOJ 16138 수강신청](https://www.acmicpc.net/problem/16138)
+[JOISC 2018 Cake 3](https://oj.uz/problem/view/JOI19_cake3)
+[IOI 2014 Holiday](https://www.acmicpc.net/problem/10076)
+[ICPC WF 2016 지사 배정](https://www.acmicpc.net/problem/12766)
+[ICPC WF 2017 Money for Nothing](https://www.acmicpc.net/problem/14636)
+
