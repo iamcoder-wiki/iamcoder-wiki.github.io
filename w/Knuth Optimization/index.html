@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKnuth Optimization%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKnuth Optimization%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-16 21:30:14</p>
+                    <p>최근 수정 시각: 2020-08-26 18:47:17</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -80,20 +80,61 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="header title">_</h1>
+<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<p>Knuth Optimization은 2차원 <a href="/w/DP">DP</a> 테이블을 \(O(N^3)\)의 시간복잡도로 채우는 방식이 특정 조건을 만족할 때 \(O(N^2)\)의 시간복잡도로 최적화하는 방법이다.</p>
+<h2><a class="header" href="#s-2-" id="s-2-">2. 조건</a></h2>
+<ol>
+<li>2차원 <a href="/w/DP">DP</a>의 점화식이 갖는 꼴</li>
+</ol>
+<p>\(DP[i][j] = min_{i&lt;k&lt;j}(DP[i][k]+DP[k][j])+C[i][j]\)</p>
+<ol start="2">
+<li>\(C[i][j]\)의 사각부등식</li>
+</ol>
+<p>\(a\leq b\leq c\leq d\)인 \(a, b, c, d\)에 대해 \(C[a][c]+C[b][d]\leq C[a][d] + C[b][c]\)</p>
+<ol start="3">
+<li>\(C[i][j]\)의 단조성</li>
+</ol>
+<p>\(a\leq b\eq c\leq d\)인 \(a, b, c, d\)에 대해 \(C[b][c] \leq C[a][d]\)</p>
+<p>조건 2와 조건 3이 만족하는 경우 \(K[i][j-1]\leq K[i][j] \leq K[i+1][j]\)가 만족한다. 따라서 \(DP[i][j]\)를 길이 \(l = (j-i)\) 가 작은 순서로 채우면 \(O(N^2)\)에 2차원 <a href="/w/DP">DP</a> 테이블을 채울 수 있다.</p>
+<h2><a class="header" href="#s-3-" id="s-3-">3. Code</a></h2>
+<pre><code class="language-c++">void Calc(){
+	for(int i = 2; i &lt;= N; i++){
+		DP[i-1][i] = 0;
+		K[i-1][i] = i;
+	}
+	for(int l = 2; l &lt; N; l++){
+		for(int i = 1; i+l &lt;= N; i++){
+			int j = i + l;
+			DP[i][j] = INF;
+			for(int k = K[i][j-1]; k &lt;= K[i+1][j]; k++){
+				if(DP[i][j] &gt; DP[i][k] + DP[k][j] + C[i][j]){
+					DP[i][j] = DP[i][k] + DP[k][j] + C[i][j];
+					K[i][j] = k;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+<h2><a class="header" href="#s-4-" id="s-4-">4. 관련 문제</a></h2>
+<p><a href="https://www.acmicpc.net/problem/11066" class="outer">BOJ 11066 파일 합치기</a></p>
+<p><a href="http://koistudy.net/?mid=prob_page&amp;NO=589" class="outer">Koistudy Rope cutting</a></p>
+<p><a href="https://atcoder.jp/contests/atc002/tasks/atc002_c" class="outer">AtCoder ATC 002 Optimal binary search tree</a></p>
+<p><a href="https://atcoder.jp/contests/jag2015autumn/tasks/icpc2015autumn_k" class="outer">AtCoder Optimal Tournament</a></p>
 
                 </main>
             </div>
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 조건</a></li><li><a href="#s-3-">3. Code</a></li><li><a href="#s-4-">4. 관련 문제</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-16 21:30:14
+                    최근 수정 시각: 2020-08-26 18:47:17
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
