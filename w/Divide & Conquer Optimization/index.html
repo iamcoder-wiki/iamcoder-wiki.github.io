@@ -56,9 +56,9 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDivide & Conquer Optimization%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDivide & Conquer Optimization%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-26 18:28:51</p>
+                    <p>최근 수정 시각: 2020-08-26 18:45:59</p>
                     <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
+                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
                 </div>
                 <main>
@@ -82,7 +82,7 @@ addOnload(writeTitle);
 <h1 class="header title">_</h1>
 <h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
 <p>Divide &amp; Conquer Optimization은 <a href="/w/DP%20Optimization">DP Optimization</a> 기법 중 <a href="/w/Divide%20&amp;%20Conquer">Divide &amp; Conquer</a>를 사용한 기법이다. 이 최적화 기법은 특정 조건을 만족하는 [[ DP ]의 시간복잡도를 줄이는데 사용된다.</p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. Divide &amp; Conquer Optimization in 2D DP</a></h2>
+<h2><a class="header" href="#s-2-" id="s-2-">2. 2D DP</a></h2>
 <p>2차원 <a href="/w/DP">DP</a> 테이블을 채우기 위해서는 일반적으로 \(O(N^3)\)의 시간복잡도를 갖는다. 이때 특정 조건을 만족하면 Divide &amp; Conquer Optimization을 통해 시간복잡도를 \(O(N^2\log N)\)로 줄일 수 있다.</p>
 <h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. 조건</a></h3>
 <ol>
@@ -117,7 +117,7 @@ addOnload(writeTitle);
 <p>\(a\leq b\leq c\leq d\)인 \(a, b, c, d\)에 대해 \(C[a][c] + C[b][d] \leq C[a][d] + C[b][c]\)</p>
 <p>3번 조건이 만족하면 2번 조건이 만족함을 귀류법으로 증명할 수 있다.</p>
 <p>보통 Divide &amp; Conquer Optimization을 사용하기 전 문제 조건을 파악하는 과정에서 2번 조건보다 3번 조건을 만족하는지 확인하는 경우가 많기 때문에 이 조건도 추가적으로 알아둘 필요가 있다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. Divide &amp; Conquer Optimization in 1D DP</a></h2>
+<h2><a class="header" href="#s-3-" id="s-3-">3. 1D DP</a></h2>
 <p>1차원 <a href="/w/DP">DP</a>에서도 비슷한 조건을 만족하면 \(O(N^2)\) 시간복잡도로 <a href="/w/DP">DP</a> 테이블을 채우는 과정을 \(O(N\log N)\)에 해결할 수 있다.</p>
 <h3><a class="header" href="#s-3-1-" id="s-3-1-">3.1. 조건</a></h3>
 <ol>
@@ -165,17 +165,17 @@ addOnload(writeTitle);
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Divide &amp; Conquer Optimization in 2D DP</a><ul><li><a href="#s-2-1-">2.1. 조건</a></li><li><a href="#s-2-2-">2.2. Code</a></li><li><a href="#s-2-3-">2.3. 추가 조건</a></li></ul></li><li><a href="#s-3-">3. Divide &amp; Conquer Optimization in 1D DP</a><ul><li><a href="#s-3-1-">3.1. 조건</a></li><li><a href="#s-3-2-">3.2. Code</a></li></ul></li><li><a href="#s-4-">4. 관련 문제</a></li></ul>
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 2D DP</a><ul><li><a href="#s-2-1-">2.1. 조건</a></li><li><a href="#s-2-2-">2.2. Code</a></li><li><a href="#s-2-3-">2.3. 추가 조건</a></li></ul></li><li><a href="#s-3-">3. 1D DP</a><ul><li><a href="#s-3-1-">3.1. 조건</a></li><li><a href="#s-3-2-">3.2. Code</a></li></ul></li><li><a href="#s-4-">4. 관련 문제</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-26 18:28:51
+                    최근 수정 시각: 2020-08-26 18:45:59
                 </p>
                 <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
+                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                 </div>
                 <div class="github-link">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/divide-and-conquer-optimization.md"><div class="link-button">편집</div></a>
