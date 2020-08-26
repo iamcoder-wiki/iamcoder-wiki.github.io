@@ -10,8 +10,8 @@
 
 * [[ Disjoint Set ]]
 * [[ Minimum Spanning Tree ]]
-  - [[ Prim Algorithm ]]
-  - [[ Kruskal Algorithm ]]
+  - [[ Prim's Algorithm ]]
+  - [[ Kruskal's Algorithm ]]
 * [[ Topological Sort ]]
 * [[ Euler Tour ]]
 * [[ Tree Diameter ]]
