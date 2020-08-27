@@ -1,3 +1,4 @@
+
 # Segment Tree
 
 ## 소개
@@ -21,25 +22,107 @@ RMQ쿼리를 처리할 때, 그림과 같이 \\(\lceil N/2 \rceil\\) 개의 버�
 
 또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \\(O(\log N)\\) 개가 되어 쿼리를 \\(O(\log N)\\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. 
 
+## Code
+### Top-Down 
+위에서부터 아래 세그먼트로 내려가면서 구간 합을 저장하는 Segment Tree를 구조체로 구현한 코드는 다음과 같다.
+``` c++
+struct SEG{
+    struct NODE{
+        int l, r;
+        int sum;
+    };
+    int SZ;
+    vector<NODE> seg;
+    void add(){
+        seg.push_back({-1, -1, 0});
+    }
+    void Init(int N){
+        SZ = N;
+        add();
+        init(0, 1, SZ);
+    }
+    void init(int idx, int s, int e){
+        if(s==e)    return;
+        seg[idx].l = seg.size(); add();
+        seg[idx].r = seg.size(); add();
+        init(seg[idx].l, s, (s+e)/2);
+        init(seg[idx].r, (s+e)/2+1, e);
+    }
+    void Update(int x, int y){
+        update(0, 1, SZ, x, y);
+    }
+    void update(int idx, int s, int e, int x, int y){
+        seg[idx].sum+=y;
+        if(s==e){
+            return;
+        }
+        if(x<=(s+e)/2){
+            update(seg[idx].l, s, (s+e)/2, x, y);
+        }else{
+            update(seg[idx].r, (s+e)/2+1, e, x, y);
+        }
+    }
+    int Sum(int x, int y){
+        return sum(0, 1, SZ, x, y);
+    }
+    int sum(int idx, int s, int e, int x, int y){
+        if(x<=s && e<=y){
+            return seg[idx].sum;
+        }else if(x>e || y<s){
+            return 0;
+        }
+        return sum(seg[idx].l, s, (s+e)/2, x, y) + sum(seg[idx].r, (s+e)/2+1, e, x, y);
+    }
+} Seg;
+```
+
+### Bottom-Up
+아래에서부터 윗 구간으로 올라가면서 구간 합을 저장하는 Segment Tree를 구현한 코드는 다음과 같다.
+``` c++
+int seg[MAX_N*2];
+int two = 1;
+
+void Init(int N){
+    while(two<N)   two*=2;
+}
+
+void Update(int x, int y){
+    while(x>0){
+        seg[x] += y;
+        x/=2;
+    }
+}
+
+int Sum(int x, int y){
+    int sum = 0;
+    while(x<=y){
+        if(x==y){
+            sum += seg[x];
+            break;
+        }
+        if(x%2==1){
+            sum+=seg[x]; x++;
+        }
+        if(y%2==0){
+            sum+=seg[y]; y--;
+        }
+        x/=2;
+        y/=2;
+    }
+    return sum;
+}
+```
+
+### 여담
+Bottom-Up으로 Segment Tree를 구현한 코드가 ~~이해하기 쉽고~~ 짧아 보일 수 있지만 [[ Lazy Propagation ]] 같은 방법들을 추가하기 위해서는 Top-Down 방식의 코드를 사용하는 것이 좋다.
+
 ## 예시
 
-Segment Tree를 사용하여 [아주 기본적인 부분 합 쿼리 문제](https://www.acmicpc.net/problem/2042)를 처리해보자. 문제를 요약하면 다음과 같다.
-
->어떤 `N`개의 수가 주어져 있다. 그런데 중간에 수의 변경이 `M`번 일어나고 그 중간에 어떤 부분의 합을 `K`번 구하려 한다. 
->
->\\(N\leq1,000,000, M\leq10,000, K\leq10,000\\)
->
->첫째 줄에 수의 개수  `N`, 수의 변경이 일어나는 횟수 `M`,부분의 합을 구해야 하는 횟수 `K`가 입력된다.
->
->그리고 둘째 줄부터 `N+1`번째 줄까지 ` N`개의 수가 주어진다.
->
->`N+2`번째 줄부터 `N+M+K+1`번째 줄까지 세 개의 정수 `a`,`b`,`c`가 주어지는데, `a`가 1인 경우 `b`번째 수를 `c`로 바꾸고 `a`가 2인 경우에는 `b`번째 수부터 `c`번째 수까지의 합을 구하여 출력하면 된다.
-
-
+Segment Tree를 사용하여 [아주 기본적인 부분 합 쿼리 문제](https://www.acmicpc.net/problem/2042)를 처리해보자. 
 
 간단한 구간 합 문제이므로 Segment Tree를 이용해 해결할 수 있습니다.
 
-Segment Tree를 구현할 때, 대략 2가지 방법이 있는데, 재귀함수를 이용하는 방법을 사용해보겠습니다.
+Segment Tree를 구현할 때, 다양한 방법이 있는데, 재귀함수를 이용하는 방법은 다음과 같다.
 
 ``` c++
 #include <bits/stdc++.h>
