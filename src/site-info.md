@@ -5,4 +5,4 @@
 * 정보과학을 공부하는 사람은 누구나 이 사이트를 통해서 도움을 받고 공부를 하고, 사이트를 수정할 수 있습니다.
 * [[ IamCoder ]]에서 이 사이트를 관리합니다.
 * 뭘 찾아볼지 모를 때는 [[ Tutorial ]]을 읽어보세요.
-
+* [iamcoder wiki Slack](https://join.slack.com/t/iamcoderwiki/shared_invite/zt-gvtqf4dx-B3156Z615X810eyILvhzuw)에서 사이트 공지 및 수정 사항을 공유할 수 있습니다.
