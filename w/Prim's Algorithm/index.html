@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-26 19:21:30</p>
+                    <p>최근 수정 시각: 2020-08-27 12:44:09</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -90,7 +90,7 @@ addOnload(writeTitle);
 <p>파란색 간선은 최소 스패닝 트리에 추가된 간선을 뜻하며, 녹색은 최소 스패팅 트리와 연결되어 있는 간선, 즉 최소 스패닝 트리에 추가될 가능성이 있는 간선을 의미합니다.</p>
 <p>프림의 알고리즘은 먼저 특수한 한 정점을 최소 스패닝 트리에 추가시킵니다. 그 후, 현재의 트리와 연결된 간선들 중에서 가중치가 최소인 간선과 그에 연결된 정점을 계속해서 트리에 포함시킵니다. 이 과정을 모든 정점이 트리에 포함될 때까지, 총 \(|V|\)번 계속합니다.</p>
 <h2><a class="header" href="#s-3-" id="s-3-">3. 코드</a></h2>
-<h3><a class="header" href="#s-3-1-" id="s-3-1-">3.1. \(O(|V|^2)\) | 배열을 이용한 방법</a></h3>
+<h3><a class="header" href="#s-3-1-" id="s-3-1-">3.1. 배열을 이용한 방법</a></h3>
 <pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
 #define V 100000 //maximum number of nodes
 
@@ -120,7 +120,7 @@ int prim(int v){
 }
 </code></pre>
 <p>배열을 이용한 방법은 \(|V|\)개의 원소의 최솟값을 구하는 과정을 \(|V|\)번 반복하고, \(|E|\)개의 간선을 한 번씩 조사하므로 총 시간 복잡도는 \(O(|E|+|V|^2)\)입니다. 이때 \(|E|&lt;|V|^2\)이므로 결국 시간 복잡도는 \(O(|V|^2)\)이 됩니다.</p>
-<h3><a class="header" href="#s-3-2-" id="s-3-2-">3.2. \(O(|E|\log |V|)\) | 우선순위 큐를 이용한 방법</a></h3>
+<h3><a class="header" href="#s-3-2-" id="s-3-2-">3.2. 우선순위 큐를 이용한 방법</a></h3>
 <pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
 #define V 100000 //number of nodes
 
@@ -158,14 +158,14 @@ int prim(int v){
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 과정</a></li><li><a href="#s-3-">3. 코드</a><ul><li><a href="#s-3-1-">3.1. \(O(|V|^2)\) | 배열을 이용한 방법</a></li><li><a href="#s-3-2-">3.2. \(O(|E|\log |V|)\) | 우선순위 큐를 이용한 방법</a></li></ul></li><li><a href="#s-4-">4. 여담</a></li></ul>
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 과정</a></li><li><a href="#s-3-">3. 코드</a><ul><li><a href="#s-3-1-">3.1. 배열을 이용한 방법</a></li><li><a href="#s-3-2-">3.2. 우선순위 큐를 이용한 방법</a></li></ul></li><li><a href="#s-4-">4. 여담</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-26 19:21:30
+                    최근 수정 시각: 2020-08-27 12:44:09
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
