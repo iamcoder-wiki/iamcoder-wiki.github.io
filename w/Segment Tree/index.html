@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSegment Tree%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSegment Tree%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-24 17:35:34</p>
+                    <p>최근 수정 시각: 2020-08-27 13:46:11</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -90,17 +90,99 @@ addOnload(writeTitle);
 <p>하지만 이 과정을 계속 반복한다면 봐야 하는 값의 개수가 크게 줄어들 것입니다. 이런 아이디어의 연장이 Segment Tree라고 할 수 있습니다. Segment Tree는 저 과정을 계속 반복해 그림과 같이 한 원소는 약 \(\log N\) 개의 노드의 부분에 속하게 됩니다.</p>
 <img src="/r/file/segment2-2ec8caf0307a7802.pdf" width = 400 >
 <p>또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \(O(\log N)\) 개가 되어 쿼리를 \(O(\log N)\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. </p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. 예시</a></h2>
-<p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042" class="outer">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. 문제를 요약하면 다음과 같다.</p>
-<blockquote>
-<p>어떤 <code>N</code>개의 수가 주어져 있다. 그런데 중간에 수의 변경이 <code>M</code>번 일어나고 그 중간에 어떤 부분의 합을 <code>K</code>번 구하려 한다. </p>
-<p>\(N\leq1,000,000, M\leq10,000, K\leq10,000\)</p>
-<p>첫째 줄에 수의 개수  <code>N</code>, 수의 변경이 일어나는 횟수 <code>M</code>,부분의 합을 구해야 하는 횟수 <code>K</code>가 입력된다.</p>
-<p>그리고 둘째 줄부터 <code>N+1</code>번째 줄까지 <code> N</code>개의 수가 주어진다.</p>
-<p><code>N+2</code>번째 줄부터 <code>N+M+K+1</code>번째 줄까지 세 개의 정수 <code>a</code>,<code>b</code>,<code>c</code>가 주어지는데, <code>a</code>가 1인 경우 <code>b</code>번째 수를 <code>c</code>로 바꾸고 <code>a</code>가 2인 경우에는 <code>b</code>번째 수부터 <code>c</code>번째 수까지의 합을 구하여 출력하면 된다.</p>
-</blockquote>
+<h2><a class="header" href="#s-2-" id="s-2-">2. Code</a></h2>
+<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. Top-Down</a></h3>
+<p>위에서부터 아래 세그먼트로 내려가면서 구간 합을 저장하는 Segment Tree를 구조체로 구현한 코드는 다음과 같다.</p>
+<pre><code class="language-c++">struct SEG{
+    struct NODE{
+        int l, r;
+        int sum;
+    };
+    int SZ;
+    vector&lt;NODE&gt; seg;
+    void add(){
+        seg.push_back({-1, -1, 0});
+    }
+    void Init(int N){
+        SZ = N;
+        add();
+        init(0, 1, SZ);
+    }
+    void init(int idx, int s, int e){
+        if(s==e)    return;
+        seg[idx].l = seg.size(); add();
+        seg[idx].r = seg.size(); add();
+        init(seg[idx].l, s, (s+e)/2);
+        init(seg[idx].r, (s+e)/2+1, e);
+    }
+    void Update(int x, int y){
+        update(0, 1, SZ, x, y);
+    }
+    void update(int idx, int s, int e, int x, int y){
+        seg[idx].sum+=y;
+        if(s==e){
+            return;
+        }
+        if(x&lt;=(s+e)/2){
+            update(seg[idx].l, s, (s+e)/2, x, y);
+        }else{
+            update(seg[idx].r, (s+e)/2+1, e, x, y);
+        }
+    }
+    int Sum(int x, int y){
+        return sum(0, 1, SZ, x, y);
+    }
+    int sum(int idx, int s, int e, int x, int y){
+        if(x&lt;=s &amp;&amp; e&lt;=y){
+            return seg[idx].sum;
+        }else if(x&gt;e || y&lt;s){
+            return 0;
+        }
+        return sum(seg[idx].l, s, (s+e)/2, x, y) + sum(seg[idx].r, (s+e)/2+1, e, x, y);
+    }
+} Seg;
+</code></pre>
+<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. Bottom-Up</a></h3>
+<p>아래에서부터 윗 구간으로 올라가면서 구간 합을 저장하는 Segment Tree를 구현한 코드는 다음과 같다.</p>
+<pre><code class="language-c++">int seg[MAX_N*2];
+int two = 1;
+
+void Init(int N){
+    while(two&lt;N)   two*=2;
+}
+
+void Update(int x, int y){
+    while(x&gt;0){
+        seg[x] += y;
+        x/=2;
+    }
+}
+
+int Sum(int x, int y){
+    int sum = 0;
+    while(x&lt;=y){
+        if(x==y){
+            sum += seg[x];
+            break;
+        }
+        if(x%2==1){
+            sum+=seg[x]; x++;
+        }
+        if(y%2==0){
+            sum+=seg[y]; y--;
+        }
+        x/=2;
+        y/=2;
+    }
+    return sum;
+}
+</code></pre>
+<h3><a class="header" href="#s-2-3-" id="s-2-3-">2.3. 여담</a></h3>
+<p>Bottom-Up으로 Segment Tree를 구현한 코드가 <del>이해하기 쉽고</del> 짧아 보일 수 있지만 <a href="/w/Lazy%20Propagation">Lazy Propagation</a> 같은 방법들을 추가하기 위해서는 Top-Down 방식의 코드를 사용하는 것이 좋다.</p>
+<h2><a class="header" href="#s-3-" id="s-3-">3. 예시</a></h2>
+<p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042" class="outer">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. </p>
 <p>간단한 구간 합 문제이므로 Segment Tree를 이용해 해결할 수 있습니다.</p>
-<p>Segment Tree를 구현할 때, 대략 2가지 방법이 있는데, 재귀함수를 이용하는 방법을 사용해보겠습니다.</p>
+<p>Segment Tree를 구현할 때, 다양한 방법이 있는데, 재귀함수를 이용하는 방법은 다음과 같다.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
@@ -159,7 +241,7 @@ int main(){
 </code></pre>
 <p>tree의 크기는 그 트리가 담당하는 구간의 4배 정도로 하면 안전합니다.
 <code>s</code>,<code>e</code>는 그 트리가 담당하는 구간이고 <code>node</code>는 그 트리의 번호입니다. tree의 왼쪽 자식을 나타낼 때에는 (원래 번호)*2를 해주고, 오른쪽 자식을 나타낼 때에는 (원래 번호)*2+1을 해 주어 노드 번호를 변화시킵니다. <code>update</code>나 <code>range</code>의 특징은 범위에 자신이 해당되지 않거나 완벽히 해당되면 바로 <code>return </code>한다는 것입니다. 이 특징 때문에 쿼리당 시간 복잡도는 \(O(\log N)\)입니다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. 관련 자료구조</a></h2>
+<h2><a class="header" href="#s-4-" id="s-4-">4. 관련 자료구조</a></h2>
 <ul>
 <li><a href="/w/Fenwick%20Tree">Fenwick Tree</a></li>
 <li><a href="/w/Merge%20Sort%20Tree">Merge Sort Tree</a></li>
@@ -172,14 +254,14 @@ int main(){
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 예시</a></li><li><a href="#s-3-">3. 관련 자료구조</a></li></ul>
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a><ul><li><a href="#s-2-1-">2.1. Top-Down</a></li><li><a href="#s-2-2-">2.2. Bottom-Up</a></li><li><a href="#s-2-3-">2.3. 여담</a></li></ul></li><li><a href="#s-3-">3. 예시</a></li><li><a href="#s-4-">4. 관련 자료구조</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-24 17:35:34
+                    최근 수정 시각: 2020-08-27 13:46:11
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
