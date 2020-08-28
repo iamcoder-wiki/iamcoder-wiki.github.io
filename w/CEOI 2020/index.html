@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <meta property="og:title" content="CEOI 2015 - IamCoder Wiki"/>
-    <title>CEOI 2015 - IamCoder Wiki</title>
+    <meta property="og:title" content="CEOI 2020 - IamCoder Wiki"/>
+    <title>CEOI 2020 - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
@@ -50,11 +50,11 @@
                 </div>
                 <div class="mobile-info">
                     <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ceoi/ceoi2015.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/ceoi/ceoi2015.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/ceoi/ceoi2015.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI 2015%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI 2015%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ceoi/ceoi2020.md"><div class="link-button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/ceoi/ceoi2020.md"><div class="link-button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/ceoi/ceoi2020.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI 2020%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI 2020%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
                     <p>최근 수정 시각: 2020-08-28 22:05:48</p>
                     <div class="contributors">
@@ -69,7 +69,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["C_", "CE_", "CEO_", "CEOI_", "CEOI _", "CEOI 2_", "CEOI 20_", "CEOI 201_", "CEOI 2015_", "CEOI 2015_", "CEOI 2015_", "CEOI 2015_", "CEOI 2015", "CEOI 2015", "CEOI 2015", "CEOI 2015", "CEOI 2015_", "CEOI 2015_", "CEOI 2015_", "CEOI 2015_", "CEOI 2015"];
+    let s = ["C_", "CE_", "CEO_", "CEOI_", "CEOI _", "CEOI 2_", "CEOI 20_", "CEOI 202_", "CEOI 2020_", "CEOI 2020_", "CEOI 2020_", "CEOI 2020_", "CEOI 2020", "CEOI 2020", "CEOI 2020", "CEOI 2020", "CEOI 2020_", "CEOI 2020_", "CEOI 2020_", "CEOI 2020_", "CEOI 2020"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
@@ -81,31 +81,20 @@ addOnload(writeTitle);
 </script>
 <h1 class="header title">_</h1>
 <h2><a class="header" href="#s-1-" id="s-1-">1. Day1</a></h2>
-<h3><a class="header" href="#s-1-1-" id="s-1-1-">1.1. Potemkin Cycle</a></h3>
-<p><a href="https://www.acmicpc.net/problem/10955" class="outer">문제</a></p>
-<p>보통 사이클 문제는 DFS numbering 등으로 풀기 때문에 이런 방법을 사용해 보려고 노력할 수 있지만, 이런 접근 방식으로는 풀기가 어렵다. </p>
-<p>기준 정점 \(v\)를 잡고, \(v\)와 직접 연결된 정점들을 \(c_1, c_2, ..., c_k\)라 하자. \(v\)와 \(c_1, c_2, ..., c_k\)가 아닌 모든 정점들에 대해 간선으로 연결된 모든 정점쌍을 union 해준다. 이렇게 나머지 모든 정점을 집합화할 수 있다. 마지막으로, \(c_i\)와 \(c_j\)가 직접 연결되어 있지 않고 같은 집합에 연결되어 있는 경우, \(c_i , v, c_j, ........, c_i\) 순서의 조건을 만족하는 사이클을 무조건 구할 수 있다.</p>
-<h3><a class="header" href="#s-1-2-" id="s-1-2-">1.2. Calvinball Championship</a></h3>
-<p><a href="https://www.acmicpc.net/problem/10956" class="outer">문제</a></p>
-<p>여태까지 배열에 있는 최댓값이 <code>i</code>일 때 가짓수, <code>i</code>까지 고려 시 답, 2가지를 DP로 저장하면 된다.</p>
-<h3><a class="header" href="#s-1-3-" id="s-1-3-">1.3. Pipes</a></h3>
-<p><a href="https://www.acmicpc.net/problem/10957" class="outer">문제</a></p>
-<p>단절선을 구하는 문제지만, 메모리 제한이 작기 때문에 모든 에지를 저장하지 않고 단절선을 구할 때 필요한 간선들만 저장해야 한다. </p>
-<p>아이디어는 두 그룹을 합치는 간선은 3개 째부터 무시할 수 있다는 것이다. 1개인지 2개인지는 단절선을 구하는데 영향을 주지만, 2개 이상인지 2개인지는 단절선을 구할 때 영향이 없다. 이는 <a href="../disjoint-set.md">Disjoint Set</a>을 2개 관리하면서 간선 <code>(a, b)</code>가 추가되면 첫 <a href="../disjoint-set.md">Disjoint Set</a>에서 <code>a</code>와 <code>b</code>가 같은 그룹인지 검사하여 만약 같은 그룹이면 두 번째 Disjoint Set에서 <code>a</code>와 <code>b</code>의 Union 작업을 해주고, 같지 않으면 첫 <a href="../disjoint-set.md">Disjoint Set</a>에서 <code>a</code>와 <code>b</code>를 Union 해준다. 만약 두 번째 <a href="../disjoint-set.md">Disjoint Set</a>에서도 <code>a</code>와 <code>b</code>가 같은 그룹이면 간선 <code>(a, b)</code>는 무시해도 되는 간선이다.</p>
+<h3><a class="header" href="#s-1-1-" id="s-1-1-">1.1. Fancy Fence</a></h3>
+<p><a href="https://codeforces.com/contest/1402/problem/A" class="outer">문제</a></p>
+<h3><a class="header" href="#s-1-2-" id="s-1-2-">1.2. Roads</a></h3>
+<p><a href="https://codeforces.com/contest/1402/problem/B" class="outer">문제</a></p>
+<h3><a class="header" href="#s-1-3-" id="s-1-3-">1.3. Star Trek</a></h3>
+<p><a href="https://codeforces.com/contest/1402/problem/C" class="outer">문제</a></p>
 <h2><a class="header" href="#s-2-" id="s-2-">2. Day2</a></h2>
-<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. Ice Hockey World Championship</a></h3>
-<p><a href="https://oj.uz/problem/view/CEOI15_bobek" class="outer">문제</a></p>
-<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. Nuclearia</a></h3>
-<p><a href="https://oj.uz/problem/view/CEOI15_nuclearia" class="outer">문제</a></p>
-<h3><a class="header" href="#s-2-3-" id="s-2-3-">2.3. Calvinball championship, again</a></h3>
-<p><a href="https://oj.uz/problem/view/CEOI15_calvinball" class="outer">문제</a></p>
 
                 </main>
             </div>
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    <ul><li><a href="#s-1-">1. Day1</a><ul><li><a href="#s-1-1-">1.1. Potemkin Cycle</a></li><li><a href="#s-1-2-">1.2. Calvinball Championship</a></li><li><a href="#s-1-3-">1.3. Pipes</a></li></ul></li><li><a href="#s-2-">2. Day2</a><ul><li><a href="#s-2-1-">2.1. Ice Hockey World Championship</a></li><li><a href="#s-2-2-">2.2. Nuclearia</a></li><li><a href="#s-2-3-">2.3. Calvinball championship, again</a></li></ul></li></ul>
+                    <ul><li><a href="#s-1-">1. Day1</a><ul><li><a href="#s-1-1-">1.1. Fancy Fence</a></li><li><a href="#s-1-2-">1.2. Roads</a></li><li><a href="#s-1-3-">1.3. Star Trek</a></li></ul></li><li><a href="#s-2-">2. Day2</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
@@ -118,11 +107,11 @@ addOnload(writeTitle);
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a>
                 </div>
                 <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ceoi/ceoi2015.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/ceoi/ceoi2015.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/ceoi/ceoi2015.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI 2015%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI 2015%5D"><div class="link-button">진행중인 토론</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ceoi/ceoi2020.md"><div class="link-button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/ceoi/ceoi2020.md"><div class="link-button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/ceoi/ceoi2020.md"><div class="link-button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCEOI 2020%5D+"><div class="link-button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCEOI 2020%5D"><div class="link-button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>
