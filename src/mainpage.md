@@ -1,4 +1,4 @@
-# iamcoder:대문
+# iamcoder wiki:대문
 
 안녕하세요. IamCoder 위키입니다. 
 
