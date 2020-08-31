@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBFS%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBFS%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-16 21:30:14</p>
+                    <p>최근 수정 시각: 2020-08-31 15:42:48</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -81,21 +81,42 @@ addOnload(writeTitle);
 </script>
 <h1 class="header title">_</h1>
 <h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
-<h2><a class="header" href="#s-2-" id="s-2-">2. 코드</a></h2>
+<p>너비 우선 탐색(Breadth-First Search)는 트리나 그래프를 탐색하는 알고리즘 중 하나다. 너비 우선 탐색에서는 한 정점에서 시작하여 현재 깊이에서 방문하는 노드들에 인접한 모든 노드들을 다음 깊이의 탐색에서 방문한다.</p>
+<p><a href="/w/DFS">DFS</a>와 정반대의 방법이며, 미로에서 최단거리를 찾거나 시작점에서 부터 최단거리를 찾을 때 사용하는 알고리즘이다.</p>
+<h2><a class="header" href="#s-2-" id="s-2-">2. Code</a></h2>
+<pre><code class="language-c++">deque&lt;int&gt; q;	// node queue
+vector&lt;int&gt; gp[MAX_N+1];	// graph data
+bool vst[MAX_N+1]; // visited?
+
+void BFS(){
+	q.push_back(root);
+	vst[root] = true;
+	while(!q.empty()){
+		n = q.front(); q.pop_front();
+		for(int i : gp[n]){
+			if(!vst[i]){
+				q.push_back(i);
+				vst[i] = true;
+			}
+		}
+	}
+}
+</code></pre>
+<p><a href="/w/DFS">DFS</a>는 <a href="/w/Stack">Stack</a>을 쓰지만 BFS에서는 <a href="/w/Queue">Queue</a>를 쓴다. 또, <a href="/w/DFS">DFS</a>에서는 노드를 방문할 때 <code>vst</code>에 체크를 해주는데, BFS에서는 <a href="/w/Queue">Queue</a>에 새로운 노드를 추가할 때 <code>vst</code>에 체크를 해준다.</p>
 
                 </main>
             </div>
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 코드</a></li></ul>
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-16 21:30:14
+                    최근 수정 시각: 2020-08-31 15:42:48
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
