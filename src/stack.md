@@ -14,7 +14,7 @@
 ``` c++
 struct my_stack{
 	int arr[MAX_N+1];
-	Int top = 0;
+	int top = 0;
 	void push(int x){
 		arr[top] = x;
 		top++;
