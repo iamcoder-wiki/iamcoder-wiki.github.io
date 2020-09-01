@@ -79,4 +79,5 @@
 ----
 
 [^1]: [[ Grid Compression ]]을 해야된다
+
 [^2]: [[ Segment Tree ]]를 쓰면 시간 초과가 날 수 있기 때문에 [[ Fenwick Tree ]]를 써야 할 수도 있다.
