@@ -25,3 +25,15 @@ struct my_stack{
 	}
 };
 ```
+
+## STL Stack
+STL에서 구현되어 있는 스택을 사용하여 다음 기능들을 사용할 수 있다.
+* 선언 : `stack<int> st;`
+* push : `st.push(x);`
+* pop : `st.pop(); // 리턴값은 없다`
+* 맨 마지막에 추가한 값 : 'st.top()`
+* 스택의 원소 개수 : `st.size()`
+* 스택이 비어있는지 `bool`값으로 리턴 : `st.empty()`
+
+## 관련 자료구조
+* [[ Vector ]]
