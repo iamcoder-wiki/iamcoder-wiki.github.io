@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSqrt Decomposition%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSqrt Decomposition%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-09-01 11:54:26</p>
+                    <p>최근 수정 시각: 2020-09-01 11:57:48</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -92,20 +92,22 @@ addOnload(writeTitle);
 <p>\(\sqrt{N}\)개의 원소끼리 묶은 다음 \(i\)번째 묶음에 포함된 원소의 합을 \(B_i\)에 저장한다고 하자. 수식으로 표현하면 \(B_i = \sum_{k=1 + (i-1)\times \sqrt{N} }^{i\times \sqrt{N}} A_k\)와 같다.</p>
 <p>1번 쿼리를 처리하는 경우 \(A_i\)와 \(A_i\)가 들어있는 \(B_j\) 두 값만 바꿔주면 된다. 이는 \(O(1)\)에 처리할 수 있다.</p>
 <p>2번 쿼리를 처리하는 경우 \(x\)부터 \(y\) 사이에 존재하는 \(\sqrt{N}\)개 원소의 묶음이 존재하는 경우 그 원소 내 모든 원소의 합을 더해주는 대신 그에 해당하는 \(B\) 값을 더해줄 수 있다. 이렇게 묶음은 한번에 더하는 경우 더해야 하는 \(B\)는 최대 \(\sqrt{N}\)개, \(A\)는 최대 \(2\sqrt{N}\)개이므로 \(O(\sqrt{N})\)안에 처리할 수 있다.</p>
+<h2><a class="header" href="#s-3-" id="s-3-">3. Mo's Algorithm</a></h2>
+<p><a href="/w/Mo's%20Algorithm">Mo's Algorithm</a> 참고</p>
 
                 </main>
             </div>
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 구간 합 쿼리</a></li></ul>
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 구간 합 쿼리</a></li><li><a href="#s-3-">3. Mo's Algorithm</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-09-01 11:54:26
+                    최근 수정 시각: 2020-09-01 11:57:48
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
