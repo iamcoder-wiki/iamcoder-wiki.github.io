@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDeque%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDeque%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-16 21:30:14</p>
+                    <p>최근 수정 시각: 2020-09-02 10:01:22</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -80,20 +80,44 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="header title">_</h1>
+<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<p>덱(<strong>D</strong>ouble-<strong>E</strong>nded <strong>Que</strong>ue, Deque)은 <a href="/w/Vector">Vector</a>와 비슷하게 메모리를 자동으로 할당하며, 맨 앞과 맨 뒤에서 원소의 삭제 / 삽입을 지원하는 STL Container다.</p>
+<h2><a class="header" href="#s-2-" id="s-2-">2. Usage</a></h2>
+<p>STL Deque에서 지원하는 기능은 다음과 같다.</p>
+<ul>
+<li>선언 : <code>deque&lt;int&gt; dq;</code></li>
+<li><code>i</code>번째 원소 : <code>dq[i]</code></li>
+<li>첫 번째 원소 : <code>dq.front()</code></li>
+<li>마지막 원소 : <code>dq.back()</code></li>
+<li>시작 <code>iterator</code> : <code>dq.begin()</code></li>
+<li>끝 <code>iterator</code> : <code>dq.end()</code></li>
+<li>원소 개수 : <code>dq.size()</code></li>
+<li>벡터 크기 <code>sz</code>로 재설정 : <code>dq.resize(sz);</code></li>
+<li>비어있는지 <code>bool</code> 값으로 리턴 : <code>dq.empty()</code></li>
+<li>맨 앞에 원소 추가 : <code>dq.push_front(x);</code></li>
+<li>맨 뒤에 원소 추가 : <code>dq.push_back(x);</code></li>
+<li>맨 앞 원소 제거 : <code>dq.pop_front();</code></li>
+<li>맨 뒤 원소 제거 : <code>dq.pop_back();</code></li>
+<li>모든 원소 제거 : <code>v.clear();</code></li>
+</ul>
+<h2><a class="header" href="#s-3-" id="s-3-">3. 관련 알고리즘</a></h2>
+<ul>
+<li><a class="no-link" href="/w/Sliding%20Window">Sliding Window</a></li>
+</ul>
 
                 </main>
             </div>
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Usage</a></li><li><a href="#s-3-">3. 관련 알고리즘</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-16 21:30:14
+                    최근 수정 시각: 2020-09-02 10:01:22
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
