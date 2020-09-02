@@ -11,7 +11,7 @@
 
 <img src="./prim-algorithm/prim1.png" width = 500 >
 
-<img src="./prim-algorithm/prim2.svg" width = 500 >
+<img src="./prim-algorithm/prim2.png" width = 500 >
 
 파란색 간선은 최소 스패닝 트리에 추가된 간선을 뜻하며, 녹색은 최소 스패팅 트리와 연결되어 있는 간선, 즉 최소 스패닝 트리에 추가될 가능성이 있는 간선을 의미합니다.
 

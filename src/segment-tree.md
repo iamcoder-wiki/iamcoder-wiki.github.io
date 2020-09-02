@@ -7,7 +7,7 @@ Segment Tree는 STL에서 지원하지 않는 자료구조이지만 아주 강�
 
 Segment Tree의 유래를 찾아보자면 버킷에서 찾아볼 수 있다고 할 수 있습니다. 다음 그림은 원소 2개당 하나의 버킷을 만들어 최솟값을 저장한 모습입니다.
 
-<img src="./segment-tree/segment1.pdf" width = 400 >
+<img src="./segment-tree/segment1.png" width = 400 >
 
 
 
@@ -18,7 +18,7 @@ RMQ쿼리를 처리할 때, 그림과 같이 \\(\lceil N/2 \rceil\\) 개의 버�
 
 하지만 이 과정을 계속 반복한다면 봐야 하는 값의 개수가 크게 줄어들 것입니다. 이런 아이디어의 연장이 Segment Tree라고 할 수 있습니다. Segment Tree는 저 과정을 계속 반복해 그림과 같이 한 원소는 약 \\(\log N\\) 개의 노드의 부분에 속하게 됩니다.
 
-<img src="./segment-tree/segment2.pdf" width = 400 >
+<img src="./segment-tree/segment2.png" width = 400 >
 
 또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \\(O(\log N)\\) 개가 되어 쿼리를 \\(O(\log N)\\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. 
 
