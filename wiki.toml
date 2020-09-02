@@ -1,8 +1,9 @@
 [wiki]
 title = "IamCoder Wiki"
-preserve = ["robots.txt"]
+preserve = ["robots.txt", "logo.png"]
 main = "iamcoder:대문"
 
 [html]
 ga = "UA-174669347-1"
 github = "https://github.com/iamcoder-wiki/iamcoder-wiki.github.io"
+logo = "logo.png"
