@@ -8,10 +8,10 @@
     <meta property="og:title" content="Divide &amp; Conquer Optimization - IamCoder Wiki"/>
     <title>Divide &amp; Conquer Optimization - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
-    <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
-    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -26,40 +26,34 @@
 </head>
 <body>
 <div class="page">
-    <div class="top-bar">
-        <div class="top-bar-wrap">
-            <div class="top-bar-title"></div>
-            <div class="search-bar-wrap">
-                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
-                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+    <div class="top-bar-w">
+        <div class="top-bar">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            <div class="search-w">
+                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <div class="circle"></div>
+                        <div class="stick"></div>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
             </div>
-            <div class="search-result-wrap" id="t-search-result"></div>
-            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
-    <div class="page-wrap">
+    <div class="content-w">
         <div class="content">
-            <div class="main-wrap">
-                <div class="search-mobile-wrap mobile-show">
-                    <div class="search-bar-mobile-wrap">
-                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
-                        </div>
-                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/divide-and-conquer-optimization.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/divide-and-conquer-optimization.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/divide-and-conquer-optimization.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDivide & Conquer Optimization%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDivide & Conquer Optimization%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
-                </div>
-                <div class="mobile-info">
-                    <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/divide-and-conquer-optimization.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/divide-and-conquer-optimization.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/divide-and-conquer-optimization.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDivide & Conquer Optimization%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDivide & Conquer Optimization%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
-                    </div>
-                    <p>최근 수정 시각: 2020-08-26 19:04:10</p>
-                    <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                    </div>
+                    <p> 최근 수정 시각: 2020-08-26 19:04:10 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -79,12 +73,12 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<h1 class="header title">_</h1>
-<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>Divide &amp; Conquer Optimization은 <a href="/w/DP%20Optimization">DP Optimization</a> 기법 중 <a href="/w/Divide%20&amp;%20Conquer">Divide &amp; Conquer</a>를 사용한 기법이다. 이 최적화 기법은 특정 조건을 만족하는 <a href="/w/DP">DP</a>의 시간복잡도를 줄이는데 사용된다.</p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. 2D DP</a></h2>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 2D DP</h2>
 <p>2차원 <a href="/w/DP">DP</a> 테이블을 채우기 위해서는 일반적으로 \(O(N^3)\)의 시간복잡도를 갖는다. 이때 특정 조건을 만족하면 Divide &amp; Conquer Optimization을 통해 시간복잡도를 \(O(N^2\log N)\)로 줄일 수 있다.</p>
-<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. 조건</a></h3>
+<h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> 조건</h3>
 <ol>
 <li>2차원 <a href="/w/DP">DP</a>의 점화식이 갖는 꼴 (이때 \(C[k][j]\)는 문제 조건으로 주어지는 값</li>
 </ol>
@@ -94,7 +88,7 @@ addOnload(writeTitle);
 </ol>
 <p>\(K[i][j]\leq K[i][j+1]\)</p>
 <p>이 두 조건을 만족하면 조건 2에 의해 \(K[i][j]\)가 단조 증가하므로 조건 1을 만족하는 \(K[i][j]\)를 <a href="/w/Divide%20&amp;%20Conquer">Divide &amp; Conquer</a>로 구할 수 있다.</p>
-<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. Code</a></h3>
+<h3 class="heading"><a href="#s-2-2-" id="s-2-2-">2.2.</a> Code</h3>
 <pre><code class="language-c++">void Calc(int i, int s, int e, int p, int q){
 	int mid = (s+e)/2;
 	DP[i][mid] = INF;
@@ -109,7 +103,7 @@ addOnload(writeTitle);
 }
 </code></pre>
 <p>\(DP[i][s]\)부터 \(DP[i][e]\)까지 계산하는 함수 <code>Calc(i, s, e, p, q)</code>에서 \(p \leq K[i][s] \leq K[i][e] \leq q\)인 \(p, q\)를 윗 단계에서 부터 받아 사용한다. 이후 \(mid = (s+e)/2\)인 \(mid\)를 기준으로 구간 <code>(s, e)</code>를 반으로 나눠 <a href="/w/Divide%20&amp;%20Conquer">Divide &amp; Conquer</a>를 해주면 \(O(N^2\log N\)의 시간복잡도로 DP 테이블을 채울 수 있다.</p>
-<h3><a class="header" href="#s-2-3-" id="s-2-3-">2.3. 추가 조건</a></h3>
+<h3 class="heading"><a href="#s-2-3-" id="s-2-3-">2.3.</a> 추가 조건</h3>
 <p>문제에서 위에서 제시한 조건 2가 만족하는지 확인하기는 꽤 어렵다. 따라서 조건 2를 만족하며, 더 쉽게 확인할 수 있는 조건 3은 다음과 같다.</p>
 <ol start="3">
 <li><a href="/w/DP">DP</a> 계산에 사용되는 \(C[i][j]\)의 사각부등식</li>
@@ -117,9 +111,9 @@ addOnload(writeTitle);
 <p>\(a\leq b\leq c\leq d\)인 \(a, b, c, d\)에 대해 \(C[a][c] + C[b][d] \leq C[a][d] + C[b][c]\)</p>
 <p>3번 조건이 만족하면 2번 조건이 만족함을 귀류법으로 증명할 수 있다.</p>
 <p>보통 Divide &amp; Conquer Optimization을 사용하기 전 문제 조건을 파악하는 과정에서 2번 조건보다 3번 조건을 만족하는지 확인하는 경우가 많기 때문에 이 조건도 추가적으로 알아둘 필요가 있다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. 1D DP</a></h2>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 1D DP</h2>
 <p>1차원 <a href="/w/DP">DP</a>에서도 비슷한 조건을 만족하면 \(O(N^2)\) 시간복잡도로 <a href="/w/DP">DP</a> 테이블을 채우는 과정을 \(O(N\log N)\)에 해결할 수 있다.</p>
-<h3><a class="header" href="#s-3-1-" id="s-3-1-">3.1. 조건</a></h3>
+<h3 class="heading"><a href="#s-3-1-" id="s-3-1-">3.1.</a> 조건</h3>
 <ol>
 <li>1차원 <a href="/w/DP">DP</a>의 점화식이 갖는 꼴</li>
 </ol>
@@ -134,7 +128,7 @@ addOnload(writeTitle);
 <p>\(a\leq b\leq c\leq d\)인 \(a, b, c, d\)에 대해 </p>
 <p>\(C[a][c] + C[b][d] \leq C[a][d] + C[b][c]\)</p>
 <p>2차원 DP의 경우와 마찬가지로 조건 1과 조건 2를 만족하면 단조 증가하는 \(K[i]\)를 분할 정복으로 구할 수 있으며, 조건 3이 만족하면 조건 2가 만족하기 때문에 조건 2 대신 조건 3을 검사해보는 경우가 많다.</p>
-<h3><a class="header" href="#s-3-2-" id="s-3-2-">3.2. Code</a></h3>
+<h3 class="heading"><a href="#s-3-2-" id="s-3-2-">3.2.</a> Code</h3>
 <pre><code class="language-c++">void Calc(int s, int e, int p, int q){
 	int mid = (s+e)/2;
 	DP[mid] = INF;
@@ -148,7 +142,7 @@ addOnload(writeTitle);
 	if(mid &lt; e)	Calc(mid+1, e, K[mid], q);
 }
 </code></pre>
-<h2><a class="header" href="#s-4-" id="s-4-">4. 관련 문제</a></h2>
+<h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 관련 문제</h2>
 <p><a href="https://www.acmicpc.net/problem/11001" class="outer">BOJ 11001 김치</a></p>
 <p><a href="https://www.acmicpc.net/problem/18444" class="outer">BOJ 18444 우체국 3</a></p>
 <p><a href="https://www.acmicpc.net/problem/14179" class="outer">BOJ 14179 크리스마스 이브</a></p>
@@ -162,27 +156,20 @@ addOnload(writeTitle);
 
                 </main>
             </div>
-
-            <div class="sidebar-wrap">
-                <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 2D DP</a><ul><li><a href="#s-2-1-">2.1. 조건</a></li><li><a href="#s-2-2-">2.2. Code</a></li><li><a href="#s-2-3-">2.3. 추가 조건</a></li></ul></li><li><a href="#s-3-">3. 1D DP</a><ul><li><a href="#s-3-1-">3.1. 조건</a></li><li><a href="#s-3-2-">3.2. Code</a></li></ul></li><li><a href="#s-4-">4. 관련 문제</a></li></ul>
-                </nav>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 2D DP</a><ul><li><a href="#s-2-1-">2.1. 조건</a></li><li><a href="#s-2-2-">2.2. Code</a></li><li><a href="#s-2-3-">2.3. 추가 조건</a></li></ul></li><li><a href="#s-3-">3. 1D DP</a><ul><li><a href="#s-3-1-">3.1. 조건</a></li><li><a href="#s-3-2-">3.2. Code</a></li></ul></li><li><a href="#s-4-">4. 관련 문제</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p>
-                    최근 수정 시각: 2020-08-26 19:04:10
-                </p>
-                <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                </div>
-                <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/divide-and-conquer-optimization.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/divide-and-conquer-optimization.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/divide-and-conquer-optimization.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDivide & Conquer Optimization%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDivide & Conquer Optimization%5D"><div class="link-button">진행중인 토론</div></a>
+                <p> 최근 수정 시각: 2020-08-26 19:04:10 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/divide-and-conquer-optimization.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/divide-and-conquer-optimization.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/divide-and-conquer-optimization.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDivide & Conquer Optimization%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDivide & Conquer Optimization%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>

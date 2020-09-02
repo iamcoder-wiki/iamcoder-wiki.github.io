@@ -8,10 +8,10 @@
     <meta property="og:title" content="LCS - IamCoder Wiki"/>
     <title>LCS - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
-    <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
-    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -26,40 +26,34 @@
 </head>
 <body>
 <div class="page">
-    <div class="top-bar">
-        <div class="top-bar-wrap">
-            <div class="top-bar-title"></div>
-            <div class="search-bar-wrap">
-                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
-                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+    <div class="top-bar-w">
+        <div class="top-bar">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            <div class="search-w">
+                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <div class="circle"></div>
+                        <div class="stick"></div>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
             </div>
-            <div class="search-result-wrap" id="t-search-result"></div>
-            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
-    <div class="page-wrap">
+    <div class="content-w">
         <div class="content">
-            <div class="main-wrap">
-                <div class="search-mobile-wrap mobile-show">
-                    <div class="search-bar-mobile-wrap">
-                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
-                        </div>
-                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/lcs.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/lcs.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/lcs.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BLCS%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BLCS%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
-                </div>
-                <div class="mobile-info">
-                    <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/lcs.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/lcs.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/lcs.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BLCS%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BLCS%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
-                    </div>
-                    <p>최근 수정 시각: 2020-08-16 21:30:14</p>
-                    <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                    </div>
+                    <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -79,15 +73,15 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<h1 class="header title">_</h1>
-<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>최장 공통 부분 수열은 주어진 여러 개의 수열 모두의 부분 수열이 되는 수열들 중에 가장 긴 것입니다. 부분 수열은 그 수열의 일부 항을 원래 순서대로 나열해 얻을 수 있는 수열입니다. 이때 꼭 연속하지 않아도 되며, 연속한 경우는 최장 공통 문자열이라고 부릅니다.</p>
 <p>사실 최장 공통 부분 수열은 문자를 다룰 수도 있습니다. '공통 부분 수열'과 '공통 문자열'의 차이는 연속해야 하는지의 여부입니다. 따라서 '공통 부분 수열'이 꼭 숫자로만 이루어지지 않을 수도 있습니다. <em>1243</em> 은 <em>ABDC</em>일 수도 있고, _@^$&amp;_일 수도 있음을 유의하시기 바랍니다.</p>
 <p>아래와 같이 짧은 LCS는 매우 간단하므로 눈으로도 쉽게 답을 찾을 수 있습니다.</p>
 <img src="/r/img/LCS1-0e21101d2d36af84.JPG" width = 500 >
 <p><em>123762</em>와 <em>123587</em>의 LCS를 찾아봅시다.</p>
 <p>두 수열 모두 부분 수열로 <em>137</em>, <em>17</em>, <em>237</em> 등을 가지고 있습니다. 이때 LCS는 <em>1237</em>이 되고, 그 길이는 4입니다.</p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. DP Table</a></h2>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> DP Table</h2>
 <p>LCS를 찾기 위한 일반적인 방법은 DP(동적계획법) Table을 만드는 것입니다. </p>
 <img src="/r/img/LCS2-0098bff1001c6c7b.jpg" width = 500 > 
 <p>주어진 수열이 <em>123762</em>와 <em>123587</em>라고 합시다. 이 표의 가로축과 세로축은 각각의 수열을 의미합니다. 이 표에서 <code>i</code>번째 행,<code>j</code>번째 열의 수를 <code>ARR[i][j]</code>라 할 때 <code>ARR[i][j]</code>는 <code>A</code>를 <code>i</code>번째 수, <code>B</code>를 <code>j</code>번째 수 까지 고려했을 때 최장 수열의 길이입니다. 첫 번째 열과 첫 번째 행은 아직 아무 수도 고려하지 못한 상태이기 떄문에, 최장 수열의 길이는 0입니다.
@@ -105,7 +99,7 @@ addOnload(writeTitle);
 이 과정을 모두 마치고 나면 LCS의 길이는 표의 가장 마지막 위치 <code>ARR[6][6]</code>에 저장되어 있습니다. (<code>A</code>와 <code>B</code>가 모두 6자리이기 때문입니다.) 즉, <code>A</code>와 <code>B</code>의 모든 수를 다 고려했을 때의 LCS를 의미합니다.
 만약 LCS의 길이 뿐만이 아닌 LCS 자체를 구하고 싶다면, 위 표에서 빨간색으로 채워진 칸들을 역으로 추적하면 됩니다. 
 위 표에서 예시를 들어 보도록 하겟습니다. 선택되었기에 빨간색이 칠해진 칸들을 보면 모두 공통점이 있습니다. 같은 숫자를 가진 칸들 중 가장 왼쪽 위의 칸이라는 것입니다. 이것은 전 칸에서 넘어올 때 길이가 1 늘었다는 뜻이고, 그 칸이 LCS에 포함된다는 뜻입니다. 따라서 LCS를 구하려면, 끝에서 시작해 왼쪽이나 위에 같은 수가 있으면 그곳으로 가고, 왼쪽 칸과 윗칸이 모두 자신보다 작다면 자신을 LCS에 추가한 후 왼쪽 위에 있는 칸으로 가면 됩니다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. Code</a></h2>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> Code</h2>
 <p>지금까지 설명한 내용이 그대로 담겨 있는 문제가 있습니다. 따라서 구현 코드와 문제 설명을 같이 하겠습니다. <a href="https://www.acmicpc.net/problem/9252" class="outer">이 문제</a>는 두 문자열을 입력받은 후, LCS의 길이와 LCS를 출력하는 문제입니다.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
 using namespace std;
@@ -168,27 +162,20 @@ int main() {
 
                 </main>
             </div>
-
-            <div class="sidebar-wrap">
-                <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. DP Table</a></li><li><a href="#s-3-">3. Code</a></li></ul>
-                </nav>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. DP Table</a></li><li><a href="#s-3-">3. Code</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p>
-                    최근 수정 시각: 2020-08-16 21:30:14
-                </p>
-                <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                </div>
-                <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/lcs.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/lcs.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/lcs.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BLCS%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BLCS%5D"><div class="link-button">진행중인 토론</div></a>
+                <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/lcs.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/lcs.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/lcs.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BLCS%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BLCS%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>

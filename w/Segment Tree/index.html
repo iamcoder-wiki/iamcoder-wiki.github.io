@@ -8,10 +8,10 @@
     <meta property="og:title" content="Segment Tree - IamCoder Wiki"/>
     <title>Segment Tree - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
-    <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
-    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -26,40 +26,34 @@
 </head>
 <body>
 <div class="page">
-    <div class="top-bar">
-        <div class="top-bar-wrap">
-            <div class="top-bar-title"></div>
-            <div class="search-bar-wrap">
-                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
-                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+    <div class="top-bar-w">
+        <div class="top-bar">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            <div class="search-w">
+                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <div class="circle"></div>
+                        <div class="stick"></div>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
             </div>
-            <div class="search-result-wrap" id="t-search-result"></div>
-            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
-    <div class="page-wrap">
+    <div class="content-w">
         <div class="content">
-            <div class="main-wrap">
-                <div class="search-mobile-wrap mobile-show">
-                    <div class="search-bar-mobile-wrap">
-                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
-                        </div>
-                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/segment-tree.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/segment-tree.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/segment-tree.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSegment Tree%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSegment Tree%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
-                </div>
-                <div class="mobile-info">
-                    <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/segment-tree.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/segment-tree.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/segment-tree.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSegment Tree%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSegment Tree%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
-                    </div>
-                    <p>최근 수정 시각: 2020-08-27 13:46:11</p>
-                    <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                    </div>
+                    <p> 최근 수정 시각: 2020-09-02 10:13:03 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -79,19 +73,19 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<h1 class="header title">_</h1>
-<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>Segment Tree는 STL에서 지원하지 않는 자료구조이지만 아주 강력한 자료구조중 하나입니다. Segment Tree는 일반적으로 \(O(\log N)\)시간에 값의 변경과 값에 대한 쿼리를 수행할 수 있고, 그 활용성 또한 아주 다양해 구간 합 쿼리, 구간 최솟값/최댓값 쿼리등을 수행할 수 있습니다.</p>
 <p>Segment Tree의 유래를 찾아보자면 버킷에서 찾아볼 수 있다고 할 수 있습니다. 다음 그림은 원소 2개당 하나의 버킷을 만들어 최솟값을 저장한 모습입니다.</p>
-<img src="/r/file/segment1-25e250a53e580bef.pdf" width = 400 >
+<img src="/r/img/segment1-7e9db003b8095e62.png" width = 400 >
 <p>RMQ쿼리를 처리할 때, 그림과 같이 \(\lceil N/2 \rceil\) 개의 버킷을 생각해봅시다. 그리고 이 버킷들은 두 원소중 작은 원소의 값을 가지고 있습니다.
 그렇다면 어떤 구간의 RMQ쿼리를 처리할 때에는, 봐야 하는 값이 반으로 줄어들게 됩니다. 그리고 값을 갱신하면 자기 자신과, 자신을 포함하는 버킷을 갱신해주면 되겠죠. </p>
 <p>이것을 더 빠르게 하고 싶다면 버킷의 버킷을 만들 수 있습니다. 이런 방법을 사용한다면 봐야 하는 값의 개수가 더욱 줄어들게 되겠죠. 하지만 이런 방법으로는 시간 복잡도에는 영향이 없습니다. </p>
 <p>하지만 이 과정을 계속 반복한다면 봐야 하는 값의 개수가 크게 줄어들 것입니다. 이런 아이디어의 연장이 Segment Tree라고 할 수 있습니다. Segment Tree는 저 과정을 계속 반복해 그림과 같이 한 원소는 약 \(\log N\) 개의 노드의 부분에 속하게 됩니다.</p>
-<img src="/r/file/segment2-2ec8caf0307a7802.pdf" width = 400 >
+<img src="/r/img/segment2-944ada13dbd72430.png" width = 400 >
 <p>또한 어떤 구간을 선택했을 때, 봐야 하는 노드의 개수 또한 \(O(\log N)\) 개가 되어 쿼리를 \(O(\log N)\) 안에 처리할 수 있게 됩니다. 이것은 자명한 것이, 한 높이에 3가지 이상의 노드를 봐야 한다고 하면 그 3가지중 2가지를 합쳐서 위의 노드를 하나 보는 것으로 대신할 수 있기 때문에 모순이 되어 한 높이에서 최대 볼 수 있는 노드의 개수는 2개가 되기 때문입니다. </p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. Code</a></h2>
-<h3><a class="header" href="#s-2-1-" id="s-2-1-">2.1. Top-Down</a></h3>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
+<h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> Top-Down</h3>
 <p>위에서부터 아래 세그먼트로 내려가면서 구간 합을 저장하는 Segment Tree를 구조체로 구현한 코드는 다음과 같다.</p>
 <pre><code class="language-c++">struct SEG{
     struct NODE{
@@ -142,7 +136,7 @@ addOnload(writeTitle);
     }
 } Seg;
 </code></pre>
-<h3><a class="header" href="#s-2-2-" id="s-2-2-">2.2. Bottom-Up</a></h3>
+<h3 class="heading"><a href="#s-2-2-" id="s-2-2-">2.2.</a> Bottom-Up</h3>
 <p>아래에서부터 윗 구간으로 올라가면서 구간 합을 저장하는 Segment Tree를 구현한 코드는 다음과 같다.</p>
 <pre><code class="language-c++">int seg[MAX_N*2];
 int two = 1;
@@ -177,9 +171,9 @@ int Sum(int x, int y){
     return sum;
 }
 </code></pre>
-<h3><a class="header" href="#s-2-3-" id="s-2-3-">2.3. 여담</a></h3>
+<h3 class="heading"><a href="#s-2-3-" id="s-2-3-">2.3.</a> 여담</h3>
 <p>Bottom-Up으로 Segment Tree를 구현한 코드가 <del>이해하기 쉽고</del> 짧아 보일 수 있지만 <a href="/w/Lazy%20Propagation">Lazy Propagation</a> 같은 방법들을 추가하기 위해서는 Top-Down 방식의 코드를 사용하는 것이 좋다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. 예시</a></h2>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 예시</h2>
 <p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042" class="outer">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. </p>
 <p>간단한 구간 합 문제이므로 Segment Tree를 이용해 해결할 수 있습니다.</p>
 <p>Segment Tree를 구현할 때, 다양한 방법이 있는데, 재귀함수를 이용하는 방법은 다음과 같다.</p>
@@ -241,7 +235,7 @@ int main(){
 </code></pre>
 <p>tree의 크기는 그 트리가 담당하는 구간의 4배 정도로 하면 안전합니다.
 <code>s</code>,<code>e</code>는 그 트리가 담당하는 구간이고 <code>node</code>는 그 트리의 번호입니다. tree의 왼쪽 자식을 나타낼 때에는 (원래 번호)*2를 해주고, 오른쪽 자식을 나타낼 때에는 (원래 번호)*2+1을 해 주어 노드 번호를 변화시킵니다. <code>update</code>나 <code>range</code>의 특징은 범위에 자신이 해당되지 않거나 완벽히 해당되면 바로 <code>return </code>한다는 것입니다. 이 특징 때문에 쿼리당 시간 복잡도는 \(O(\log N)\)입니다.</p>
-<h2><a class="header" href="#s-4-" id="s-4-">4. 관련 자료구조</a></h2>
+<h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 관련 자료구조</h2>
 <ul>
 <li><a href="/w/Fenwick%20Tree">Fenwick Tree</a></li>
 <li><a href="/w/Merge%20Sort%20Tree">Merge Sort Tree</a></li>
@@ -251,27 +245,20 @@ int main(){
 
                 </main>
             </div>
-
-            <div class="sidebar-wrap">
-                <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a><ul><li><a href="#s-2-1-">2.1. Top-Down</a></li><li><a href="#s-2-2-">2.2. Bottom-Up</a></li><li><a href="#s-2-3-">2.3. 여담</a></li></ul></li><li><a href="#s-3-">3. 예시</a></li><li><a href="#s-4-">4. 관련 자료구조</a></li></ul>
-                </nav>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a><ul><li><a href="#s-2-1-">2.1. Top-Down</a></li><li><a href="#s-2-2-">2.2. Bottom-Up</a></li><li><a href="#s-2-3-">2.3. 여담</a></li></ul></li><li><a href="#s-3-">3. 예시</a></li><li><a href="#s-4-">4. 관련 자료구조</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p>
-                    최근 수정 시각: 2020-08-27 13:46:11
-                </p>
-                <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                </div>
-                <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/segment-tree.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/segment-tree.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/segment-tree.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSegment Tree%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSegment Tree%5D"><div class="link-button">진행중인 토론</div></a>
+                <p> 최근 수정 시각: 2020-09-02 10:13:03 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/segment-tree.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/segment-tree.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/segment-tree.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSegment Tree%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSegment Tree%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>

@@ -8,10 +8,10 @@
     <meta property="og:title" content="Bit Operator - IamCoder Wiki"/>
     <title>Bit Operator - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
-    <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
-    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -26,40 +26,34 @@
 </head>
 <body>
 <div class="page">
-    <div class="top-bar">
-        <div class="top-bar-wrap">
-            <div class="top-bar-title"></div>
-            <div class="search-bar-wrap">
-                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
-                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+    <div class="top-bar-w">
+        <div class="top-bar">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            <div class="search-w">
+                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <div class="circle"></div>
+                        <div class="stick"></div>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
             </div>
-            <div class="search-result-wrap" id="t-search-result"></div>
-            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
-    <div class="page-wrap">
+    <div class="content-w">
         <div class="content">
-            <div class="main-wrap">
-                <div class="search-mobile-wrap mobile-show">
-                    <div class="search-bar-mobile-wrap">
-                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
-                        </div>
-                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/bit-operator.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/bit-operator.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/bit-operator.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBit Operator%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBit Operator%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
-                </div>
-                <div class="mobile-info">
-                    <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/bit-operator.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/bit-operator.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/bit-operator.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBit Operator%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBit Operator%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
-                    </div>
-                    <p>최근 수정 시각: 2020-08-23 13:40:42</p>
-                    <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                    </div>
+                    <p> 최근 수정 시각: 2020-08-23 13:40:42 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -79,8 +73,8 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<h1 class="header title">_</h1>
-<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>비트 연산자란, 각 수의 비트에 대한 연산을 진행하는 연산자입니다. 비트 연산자의 종류는 다음과 같습니다.</p>
 <ul>
 <li>비트 AND(&amp;)</li>
@@ -90,7 +84,7 @@ addOnload(writeTitle);
 <li>비트 NOT(~)</li>
 </ul>
 <p>비트 연산자를 사용하면 좋은 점이 무엇일까요? 가장 큰 장점은 연산 속도가 빨라진다는 점입니다. 비트연산은 일반적인 사칙연산 연산자들보다 연산 속도가 빨라 시간복잡도를 줄이는데 도움을 줄 수 있습니다. </p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. BIT AND</a></h2>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> BIT AND</h2>
 <p>비트 AND 연산자는 같은 자리의 Bit를 비교하여 둘다 1이면 그 자리에 1을, 둘 중 하나라도 1이 아니면 0을 계산 결과로 내놓는 연산자입니다. Bit 연산이므로 2진수를 기준으로 연산하며, 일반 사칙연산보다 그 속도가 빠릅니다. 예를 들어 다음 코드와 같은 연산을 할 수 있습니다.</p>
 <pre><code class="language-c++">printf(&quot;%d\n&quot;, 23 &amp; 9); //1
 printf(&quot;%d\n&quot;, 22 &amp; 11); //2
@@ -106,7 +100,7 @@ if(3 &amp;&amp; 2) printf(&quot;Logic says true.\n&quot;);
 </code></pre>
 <p><code>3 &amp; 2</code>을 계산하면 0이 나오기 때문에 첫번째 <code>printf</code>는 실행이 되지 않습니다. 그러나 두번째 if문은 0이 아닌 두 값을 논리 AND연산을 하였기 때문에 참이 됩니다. 따라서 두번째 <code>printf</code>만 실행됩니다.</p>
 <p>정리하자면 논리 AND는 <strong>0이면 false, 그 이외의 값이라면 true로 판단하여 연산을 진행하지만,</strong> 비트 AND는 <strong>각 비트마다 0, 1로 연산을 진행한다는 점</strong>을 염두에 두어야 합니다. 이는 논리연산과 비트연산의 중요한 차이점이니 꼭 짚고 넘어갑시다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. BIT OR</a></h2>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> BIT OR</h2>
 <p>비트 OR 연산자는 같은 자리의 Bit를 비교하여 둘다 0이면 그 자리에 0을, 둘 중 하나라도 0이 아니면 1을 계산 결과로 내놓아 하나의 수를 만듭니다. 예를 들어 다음 코드와 같은 연산을 할 수 있습니다.</p>
 <pre><code class="language-c++">printf(&quot;%d\n&quot;, 23 | 9); //31
 printf(&quot;%d&quot;, 2 | 1); //3
@@ -120,7 +114,7 @@ printf(&quot;%d\n&quot;, 31 | 31); //31
 
 if(1 || 0) printf(&quot;Logic is true.\n&quot;); //true
 </code></pre>
-<h2><a class="header" href="#s-4-" id="s-4-">4. BIT XOR</a></h2>
+<h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> BIT XOR</h2>
 <p>비트 XOR 연산자는 같은 자리의 Bit를 비교하여 그 비트가 서로 같다면 그 자리에 0을, 다르다면 1을 계산 결과로 내놓아 하나의 수를 만듭니다. <del>제곱을 나타내는 기호가 아닙니다.</del></p>
 <pre><code class="language-c++">printf(&quot;%d\n&quot;, 23 ^ 9); //30
 printf(&quot;%d\n&quot;, 2 ^ 1); //3
@@ -129,7 +123,7 @@ printf(&quot;%d\n&quot;, 31 ^ 31); //0
 <p>가장 위의 식을 또 예로 들어본다면</p>
 <img src="/r/img/bitoperator3-79482b943cd5c7dc.png" width = 200 >
 <p>와 같이 연산이 되는 것을 알 수 있습니다.</p>
-<h2><a class="header" href="#s-5-" id="s-5-">5. BIT SHIFT</a></h2>
+<h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> BIT SHIFT</h2>
 <p>비트 SHIFT 연산은 위의 연산들과 성격이 약간 다릅니다. 위에 있는 연산들은 교환법칙이 성립했다면, 이 연산은 교환법칙이 성립할 수 없습니다. 이 연산은 첫 번째 숫자를 두 번째 숫자만큼 비트 단위로 왼쪽/오른쪽 방향으로 미는 것입니다.</p>
 <p>그럼 정확하게 민다는 것이 무슨 뜻일까요? 다음 코드를 봅시다.</p>
 <pre><code class="language-c++">printf(&quot;%d\n&quot;, 20 &gt;&gt; 2); //5
@@ -142,7 +136,7 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 <p>그러면, RSHIFT 연산후, 가장 왼쪽 비트에 나오는 숫자는 무엇일까요? 다음 예를 살펴봅시다.</p>
 <p>-6을 이진수로 표현한다면(부호가 있는 32비트 정수 기준) \(1111 1111 1111 1111 1111 1111 1111 1010_{(2)}\)입니다. 만약 shift 후 왼쪽에 0이 채워진다면, 첫번째 연산은 그대로 5이지만, 이 연산은 음수가 양수로 바뀌면서 약 10억정도에 가까운 숫자가 만들어지게 됩니다. 그러나, 실제 계산해보면 이 연산의 결과는 -1이 나옵니다. 즉, <strong>RSHIFT연산 후 왼쪽에 채워지는 비트는 연산 전에 원래 부호 비트로 있었던 비트를 채운다는</strong> 거죠. (부호 없는 비트의 경우 오른쪽에 0을 채웁니다.)</p>
 <p>LSHIFT 연산에 경우는 왼쪽으로 shift하면서 오른쪽에 0을 채웁니다. 여기서 눈여겨 볼 점은, 정수 N을 M번 shift 했을때, 계산 결과가 \(N \times 2^{M}\)으로 나온다는 것이죠. 그렇다면 RSHIFT는 어떨까요? 그 연산은 실행시켜보면 \(N\)을 \(2^{M}\)으로 나눈 몫이 나옵니다. 곧, SHIFT 연산은 <strong>어떤 숫자를 2의 거듭제곱만큼 곱하거나 나눈 결과값을 반환한다고 할 수 있습니다.</strong></p>
-<h2><a class="header" href="#s-6-" id="s-6-">6. BIT NOT</a></h2>
+<h2 class="heading"><a href="#s-6-" id="s-6-">6.</a> BIT NOT</h2>
 <p>비트 NOT연산자는 위의 연산자들과는 달리 단항연산자입니다. 단항연산자란, 하나의 수에 적용되는, 사칙 연산보다는 부호 연산과 더 가깝다고 할 수 있는 연산자 입니다. 이 연산자가 어떤 수 앞에 붙는다면 그 수의 비트를 전부 반대로 바꿔줍니다. 다음 코드를 살펴봅시다.</p>
 <pre><code class="language-c++">printf(&quot;%d&quot;, ~10); //-11
 </code></pre>
@@ -151,27 +145,20 @@ printf(&quot;%d\n&quot;, 12 &lt;&lt; 3); //96
 
                 </main>
             </div>
-
-            <div class="sidebar-wrap">
-                <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. BIT AND</a></li><li><a href="#s-3-">3. BIT OR</a></li><li><a href="#s-4-">4. BIT XOR</a></li><li><a href="#s-5-">5. BIT SHIFT</a></li><li><a href="#s-6-">6. BIT NOT</a></li></ul>
-                </nav>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. BIT AND</a></li><li><a href="#s-3-">3. BIT OR</a></li><li><a href="#s-4-">4. BIT XOR</a></li><li><a href="#s-5-">5. BIT SHIFT</a></li><li><a href="#s-6-">6. BIT NOT</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p>
-                    최근 수정 시각: 2020-08-23 13:40:42
-                </p>
-                <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                </div>
-                <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/bit-operator.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/bit-operator.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/bit-operator.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBit Operator%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBit Operator%5D"><div class="link-button">진행중인 토론</div></a>
+                <p> 최근 수정 시각: 2020-08-23 13:40:42 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/bit-operator.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/bit-operator.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/bit-operator.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBit Operator%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBit Operator%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>

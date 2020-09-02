@@ -8,10 +8,10 @@
     <meta property="og:title" content="Kruskal&#x27;s Algorithm - IamCoder Wiki"/>
     <title>Kruskal&#x27;s Algorithm - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
-    <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
-    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -26,40 +26,34 @@
 </head>
 <body>
 <div class="page">
-    <div class="top-bar">
-        <div class="top-bar-wrap">
-            <div class="top-bar-title"></div>
-            <div class="search-bar-wrap">
-                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
-                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+    <div class="top-bar-w">
+        <div class="top-bar">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            <div class="search-w">
+                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <div class="circle"></div>
+                        <div class="stick"></div>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
             </div>
-            <div class="search-result-wrap" id="t-search-result"></div>
-            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
-    <div class="page-wrap">
+    <div class="content-w">
         <div class="content">
-            <div class="main-wrap">
-                <div class="search-mobile-wrap mobile-show">
-                    <div class="search-bar-mobile-wrap">
-                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
-                        </div>
-                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/kruskal-algorithm.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/kruskal-algorithm.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/kruskal-algorithm.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKruskal's Algorithm%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKruskal's Algorithm%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
-                </div>
-                <div class="mobile-info">
-                    <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/kruskal-algorithm.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/kruskal-algorithm.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/kruskal-algorithm.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKruskal's Algorithm%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKruskal's Algorithm%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
-                    </div>
-                    <p>최근 수정 시각: 2020-08-26 19:20:32</p>
-                    <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                    </div>
+                    <p> 최근 수정 시각: 2020-08-26 19:20:32 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -79,17 +73,17 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<h1 class="header title">_</h1>
-<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>크루스칼의 알고리즘은 가중치가 작은 간선부터 최소 스패닝 트리에 추가해가며 그래프의 최소 스패닝 트리를 구하는 방법으로, <a href="/w/Disjoint%20Set">Disjoint Set</a>을 사용합니다.</p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. 과정</a></h2>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 과정</h2>
 <p>크루스칼의 알고리즘은 최소 스패닝 트리에는 가중치가 작은 간선이 들어가야 한다는 아이디어를 바탕으로 MST를 구합니다.</p>
 <p>알고리즘 자체도 아이디어만큼 간단합니다. 모든 간선들을 가중치를 기준으로 정렬한 다음, 가중치가 가장 작은 간선부터 조사합니다. 만약 그 간선이 잇는 두 정점이 이미 연결되어 있다면 다음 간선으로 넘어가고, 연결되어 있지 않다면 그 간선을 최소 스패닝 트리에 추가합니다. 아래 그림들은 주어진 그래프에 대한 크루스칼의 알고리즘의 동작 과정을 보여줍니다.</p>
 <img src="/r/img/kruskal1-4265bf6589dd4e81.png" width = 500 >
 <p>아래 그림에서 색이 같은 정점은 이미 연결된 정점을, 색이 다른 정점은 아직 연결되지 않은 정점을 의미합니다. 붉은색 간선은 현재 보고 있는 간선을 뜻하며 진한 간선은 이미 최소 스패닝 트리에 추가되었음을 나타냅니다.</p>
 <p><img src="/r/img/kruskal2-7d140c81d159025f.svg" width = 300 ><img src="/r/img/kruskal3-1f1eb629d5668295.svg" width = 300 ></p>
 <p>정점들이 연결되어 있는지 확인하거나 연결하는 연산에 <a href="/w/Disjoint%20Set">Disjoint Set</a>을 사용하면, 연산당 시간 복잡도는 \(O(\alpha (|V|))\)이므로 트리를 만드는 부분은 거의 \(O(|E|)\)의 시간에 작동합니다. 따라서 전체 시간 복잡도는 정렬에 걸리는 시간인 \(O(|E|\log |E|)\)가 됩니다. \(|E|&lt;|V|^2\)이므로 이는 \(O(|E|\log |V|)\)로도 나타낼 수 있습니다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. 코드</a></h2>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 코드</h2>
 <pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
 #define V 100000 //maximum number of nodes
 #define E 100000 //maximum number of edges
@@ -132,27 +126,20 @@ int kruskal(int e){
 
                 </main>
             </div>
-
-            <div class="sidebar-wrap">
-                <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 과정</a></li><li><a href="#s-3-">3. 코드</a></li></ul>
-                </nav>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 과정</a></li><li><a href="#s-3-">3. 코드</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p>
-                    최근 수정 시각: 2020-08-26 19:20:32
-                </p>
-                <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                </div>
-                <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/kruskal-algorithm.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/kruskal-algorithm.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/kruskal-algorithm.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKruskal's Algorithm%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKruskal's Algorithm%5D"><div class="link-button">진행중인 토론</div></a>
+                <p> 최근 수정 시각: 2020-08-26 19:20:32 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/kruskal-algorithm.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/kruskal-algorithm.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/kruskal-algorithm.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKruskal's Algorithm%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKruskal's Algorithm%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>

@@ -1,18 +1,17 @@
 let search_data = {};
 
-let selected = null;
-let input = document.getElementById('t-search-input');
-let button = document.getElementById('t-search-button');
-let result = document.getElementById('t-search-result');
-let list = [];
+let searchBox = document.getElementsByClassName('search-w')[0];
+// 0: Closed
+// 1: Empty
+// 2: Typed anything
+let searchState = 0;
 
-let m_selected = null;
-let m_toggle = document.getElementById('t-m-search-toggle-button');
-let m_input = document.getElementById('t-m-search-input');
-let m_button = document.getElementById('t-m-search-button');
-let m_result = document.getElementById('t-m-search-result');
-let search_toggle = false;
-let m_list = [];
+let inputWrap = document.getElementsByClassName('search-input-w')[0];
+let input = document.getElementById('t-s-input');
+let button = document.getElementById('t-s-button');
+let result = document.getElementById('t-search-result');
+let selected = null;
+let list = [];
 
 // code from https://github.com/hakimel/css/tree/master/progress-nav
 // thanks for great code!
@@ -132,6 +131,8 @@ function goto(title) {
 
 function updateList() {
     let text = input.value.toLowerCase();
+    if (text.length > 0) searchState = 2;
+    else searchState = 1;
     let res = search_data[text];
     if (res) {
         res.slice(0, 10);
@@ -147,34 +148,12 @@ function updateList() {
             }
         }
         html += `</div>`;
+        result.classList.remove('hide');
         result.innerHTML = html;
     } else {
         list = [];
+        result.classList.add('hide');
         result.innerHTML = '';
-    }
-}
-
-function updateMobileList() {
-    let text = m_input.value.toLowerCase();
-    let res = search_data[text];
-    if (res) {
-        res.slice(0, 10);
-        if (list !== res) m_selected = null;
-        m_list = res;
-
-        let html = `<div class="search-result-mobile">`;
-        for (let i = 0; i < m_list.length; i++) {
-            if (m_selected === i) {
-                html += `<div class="selected" onmouseout="m_selected = null;updateMobileList();" onclick="goto('` + m_list[i] + `')">` + m_list[i] + `</div>`;
-            } else {
-                html += `<div onmouseover="m_selected = ` + i + `;updateMobileList();" onclick="goto('` + m_list[i] + `')">` + m_list[i] + `</div>`;
-            }
-        }
-        html += `</div>`;
-        m_result.innerHTML = html;
-    } else {
-        list = [];
-        m_result.innerHTML = '';
     }
 }
 
@@ -183,6 +162,26 @@ function onKey(event, id, key, callback) {
         event.preventDefault();
         callback();
     }
+}
+
+function openSearchBox() {
+    searchBox.classList.add('expand');
+    setTimeout(function () {
+        inputWrap.classList.remove('hide');
+        if (input.value.length > 0) {
+            result.classList.remove('hide');
+        }
+        input.focus();
+    }, 210);
+    searchState = 1;
+}
+
+function closeSearchBox() {
+    searchBox.classList.remove('expand');
+    input.blur();
+    inputWrap.classList.add('hide');
+    result.classList.add('hide');
+    searchState = 0;
 }
 
 (function fetch_search_data() {
@@ -195,7 +194,7 @@ function onKey(event, id, key, callback) {
 
     input.addEventListener('keydown', function (event) {
         onKey(event, 13, "Enter", function () {
-            if (input.value.length !== 0) {
+            if (searchState === 2) {
                 goto(list[selected || 0] || input.value);
             }
         });
@@ -230,70 +229,24 @@ function onKey(event, id, key, callback) {
     });
 
     button.addEventListener('click', function () {
-        if (input.value.length !== 0) {
-            goto(list[selected || 0] || input.value);
-        }
-    });
-
-    m_input.addEventListener('keydown', function (event) {
-        onKey(event, 13, "Enter", function () {
-            if (m_input.value.length !== 0) {
-                goto(m_list[m_selected || 0] || m_input.value);
-            }
-        });
-
-        onKey(event, 40, "ArrowDown", function () {
-            if (m_selected === null) {
-                m_selected = 0;
-            } else {
-                m_selected++;
-            }
-            if (m_selected >= m_list.length) m_selected = null;
-            updateMobileList();
-        });
-
-        onKey(event, 38, "ArrowUp", function () {
-            if (m_selected === null) {
-                m_selected = m_list.length - 1;
-            } else {
-                m_selected--;
-            }
-            if (m_selected < 0) m_selected = null;
-            updateMobileList();
-        })
-
-        onKey(event, 27, "Escape", function () {
-            m_input.blur();
-        });
-    });
-
-    m_input.addEventListener('input', function () {
-        updateMobileList();
-    });
-
-    m_button.addEventListener('click', function () {
-        if (m_input.value.length !== 0) {
-            goto(m_list[m_selected || 0] || m_input.value);
-        }
-    });
-
-    m_toggle.addEventListener('click', function () {
-        if (search_toggle) {
-            document.getElementsByClassName('search-mobile-wrap')[0].style.display = 'none';
-            m_toggle.innerHTML = `<i class="fas fa-search"></i>`;
-            search_toggle = false;
+        if (searchState === 0) {
+            openSearchBox();
+        } else if (searchState === 1) {
+            closeSearchBox();
         } else {
-            document.getElementsByClassName('search-mobile-wrap')[0].style.display = 'block';
-            m_toggle.innerHTML = `<i class="fas fa-times"></i>`;
-            search_toggle = true;
+            goto(list[selected || 0] || input.value);
         }
     });
 })();
 
 document.addEventListener('keydown', function (event) {
-    if (document.activeElement !== input) {
-        onKey(event, 191, "/", function () {
-            input.focus();
-        });
+    if (searchState === 0) {
+        onKey(event, 191, "/", openSearchBox);
+    } else {
+        if (document.activeElement === input) {
+            onKey(event, 191, "/", input.focus);
+        } else {
+            onKey(event, 27, "Escape", closeSearchBox);
+        }
     }
 });

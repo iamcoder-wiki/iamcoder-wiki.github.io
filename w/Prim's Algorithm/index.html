@@ -8,10 +8,10 @@
     <meta property="og:title" content="Prim&#x27;s Algorithm - IamCoder Wiki"/>
     <title>Prim&#x27;s Algorithm - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
-    <link rel="stylesheet" href="/r/css/content.css">
     <link rel="stylesheet" href="/r/css/variable.css">
-    <link rel="stylesheet" href="/r/css/tomorrow-night.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -26,40 +26,34 @@
 </head>
 <body>
 <div class="page">
-    <div class="top-bar">
-        <div class="top-bar-wrap">
-            <div class="top-bar-title"></div>
-            <div class="search-bar-wrap">
-                <div class="input-wrap"><input type="text" id="t-search-input" placeholder="Search"></div>
-                <div class="icon-wrap" id="t-search-button"><i class="fas fa-search"></i></div>
+    <div class="top-bar-w">
+        <div class="top-bar">
+            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            <div class="search-w">
+                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <div class="circle"></div>
+                        <div class="stick"></div>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
             </div>
-            <div class="search-result-wrap" id="t-search-result"></div>
-            <div class="icon-mobile-toggle" id="t-m-search-toggle-button"><i class="fas fa-search"></i></div>
         </div>
     </div>
-    <div class="page-wrap">
+    <div class="content-w">
         <div class="content">
-            <div class="main-wrap">
-                <div class="search-mobile-wrap mobile-show">
-                    <div class="search-bar-mobile-wrap">
-                        <div class="input-mobile-wrap"><input type="text" id="t-m-search-input" placeholder="Search">
-                        </div>
-                        <div class="icon-mobile-wrap" id="t-m-search-button"><i class="fas fa-search"></i></div>
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/prim-algorithm.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/prim-algorithm.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/prim-algorithm.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <div class="search-result-mobile-wrap" id="t-m-search-result"></div>
-                </div>
-                <div class="mobile-info">
-                    <div class="github-link">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/prim-algorithm.md"><div class="link-button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/prim-algorithm.md"><div class="link-button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/prim-algorithm.md"><div class="link-button mobile-hide">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
-                    </div>
-                    <p>최근 수정 시각: 2020-08-27 12:44:09</p>
-                    <div class="contributors">
-                        <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                    </div>
+                    <p> 최근 수정 시각: 2020-09-02 10:13:03 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -79,18 +73,18 @@ async function writeTitle() {
 
 addOnload(writeTitle);
 </script>
-<h1 class="header title">_</h1>
-<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>프림의 알고리즘은 가중치가 작은 간선부터 트리에 추가해 가며 최소 스패닝 트리를 구한다는 면에서는 <a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a>과 같습니다.
 <a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a>은 간선들이 서로 연결되어 있지 않더라도 가중치가 작으면 트리에 추가하는 반면, 프림의 알고리즘에서는 현재 최소 스패팅 트리에 연결된 간선만 트리에 추가한다는 것이 프림 알고리즘과 <a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a>의 차이점입니다.</p>
-<h2><a class="header" href="#s-2-" id="s-2-">2. 과정</a></h2>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 과정</h2>
 <p>다음 그래프에 프림 알고리즘을 적용하여 MST를 구해보자.</p>
 <img src="/r/img/prim1-4265bf6589dd4e81.png" width = 500 >
-<img src="/r/img/prim2-3930a509f5b633df.svg" width = 500 >
+<img src="/r/img/prim2-746d3790ae1f1800.png" width = 500 >
 <p>파란색 간선은 최소 스패닝 트리에 추가된 간선을 뜻하며, 녹색은 최소 스패팅 트리와 연결되어 있는 간선, 즉 최소 스패닝 트리에 추가될 가능성이 있는 간선을 의미합니다.</p>
 <p>프림의 알고리즘은 먼저 특수한 한 정점을 최소 스패닝 트리에 추가시킵니다. 그 후, 현재의 트리와 연결된 간선들 중에서 가중치가 최소인 간선과 그에 연결된 정점을 계속해서 트리에 포함시킵니다. 이 과정을 모든 정점이 트리에 포함될 때까지, 총 \(|V|\)번 계속합니다.</p>
-<h2><a class="header" href="#s-3-" id="s-3-">3. 코드</a></h2>
-<h3><a class="header" href="#s-3-1-" id="s-3-1-">3.1. 배열을 이용한 방법</a></h3>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 코드</h2>
+<h3 class="heading"><a href="#s-3-1-" id="s-3-1-">3.1.</a> 배열을 이용한 방법</h3>
 <pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
 #define V 100000 //maximum number of nodes
 
@@ -120,7 +114,7 @@ int prim(int v){
 }
 </code></pre>
 <p>배열을 이용한 방법은 \(|V|\)개의 원소의 최솟값을 구하는 과정을 \(|V|\)번 반복하고, \(|E|\)개의 간선을 한 번씩 조사하므로 총 시간 복잡도는 \(O(|E|+|V|^2)\)입니다. 이때 \(|E|&lt;|V|^2\)이므로 결국 시간 복잡도는 \(O(|V|^2)\)이 됩니다.</p>
-<h3><a class="header" href="#s-3-2-" id="s-3-2-">3.2. 우선순위 큐를 이용한 방법</a></h3>
+<h3 class="heading"><a href="#s-3-2-" id="s-3-2-">3.2.</a> 우선순위 큐를 이용한 방법</h3>
 <pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
 #define V 100000 //number of nodes
 
@@ -150,32 +144,25 @@ int prim(int v){
 </code></pre>
 <p>우선순위 큐를 이용한 방법은 \(|E|\)개의 원소를 가지는 우선순위 큐에 대한 삽입/삭제 연산을 최대 \(|E|\)번 하므로 시간 복잡도는 \(O(|E|\log |E|)\)이고, 위에서와 마찬가지로 \(|E|&lt;|V|^2\)이므로 이는 \(O(|E|\log |V|)\)와 같습니다.</p>
 <p>밀집된 그래프에서, 즉 \(|E|\)가 \(|V|^2\)에 가까울 경우에는 위의 방식이 아래의 방식보다 더 빠르게 동작합니다. 반면 \(|E|\)가 적당히 작은 경우에는 아래의 방식이 위의 것보다 더 빠르게 동작할 수 있습니다. 따라서 문제의 조건을 정확히 파악하고 그에 알맞은 구현 방법을 사용하는 것이 중요합니다.</p>
-<h2><a class="header" href="#s-4-" id="s-4-">4. 여담</a></h2>
+<h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 여담</h2>
 <p>자세히 살펴보면, 우선순위 큐를 이용한 프림의 알고리즘 구현은 <a href="/w/Dijkstra">Dijkstra</a> 상당히 비슷하다는 것을 알 수 있습니다. 이는 두 알고리즘의 아이디어가 상당히 비슷하기 때문인데, 실제로 두 알고리즘의 코드를 한두 줄만 고치면 다른 알고리즘의 코드로 변하는 것을 볼 수 있습니다.</p>
 
                 </main>
             </div>
-
-            <div class="sidebar-wrap">
-                <nav class="toc">
-                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 과정</a></li><li><a href="#s-3-">3. 코드</a><ul><li><a href="#s-3-1-">3.1. 배열을 이용한 방법</a></li><li><a href="#s-3-2-">3.2. 우선순위 큐를 이용한 방법</a></li></ul></li><li><a href="#s-4-">4. 여담</a></li></ul>
-                </nav>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 과정</a></li><li><a href="#s-3-">3. 코드</a><ul><li><a href="#s-3-1-">3.1. 배열을 이용한 방법</a></li><li><a href="#s-3-2-">3.2. 우선순위 큐를 이용한 방법</a></li></ul></li><li><a href="#s-4-">4. 여담</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p>
-                    최근 수정 시각: 2020-08-27 12:44:09
-                </p>
-                <div class="contributors">
-                    <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
-                </div>
-                <div class="github-link">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/prim-algorithm.md"><div class="link-button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/prim-algorithm.md"><div class="link-button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/prim-algorithm.md"><div class="link-button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="link-button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="link-button">진행중인 토론</div></a>
+                <p> 최근 수정 시각: 2020-09-02 10:13:03 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/prim-algorithm.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/prim-algorithm.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/prim-algorithm.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPrim's Algorithm%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPrim's Algorithm%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>
