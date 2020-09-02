@@ -56,7 +56,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BVector%5D+"><div class="link-button mobile-hide">토론 생성하기</div><div class="link-button mobile-show">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BVector%5D"><div class="link-button mobile-hide">진행중인 토론</div><div class="link-button mobile-show">토론 보기</div></a>
                     </div>
-                    <p>최근 수정 시각: 2020-08-16 21:30:14</p>
+                    <p>최근 수정 시각: 2020-09-02 09:53:43</p>
                     <div class="contributors">
                         <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
                     </div>
@@ -80,20 +80,47 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="header title">_</h1>
+<h2><a class="header" href="#s-1-" id="s-1-">1. 소개</a></h2>
+<p>벡터(Vector)는 메모리는 자동으로 할당하면서 메모리의 연속한 위치에 원소들을 저장<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup>하는 STL Container다.</p>
+<h2><a class="header" href="#s-2-" id="s-2-">2. Usage</a></h2>
+<p>STL Vector에서 지원하는 기능은 다음과 같다.</p>
+<ul>
+<li>선언 : <code>vector&lt;int&gt; v;</code></li>
+<li><code>i</code>번째 원소 : <code>v[i]</code></li>
+<li>첫 번째 원소 : <code>v.front()</code></li>
+<li>마지막 원소 : <code>v.back()</code></li>
+<li>시작 <code>iterator</code> : <code>v.begin()</code></li>
+<li>끝 <code>iterator</code> : <code>v.end()</code></li>
+<li>원소 개수 : <code>v.size()</code></li>
+<li>벡터 크기 <code>sz</code>로 재설정 : <code>v.resize(sz);</code></li>
+<li>비어있는지 <code>bool</code> 값으로 리턴 : <code>v.empty()</code></li>
+<li>맨 뒤에 원소 추가 : <code>v.push_back(x);</code></li>
+<li>맨 뒤 원소 제거 : <code>v.pop_back();</code></li>
+<li>모든 원소 제거 : <code>v.clear();</code></li>
+</ul>
+<p>Vector를 사용할 때 자주 사용하는 코드들은 다음과 같다.</p>
+<ul>
+<li>정렬 : <code>sort(v.begin(), v.end());</code></li>
+<li>중복 원소 제거 : <code>sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end());</code></li>
+</ul>
+<hr />
+<div class="footnote-definition" id="f-1"><sup class="footnote-definition-label"><a href="#b-1">1</a></sup>
+<p>임의의 위치에 존재하는 원소에 접근하는 Random Access가 가능하다.</p>
+</div>
 
                 </main>
             </div>
 
             <div class="sidebar-wrap">
                 <nav class="toc">
-                    
+                    <ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Usage</a></li></ul>
                 </nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
                 <p>
-                    최근 수정 시각: 2020-08-16 21:30:14
+                    최근 수정 시각: 2020-09-02 09:53:43
                 </p>
                 <div class="contributors">
                     <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a>
