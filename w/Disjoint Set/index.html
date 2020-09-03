@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDisjoint Set%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDisjoint Set%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                    <p> 최근 수정 시각: 2020-09-03 19:51:31 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -74,16 +74,61 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
+<p>서로소 집합(Disjoint Set) 구조는 유니온-파인드(Union-Find) 자료구조로도 잘 알려져 있으며, 서로소 집합들, 즉 서로 겹치는 부분이 없는 집합들을 저장하기 위한 자료구조다. </p>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
+<p>서로소 집합을 구현하는 경우 대부분 여러 트리들로 이루어진 Forest 구조를 사용하며, 이를 <strong>disjoint-set forest</strong>라 한다. 트리를 구성하는 노드들은 같은 집합에 속하며 두 서로소 집합을 더하는 연산을 하는 경우 한 트리의 루트\(v\)를 잡아 다른 트리의 임의의 노드의 자식으로 붙여 두 트리를 합쳐주면 된다.</p>
+<p>두 서로소 집합을 합치는 <strong>Union</strong> 연산과 특정 원소의 그룹을 찾는 <strong>Find</strong> 연산을 지원하며, 각 연산들에서 시간복잡도를 줄이기 위해 다음과 같은 최적화들을 진행한다.</p>
+<ul>
+<li><strong>Union</strong>
+<ul>
+<li><em>Union by size</em> : 더 많은 원소를 갖는 그룹의 트리 루트 노드에 더 작은 원소를 갖는 그룹의 루트 노드를 자식으로 붙인다.</li>
+<li><em>Union by rank</em> : 트리의 높이(height)가 큰 트리의 루트 노드에 상대적으로 높이가 작은 트리의 루트 노드를 자식으로 붙인다.</li>
+</ul>
+</li>
+<li><strong>Find</strong>
+<ul>
+<li><em>Path compression</em> : 한번 노드들의 부모를 따라가며 그룹 번호를 찾는 과정에서 지나친 노드들의 부모를 루트 노드로 바꿔준다.</li>
+</ul>
+</li>
+</ul>
+<p>다음 코드는 <em>Path compression</em>만을 사용한 코드다. <sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup></p>
+<pre><code class="language-c++">void Init(){
+	// initialize group data
+	for(int i=1; i&lt;=N; i++){
+		group[i] = i;
+	}
+}
+
+int Find(int x){
+	// Find group number of x'th element
+	return (x==g[x])?g[x]:g[x] = Find(g[x]);
+}
+
+void Union(int x, int y){
+	x = Find(x); y = Find(y);
+	g[x] = y;
+}
+</code></pre>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 관련 알고리즘</h2>
+<ul>
+<li><a href="/w/Kruskal's%20Algorithm">Kruskal's Algorithm</a></li>
+<li></li>
+</ul>
+<hr />
+<div class="footnote-definition" id="f-1"><sup class="footnote-definition-label"><a href="#b-1">1</a></sup>
+<p><em>Path compression</em>만 해줘도 대부분의 문제에서 시간 안에 <strong>Union</strong>과 <strong>Find</strong> 연산을 할 수 있다.</p>
+</div>
 
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a></li><li><a href="#s-3-">3. 관련 알고리즘</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                <p> 최근 수정 시각: 2020-09-03 19:51:31 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/disjoint-set.md"><div class="button">편집</div></a>
