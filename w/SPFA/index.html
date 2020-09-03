@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BSPFA%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BSPFA%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-02 23:26:05 </p>
+                    <p> 최근 수정 시각: 2020-09-03 10:51:14 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -82,7 +82,39 @@ addOnload(writeTitle);
 <h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> 음수 사이클 판별</h3>
 <p><a href="/w/Bellman-Ford">Bellman-Ford</a> 알고리즘과 마찬가지로 SPFA에서도 음수 사이클이 없는 경우 최단 경로가 최대 \(|V|-1\)개의 간선을 이용하며, 한 정점에 대한 완화가 최대 \(|V|-1\)번 이루어지므로 한 정점에서 완화가 \(|V|-1\)번보다 많이 진행되는 경우 음수 사이클이 있다고 판단할 수 있다.</p>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> Code</h2>
-<p>TBA</p>
+<pre><code class="language-c++">vector&lt;int&gt; SPFA(int source){
+	vector&lt;int&gt; dist(N, INF);
+	bool updated;
+	dist[source] = 0;
+	queue&lt;int&gt; Q;
+	vector&lt;bool&gt; inQ(N, false);
+	vector&lt;int&gt; visited(N, 0);
+	Q.push(source);
+	inQ[source] = true;
+	while(!Q.empty()){
+		int here = Q.front();
+		Q.pop();
+		inQ[here] = false;
+		++visited[here];
+		if(visited[here] &gt;= V){
+			dist[source] = -1;
+			return dist;
+		}
+		for(pii p : adj[here]){
+			int there = p.first, weight = p.second;
+			if(dist[there] &gt; dist[here] + weight){
+				dist[there] = dist[here] + weight;
+				if(!inQ[there]){
+					Q.push(there);
+					inQ[there] = true;
+				}
+				
+			}
+		}
+	}
+	return dist;
+}
+</code></pre>
 
                 </main>
             </div>
@@ -92,7 +124,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-02 23:26:05 </p>
+                <p> 최근 수정 시각: 2020-09-03 10:51:14 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/spfa.md"><div class="button">편집</div></a>
