@@ -18,7 +18,7 @@
 <?xml version="1.0" encoding="UTF-8"?> <img src="./matching-on-bipartite/matching3.png" width = 500 >
 **이분 매칭**
 
-이분 매칭은 주로 모든 간선의 용량을 1로 하는 [[ Network Flow ]] 알고리즘을 수정하여 해결한다. [[ Edmonds–Karp ]] 알고리즘을 이분 그래프에서 사용하면 [[ DFS ]]를 사용하여 이분 매칭에서 보다 쉽게 증가 경로를 찾을 수 있고, [[ Dinic ]] 알고리즘을 이분 매칭에 맞게 바꾼 [[ Hopcroft-Karp|Matching in Bipartite/#s-2-2 ]] 알고리즘을 사용하여 이분 매칭을 찾을 수도 있다. 
+이분 매칭은 주로 모든 간선의 용량을 1로 하는 [[ Network Flow ]] 알고리즘을 수정하여 해결한다. [[ Edmonds–Karp ]] 알고리즘을 이분 그래프에서 사용하면 [[ DFS ]]를 사용하여 이분 매칭에서 보다 쉽게 증가 경로를 찾을 수 있고, [[ Dinic ]] 알고리즘을 이분 매칭에 맞게 바꾼 [[ Hopcroft-Karp|Matching on Bipartite/#s-2-2 ]] 알고리즘을 사용하여 이분 매칭을 찾을 수도 있다. 
 
 이분 매칭에서는 모든 간선의 용량이 0 또는 1이므로 시간복잡도 역시 일반적인 그래프에서 [[ Network Flow ]] 알고리즘을 사용하는 경우보다 개선된다.
 
