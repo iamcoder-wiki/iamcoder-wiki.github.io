@@ -1,10 +1,10 @@
 # LCA
 ## 소개
-LCA(**L**owest **C**ommon **A**ncestor)는 트리에서 두 노드 \\(v\\)와 \\(w\\)의 가장 낮은 공통 조상으로, \\(v\\)와 \\(w\\)를 모두 자손으로 갖는 노드들 중에서 가장 루트에서 먼 노드를 말한다. [[ Sparse Table ]]을 사용하여 LCA를 \\(O(\logN)\\)에 구할 수 있다.
+LCA(**L**owest **C**ommon **A**ncestor)는 트리에서 두 노드 \\(v\\)와 \\(w\\)의 가장 낮은 공통 조상으로, \\(v\\)와 \\(w\\)를 모두 자손으로 갖는 노드들 중에서 가장 루트에서 먼 노드를 말한다. [[ Sparse Table ]]을 사용하여 LCA를 \\(O(\log N)\\)에 구할 수 있다.
 
-<?xml version="1.0" encoding="UTF-8"?> <img src="./lca/lca1.png" width = 500 >
+<?xml version="1.0" encoding="UTF-8"?> <img src="./lca/lca1.png" width = 200 >
 
-초록색 정점들이 \\(x\\)와 \\(y\\)의 공통 조상이며, 그 중에서 진한 초록색 정점이 LCA다.
+위 그림에서 초록색 정점들이 \\(x\\)와 \\(y\\)의 공통 조상이며, 그 중에서 진한 초록색 정점이 LCA다.
 
 
 ## Code
