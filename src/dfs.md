@@ -15,7 +15,7 @@ void dfs(int x){
  vst[x] = true;
 	for(int i : gp[x]){
 		if(!vst[i]){
-   dfs(i);
+   			dfs(i);
 		}
 	}
 }
