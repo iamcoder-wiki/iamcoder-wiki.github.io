@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BMatching on Bipartite%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BMatching on Bipartite%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-03 13:41:44 </p>
+                    <p> 최근 수정 시각: 2020-09-03 14:19:44 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -86,7 +86,7 @@ addOnload(writeTitle);
 <p>이분 매칭은 두 집합 간의 원소를 대응시키는 문제로 생각할 수도 있다. 각 사람이 할 수 있는 일이 정해져 있을 때, 가장 많은 일을 처리하는 방법을 찾는 경우 <strong>사람</strong>과 <strong>일</strong> 사이 이분 그래프를 만든 다음 최대 이분 매칭의 수를 찾는 문제를 풀면 쉽게 해결할 수 있다. 또, 이분 그래프는 최대 매칭과 최소 정점 덮개(vectex cover)가 같다는 성질도 가지고 있다.</p>
 <?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/matching3-9f121b16540bbe79.png" width = 500 >
 <p><strong>이분 매칭</strong></p>
-<p>이분 매칭은 주로 모든 간선의 용량을 1로 하는 <a href="/w/Network%20Flow">Network Flow</a> 알고리즘을 수정하여 해결한다. <a class="no-link" href="/w/Edmonds%E2%80%93Karp">Edmonds–Karp</a> 알고리즘을 이분 그래프에서 사용하면 <a href="/w/DFS">DFS</a>를 사용하여 이분 매칭에서 보다 쉽게 증가 경로를 찾을 수 있고, <a class="no-link" href="/w/Dinic">Dinic</a> 알고리즘을 이분 매칭에 맞게 바꾼 <a class="no-link" href="/w/Matching%20in%20Bipartite/#s-2-2">Hopcroft-Karp</a> 알고리즘을 사용하여 이분 매칭을 찾을 수도 있다. </p>
+<p>이분 매칭은 주로 모든 간선의 용량을 1로 하는 <a href="/w/Network%20Flow">Network Flow</a> 알고리즘을 수정하여 해결한다. <a class="no-link" href="/w/Edmonds%E2%80%93Karp">Edmonds–Karp</a> 알고리즘을 이분 그래프에서 사용하면 <a href="/w/DFS">DFS</a>를 사용하여 이분 매칭에서 보다 쉽게 증가 경로를 찾을 수 있고, <a class="no-link" href="/w/Dinic">Dinic</a> 알고리즘을 이분 매칭에 맞게 바꾼 <a class="no-link" href="/w/Matching%20on%20Bipartite/#s-2-2">Hopcroft-Karp</a> 알고리즘을 사용하여 이분 매칭을 찾을 수도 있다. </p>
 <p>이분 매칭에서는 모든 간선의 용량이 0 또는 1이므로 시간복잡도 역시 일반적인 그래프에서 <a href="/w/Network%20Flow">Network Flow</a> 알고리즘을 사용하는 경우보다 개선된다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
 <h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> DFS을 사용한 방법</h3>
@@ -192,7 +192,7 @@ int match(){
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-03 13:41:44 </p>
+                <p> 최근 수정 시각: 2020-09-03 14:19:44 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/matching-on-bipartite.md"><div class="button">편집</div></a>
