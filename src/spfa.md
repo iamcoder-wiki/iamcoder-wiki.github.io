@@ -1,3 +1,4 @@
+
 # SPFA
 ## 소개
 SPFA(Shortest Path Faster Algorithm)은 [[ Bellman-Ford ]] 알고리즘의 수행 시간을 개선하여 평균 시간복잡도 \\(O(|E|)\\)만에 한 점에서 모든 점까지의 최단 경로를 찾을 수 있는 알고리즘이다. 
@@ -11,4 +12,37 @@ SPFA(Shortest Path Faster Algorithm)은 [[ Bellman-Ford ]] 알고리즘의 수�
 
 ## Code
 
-TBA
+``` c++
+vector<int> SPFA(int source){
+	vector<int> dist(N, INF);
+	bool updated;
+	dist[source] = 0;
+	queue<int> Q;
+	vector<bool> inQ(N, false);
+	vector<int> visited(N, 0);
+	Q.push(source);
+	inQ[source] = true;
+	while(!Q.empty()){
+		int here = Q.front();
+		Q.pop();
+		inQ[here] = false;
+		++visited[here];
+		if(visited[here] >= V){
+			dist[source] = -1;
+			return dist;
+		}
+		for(pii p : adj[here]){
+			int there = p.first, weight = p.second;
+			if(dist[there] > dist[here] + weight){
+				dist[there] = dist[here] + weight;
+				if(!inQ[there]){
+					Q.push(there);
+					inQ[there] = true;
+				}
+				
+			}
+		}
+	}
+	return dist;
+}
+```
