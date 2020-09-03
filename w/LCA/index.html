@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BLCA%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BLCA%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                    <p> 최근 수정 시각: 2020-09-03 20:53:21 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -74,16 +74,51 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
+<p>LCA(<strong>L</strong>owest <strong>C</strong>ommon <strong>A</strong>ncestor)는 트리에서 두 노드 \(v\)와 \(w\)의 가장 낮은 공통 조상으로, \(v\)와 \(w\)를 모두 자손으로 갖는 노드들 중에서 가장 루트에서 먼 노드를 말한다. <a class="no-link" href="/w/Sparse%20Table">Sparse Table</a>을 사용하여 LCA를 \(O(\logN)\)에 구할 수 있다.</p>
+<?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/lca1-11742692d0cf9990.png" width = 500 >
+<p>초록색 정점들이 \(x\)와 \(y\)의 공통 조상이며, 그 중에서 진한 초록색 정점이 LCA다.</p>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
+<pre><code class="language-c++">void dfs(int x){
+	up[x][0] = p[x]; // x에서 2^0(= 1)번 올라가면 p[x](x의 부모 노드)
+	for(int j=1; j&lt;MAX_K; j++){ // MAX_K = log(N)번 반복
+		//up[x][j]에 x에서 2^j번 올라간 노드 번호를 저장해준다
+		up[x][j] = up[up[x][j-1]][j-1];
+	}
+	for(int next : gp[x]){
+		if(next==p[x])	continue; // next가 x의 부모인 경우
+		p[next] = x;
+		lv[next] = lv[x]+1; // 다음 노드의 level을 계산해준다
+		dfs(next);
+	}
+}
+
+int lca(int x, int y){
+	for(int i=MAX_K-1; i&gt;=0; i--){
+		// x와 y의 level이 일치할 때까지 level이 높은 노드의 level을 줄인다
+		if(lv[up[x][i]]&gt;=lv[y])	x = up[x][i];
+		if(lv[up[y][i]]&gt;=lv[x])	y = up[y][i];
+	}
+	if(x==y)	return x;
+	for(int i=MAX_K-1; i&gt;=0; i--){
+		if(up[x][i]!=up[y][i]){
+			x = up[x][i];
+			y = up[y][i];
+		}
+	}
+	return up[x][0];
+}
+</code></pre>
 
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                <p> 최근 수정 시각: 2020-09-03 20:53:21 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/lca.md"><div class="button">편집</div></a>
