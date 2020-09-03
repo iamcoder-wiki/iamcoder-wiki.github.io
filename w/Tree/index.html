@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BTree%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BTree%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-26 19:18:06 </p>
+                    <p> 최근 수정 시각: 2020-09-03 16:06:44 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -75,7 +75,24 @@ addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
-<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 관련 알고리즘</h2>
+<p>트리(Tree) 구조는 알고리즘 문제 풀이에 자주 주어지는 데이터 구조다. 트리 구조는 루트(Root) 노드를 하나 가지며, 나머지 노드의 경우 자신의 부모 노드와 간선으로 연결되어 있는 구조를 갖는다. 이때 간선 방향은 부모에서 자식을 향하는 방향으로 결정된다.</p>
+<?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/tree1-662b103b1d03e83b.png" width = 500 >
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 용어</h2>
+<p>트리 구조에서 다음과 같은 용어들을 사용하기도 한다.</p>
+<ul>
+<li>자식 노드(child node) : 어떤 노드 하위에 간선으로 연결되어 있는 노드</li>
+<li>부모 노드(parent node) : 어떤 노드 상위에 간선으로 연결되어 있는 노드(<em>부모 노드가 존재하는 경우 부모 노드가 유일하다</em>)</li>
+<li><strong>형제 노드(sibling node)</strong> : 같은 부모 노드를 갖는 노드들</li>
+<li><strong>내부 노드(internal node, inner node)</strong> : 자식 노드를 갖고 있는 노드</li>
+<li><strong>외부 노드(external node, outer node)</strong> / 리프 노드(leaf node) : 자식 노드를 갖지 않는 노드</li>
+<li><strong>루트 노드(root node)</strong> : 가장 상위의 노드, 부모 노드를 갖지 않는다.</li>
+<li>노드의 <strong>높이(height)</strong> : 그 노드에서 아래에 있는 가장 먼 리프 노드 까지의 거리</li>
+<li><strong>트리의 높이</strong> : 루트 노드의 높이</li>
+<li>노드의 <strong>깊이(depth)</strong> : 루트 노드에서 해당 노드까지의 거리 </li>
+<li>트리의 <strong>서브트리(subtree)</strong> : 트리에 속한 어떤 노드 \(v\)를 포함하며 그 하위 모든 노드를 포함하는 트리</li>
+<li>노드의 <strong>조상(ancestor)</strong> : 그 노드에서 루트 노드로 향하는 경로에 존재하는 모든 노드</li>
+</ul>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 관련 알고리즘</h2>
 <ul>
 <li><a href="/w/Disjoint%20Set">Disjoint Set</a></li>
 <li><a href="/w/Minimum%20Spanning%20Tree">Minimum Spanning Tree</a>
@@ -94,12 +111,12 @@ addOnload(writeTitle);
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 관련 알고리즘</a></li></ul></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. 용어</a></li><li><a href="#s-3-">3. 관련 알고리즘</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-26 19:18:06 </p>
+                <p> 최근 수정 시각: 2020-09-03 16:06:44 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/tree.md"><div class="button">편집</div></a>
