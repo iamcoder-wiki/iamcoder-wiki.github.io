@@ -34,7 +34,7 @@ void Union(int x, int y){
 ```
 ## 관련 알고리즘
 * [[ Kruskal's Algorithm ]]
-* 
+
 
 ---
 [^1]: *Path compression*만 해줘도 대부분의 문제에서 시간 안에 **Union**과 **Find** 연산을 할 수 있다.
