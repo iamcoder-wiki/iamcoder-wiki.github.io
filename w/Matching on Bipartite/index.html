@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BMatching on Bipartite%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BMatching on Bipartite%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                    <p> 최근 수정 시각: 2020-09-03 13:41:44 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -74,16 +74,125 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
+<h3 class="heading"><a href="#s-1-1-" id="s-1-1-">1.1.</a> 최대 매칭</h3>
+<p>그래프에서 매칭이란, 각 정점이 단 하나의 간선으로 다른 정점과 이어져 있는 부분 그래프에서 연결들의 집합이다. 이 때, 최대 매칭 문제란 매칭 중 가장 많은 연결을 포함하는 매칭을 찾거나 매칭의 크기를 찾는 문제다.</p>
+<?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/matching1-b80caa3d5d13d7ec.png" width = 500 >
+<p>일반적인 그래프에서 매칭을 찾는 알고리즘은 복잡하여 Problem Solving에서는 다루지 않지만, 특수한 상황에서 구현하기 쉽고 빠른 알고리즘을 쓰는 문제들이 제시되기도 한다. 그 중 자주 나오는 문제가 이분 매칭이다.</p>
+<h3 class="heading"><a href="#s-1-2-" id="s-1-2-">1.2.</a> 이분 매칭</h3>
+<p>이분 매칭(Bipartite Matching)이란, 이분 그래프<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup>에서의 최대 매칭 문제를 말한다. </p>
+<?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/matching2-f1cd8f7de999765a.png" width = 500 >
+<p><strong>이분 그래프</strong></p>
+<p>이분 매칭은 두 집합 간의 원소를 대응시키는 문제로 생각할 수도 있다. 각 사람이 할 수 있는 일이 정해져 있을 때, 가장 많은 일을 처리하는 방법을 찾는 경우 <strong>사람</strong>과 <strong>일</strong> 사이 이분 그래프를 만든 다음 최대 이분 매칭의 수를 찾는 문제를 풀면 쉽게 해결할 수 있다. 또, 이분 그래프는 최대 매칭과 최소 정점 덮개(vectex cover)가 같다는 성질도 가지고 있다.</p>
+<?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/matching3-9f121b16540bbe79.png" width = 500 >
+<p><strong>이분 매칭</strong></p>
+<p>이분 매칭은 주로 모든 간선의 용량을 1로 하는 <a href="/w/Network%20Flow">Network Flow</a> 알고리즘을 수정하여 해결한다. <a class="no-link" href="/w/Edmonds%E2%80%93Karp">Edmonds–Karp</a> 알고리즘을 이분 그래프에서 사용하면 <a href="/w/DFS">DFS</a>를 사용하여 이분 매칭에서 보다 쉽게 증가 경로를 찾을 수 있고, <a class="no-link" href="/w/Dinic">Dinic</a> 알고리즘을 이분 매칭에 맞게 바꾼 <a class="no-link" href="/w/Matching%20in%20Bipartite/#s-2-2">Hopcroft-Karp</a> 알고리즘을 사용하여 이분 매칭을 찾을 수도 있다. </p>
+<p>이분 매칭에서는 모든 간선의 용량이 0 또는 1이므로 시간복잡도 역시 일반적인 그래프에서 <a href="/w/Network%20Flow">Network Flow</a> 알고리즘을 사용하는 경우보다 개선된다.</p>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
+<h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> DFS을 사용한 방법</h3>
+<p>DFS를 사용하는 경우 그래프에서 첫 그룹의 점에서 모두 매칭을 시도해볼 수 있다. </p>
+<pre><code class="language-c++">bool matching(int here){
+	if(visited[here])	return false;
+	vistied[here] = true;
+	for(int there : adj[here]){
+		if(matched[there]==-1){ 
+			// 매칭이 되어 있지 않는 노드와 연결된 경우
+			matched[there] = here;
+			return true; 
+		}else if(matching(matched[there])){
+			// there가 이미 매칭되어 있지만
+			// there와 매칭되어 있는 matched[there]이
+			// 다른 노드와 매칭 가능한 경우
+			matched[there] = here;
+			return true;
+		}
+	}
+	return false;
+}
+
+int match(){
+	itn cnt = 0;
+	fill(matched, matched+VB, -1);
+	for(int here=0; here&lt;VA; here++){
+		fill(visited, visited+VA, false);
+		if(matching(here))	cnt++;
+	}
+}
+</code></pre>
+<p><code>matching</code> 함수는 정점을 최대 한 번만 방문하고, 각 정점에서 간선들을 최대 한 번만 검사하기 때문에 이 함수의 시간복잡도는 \(O(|E|)\)가 된다. 또한, <code>match</code> 함수에서 모든 정점에 대해 매칭을 시도해 보기 때문에 총 시간복잡도는 \(O(|V||E|)\)가 된다.</p>
+<h3 class="heading"><a href="#s-2-2-" id="s-2-2-">2.2.</a> Hopcroft-Karp Algorithm</h3>
+<p>호프크로프트-카프 알고리즘은 증가 경로라는 그래프 상의 경로를 찾아 매칭을 한다. <strong>증가 경로</strong>란 경로 상의 간선이 매칭에 속하는 여부가 <code>false - true - false - true - false -... - false</code>등으로 번갈아 나오며 경로의 양 끝 점이 매칭되지 않은 경로를 말한다. 이 증가 경로에 속한 모든 간선을 반전시켜주면<sup class="footnote-reference"><a href="#f-2" id="b-2">2</a></sup> 매칭이 하나 늘어나는 결과를 얻을 수 있다. 또, 이러한 증가 경로가 없는 경우 더 이상 매칭을 할 수 없기 때문에, 증가 경로가 더 이상 없을 때까지 증가 경로를 찾아 매칭을 1 늘려주는 방법으로 이분 매칭을 구할 수 있다. </p>
+<p>이 알고리즘에서 증가 경로를 찾기 위해 <a href="/w/Network%20Flow">Network Flow</a> 알고리즘인 <a class="no-link" href="/w/Dinic">Dinic</a> 알고리즘의 아이디어를 사용해 각 정점에 레벨을 매긴다. 이후 위의 <a href="/w/DFS">DFS</a>를 이용한 방식에서 레벨이 증가하는 방향의 간선만 사용할 수 있도록 조건을 추가해주면 된다.</p>
+<p>모든 정점에 대한 증가 경로를 찾아 매칭을 바꾸는 것의 시간복잡도는 \(O(|E|)\)이며, 증가 경로를 모든 정점에 대해 찾는 것을 최대 \(O(\sqrt(|V|))\)번만 반복한다는 것이 증명되어 있기 때문에 총 시간복잡도는 \(O(\sqrt{|V|}|E|)\)가 된다.</p>
+<pre><code class="language-c++">void level_check(){
+	fill(level, level+VA, -1);
+	queue&lt;int&gt; Q;
+	for(int i=0; i&lt;VA; i++){
+		if(matched_a[i] == -1){
+			level[i] = 0;
+			Q.push(i);
+		}
+	}
+	while(!Q.empty()){
+		int here = Q.front();
+		Q.pop();
+		for(int there : adj[here]){
+			if(matched_b[there]] != -1 &amp;&amp; level[matched_b[there]]==-1){
+				level[matched_b[there]] = level[here] + 1;
+				Q.push(matched_b[there]);
+			}
+		}
+	}
+}
+
+bool matching(int here){
+	for(int there : adj[here]){
+		if(matched_b[there]==-1){
+			matched_a[here] = there;
+			matched_b[there] = here;
+			return true;
+		}
+		else if(level[matched_b[there]] == level[here] + 1 &amp;&amp; matching(matched_b[there]){
+		matched_a[here] = there;
+		matched_b[there] = here;
+		return true;
+	}
+	return false;
+}
+int match(){
+	int matched = 0, cnt = 1;
+	fill(matched_a, matched_a+VA, -1);
+	fill(matched_b, matched_b+VB, -1);
+	while(cnt&gt;0){
+		level_check();
+		cnt = 0;
+		for(int here=0; here&lt;VA; here++){
+			if(matched_a[here]==-1 &amp;&amp; matching(here)){
+				cnt++;
+			}
+		}
+		matched += cnt;
+	}
+	return matched;
+}
+</code></pre>
+<hr />
+<div class="footnote-definition" id="f-1"><sup class="footnote-definition-label"><a href="#b-1">1</a></sup>
+<p>정점이 두 그룹으로 나뉘어져 같은 그룹 사이 간선이 없는 그래프</p>
+</div>
+<div class="footnote-definition" id="f-2"><sup class="footnote-definition-label"><a href="#b-2">2</a></sup>
+<p>매칭에 속한 간선은 매칭에서 제외하고, 아직 매칭에 속하지 않은 간선을 매칭에 추가한다.</p>
+</div>
 
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a><ul><li><a href="#s-1-1-">1.1. 최대 매칭</a></li><li><a href="#s-1-2-">1.2. 이분 매칭</a></li></ul></li><li><a href="#s-2-">2. Code</a><ul><li><a href="#s-2-1-">2.1. DFS을 사용한 방법</a></li><li><a href="#s-2-2-">2.2. Hopcroft-Karp Algorithm</a></li></ul></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                <p> 최근 수정 시각: 2020-09-03 13:41:44 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/matching-on-bipartite.md"><div class="button">편집</div></a>
