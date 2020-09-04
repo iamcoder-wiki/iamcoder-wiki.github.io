@@ -135,7 +135,8 @@ function updateList() {
     else searchState = 1;
     let res = search_data[text];
     if (res) {
-        res.slice(0, 10);
+        res = res.slice(0, 10);
+        res = res.sort();
         if (list !== res) selected = null;
         list = res;
 

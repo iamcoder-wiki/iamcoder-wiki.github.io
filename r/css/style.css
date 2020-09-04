@@ -216,6 +216,7 @@ body {
 }
 
 .main {
+    margin-top: 20px;
     max-width: 100%;
     width: 600px;
 }
@@ -400,6 +401,7 @@ code {
 
 pre {
     overflow-x: auto;
+    tab-size: 4;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
