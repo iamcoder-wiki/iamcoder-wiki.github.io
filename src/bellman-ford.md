@@ -1,4 +1,4 @@
-# Bellman-Ford
+# Bellman-Ford Algorithm
 ## 소개
 벨만-포드(Bellman-Ford) 알고리즘은 [[ Dijkstra ]] 알고리즘과 같이 한 점에서부터 모든 점까지의 최단 경로와 거리를 구할 수 있는 알고리즘이다. 벨만-포드 알고리즘은 [[ Dijkstra ]] 알고리즘이 음수 간선이 있는 그래프에서 최단 경로를 구할 수 없다는 단점을 해결하기 위해 사용한다. 
 
