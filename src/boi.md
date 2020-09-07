@@ -1,2 +1,2 @@
-# BOI
+# BalticOI
 
