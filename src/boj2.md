@@ -1,2 +1,2 @@
 # Baekjoon Online Judge
-[[ BOJ ]]
+<script>window.location.href = "https://iamcoder.wiki/w/BOJ/";</script>
