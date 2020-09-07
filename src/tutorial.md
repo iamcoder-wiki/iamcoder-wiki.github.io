@@ -27,6 +27,7 @@
 - [[ Divide & Conquer ]]
 - [[ Binary Search ]]
   - [[ Parametric Search ]]
+  - [[ Parallel Binary Search ]]
 - [[ Greedy Algorithm ]]
 - [[ DP ]]
   - [[ LCS ]]
