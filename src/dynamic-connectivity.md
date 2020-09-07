@@ -1,1 +1,1 @@
-# Dynamic Connectivity
+# Dynamic Connectivity Problem
