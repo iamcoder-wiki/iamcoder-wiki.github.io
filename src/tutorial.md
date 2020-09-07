@@ -103,7 +103,7 @@
 ## OI 
 * [[ APIO ]]
 * [[ BalkanOI ]]
-* [[ BOI ]]
+* [[ BalticOI ]]
 * [[ CEOI ]]
 * [[ IOI ]]
 * [[ JOI ]]
