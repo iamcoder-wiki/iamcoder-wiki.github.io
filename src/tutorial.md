@@ -93,30 +93,25 @@
   * [[ Link Cut Tree ]]
 
 
-## 기타
+## OI 
+* [[ APIO ]]
+* [[ BalkanOI ]]
+* [[ BOI ]]
+* [[ CEOI ]]
+* [[ IOI ]]
+* [[ JOI ]]
+* [[ JOIOC ]]
+* [[ JOISC ]]
+* [[ KOI ]]
+* [[ POI ]]
+* [[ USACO ]]
 
-- [[ Additional Topics ]]
 
-
-## Problem Solving
-
-* [[ OI ]]
-  * [[ APIO ]]
-  * [[ BalkanOI ]]
-  * [[ BOI ]]
-  * [[ CEOI ]]
-  * [[ IOI ]]
-  * [[ JOI ]]
-  * [[ JOIOC ]]
-  * [[ JOISC ]]
-  * [[ KOI ]]
-  * [[ POI ]]
-  * [[ USACO ]]
-* [[ SITE ]]
-  * [[ Atcoder ]]
-  * [[ BOJ ]]
-  * [[ Codeforces ]]
-  * [[ Google Code Jam ]]
-  * [[ Koistudy ]]
-  * [[ NYPC ]]
-  * [[ OJ.UZ ]]
+## SITE
+* [[ Atcoder ]]
+* [[ BOJ ]]
+* [[ Codeforces ]]
+* [[ Google Code Jam ]]
+* [[ Koistudy ]]
+* [[ NYPC ]]
+* [[ OJ.UZ ]]
