@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BFenwick Tree%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BFenwick Tree%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-04 22:21:23 </p>
+                    <p> 최근 수정 시각: 2020-09-07 18:22:42 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -80,8 +80,8 @@ addOnload(writeTitle);
 <?xml version="1.0" encoding="UTF-8"?> <img src="/r/img/fenwick-tree1-c065a4cb22b12905.png" width = 500 >
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
 <p>Fenwick Tree에서 구간 노드들 간 이동을 할 때 각 구간 노드들의 번호를 이진수로 표현한 것을 사용한다. </p>
-<p><em>Update</em> 연산을 해주는 경우 \(i\)번째 구간 노드에 업데이트 해준 다음 \(\def\altand{&amp;} i + (i \altand -i) )\)번째 노드로 이동하여 업데이트를 해준다. 이 과정을 \(i\)가 Fenwick Tree에 저장한 원소 개수 \(N\)을 넘지 않는 동안 반복한다. </p>
-<p>구간 합 Fenwick Tree를 예로 들면, <em>Sum</em> 연산에서는 \(1\)번째 원소부터 \(i\)번째 원소 까지 합을 구한다. 이는 \(i\)번째 구간 노드의 합을 더한 다음 \(i - (i &amp; -i) )\)번째 노드로 이동하여 구간 노드의 합을 더해주는 과정을 <em>Update</em> 연산과 비슷하게 \(i&gt;0\)인 동안 반복하여 처리할 수 있다.</p>
+<p><em>Update</em> 연산을 해주는 경우 <code>i</code>번째 구간 노드에 업데이트 해준 다음 <code>(i + (i &amp; -i) )</code>번째 노드로 이동하여 업데이트를 해준다. 이 과정을 \(i\)가 Fenwick Tree에 저장한 원소 개수 \(N\)을 넘지 않는 동안 반복한다. </p>
+<p>구간 합 Fenwick Tree를 예로 들면, <em>Sum</em> 연산에서는 \(1\)번째 원소부터 \(i\)번째 원소 까지 합을 구한다. 이는 <code>i</code>번째 구간 노드의 합을 더한 다음 <code>i - (i &amp; -i) )</code>번째 노드로 이동하여 구간 노드의 합을 더해주는 과정을 <em>Update</em> 연산과 비슷하게 \(i&gt;0\)인 동안 반복하여 처리할 수 있다.</p>
 <pre><code class="language-c++">int fenwick_tree[MAX_N+1];
 
 void Update(int x, int y){ // x번째 원소가 y만큼 증가함
@@ -214,7 +214,7 @@ void Sum(int x){	// 1부터 y까지 원소들 합
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-04 22:21:23 </p>
+                <p> 최근 수정 시각: 2020-09-07 18:22:42 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/fenwick-tree.md"><div class="button">편집</div></a>
