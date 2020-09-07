@@ -89,7 +89,7 @@ addOnload(writeTitle);
 <h3 class="heading"><a href="#s-3-2-" id="s-3-2-">3.2.</a> Dijkstra</h3>
 <p><a class="no-link" href="/w/Dijkstra">Dijkstra</a> 참고</p>
 <h3 class="heading"><a href="#s-3-3-" id="s-3-3-">3.3.</a> 0-1 Knapsack Problem</h3>
-<p>배낭 문제(Knapsack Problem)은 두 가지 종류가 있는데, <a class="no-link" href="/w/Greedy%20Algorithm">Greedy Algorithm</a>으로 해결할 수 있는 분할 가능 배낭문제(Fractional Knapsack Problem)와 달리 0-1 배낭 문제(0-1 Knapsack Problem)는 동적 계획법을 사용해서 해결해야 한다.</p>
+<p>배낭 문제(Knapsack Problem)은 두 가지 종류가 있는데, <a href="/w/Greedy%20Algorithm">Greedy Algorithm</a>으로 해결할 수 있는 분할 가능 배낭문제(Fractional Knapsack Problem)와 달리 0-1 배낭 문제(0-1 Knapsack Problem)는 동적 계획법을 사용해서 해결해야 한다.</p>
 <p>0-1 Knapsack Problem은 각 물건들마다 무게 \(w_i\)와 가치 \(v_i\)가 주어져 있고 가방에 담을 수 있는 최대 무게 \(S\)가 주어졌을 때, 최대 무게를 넘지 않게 가방에 물건들을 담았을 때 얻을 수 있는 가치의 합의 최댓값을 구하는 문제다.</p>
 <p>이 문제를 동적 계획법으로 풀기 위해 점화식을 세워보면 \(i\)번 물건까지 고려했을 때 총 무게가 \(j\)인 경우 가치 합의 최댓값을 \(DP(i, j)\)라 하면 \(DP(i, j) = max(DP(i-1, j), DP(i-1, j-w_i) + v_i)\)로 표현할 수 있다. 이때 전체 문제를 해결하기 위해서는 \(N \times S\)개의 부분 문제를 해결하면 되기 때문에 \(O(NS)\) 시간복잡도로 문제를 해결할 수 있다.</p>
 
