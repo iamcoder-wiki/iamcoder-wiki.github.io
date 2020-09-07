@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <meta property="og:title" content="Floyd-Warshall - IamCoder Wiki"/>
-    <title>Floyd-Warshall - IamCoder Wiki</title>
+    <meta property="og:title" content="Floyd-Warshall Algorithm - IamCoder Wiki"/>
+    <title>Floyd-Warshall Algorithm - IamCoder Wiki</title>
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
@@ -49,10 +49,10 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/floyd-warshall.md"><div class="button">편집</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/floyd-warshall.md"><div class="button">역사</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/floyd-warshall.md"><div class="button hs">Github에서 보기</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BFloyd-Warshall%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BFloyd-Warshall%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BFloyd-Warshall Algorithm%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BFloyd-Warshall Algorithm%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-03 13:58:39 </p>
+                    <p> 최근 수정 시각: 2020-09-07 13:48:37 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -63,7 +63,7 @@ function sleep(ms) {
 }
 
 async function writeTitle() {
-    let s = ["F_", "Fl_", "Flo_", "Floy_", "Floyd_", "Floyd-_", "Floyd-W_", "Floyd-Wa_", "Floyd-War_", "Floyd-Wars_", "Floyd-Warsh_", "Floyd-Warsha_", "Floyd-Warshal_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall", "Floyd-Warshall", "Floyd-Warshall", "Floyd-Warshall", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall_", "Floyd-Warshall"];
+    let s = ["F_", "Fl_", "Flo_", "Floy_", "Floyd_", "Floyd-_", "Floyd-W_", "Floyd-Wa_", "Floyd-War_", "Floyd-Wars_", "Floyd-Warsh_", "Floyd-Warsha_", "Floyd-Warshal_", "Floyd-Warshall_", "Floyd-Warshall _", "Floyd-Warshall A_", "Floyd-Warshall Al_", "Floyd-Warshall Alg_", "Floyd-Warshall Algo_", "Floyd-Warshall Algor_", "Floyd-Warshall Algori_", "Floyd-Warshall Algorit_", "Floyd-Warshall Algorith_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm", "Floyd-Warshall Algorithm", "Floyd-Warshall Algorithm", "Floyd-Warshall Algorithm", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm_", "Floyd-Warshall Algorithm"];
     let title = document.getElementsByClassName('title')[0];
     for(let i in s) {
         title.innerHTML = s[i];
@@ -75,7 +75,7 @@ addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
-<p>플로이드-워셜(Floyd-Warshall) 알고리즘은 한 정점으로부터 다른 모든 정점까지의 최단 경로를 구하는 <a href="/w/Dijkstra">Dijkstra</a> 알고리즘이나 <a class="no-link" href="/w/Bellman-Ford">Bellman-Ford</a> 알고리즘과는 다르게 모든 정점에서부터 모든 정점까지의 최단 경로를 구할 수 있는 알고리즘이다. 음수 간선이 있지만, 음수 사이클은 없는 그래프에서도 동작하며, 구현은 매우 간단하지만 시간복잡도가 \(O(|V|^3)\)으로 느린 알고리즘이다.</p>
+<p>플로이드-워셜(Floyd-Warshall) 알고리즘은 한 정점으로부터 다른 모든 정점까지의 최단 경로를 구하는 <a class="no-link" href="/w/Dijkstra%20Algorithm">Dijkstra Algorithm</a>이나 <a href="/w/Bellman-Ford%20Algorithm">Bellman-Ford Algorithm</a>과는 다르게 모든 정점에서부터 모든 정점까지의 최단 경로를 구할 수 있는 알고리즘이다. 음수 간선이 있지만, 음수 사이클은 없는 그래프에서도 동작하며, 구현은 매우 간단하지만 시간복잡도가 \(O(|V|^3)\)으로 느린 알고리즘이다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 원리</h2>
 <p>만약 현재 찾은 \(i\)에서 \(j\)로 가는 경로가 \(k\)를 경유하는 경로<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup>보다 길다면  \(i\)에서 \(j\)로 가는 최단 거리을 갱신해줘야 한다. Floyd-Warshall 알고리즘은 \(0\)번 정점부터 \(|V|-1\)까지 정점을 경유지로 하는 경로들에 대해 최단 시간을 갱신하는 과정을 반복한다.</p>
 <p>음의 가중치를 갖는 사이클이 있는 경우 이 사이클에 속하는 정점에서 사이클을 이용하여 자신으로 돌아오면 이동한 거리가 음수이므로 최단 거리가 음수로 바뀌게 된다. 따라서 어떤 \(i\)에 대해 \(dist[i][i] &lt; 0\)이면 음수 사이클이 있음을 알 수 있다.</p>
@@ -114,14 +114,14 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-03 13:58:39 </p>
+                <p> 최근 수정 시각: 2020-09-07 13:48:37 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/floyd-warshall.md"><div class="button">편집</div></a>
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/floyd-warshall.md"><div class="button">역사</div></a>
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/floyd-warshall.md"><div class="button">Github에서 보기</div></a>
-                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BFloyd-Warshall%5D+"><div class="button">토론 생성하기</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BFloyd-Warshall%5D"><div class="button">진행중인 토론</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BFloyd-Warshall Algorithm%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BFloyd-Warshall Algorithm%5D"><div class="button">진행중인 토론</div></a>
                 </div>
             </div>
         </div>
