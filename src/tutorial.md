@@ -1,10 +1,14 @@
 # Tutorial
 
+---
+
 ## 소개
 
 - [[ 사이트 소개 ]]
 - [[ IamCoder ]]
 - [[ iamcoder:문법 ]]
+
+---
 
 ## 알고리즘
 
@@ -19,6 +23,8 @@
 - [[ Geometry ]]
 - [[ String ]]
 
+---
+
 ## 자료구조
 
 * [[ Basic Data Structure ]]
@@ -27,9 +33,13 @@
 * [[ Segment Tree ]]
 * [[ Advanced Data Structure ]]
 
+---
+
 ## 기타
 
 - [[ Additional Topics ]]
+
+---
 
 ## Problem Solving
 
