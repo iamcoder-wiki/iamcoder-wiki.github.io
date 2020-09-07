@@ -1,2 +1,2 @@
 # 이분 탐색
-[[ Binary Search ]]
+<script>window.location.href = "https://iamcoder.wiki/w/Binary%20Search/";</script>
