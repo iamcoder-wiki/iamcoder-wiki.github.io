@@ -21,7 +21,7 @@
   - [[ Counting Sort ]]
   - [[ Radix Sort ]]
   - [[ Intro Sort ]]
-  - [[ STL Sort|Intro Sort/#s-2- ]]
+  - [[ STL Sort ]]
 - [[ DFS ]]
 - [[ BFS ]]
 - [[ Divide & Conquer ]]
