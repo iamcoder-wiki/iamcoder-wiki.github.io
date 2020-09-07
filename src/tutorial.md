@@ -26,6 +26,7 @@
 - [[ BFS ]]
 - [[ Divide & Conquer ]]
 - [[ Binary Search ]]
+  - [[ Ternary Search ]]
   - [[ Parametric Search ]]
   - [[ Parallel Binary Search ]]
 - [[ Greedy Algorithm ]]
@@ -36,6 +37,7 @@
   - [[ Dijkstra Algorithm ]]
   - [[ Bellman-Ford Algorithm ]]
   - [[ Floyd-Warshall Algorithm ]]
+  - [[ SPFA ]]
 - [[ Heavy-Light Decomposition ]]
 - [[ Sqrt Decomposition ]]
 - [[ Mo's Algorithm ]]
@@ -48,20 +50,31 @@
 - [[ SCC ]]
 - [[ BCC ]]
 - [[ Network Flow ]]
+  - [[ Ford-Fulkerson Algorithm ]]
+  - [[ Edmonds-Karp Algorithm ]]
   - [[ Matching on Bipartite ]]
   - [[ Minimum Cost Maximum Flow ]]
 - [[ Geometry ]]
   - [[ Convex Hull ]]
   - [[ Rotating Callipers ]]
 - [[ String ]]
-  - [[ KMP ]]
+  - [[ KMP Algorithm ]]
   - [[ Manacher Algorithm ]]
   - [[ Hashing ]]
   - [[ Trie ]]
   - [[ Suffix Array ]]
   - [[ Z Algorithm ]]
   - [[ Aho-Corasick ]]
-
+  - [[ Rabin-Karp Algorithm ]]
+- [[ Math ]]
+  - [[ Greatest Common Divisor ]]
+  - [[ Modular Multiplicative Inverse ]]
+  - [[ Binomial Coefficients ]]
+  - [[ Nim Game ]]
+  - [[ Grundy Number ]]
+- [[ Meet in the Middle ]]
+- [[ Sliding Window ]]
+- [[ Dynamic Connectivity Problem ]]
 
 ## 자료구조
 
@@ -99,6 +112,8 @@
 * [[ Advanced Data Structure ]]
   * [[ Splay Tree ]]
   * [[ Link Cut Tree ]]
+  * [[ Treap ]]
+
 
 
 ## OI 
