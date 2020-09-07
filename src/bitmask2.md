@@ -1,2 +1,2 @@
 # 비트마스크
-[[ Bitmask ]]
+<script>window.location.href = "https://iamcoder.wiki/w/Bitmask/";</script>
