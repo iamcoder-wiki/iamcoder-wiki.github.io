@@ -10,6 +10,7 @@
 
 ## 알고리즘
 
+- [[ Backtracking ]]
 - [[ Sort ]]
   - [[ Bubble Sort ]]
   - [[ Selection Sort ]]
@@ -29,6 +30,7 @@
 - [[ Greedy Algorithm ]]
 - [[ DP ]]
   - [[ LCS ]]
+  - [[ Sparse Table ]]
 - [[ Shortest Path ]]
   - [[ Dijkstra Algorithm ]]
   - [[ Bellman-Ford Algorithm ]]
@@ -42,6 +44,8 @@
   - [[ Divide & Conquer Optimization ]]
   - [[ Knuth Optimization ]]
   - [[ Convex Hull Trick ]]
+- [[ SCC ]]
+- [[ BCC ]]
 - [[ Network Flow ]]
   - [[ Matching on Bipartite ]]
   - [[ Minimum Cost Maximum Flow ]]
@@ -52,8 +56,11 @@
   - [[ KMP ]]
   - [[ Manacher Algorithm ]]
   - [[ Hashing ]]
+  - [[ Trie ]]
   - [[ Suffix Array ]]
+  - [[ Z Algorithm ]]
   - [[ Aho-Corasick ]]
+
 
 ## 자료구조
 
