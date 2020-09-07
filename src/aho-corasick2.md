@@ -1,2 +1,2 @@
 # 아호 코라식
-[[ Aho-Corasick ]]
+<script>window.location.href = "https://iamcoder.wiki/w/Aho-Corasick/";</script>
