@@ -1,4 +1,4 @@
-# Dijkstra
+# Dijkstra Algorithm
 
 ## 소개
 
