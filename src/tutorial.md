@@ -52,6 +52,7 @@
 - [[ Network Flow ]]
   - [[ Ford-Fulkerson Algorithm ]]
   - [[ Edmonds-Karp Algorithm ]]
+  - [[ Dinic Algorithm ]]
   - [[ Matching on Bipartite ]]
   - [[ Minimum Cost Maximum Flow ]]
 - [[ Geometry ]]

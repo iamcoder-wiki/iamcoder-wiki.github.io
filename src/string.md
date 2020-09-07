@@ -6,7 +6,7 @@
 
 ## 관련 알고리즘
 
-* [[ KMP ]]
+* [[ KMP Algorithm ]]
 * [[ Manacher Algorithm ]]
 * [[ Hashing ]]
 * [[ Suffix Array ]]
