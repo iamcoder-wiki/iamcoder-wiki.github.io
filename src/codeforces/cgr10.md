@@ -1,4 +1,4 @@
-# Codeforces Global Round 10
+# Codeforces/Global Round 10
 
 ## A
 
