@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BHeavy-Light Decomposition%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BHeavy-Light Decomposition%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-31 19:17:33 </p>
+                    <p> 최근 수정 시각: 2020-09-08 04:20:52 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/justiceHui" target="_blank"><span title="justiceHui"><img src="https://github.com/justiceHui.png?size=32" width="24" height="24" alt="@justiceHui"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -77,7 +77,7 @@ addOnload(writeTitle);
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
 <p>HLD는 트리에 대한 연산을 긴 직선에 대한 연산처럼 바꾸어 할 수 있도록 하는 방법입니다.
 따라서, 이 글을 이해하기 위해서는, <a href="/w/Segment%20Tree">Segment Tree</a>, <a href="/w/DFS">DFS</a>, <a href="/w/LCA">LCA</a> 등에 대한 이해가 필요합니다. </p>
-<p>HLD는 Heavy Light Decomposition 의 약자로서, 간선을 무거운 간선과 가벼운 간선으로 나누어 분류해 관리하는 방법입니다. 이를 위해서는 트리가 rooted Tree여야 합니다.(Root를 하나로 정해야 합니다) 그리고 트리의 정점의 무게를 그 정점의 Subtree의 크기로 정의합시다. 그리고 부모와 자식을 잇는 간선 중에 자식이 부모의 무게의 반 이상인 간선을 무거운 간선으로 정의합시다.</p>
+<p>HLD는 Heavy Light Decomposition 의 약자로서, 간선을 무거운 간선과 가벼운 간선으로 나누어 분류해 관리하는 방법입니다. 이를 위해서는 트리가 rooted Tree여야 합니다.(Root를 하나로 정해야 합니다) 정점의 무게를 그 정점을 루트로 하는 서브 트리 내의 정점 개수로 정의합시다. 그리고 부모와 자식을 잇는 간선 중에 자식이 부모의 무게의 반 이상인 간선을 무거운 간선으로 정의합시다.</p>
 <p>그러면 여기서 두 가지 사실을 이끌어낼 수 있습니다. </p>
 <ul>
 <li>
@@ -192,7 +192,7 @@ int query(int u,int v){
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-31 19:17:33 </p>
+                <p> 최근 수정 시각: 2020-09-08 04:20:52 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/justiceHui" target="_blank"><span title="justiceHui"><img src="https://github.com/justiceHui.png?size=32" width="24" height="24" alt="@justiceHui"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/heavy-light-decomposition.md"><div class="button">편집</div></a>
