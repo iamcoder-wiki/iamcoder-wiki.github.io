@@ -1,4 +1,4 @@
-# 수열과 쿼리
+# BOJ/수열과 쿼리
 ## 수열과 쿼리 0
 [문제](https://www.acmicpc.net/problem/13545)
 
