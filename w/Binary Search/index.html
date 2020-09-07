@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBinary Search%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBinary Search%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                    <p> 최근 수정 시각: 2020-09-07 18:18:15 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 </div>
                 <main>
@@ -74,16 +74,38 @@ async function writeTitle() {
 addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
+<p>이분 탐색(Binary Search)는 정렬된 배열에서 원하는 값을 \(O(\log N)\) 시간복잡도에 찾는 알고리즘이다. </p>
+<p>간단한 알고리즘이라 생각할 수 있지만, 시간복잡도를 줄이는 것이 궁극적인 목표인 알고리즘 문제 풀이 과정에서 이분 탐색은 \(O(\log N)\)이 붙는 여러 시간복잡도의 근본이 되는 아이디어라고 볼 수 있다.</p>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Code</h2>
+<pre><code class="language-c++">int find(int x){
+	int s = 0, e = (int)v.size()-1, m;
+	while(1){
+		m = (s+e)/2;
+		if(v[m] == x)	return m;
+		if(v[m]&gt;x){
+			s = m+1;
+		}else{
+			e = m-1;
+		}
+	}
+}
+</code></pre>
+<h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 관련 알고리즘</h2>
+<ul>
+<li><a href="/w/Parametric%20Search">Parametric Search</a></li>
+<li><a href="/w/Parallel%20Binary%20Search">Parallel Binary Search</a></li>
+</ul>
 
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. 소개</a></li><li><a href="#s-2-">2. Code</a></li><li><a href="#s-3-">3. 관련 알고리즘</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-16 21:30:14 </p>
+                <p> 최근 수정 시각: 2020-09-07 18:18:15 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/binary-search.md"><div class="button">편집</div></a>
