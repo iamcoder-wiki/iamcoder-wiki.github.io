@@ -78,7 +78,7 @@
 	- [[ Queue ]]
 	- [[ Heap ]]
 	- [[ Tree ]]
-- [[Graph Traversal]]
+- [[ Graph Traversal ]]
 	- [[ DFS ]]
 	- [[ Tree Diameter ]]
 	- [[ BFS ]]
