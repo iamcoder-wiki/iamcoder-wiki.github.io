@@ -5,7 +5,6 @@
 ## 소개
 
 - [[ 사이트 소개 ]]
-- [[ IamCoder ]]
 - [[ iamcoder:문법 ]]
 
 
@@ -83,7 +82,7 @@
 		- [[ Bellman-Ford Algorithm ]]
 		- [[ Floyd-Warshall Algorithm ]]
 		- [[ SPFA ]]
-	- [[ SCC ] / [[ BCC ]]
+	- [[ SCC ]] / [[ BCC ]]
 	- [[ Sparse Table ]]
 	- [[ Lowest Common Ancestor ]]
 - Data Structure 
@@ -93,7 +92,7 @@
 	- [[ Binary Indexed Tree ]]
 - String Algorithm
 	- [[ Hashing ]]
-	- [[ KMP Algorithm]]
+	- [[ KMP Algorithm ]]
 	- [[ Trie ]]
 	- [[ Manacher Algorithm ]]
 	- [[ Z Algorithm ]]
@@ -117,7 +116,7 @@
 
 ### 고급
 - [[ Using Random ]]
-- [ Parallel Binary Search ]]
+- [[ Parallel Binary Search ]]
 - String
 	- [[ Suffix Array ]]
 	- [[ Longest Common Prefix ]]
@@ -235,9 +234,9 @@
 - [[ Codeforces ]]
 - [[ Topcoder ]]
 ### Online Judge
-[[ BOJ ]]
-[[ Koistudy ]]
-[[ OJ.UZ ]]
+- [[ BOJ ]]
+- [[ Koistudy ]]
+- [[ OJ.UZ ]]
 ### 개인 주최 대회
 - [[ 키파컵 ]]
 - [[ Good Bye, BOJ ]]
