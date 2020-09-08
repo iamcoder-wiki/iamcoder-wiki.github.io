@@ -9,7 +9,7 @@
 
 
 ## C, C++ 기초 문법
-- [[ 프로그래밍 언어 ]]
+- [[ Programming Language ]]
 - [[ C ]]
 - [[ C++ ]]
 - [[ Standard IO ]]
@@ -47,11 +47,11 @@
 - [[ Pair ]] / [[ Tuple ]]
 ### STL 내장 함수
 - [[ STL ]]
-- [[ STL/Sort ]]
-- [[ STL/Unique ]]
-- [[ STL/Reverse ]]
-- [[ STL/Iterator ]]
-- [[ STL/ItoA ]]
+- [[ Sort|STL Sort ]]
+- [[ Unique ]]
+- [[ Reverse ]]
+- [[ Iterator ]]
+- [[ ItoA ]]
 
 ### Compiler Extensions
 - [[ Compiler Extensions ]]
