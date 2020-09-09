@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCodeforces/Round 669%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCodeforces/Round 669%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-09 09:59:03 </p>
+                    <p> 최근 수정 시각: 2020-09-09 10:23:37 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -89,6 +89,9 @@ addOnload(writeTitle);
 <p><a href="https://codeforces.com/contest/1407/problem/D" class="outer">D. Discrete Centrifugal Jumpse</a></p>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> E</h2>
 <p><a href="https://codeforces.com/contest/1407/problem/E" class="outer">E. Egor in the Republic of Dagestan</a></p>
+<p>문제에서 주어진 방향 그래프에서 모든 에지의 방향을 반대로 뒤집은 다음 \(N\)번 정점에서 색깔이 \(i\)인 \(j\)번째 정점까지 최단거리를 \(dist[i][j]\)라 하자. 최종적으로 \(i\)번째 정점의 색깔은 \(dist[0][i]\)와 \(dist[1][i]\)중 큰 값으로 정해질 것이며, 이렇게 \(i\)번째 정점의 색이 정해지면 \(N\)번 정점부터 \(i\)번 정점까지 최단 거리가 정해진 것이므로 마찬가지로 \(i\)와 이어진 정점들의 \(dist\)를 채워나갈 수 있으므로 이를 반복하면 <a href="/w/BFS">BFS</a>를 이용하여 \(dist[i][j]\) 값들을 채워나갈 수 있다. </p>
+<p><a href="/w/BFS">BFS</a>를 모두 진행하였을 때 \(1\)번 정점의 색이 정해지는 경우 \(1\)번 정점부터 \(N\)번 정점까지 최단 거리를 최대화하는 방법이 정해진 것이다. 하지만 \(1\)번 정점의 색이 정해지지 않은 경우, \(1\)번 정점에서 \(N\)번 정점까지 도달할 수 없도록 정점들의 색을 정할 수 있다는 뜻이 된다.</p>
+<p><a href="/w/BFS">BFS</a>가 끝났을 때 아직 색이 정해지지 않은 정점들은 3가지가 있을 수 있는데, \(dist[0][i]\)만 결정된 경우 그 정점의 색을 1로 정해주면 되고, 마찬가지로 \(dist[1][i]\)만 결정되었으면 그 정점의 색을 0으로 정해주면 된다. 만약 두 값이 모두 결정되어있지 않으면 정점의 색으로 아무 값을 정하여도 상관이 없다. 이렇게 색이 정해지지 않은 정점의 색을 정해주면 \(1\)번 정점부터 \(N\)번 정점까지의 최단거리를 최대화할 수 있다.</p>
 
                 </main>
             </div>
@@ -98,7 +101,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-09 09:59:03 </p>
+                <p> 최근 수정 시각: 2020-09-09 10:23:37 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/codeforces/cfr669.md"><div class="button">편집</div></a>
