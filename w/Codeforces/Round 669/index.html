@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCodeforces/Round 669%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCodeforces/Round 669%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-09 10:48:25 </p>
+                    <p> 최근 수정 시각: 2020-09-09 11:15:23 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -90,7 +90,7 @@ addOnload(writeTitle);
 <p>만약 한 건물에서 점프해서 올 수 있는 위치를 모두 구하면 다음과 같이 <a href="/w/DP">DP</a>으로 풀 수 있다. </p>
 <p>$$dp(i) = \min_{j \in jump(i)} (dp(j) + 1)$$</p>
 <p>그러면 점프해서 올 수 있는 곳을 구해야 한다. 조건 2와 3이 대칭이므로 조건 2에 대해서 서술하면, \(i\)번째 건물에서 올 수 있는 위치를 구하는 것을 생각해보자. \(i - 1\)번째 건물부터 \(0\)번째 건물까지 누적 최댓값을 만들게 되었을 때, 값이 변하는 위치에서만 후보가 있다. 다른 위치에서는 그 건물의 높이와 \(i\)번째 건물의 높이의 최솟값보다 큰 건물이 존재하기 때문이다.</p>
-<p>그러면 값이 변하는 부분만 필요하므로, 스택을 사용해서 관리할 수 있다. \(i\)번째 건물을 스택에 넣으려고 하면 스택 위쪽에 \(i\)번째 건물보다 낮거나 같은 건물들을 모두 빼면 스택 내부는 항상 값이 변하는 위치만 저장된다. 또한 모든 원소가 스택에 한 번 들어가고 한 번 빠져나오므로 시간복잡도는 \(O(n)\)이 된다.</p>
+<p>값이 변하는 부분만 필요하므로, 스택을 사용해서 관리할 수 있다. \(i\)번째 건물을 스택에 넣으려고 하면 스택 위쪽에 \(i\)번째 건물보다 낮거나 같은 건물들을 모두 빼면 스택 내부는 항상 값이 변하는 위치만 저장된다. 또한 모든 원소가 스택에 한 번 들어가고 한 번 빠져나오므로 시간복잡도는 \(O(n)\)이 된다.</p>
 <p>이제 점프할 수 있는 위치들을 구하자. 점프할 수 있는 위치들은 후보들 중 \(i\)보다 작은 건물들이고 나머지 후보 중 가장 작은 건물까지 점프해서 올 수 있는 건물들이다. 그 이외의 후보들에 대해서는 \(i\)번째 건물이 높이가 다른 건물보다 작은데, 그 사이에 있는 건물 중 더 큰 건물이 있기 떄문에 점프할 수 없다.</p>
 <p>따라서 스택에서 뽑아지는 원소들이 점프할 수 있는 위치들이고 위와 같은 이유로 시간복잡도는 \(O(n)\)이다. </p>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> E</h2>
@@ -107,7 +107,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-09 10:48:25 </p>
+                <p> 최근 수정 시각: 2020-09-09 11:15:23 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/codeforces/cfr669.md"><div class="button">편집</div></a>
