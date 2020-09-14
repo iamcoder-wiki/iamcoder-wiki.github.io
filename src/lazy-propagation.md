@@ -18,7 +18,7 @@ Segment Tree에서 Lazy Propagation을 사용한다면 구간 갱신 쿼리, 구
 
 ## 작동 원리
 
- 설명에 들어가기에 앞서, 헷갈리지 않게 용어들을 먼저 정리합시다. 세그먼트 트리에는 노드들의 이름인 [노드 번호] 와, 각각의 노드들이 관리하는 [인덱스 구간]이 있습니다.
+설명에 들어가기에 앞서, 헷갈리지 않게 용어들을 먼저 정리합시다. 세그먼트 트리에는 노드들의 이름인 [노드 번호] 와, 각각의 노드들이 관리하는 [인덱스 구간]이 있습니다.
 
 <img src="./lazy-propagation/lazy_propagation_1.png" width = 400 >
 
@@ -26,4 +26,12 @@ Segment Tree에서 Lazy Propagation을 사용한다면 구간 갱신 쿼리, 구
 
 <img src="./lazy-propagation/lazy_propagation_2.png" width = 400 >
 
-  이제 정의는 끝났으니 Lazy Propagation에 대해 알아봅시다. 이해를 돕기 위해, 특정 구간에 \\(\pm x)를 하거나, 특정 구간의 총 합을 구하는 Segment Tree를 생각해 봅시다.
+이제 정의는 끝났으니 Lazy Propagation에 대해 알아봅시다. 이해를 돕기 위해, 특정 구간에 \\(\pm x \\)를 하거나, 특정 구간의 총 합을 구하는 Segment Tree를 생각해 봅시다.
+
+<img src="./lazy-propagation/lazy_propagation_3.png" width = 400 >
+
+위 모습은 구간 [1,6] 의 원소가 각각 2,5,3,4,3,5 인 합 세그먼트 트리입니다. 한번 구간 [2,4]에 2를 더해봅시다. 바뀐 모습은 아래와 같습니다.
+
+<img src="./lazy-propagation/lazy_propagation_4.png" width = 400 >
+
+합 세그를 유지하기 위해 1,2,4,5,10,11번 노드가 값이 변경되었습니다. 만약에 전체 구간의 값을 변경한다면 세그의 모든 노드의 값을 바꿔야 할 것입니다. 그렇다면 당연히 쿼리당 logn 의 시간을 유지할 수 없습니다.
