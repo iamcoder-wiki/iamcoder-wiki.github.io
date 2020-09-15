@@ -52,7 +52,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BLazy Propagation%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BLazy Propagation%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-08-27 22:08:00 </p>
+                    <p> 최근 수정 시각: 2020-09-14 23:28:32 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/red1108" target="_blank"><span title="red1108"><img src="https://github.com/red1108.png?size=32" width="24" height="24" alt="@red1108"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -84,10 +84,14 @@ addOnload(writeTitle);
 <p>Segment Tree에서 Lazy Propagation을 사용한다면 구간 갱신 쿼리, 구간 질의 쿼리를 모두 해결할 수 있습니다. 물론 시간복잡도는 그대로입니다. ( 쿼리당 \(O(\log N)\) ). 어떻게 해결할까요? 이름에서 알 수 있듯이, 바로 &quot;게으른 전파&quot;를 통해서입니다.</p>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 작동 원리</h2>
 <p>설명에 들어가기에 앞서, 헷갈리지 않게 용어들을 먼저 정리합시다. 세그먼트 트리에는 노드들의 이름인 [노드 번호] 와, 각각의 노드들이 관리하는 [인덱스 구간]이 있습니다.</p>
-<img src="/r/img/lazy_propagation_1-c87e12e809bfde78.png" width = 400 >
+<img src="/r/img/lazy_propagation_1-c3908f77a623a048.png" width = 400 >
 <p>[노드 번호] 는, 어디까지나 Segment Tree의 1-based 구현 방식에서 자동으로 붙여지는 번호를 기준으로 하고 있습니다.</p>
 <img src="/r/img/lazy_propagation_2-3f6184297d05f2f5.png" width = 400 >
-<p>이제 정의는 끝났으니 Lazy Propagation에 대해 알아봅시다. 이해를 돕기 위해, 특정 구간에 \(\pm x)를 하거나, 특정 구간의 총 합을 구하는 Segment Tree를 생각해 봅시다.</p>
+<p>이제 정의는 끝났으니 Lazy Propagation에 대해 알아봅시다. 이해를 돕기 위해, 특정 구간에 \(\pm x \)를 하거나, 특정 구간의 총 합을 구하는 Segment Tree를 생각해 봅시다.</p>
+<img src="/r/img/lazy_propagation_3-b0eca5340020dd6e.png" width = 400 >
+<p>위 모습은 구간 [1,6] 의 원소가 각각 2,5,3,4,3,5 인 합 세그먼트 트리입니다. 한번 구간 [2,4]에 2를 더해봅시다. 바뀐 모습은 아래와 같습니다.</p>
+<img src="/r/img/lazy_propagation_4-962eff0087a7b725.png" width = 400 >
+<p>합 세그를 유지하기 위해 1,2,4,5,10,11번 노드가 값이 변경되었습니다. 만약에 전체 구간의 값을 변경한다면 세그의 모든 노드의 값을 바꿔야 할 것입니다. 그렇다면 당연히 쿼리당 logn 의 시간을 유지할 수 없습니다.</p>
 
                 </main>
             </div>
@@ -97,7 +101,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-08-27 22:08:00 </p>
+                <p> 최근 수정 시각: 2020-09-14 23:28:32 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/red1108" target="_blank"><span title="red1108"><img src="https://github.com/red1108.png?size=32" width="24" height="24" alt="@red1108"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/lazy-propagation.md"><div class="button">편집</div></a>
