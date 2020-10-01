@@ -23,3 +23,7 @@ __Codeforces Global Round__
 ### CGR 10
 [[ Codeforces/Global Round 10 ]] 참고
 
+## 기타
+
+### Grakn Forces 2020
+[[ Codeforces/Grakn Forces 2020 ]] 참고
