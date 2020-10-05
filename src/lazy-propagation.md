@@ -63,3 +63,95 @@ Segment Tree에서 Lazy Propagation을 사용한다면 구간 갱신 쿼리, 구
 
 1. Top-Down 탐색 방식에서, 두 자식 노드를 방문한 뒤에 현재 노드의 값도 갱신해야 합니다.
 2. 교환법칙이 성립하지 않는 두 개 이상의 Lazy를 관리해야 하는 경우에는, 동시에 여러 Lazy가 존재하도록 하면 안됩니다. 따라서 Lazy를 전파시킬 때, 자식노드에 원래 있던 Lazy를 먼저 내려 주어야 합니다.
+
+아래는 위의 예제에서 사용한 합 세그먼트 트리에서의 Lazy Propagation을 구현한 코드입니다. 구체적인 구현은, 코드를 보면서 이해해보는 것을 추천합니다.
+​
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long INT;
+const int MAX_SEG=4000010;
+struct segtree{
+    int N,SIZE; 
+    INT seg[MAX_SEG],lazy[MAX_SEG];
+    segtree(){
+        SIZE=1;
+        fill(seg,seg+SIZE,0);
+        fill(lazy,lazy+SIZE,0);
+    }
+    void init()
+    {
+        for(int i=SIZE-1;i>=1;i--)
+            seg[i]=seg[i*2]+seg[i*2+1];
+    }
+    void propagate(int x, int s, int e)
+    {
+        if(lazy[x])
+        {
+            seg[x]+=(lazy[x]*(e-s+1));
+            if(x<SIZE)
+            {
+                lazy[x*2]+=lazy[x];
+                lazy[x*2+1]+=lazy[x];
+            }
+            lazy[x]=0;
+        }
+    }
+    void add(int s, int e, int k){add(1,1,SIZE,s,e,k);} 
+    void add(int x, int l, int r, int s, int e, int k)
+    {
+        propagate(x,l,r);
+        if(l>r||r<s||e<l) return ;
+        if(s<=l&&r<=e)
+        {
+            lazy[x]+=k;
+            propagate(x,l,r);
+            return ;
+        }
+        add(x*2,l,(l+r)/2,s,e,k);
+        add(x*2+1,(l+r)/2+1,r,s,e,k);
+        seg[x]=seg[x*2]+seg[x*2+1];
+    }
+    INT sum(int s,int e){return sum(1,1,SIZE,s,e);}
+    INT sum(int x, int l, int r, int s, int e)
+    {
+        propagate(x,l,r);
+        if(l>r||r<s||e<l) return 0;
+        if(s<=l&&r<=e) return seg[x];
+        return sum(x*2,l,(l+r)/2,s,e)
+        +sum(x*2+1,(l+r)/2+1,r,s,e);
+    }
+}LP;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    int n,a,b,m;
+    int query,l,r,k;
+    cin>>n>>a>>b;
+    m=a+b;
+    LP.N=n;
+
+    while(LP.SIZE<LP.N) LP.SIZE*=2;
+
+    for(int i=1;i<=n;i++)
+    {
+        cin>>LP.seg[i+LP.SIZE-1];
+    }
+    LP.init();
+    for(int i=1;i<=m;i++)
+    {
+        cin>>query;
+        if(query==1)
+        {
+            cin>>l>>r>>k;
+            LP.add(l,r,k);
+        }
+        if(query==2)
+        {
+            cin>>l>>r;
+            cout<<LP.sum(l,r)<<"\n";
+        }
+    }
+}
+​```
