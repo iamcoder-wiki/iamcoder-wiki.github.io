@@ -126,7 +126,8 @@ let list = [];
 })();
 
 function goto(title) {
-    window.location = "/w/" + title;
+    console.log(title);
+    window.location.href = "/w/" + title;
 }
 
 function updateList() {
@@ -135,17 +136,17 @@ function updateList() {
     else searchState = 1;
     let res = search_data[text];
     if (res) {
-        res = res.slice(0, 10);
         res = res.sort();
+        res = res.slice(0, 10);
         if (list !== res) selected = null;
         list = res;
 
         let html = `<div class="search-result">`;
         for (let i = 0; i < list.length; i++) {
             if (selected === i) {
-                html += `<div class="selected" onmouseout="selected = null;updateList();" onclick="goto('` + list[i] + `')">` + list[i] + `</div>`;
+                html += `<div id="t-s-r-` + i + `" class="selected" onmouseenter="updateSelection(` + i + `);" onmouseleave="updateSelection(null);" onclick="goto('` + list[i] + `')">` + list[i] + `</div>`;
             } else {
-                html += `<div onmouseover="selected = ` + i + `;updateList();" onclick="goto('` + list[i] + `')">` + list[i] + `</div>`;
+                html += `<div id="t-s-r-` + i + `" onmouseenter="updateSelection(` + i + `);" onmouseleave="updateSelection(null);" onclick="goto('` + list[i] + `')">` + list[i] + `</div>`;
             }
         }
         html += `</div>`;
@@ -156,6 +157,21 @@ function updateList() {
         result.classList.add('hide');
         result.innerHTML = '';
     }
+}
+
+function updateSelection(after) {
+    if (selected === after) return;
+    if (selected !== null) {
+        console.log('t-s-r-' + selected);
+        let item = document.getElementById('t-s-r-' + selected);
+        item.classList.remove('selected');
+    }
+    if (after !== null) {
+        console.log('t-s-r-' + after);
+        let item = document.getElementById('t-s-r-' + after);
+        item.classList.add('selected');
+    }
+    selected = after;
 }
 
 function onKey(event, id, key, callback) {
@@ -201,23 +217,25 @@ function closeSearchBox() {
         });
 
         onKey(event, 40, "ArrowDown", function () {
-            if (selected === null) {
-                selected = 0;
+            let after = selected;
+            if (after === null) {
+                after = 0;
             } else {
-                selected++;
+                after++;
             }
-            if (selected >= list.length) selected = null;
-            updateList();
+            if (after >= list.length) after = null;
+            updateSelection(after);
         });
 
         onKey(event, 38, "ArrowUp", function () {
-            if (selected === null) {
-                selected = list.length - 1;
+            let after = selected;
+            if (after === null) {
+                after = list.length - 1;
             } else {
-                selected--;
+                after--;
             }
-            if (selected < 0) selected = null;
-            updateList();
+            if (after < 0) after = null;
+            updateSelection(after);
         })
 
         onKey(event, 27, "Escape", function () {
