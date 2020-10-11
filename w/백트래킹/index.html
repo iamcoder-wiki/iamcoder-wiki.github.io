@@ -28,7 +28,9 @@
 <div class="page">
     <div class="top-bar-w">
         <div class="top-bar">
-            <div class="logo"><a href="/"><img src="/logo.png" alt="IamCoder Wiki" height="33"/></a></div>
+            
+                <div class="logo"><a href="/"><img src="/logo.png" alt="백트래킹 - IamCoder Wiki" height="33"/></a></div>
+            
             <div class="search-w">
                 <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
                 <div class="search" id="t-s-button">
@@ -99,6 +101,43 @@ addOnload(writeTitle);
 </div>
 <script src="/r/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript" src="/r/js/wiki.js"></script>
+<script>
+    function footnote() {
+        let map = {};
+        let def = document.getElementsByClassName("footnote-definition");
+
+        for (let i = 0; i < def.length; i++) {
+            let id = def[i].id.substr(2);
+            map[id] = def[i].children[1];
+        }
+
+        let ref = document.getElementsByClassName("footnote-reference");
+
+        for (let i = 0; i < ref.length; i++) {
+            let id = ref[i].children[0].id;
+            let content = map[id.substr(2)];
+            tippy(ref[i], {
+                theme: 'footnote',
+                content: content.innerHTML,
+                allowHTML: true,
+                interactive: true,
+                interactiveBorder: 5,
+            });
+        }
+    }
+
+    window.MathJax = {
+        startup: {
+            ready: () => {
+                MathJax.startup.defaultReady();
+                MathJax.startup.promise.then(footnote);
+            }
+        }
+    };
+</script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -121,33 +160,5 @@ addOnload(writeTitle);
     </script>
     <!-- End Google Analytics -->
 
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-<script type="text/javascript" src="/r/js/wiki.js"></script>
-<script>
-    (function footnote() {
-        let map = {};
-        let def = document.getElementsByClassName("footnote-definition");
-
-        for (let i = 0; i < def.length; i++) {
-            let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
-        }
-
-        let ref = document.getElementsByClassName("footnote-reference");
-
-        for (let i = 0; i < ref.length; i++) {
-            let id = ref[i].children[0].id;
-            let content = map[id.substr(2)];
-            tippy(ref[i], {
-                theme: 'footnote',
-                content: content.innerHTML,
-                allowHTML: true,
-                interactive: true,
-                interactiveBorder: 5,
-            });
-        }
-    })();
-</script>
 </body>
 </html>

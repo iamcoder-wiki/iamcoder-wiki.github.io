@@ -162,12 +162,10 @@ function updateList() {
 function updateSelection(after) {
     if (selected === after) return;
     if (selected !== null) {
-        console.log('t-s-r-' + selected);
         let item = document.getElementById('t-s-r-' + selected);
         item.classList.remove('selected');
     }
     if (after !== null) {
-        console.log('t-s-r-' + after);
         let item = document.getElementById('t-s-r-' + after);
         item.classList.add('selected');
     }
