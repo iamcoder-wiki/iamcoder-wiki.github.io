@@ -211,7 +211,7 @@ Hello</li>
 World</li>
 </ul>
 <h2 class="heading"><a href="#s-9-" id="s-9-">9.</a> 각주</h2>
-<p>각주는 <code>[^숫자]</code>로 나타냅니다.<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup> 그 뒤, 파일 맨 아래에 <code>[^숫자]: 내용</code>과 같이 적어줍니다.</p>
+<p>각주는 <code>[^숫자]</code>로 나타냅니다.<sup class="footnote-reference"><a id="b-1">1</a></sup> 그 뒤, 파일 맨 아래에 <code>[^숫자]: 내용</code>과 같이 적어줍니다.</p>
 <h2 class="heading"><a href="#s-10-" id="s-10-">10.</a> 표</h2>
 <p>표는 깃허브와 같이 만들 수 있습니다.</p>
 <pre><code class="language-markdown">| 맨 위 | 맨 위 |
@@ -302,7 +302,7 @@ World</li>
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -312,7 +312,7 @@ World</li>
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

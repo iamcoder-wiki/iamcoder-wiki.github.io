@@ -113,7 +113,7 @@ void dfs(int x){
 <p>Back Edge는 단절선이 될 수 없다. Back Edge를 제거해도 DFS Tree 구조에 의해 컴포넌트가 분리되지 않기 때문이다. 부모 <code>u</code>와 자식 <code>v</code>를 잇는 Tree Edge가 단절선이 되기 위해서는 <code>v</code>의 자식과 <code>u</code>의 부모를 잇는 Back Edge가 존재하지 않아야 한다. 이 경우 그 Tree Edge가 없어지면 그래프가 두 부분으로 나눠지기 때문에 단절선이 된다.</p>
 <h4 class="heading"><a href="#s-4-1-2-" id="s-4-1-2-">4.1.2.</a> 양방향 그래프를 단방향 그래프로 변환</h4>
 <p><a href="https://codeforces.com/contest/118/problem/E" class="outer">다음</a>과 같은 문제를 생각해보자. 양방향 그래프가 주어졌을 때 임의의 정점에서 다른 모든 정점으로 이동할 수 있도록 모든 에지의 방향을 결정해주는 문제다. </p>
-<p>단절선이 존재하면 단절선의 방향을 어떻게 결정하던 임의의 정점에서 다른 모든 정점으로 이동할 수 있다는 조건이 만족할 수 없기 때문에 조건을 만족하도록 에지의 방향을 결정해줄 수 없다. 단절선이 존재하지 않는 경우, DFS Tree를 만들고 Tree Edge는 자식을 향하도록 하고 Back Edge는 조상을 향하도록 에지의 방향을 결정해 주면 조건을 만족하도록 임의의 정점에서 다른 모든 정점으로 이동할 수 있다<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup>.</p>
+<p>단절선이 존재하면 단절선의 방향을 어떻게 결정하던 임의의 정점에서 다른 모든 정점으로 이동할 수 있다는 조건이 만족할 수 없기 때문에 조건을 만족하도록 에지의 방향을 결정해줄 수 없다. 단절선이 존재하지 않는 경우, DFS Tree를 만들고 Tree Edge는 자식을 향하도록 하고 Back Edge는 조상을 향하도록 에지의 방향을 결정해 주면 조건을 만족하도록 임의의 정점에서 다른 모든 정점으로 이동할 수 있다<sup class="footnote-reference"><a id="b-1">1</a></sup>.</p>
 <h3 class="heading"><a href="#s-4-2-" id="s-4-2-">4.2.</a> 방향 그래프</h3>
 <p>방향 그래프의 경우 무방향 그래프와 비교하여 Forward Edge, Cross Edge가 추가된다. 4가지 에지에 대해 케이스를 잘 나누어 분석하면 쉽게 풀 수 있는 문제들이 많다.</p>
 <h4 class="heading"><a href="#s-4-2-1-" id="s-4-2-1-">4.2.1.</a> 사이클</h4>
@@ -155,7 +155,7 @@ void dfs(int x){
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -165,7 +165,7 @@ void dfs(int x){
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

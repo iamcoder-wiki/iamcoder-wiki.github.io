@@ -94,7 +94,7 @@ addOnload(writeTitle);
 </ul>
 </li>
 </ul>
-<p>다음 코드는 <em>Path compression</em>만을 사용한 코드다. <sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup></p>
+<p>다음 코드는 <em>Path compression</em>만을 사용한 코드다. <sup class="footnote-reference"><a id="b-1">1</a></sup></p>
 <pre><code class="language-c++">void Init(){
 	// initialize group data
 	for(int i=1; i&lt;=N; i++){
@@ -154,7 +154,7 @@ void Union(int x, int y){
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -164,7 +164,7 @@ void Union(int x, int y){
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

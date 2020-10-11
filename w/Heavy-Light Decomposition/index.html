@@ -83,10 +83,10 @@ addOnload(writeTitle);
 <p>그러면 여기서 두 가지 사실을 이끌어낼 수 있습니다. </p>
 <ul>
 <li>
-<p>한 정점에서 자식으로 가는 간선 중 무거운 간선은 단 한개이다.<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup></p>
+<p>한 정점에서 자식으로 가는 간선 중 무거운 간선은 단 한개이다.<sup class="footnote-reference"><a id="b-1">1</a></sup></p>
 </li>
 <li>
-<p>root에서 한 정점으로 가는 경로에 가벼운 간선은 \(O(\log N)\)개이다. <sup class="footnote-reference"><a href="#f-2" id="b-2">2</a></sup></p>
+<p>root에서 한 정점으로 가는 경로에 가벼운 간선은 \(O(\log N)\)개이다. <sup class="footnote-reference"><a id="b-2">2</a></sup></p>
 </li>
 </ul>
 <p>무거운 간선들이 인접해 있다면 그것을 하나로 이은 것을 무거운 경로라고 합시다.  그 무거운 경로의 맨 위의 가벼운 간선도 경로에 포함시키고, 아래에 무거운 경로가 없는 가벼운 간선은 그것 하나를 무거운 경로로 본다면, 트리의 경로를 여러개의 무거운 경로로 바꾸어 볼 수 있습니다.</p>
@@ -219,7 +219,7 @@ int query(int u,int v){
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -229,7 +229,7 @@ int query(int u,int v){
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

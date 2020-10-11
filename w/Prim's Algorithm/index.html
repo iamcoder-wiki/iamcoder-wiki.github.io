@@ -182,7 +182,7 @@ int prim(int v){
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -192,7 +192,7 @@ int prim(int v){
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

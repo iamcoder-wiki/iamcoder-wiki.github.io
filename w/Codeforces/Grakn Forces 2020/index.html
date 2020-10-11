@@ -101,7 +101,7 @@ addOnload(writeTitle);
 <p>이분그래프 G의 사이클을 없애면 Maximum Spanning Tree가 되므로, 각 에지의 cost를 계산하여 <a href="/w/Minimum%20Spanning%20Tree">Minimum Spanning Tree</a>를 구하는 것과 비슷하게 Maximum Spanning Tree를 구해주면 답을 구할 수 있다.</p>
 <h2 class="heading"><a href="#s-6-" id="s-6-">6.</a> F</h2>
 <p><a href="https://codeforces.com/contest/1408/problem/F" class="outer">F. Two Different</a></p>
-<p>\(2^k\)개의 수들은 \(k\)에 상관 없이 같은 숫자로 만들 수 있다. <sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup> 따라서 주어진 수 \(N\)보다 작거나 같은 최대의 \(2^k\)를 구해 앞에서 부터\(2^k\)개의 수를 같은 수로 만들고 그 후 뒤에서 \(2^k\)개의 수를 같은 수로 만들면 전체 배열에 최대 2개의 서로 다른 수가 존재하게 된다.</p>
+<p>\(2^k\)개의 수들은 \(k\)에 상관 없이 같은 숫자로 만들 수 있다. <sup class="footnote-reference"><a id="b-1">1</a></sup> 따라서 주어진 수 \(N\)보다 작거나 같은 최대의 \(2^k\)를 구해 앞에서 부터\(2^k\)개의 수를 같은 수로 만들고 그 후 뒤에서 \(2^k\)개의 수를 같은 수로 만들면 전체 배열에 최대 2개의 서로 다른 수가 존재하게 된다.</p>
 <h2 class="heading"><a href="#s-7-" id="s-7-">7.</a> G</h2>
 <p><a href="https://codeforces.com/contest/1408/problem/G" class="outer">G. Clusterization Counting</a></p>
 <h2 class="heading"><a href="#s-8-" id="s-8-">8.</a> H</h2>
@@ -145,7 +145,7 @@ addOnload(writeTitle);
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -155,7 +155,7 @@ addOnload(writeTitle);
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

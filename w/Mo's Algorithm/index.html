@@ -77,7 +77,7 @@ addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
-<p>Mo's Algorithm은 <a href="/w/Sqrt%20Decomposition">Sqrt Decomposition</a>과 비슷하게 Sqrt를 활용하는 기법으로 오프라인<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup> 쿼리 문제를 푸는데 사용하는 알고리즘이다.</p>
+<p>Mo's Algorithm은 <a href="/w/Sqrt%20Decomposition">Sqrt Decomposition</a>과 비슷하게 Sqrt를 활용하는 기법으로 오프라인<sup class="footnote-reference"><a id="b-1">1</a></sup> 쿼리 문제를 푸는데 사용하는 알고리즘이다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 구간 합 쿼리</h2>
 <p>\(N\)개의 수 \(A_1, A_2, ..., A_N\)가 주어지고, \(x\)에서부터 \(y\)까지의 구간 합을 구하는 쿼리 \(M\)개 \((x_1, y_1), (x_2, y_2), ..., (x_M, y_M)\)를 처리하는 문제를 생각해보자. 쿼리를 <code>pair&lt;int, int&gt;</code>로 표현한 다음, 쿼리를 다음 <code>sort function</code>으로 정렬하자.</p>
 <pre><code class="language-c++">int SQ = sqrt(N); 
@@ -158,7 +158,7 @@ for(pair&lt;int, int&gt; p : query){
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -168,7 +168,7 @@ for(pair&lt;int, int&gt; p : query){
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,

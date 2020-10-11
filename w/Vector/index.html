@@ -77,7 +77,7 @@ addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 소개</h2>
-<p>벡터(Vector)는 메모리는 자동으로 할당하면서 메모리의 연속한 위치에 원소들을 저장<sup class="footnote-reference"><a href="#f-1" id="b-1">1</a></sup>하는 STL Container다.</p>
+<p>벡터(Vector)는 메모리는 자동으로 할당하면서 메모리의 연속한 위치에 원소들을 저장<sup class="footnote-reference"><a id="b-1">1</a></sup>하는 STL Container다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Usage</h2>
 <p>STL Vector에서 지원하는 기능은 다음과 같다.</p>
 <ul>
@@ -137,7 +137,7 @@ addOnload(writeTitle);
 
         for (let i = 0; i < def.length; i++) {
             let id = def[i].id.substr(2);
-            map[id] = def[i].children[1];
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
         }
 
         let ref = document.getElementsByClassName("footnote-reference");
@@ -147,7 +147,7 @@ addOnload(writeTitle);
             let content = map[id.substr(2)];
             tippy(ref[i], {
                 theme: 'footnote',
-                content: content.innerHTML,
+                content: content,
                 allowHTML: true,
                 interactive: true,
                 interactiveBorder: 5,
