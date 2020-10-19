@@ -249,7 +249,7 @@
 - [[ Facebook Hacker Cup ]]
 ### 교내 대회
 - [[ SNUPC ]] - 서울대학교
-- [[ KAIST Run Spring Contest ]] - 카이스트
+- [[ KAIST Contest ]] - 카이스트
 - [[ KCPC ]] - 고려대학교
 - [[ HOLICS ]] - GIST
 - [[ Sogang Programming Contest ]] - 서강대학교
