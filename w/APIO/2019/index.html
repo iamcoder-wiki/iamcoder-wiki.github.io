@@ -54,7 +54,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BAPIO/2019%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BAPIO/2019%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-10-08 14:43:04 </p>
+                    <p> 최근 수정 시각: 2020-10-19 11:19:52 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -78,7 +78,7 @@ addOnload(writeTitle);
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> A. Strange Device</h2>
 <p><a href="https://oj.uz/problem/view/APIO19_strange_device" class="outer">문제</a></p>
-<p>시간 \(t = qB + r\)이라 하자. \(x = (q(B+1) + r) mod A\), \(y = r\)로 정의되므로, \((x_{t_1}, y_{t_1}) = (x_{t_2}, y_{t_2})\)이기 위해서는  \(t_1 \equiv t_2 mod B\)이면서 \( \lfloor t_1\over B \rfloor \equiv \lfloor t_2\over B \rfloor mod A/gcd(A, B+1)\)여야 한다. 이 두 조건을 하나의 조건으로 합칠 수 있는데, \(t_1 \equiv t_2 mod AB/gcd(A, B+1)\)로 표현할 수 있다. </p>
+<p>시간 \(t = qB + r\)이라 하자. \(x = (q(B+1) + r) % A\), \(y = r\)로 정의되므로, \((x_{t_1}, y_{t_1}) = (x_{t_2}, y_{t_2})\)이기 위해서는  \(t_1 \equiv t_2 (mod B)\)이면서 \( \lfloor t_1/ B \rfloor \equiv \lfloor t_2/ B \rfloor (mod A/gcd(A, B+1))\)여야 한다. 이 두 조건을 하나의 조건으로 합칠 수 있는데, \(t_1 \equiv t_2 (mod AB/gcd(A, B+1))\)로 표현할 수 있다. </p>
 <p>따라서 구간 \(l_i, r_i\)를 \(AB/gcd(A, B+1)\)로 나눈 나머지의 구간으로 표현한 다음 서로 다른 나머지값의 개수를 세주면 된다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> B. Bridges</h2>
 <p><a href="https://oj.uz/problem/view/APIO19_bridges" class="outer">문제</a>
@@ -95,7 +95,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-10-08 14:43:04 </p>
+                <p> 최근 수정 시각: 2020-10-19 11:19:52 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/apio/apio2019.md"><div class="button">편집</div></a>
