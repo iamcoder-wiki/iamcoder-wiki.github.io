@@ -8,4 +8,6 @@ IamCoder 위키는 누구나 수정할 수 있는 알고리즘 / 자료구조 / 
 
 > [[ Document List ]]
 
+> [[ 최근 추가된 파일 ]]
+
 > [[ iamcoder:문법 ]]
