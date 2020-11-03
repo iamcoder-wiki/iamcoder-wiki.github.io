@@ -54,7 +54,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BPOI/2018%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BPOI/2018%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-11-03 14:27:33 </p>
+                    <p> 최근 수정 시각: 2020-11-03 14:28:20 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -93,7 +93,7 @@ addOnload(writeTitle);
 <p>같은 높이의 구역들을 그룹으로 묶어서 관리한다는 아이디어를 생각해볼 수 있다. 이때 그룹이 변경되는 횟수는 최대 \(N-1\)번이기 때문에 그룹을 합치는 것을 \(O(1)\)에 처리하면 \(O(MN)\)에 문제를 해결할 수 있다. </p>
 <p>그룹을 합치는 것에서 끝나는게 아니라 경우의 수를 세야 하기 때문에 <a class="no-link" href="/w/Union%20&amp;%20Find">Union &amp; Find</a>를 해주면서 그룹마다 <a href="/w/DP">DP</a>처럼 정보를 저장하고 있으면 된다. 각 그룹마다 그 그룹의 구역의 가능한 최소 높이 \(H_i\)와 그 그룹의 누적 경우의 수 \(C_i\)를 저장하고 있자. 처음에는 모든 구역의 \(H_i = 1, C_i = 0\)일 것이다. </p>
 <p>댐의 높이가 낮은 순서로 그룹을 합쳐주는 과정을 반복한다. 그룹 A와 그룹 B를 높이 \(h\)인 댐을 통해 합쳐주어 그룹 C를 만든다고 생각해보자. 그룹 C의 최소 높이는 \(h+1\)이기 때문에 \(H_C = h+1\)이 된다. 또, 그룹 C에는 그룹 A와 그룹 B가 각각 높이 \(h\) 이하인 경우를 \(C_C\)에 저장해야 하기 때문에 \(C_C = (C_A + h+1 - H_A) \times (C_B + h+1 - H_B)\)라고 계산해줄 수 있다. 이때 같은 높이 \(h\)에 대해 여러 그룹(그룹 A, 그룹 B, 그룹 C, ...)이 하나의 그룹(그룹 Z)으로 합쳐지는 처리를 하는 경우 \(C_Z = (C_A + h+1 - H_A) \times (C_B + h+1 - H_B) \times (C_C + h+1 - H_C) \times ...\)처럼 동시에 \(C_i\)값을 계산해줘야 한다.</p>
-<p>마지막에 그룹 하나(그룹 A)가 남으면 답은 \(C_A + H+1 - H+A\)로 계산하여 구할 수 있다.</p>
+<p>마지막에 그룹 하나(그룹 A)가 남으면 답은 \(C_A + H+1 - H_A\)로 계산하여 구할 수 있다.</p>
 <hr />
 <p>비슷한 방식으로 하되 \(H_i\)에 그 그룹의 가능한 최소 높이 대신 현재 그룹의 높이를 저장하고 \(C_i\)에 그 그룹에서 높이 \(H_i\) 이하로 가능한 경우의 수를 저장해 놓으면 합칠 때 쉽게 합칠 수 있으며 여러 그룹을 합치는 것도 2개의 그룹을 합치는 것 여러 번으로 처리해줄 수 있으므로 간단하다... </p>
 <p>높이 \(h\)의 댐으로 그룹 A와 그룹 B를 그룹 C로 합치면 먼저 \(C_A = C_A + h - H_A\), \(C_B = C_B + h - H_B\)라 한 다음 \(C_C = C_A * C_B, H_C = h\)라고 해주면 된다.</p>
@@ -139,7 +139,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-11-03 14:27:33 </p>
+                <p> 최근 수정 시각: 2020-11-03 14:28:20 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/pio2018.md"><div class="button">편집</div></a>
