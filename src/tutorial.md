@@ -105,8 +105,8 @@
 		- [[ Bellman-Ford Algorithm ]]
 		- [[ Floyd-Warshall Algorithm ]]
 		- [[ SPFA ]]
-		- [[ SCC ]] / [[ 2-SAT ]]
-		- [[ BCC ]] / [[ Cactus Graph ]]
+	- [[ SCC ]] / [[ 2-SAT ]]
+	- [[ BCC ]] / [[ Cactus Graph ]]
 	- [[ Sparse Table ]]
 	- [[ Lowest Common Ancestor ]]
 - Data Structure 
