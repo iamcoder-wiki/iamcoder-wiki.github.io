@@ -42,7 +42,7 @@
 - [[ Stack ]] / [[ Vector ]]
 - [[ Queue ]] / [[ Deque ]]
 - [[ Priority Queue ]]
-- [[ List ]]
+- [[ List ]] / [[ Linked List ]]
 - [[ Set ]] / [[ Multiset ]]
 - [[ Map ]] / [[ Multimap ]]
 - [[ Unordered Set ]] / [[ Unordered Map ]]
