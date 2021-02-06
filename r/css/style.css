@@ -20,11 +20,13 @@ html {
     color: var(--c-3-0);
     background: var(--c-1-0);
     font-family: "Open Sans", sans-serif;
+    max-width: 100%;
 }
 
 body {
     font-size: 1.6em;
     margin: 0;
+    max-width: 100%;
     overflow-x: hidden;
     padding: 0;
 }
@@ -377,11 +379,6 @@ code {
 pre {
     overflow-x: auto;
     tab-size: 4;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
 }
 
 table {
@@ -390,6 +387,9 @@ table {
     margin: 0 auto;
     margin-block-end: 1em;
     margin-block-start: 1em;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 table td {
