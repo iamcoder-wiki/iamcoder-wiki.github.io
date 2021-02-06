@@ -54,7 +54,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BIOI 2020%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BIOI 2020%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2021-02-06 18:26:29 </p>
+                    <p> 최근 수정 시각: 2021-02-06 18:56:41 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -83,20 +83,76 @@ addOnload(writeTitle);
 <h4 class="heading"><a href="#s-1-2-1-" id="s-1-2-1-">1.2.1.</a> 문제 설명</h4>
 <ul>
 <li>N개의 정점이 있다</li>
-<li>정점 'i'에서 정점 'j'로 가는 서로 다른 단순경로가 정확히 'p(i, j)'개가 되도록 그래프를 설계할 것이다. (\(0 \leq p(i, j) \leq 3\))</li>
+<li>정점 <code>i</code>에서 정점 <code>j</code>로 가는 서로 다른 단순경로가 정확히 <code>p(i, j)</code>개가 되도록 그래프를 설계할 것이다. (\(0 \leq p(i, j) \leq 3\))</li>
 <li>이를 만족하는 그래프가 존재하는지 판별하고, 존재한다면 그 중 하나를 구하여라</li>
+</ul>
+<h4 class="heading"><a href="#s-1-2-2-" id="s-1-2-2-">1.2.2.</a> 존재성 판별</h4>
+<ul>
+<li>일단, 조건을  만족하는  그래프가  존재하는지부터  생각해보자.</li>
+<li>96점까지는 <code>0 ≤ p(i, j) ≤ 2</code>이므로, <code>0 ≤ p(i, j) ≤ 2</code>일  때를  생각해보자.
+<ul>
+<li><code>p(x, y) = 1</code>에  대한  관찰
+<ul>
+<li>정점 <code>i</code>에 대하여 <code>p(x, y) = 1</code>인 <code>j</code>들의  집합을 <code>S</code>라  하자.</li>
+<li>그러면 <code>x</code>, <code>y</code> ∈ <code>S</code>인  모든 <code>x</code>, <code>y</code>에  대하여, <code>p(x, y) = 1</code>이다.
+<ul>
+<li><em>pf)</em> <code>p(x, y) ≠ 0</code>임은  자명하다. (<code>x</code>-<code>i</code>-<code>y</code> 경로가  존재하므로 <code>x</code>-<code>y</code> 단순경로도  존재)
+<code>p(x, y) = 2</code>인 <code>(x, y)</code>가  존재한다고  가정하자.
+<ol>
+<li><code>i</code>-<code>x</code>-<code>y</code> 단순경로인  경우
+<code>p(i, y)=2</code>인데, <code>S</code>의  정의에  의하여  모순이다.</li>
+<li><code>x</code>-<code>i</code>-<code>y</code> 단순경로인  경우
+<code>x</code>-<code>i</code> 경로와 <code>i</code>-<code>y</code> 경로가  유일하므로, <code>p(x, y) = 2</code>인  것이  불가능하다.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>또한, <code>x</code>, <code>y</code> ∈ S인  모든 <code>x</code>, <code>y</code>와  임의의  정점 <code>k</code>에  대하여 <code>p(x, k) = p(y, k)</code>이다.</li>
+<li>따라서, 이러한  집합 <code>S</code>에  대하여, <code>S</code>의  원소들을  일직선의  체인  형태로  이어주고, <code>S</code>의  원소  중  임의의  하나를  잡아서  그  하나의  정점에  대해서만 <code>S</code> 외부의  정점과  간선을  이어주면  된다.</li>
+</ul>
+</li>
+<li><code>p(i, j) = 2</code>에  대한  관찰
+<ul>
+<li>이제 <code>p(i, j) = 1</code>인 <code>(i, j)</code>는  존재하지  않는다.</li>
+<li>정점 <code>i</code>에  대하여 <code>p(i, j) = 1</code>인 <code>j</code>들의  집합을 <code>T</code>라  하자.</li>
+<li>그러면 <code>x</code>, <code>y</code> ∈ <code>T</code>인  모든 <code>x</code>, <code>y</code>에  대하여, <code>p(x, y) = 2</code>이다.
+<ul>
+<li><em>pf)</em> <code>T</code>의  원소들은  하나의  컴포넌트에  존재하므로 <code>p(x, y) = 0</code>인 <code>(x, y)</code>는  존재하지  않는다.</li>
+</ul>
+</li>
+<li>따라서, 이러한  집합 <code>T</code>에  대하여, <code>T</code>의  모든  원소들을  하나의  사이클  형태로  이어주면  된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>따라서, 앞에서  정의한  집합 <code>S</code>, <code>T</code>에  대하여 다음 조건을 모두  만족하는지  확인한다면  주어진  입력의  조건에  맞는  그래프를  설계할  수  있는지  판별할  수  있다.
+<ul>
+<li><code>x</code>, <code>y</code> ∈ <code>S</code>인  모든 <code>x</code>, <code>y</code>에  대하여, <code>p(x, y) = 1</code></li>
+<li><code>x</code>, <code>y</code> ∈ <code>T</code>인  모든 <code>x</code>, <code>y</code>에  대하여, <code>p(x, y) = 2</code></li>
+</ul>
+</li>
+</ul>
+<h4 class="heading"><a href="#s-1-2-3-" id="s-1-2-3-">1.2.3.</a> 그래프 설계</h4>
+<p>결과적으로, 앞에서 설명한 것과 같이 그래프를 설계하면, 결과 그래프는 다음과 같이 여러 개의 <em><strong>‘하나의 컴포넌트에 최대 하나의 사이클이 존재하는 선인장 그래프’</strong></em> 로 나타낼 수 있다.</p>
+<img src="/r/img/graph1-e82403e956a66370.jpg" width = 500 >
+<h4 class="heading"><a href="#s-1-2-4-" id="s-1-2-4-">1.2.4.</a> <code>p(i, j)</code> = 3 ?</h4>
+<ul>
+<li>결과적으로 말하면, <code>p(i, j) = 3</code>인 <code>(i, j)</code>가 존재하는 경우 답은 존재하지 않는다.
+<img src="/r/img/graph2-a0784d717a5181ae.jpg" width = 500 ></li>
+<li>위는 <code>p(i, j) = 3</code>을 만족하게 만든 그래프이다. 위와 같이, <code>i</code>에서 <code>j</code>로 가는 같은 단순 경로 위에 존재하지 않는 두 정점 <code>x</code>, <code>y</code>가 존재하게  된다.</li>
+<li>이 경우, <code>p(x, y)</code> &gt; 3 (<code>x</code>-<code>i</code>-<code>y</code>, <code>x</code>-<code>j</code>-<code>y</code>, <code>x</code>-<code>i</code>-<code>j</code>-<code>y</code>, <code>x</code>-<code>j</code>-<code>i</code>-<code>y</code>)가  되기  때문에, <code>p(i, j) = 3</code>인 <code>(i, j)</code>가 존재하는 경우 조건을 만족하는 그래프는 존재하지 않는다.</li>
 </ul>
 <h3 class="heading"><a href="#s-1-3-" id="s-1-3-">1.3.</a> 3. Carnival Tickets</h3>
 
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"><ul><li><a href="#s-1-">1. Day1</a><ul><li><a href="#s-1-1-">1.1. 1. Comparing Plants</a></li><li><a href="#s-1-2-">1.2. 2. Connecting Supertrees</a><ul><li><a href="#s-1-2-1-">1.2.1. 문제 설명</a></li></ul></li><li><a href="#s-1-3-">1.3. 3. Carnival Tickets</a></li></ul></li></ul></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. Day1</a><ul><li><a href="#s-1-1-">1.1. 1. Comparing Plants</a></li><li><a href="#s-1-2-">1.2. 2. Connecting Supertrees</a><ul><li><a href="#s-1-2-1-">1.2.1. 문제 설명</a></li><li><a href="#s-1-2-2-">1.2.2. 존재성 판별</a></li><li><a href="#s-1-2-3-">1.2.3. 그래프 설계</a></li><li><a href="#s-1-2-4-">1.2.4. <code>p(i, j)</code> = 3 ?</a></li></ul></li><li><a href="#s-1-3-">1.3. 3. Carnival Tickets</a></li></ul></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2021-02-06 18:26:29 </p>
+                <p> 최근 수정 시각: 2021-02-06 18:56:41 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ioi/ioi2020.md"><div class="button">편집</div></a>
