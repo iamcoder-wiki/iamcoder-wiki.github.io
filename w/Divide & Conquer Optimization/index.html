@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Divide &amp; Conquer Optimization - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -145,16 +154,16 @@ addOnload(writeTitle);
 }
 </code></pre>
 <h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 관련 문제</h2>
-<p><a href="https://www.acmicpc.net/problem/11001" class="outer">BOJ 11001 김치</a></p>
-<p><a href="https://www.acmicpc.net/problem/18444" class="outer">BOJ 18444 우체국 3</a></p>
-<p><a href="https://www.acmicpc.net/problem/14179" class="outer">BOJ 14179 크리스마스 이브</a></p>
-<p><a href="https://www.acmicpc.net/problem/13262" class="outer">BOJ 13262 수열의 OR 점수</a></p>
-<p><a href="https://www.acmicpc.net/problem/13261" class="outer">BOJ 13261 탈옥</a></p>
-<p><a href="https://www.acmicpc.net/problem/16138" class="outer">BOJ 16138 수강신청</a></p>
-<p><a href="https://oj.uz/problem/view/JOI19_cake3" class="outer">JOISC 2018 Cake 3</a></p>
-<p><a href="https://www.acmicpc.net/problem/10076" class="outer">IOI 2014 Holiday</a></p>
-<p><a href="https://www.acmicpc.net/problem/12766" class="outer">ICPC WF 2016 지사 배정</a></p>
-<p><a href="https://www.acmicpc.net/problem/14636" class="outer">ICPC WF 2017 Money for Nothing</a></p>
+<p><a href="https://www.acmicpc.net/problem/11001" class="outer" target="_blank">BOJ 11001 김치</a></p>
+<p><a href="https://www.acmicpc.net/problem/18444" class="outer" target="_blank">BOJ 18444 우체국 3</a></p>
+<p><a href="https://www.acmicpc.net/problem/14179" class="outer" target="_blank">BOJ 14179 크리스마스 이브</a></p>
+<p><a href="https://www.acmicpc.net/problem/13262" class="outer" target="_blank">BOJ 13262 수열의 OR 점수</a></p>
+<p><a href="https://www.acmicpc.net/problem/13261" class="outer" target="_blank">BOJ 13261 탈옥</a></p>
+<p><a href="https://www.acmicpc.net/problem/16138" class="outer" target="_blank">BOJ 16138 수강신청</a></p>
+<p><a href="https://oj.uz/problem/view/JOI19_cake3" class="outer" target="_blank">JOISC 2018 Cake 3</a></p>
+<p><a href="https://www.acmicpc.net/problem/10076" class="outer" target="_blank">IOI 2014 Holiday</a></p>
+<p><a href="https://www.acmicpc.net/problem/12766" class="outer" target="_blank">ICPC WF 2016 지사 배정</a></p>
+<p><a href="https://www.acmicpc.net/problem/14636" class="outer" target="_blank">ICPC WF 2017 Money for Nothing</a></p>
 
                 </main>
             </div>

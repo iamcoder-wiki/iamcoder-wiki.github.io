@@ -125,6 +125,8 @@ let list = [];
     }
 })();
 
+// Search part
+
 function goto(title) {
     console.log(title);
     window.location.href = "/w/" + title;
@@ -267,3 +269,62 @@ document.addEventListener('keydown', function (event) {
         }
     }
 });
+
+// Theme part
+
+let themeButton = document.getElementById("t-t-button");
+let themeIcon = document.getElementById("t-t-icon");
+let darkThemeCss = document.getElementById("r-dark");
+let lightThemeCss = document.getElementById("r-light");
+
+function changeTheme() {
+    let html = document.getElementsByTagName("html")[0];
+    let theme = html.classList[0];
+
+    if (theme === "dark") {
+        html.classList = ["light"];
+        darkThemeCss.disabled = true;
+        lightThemeCss.disabled = false;
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+        setCookie("theme", "light", 365);
+    } else {
+        html.classList = ["dark"];
+        darkThemeCss.disabled = false;
+        lightThemeCss.disabled = true;
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        setCookie("theme", "dark", 365);
+    }
+}
+
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+themeButton.addEventListener('click', changeTheme);
+
+(function () {
+    let theme = getCookie("theme");
+    if (document.getElementsByTagName("html")[0].classList[0] !== theme) {
+        changeTheme();
+    }
+})();
+

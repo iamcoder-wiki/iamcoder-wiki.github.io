@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Nim Game - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -144,7 +153,7 @@ int main() {
 <h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 변형된 Nim 게임</h2>
 <p>PS 문제에서는 때로 Nim 게임을 다양하게 변형한 문제를 제시합니다.</p>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> 여담</h2>
-<p>그룬디 수를 이용해 승패를 판정하는 원리와 관련된 이론으로 <a href="https://en.wikipedia.org/wiki/Sprague-Grundy_theorem#Proof" class="outer">스프라그-그룬디 정리</a>가 있습니다. 조합적 게임 이론에 관심이 있거나, 이 정리의 정확한 증명을 알고 싶은 사람은 추가로 참고해 보면 좋을 것입니다.</p>
+<p>그룬디 수를 이용해 승패를 판정하는 원리와 관련된 이론으로 <a href="https://en.wikipedia.org/wiki/Sprague-Grundy_theorem#Proof" class="outer" target="_blank">스프라그-그룬디 정리</a>가 있습니다. 조합적 게임 이론에 관심이 있거나, 이 정리의 정확한 증명을 알고 싶은 사람은 추가로 참고해 보면 좋을 것입니다.</p>
 
                 </main>
             </div>

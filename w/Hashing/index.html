@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Hashing - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +133,7 @@ $$ Index = data % size $$ </p>
 해시 충돌을 해시 테이블에서 처리하는 방법은 여러 가지가 있습니다. 대표적으로는 해시 충돌이 일어났을 때 해당 인덱스에 Linked List를 만들어서 처리하는 방법이나, 다른 인덱스로 넘어가서 데이터를 저장하는 방법 등이 있습니다. 전자는 해당 인덱스의 원소 개수만큼의 시간복잡도를 소모하지만 다른 인덱스에 간섭을 안하고, 후자는 다음으로 나오는 빈 인덱스까지의 거리 만큼의 시간복잡도만 소모하지만 다른 인덱스를 차지하게 되어 해당 인덱스를 해시값으로 가지는 데이터의 탐색 시간까지 늘려버릴 수 있습니다.
 이처럼, 해시 충돌이 일어나게 되면 극단적이면 전탐색과 비슷한 시간복잡도가 나올 수 있으므로 해시 함수 자체에서 해시 충돌을 방지하는 코드를 짜는 것이 좋습니다.</p>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> 예제</h2>
-<p><a href="https://www.acmicpc.net/problem/10840" class="outer">구간 성분(KOI 2015 고등부 2번)</a></p>
+<p><a href="https://www.acmicpc.net/problem/10840" class="outer" target="_blank">구간 성분(KOI 2015 고등부 2번)</a></p>
 <p>이 문제는 \(S_A\)와 \(S_B\)내의 구성 성분이 같은 가장 긴 부분 문자열의 길이를 구하는 문제입니다.</p>
 <p>일단 단순하게 생각한다면 길이가 같은 \(S_A\)와 \(S_B\)의 부분 문자열을 서로 모두 비교해 보는 방식으로 \(O(N^4)\)으로 구할 수 있습니다. Time Limit이 1000ms이므로 이를 통해 부분문제 1을 통과할 수 있습니다.</p>
 <p>Set이나 Map 등의 \(O(\log N)\)만에 탐색을 해주는 자료구조에 \(S_A\)의 구간성분을 저장한 26칸짜리 배열을 넣어주어서 \(S_B\)의 구간성분과 비교하여 준다면 시간복잡도 자체는 \(O(N^2\log N)\)이 되지만, 상수로 26이 붙게 되므로 부분문제 2만을 추가적으로 통과하게 됩니다.</p>

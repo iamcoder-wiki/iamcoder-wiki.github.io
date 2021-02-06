@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Knuth Optimization - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -113,10 +122,10 @@ addOnload(writeTitle);
 }
 </code></pre>
 <h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 관련 문제</h2>
-<p><a href="https://www.acmicpc.net/problem/11066" class="outer">BOJ 11066 파일 합치기</a></p>
-<p><a href="http://koistudy.net/?mid=prob_page&amp;NO=589" class="outer">Koistudy Rope cutting</a></p>
-<p><a href="https://atcoder.jp/contests/atc002/tasks/atc002_c" class="outer">AtCoder ATC 002 Optimal binary search tree</a></p>
-<p><a href="https://atcoder.jp/contests/jag2015autumn/tasks/icpc2015autumn_k" class="outer">AtCoder Optimal Tournament</a></p>
+<p><a href="https://www.acmicpc.net/problem/11066" class="outer" target="_blank">BOJ 11066 파일 합치기</a></p>
+<p><a href="http://koistudy.net/?mid=prob_page&amp;NO=589" class="outer" target="_blank">Koistudy Rope cutting</a></p>
+<p><a href="https://atcoder.jp/contests/atc002/tasks/atc002_c" class="outer" target="_blank">AtCoder ATC 002 Optimal binary search tree</a></p>
+<p><a href="https://atcoder.jp/contests/jag2015autumn/tasks/icpc2015autumn_k" class="outer" target="_blank">AtCoder Optimal Tournament</a></p>
 
                 </main>
             </div>

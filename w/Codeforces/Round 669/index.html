@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Codeforces/Round 669 - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -77,18 +86,18 @@ addOnload(writeTitle);
 </script>
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> A</h2>
-<p><a href="https://codeforces.com/contest/1407/problem/A" class="outer">A. Ahahahahahahahaha</a></p>
+<p><a href="https://codeforces.com/contest/1407/problem/A" class="outer" target="_blank">A. Ahahahahahahahaha</a></p>
 <p>앞에서 부터 숫자를 2개씩 보면서 만약 두 수가 같으면, 두 수 모두 답안에 추가해주고 만약 두 수가 다르면 0만 답에 추가해주면 최대 절반만 원래 수열에서 지우므로 조건을 만족하는 답을 찾을 수 있다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> B</h2>
-<p><a href="https://codeforces.com/contest/1407/problem/B" class="outer">B. Big Vova</a></p>
+<p><a href="https://codeforces.com/contest/1407/problem/B" class="outer" target="_blank">B. Big Vova</a></p>
 <p>모든 테스트 케이스에 대한 \(N\)의 합이 \(10^3\) 이하이므로 모든 테스크 케이스에 대해 \(O(N^2\log N)\) 시간복잡도로 문제를 해결할 수 있다.</p>
 <p>\(i\)번쨰 위치의 원소를 선택할 때, <a href="/w/Greedy%20Algorithm">Greedy Algorithm</a>을 사용하여 남은 원소들 중에서 \(c_x = GCD(b_1, ..., b_{i-1}, b_x)\)가 최대가 되는 \(x\)중에 아무 값이나 선택하면 된다. 따라서 원소들을 \((c_x, b_x)\) 꼴 <a class="no-link" href="/w/Pair">Pair</a>로 <a href="/w/Vector">Vector</a>에 저장한 다음, 오름차순으로 정렬하였을 때 마지막 위치의 \(b_x\) 값을 답안의 \(i\)번째 위치로 추가한 다음 남은 원소들의 \(c_x\)값을 갱신해주면 된다.</p>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> C</h2>
-<p><a href="https://codeforces.com/contest/1407/problem/C" class="outer">C. Chocolate Bunny</a></p>
+<p><a href="https://codeforces.com/contest/1407/problem/C" class="outer" target="_blank">C. Chocolate Bunny</a></p>
 <p><a href="/w/Communication%20Problem">Communication Problem</a>이다.</p>
 <p>\(p_x&lt;p_y\)라 가정하면, <code>? x y</code>는 \(p_x mod p_y = p_x\)를 리턴할 것이고, <code>? y x</code>는 \(p_y mod p_x &lt; p_x\)를 리턴할 것이므로, <code>? x y</code>와 <code>? y x</code>중 더 큰 값이 \(p_x\)와 \(p_y\)중 더 작은 값임을 알 수 있다. 따라서, 2번의 쿼리로 임의의 두 원소 중 더 작은 원소의 값을 알 수 있기 때문에, \(2N-2\)번 쿼리를 통해 1부터 \(N-1\)까지의 값을 갖는 원소들의 위치를 찾을 수 있다. 마지막으로 남은 숫자가 \(N\)의 값을 갖는 원소이므로 \(2N-2\)번의 쿼리로 순열을 찾아낼 수 있다.</p>
 <h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> D</h2>
-<p><a href="https://codeforces.com/contest/1407/problem/D" class="outer">D. Discrete Centrifugal Jumpse</a></p>
+<p><a href="https://codeforces.com/contest/1407/problem/D" class="outer" target="_blank">D. Discrete Centrifugal Jumpse</a></p>
 <p>만약 한 건물에서 점프해서 올 수 있는 위치를 모두 구하면 다음과 같이 <a href="/w/DP">DP</a>으로 풀 수 있다. </p>
 <p>$$dp(i) = \min_{j \in jump(i)} (dp(j) + 1)$$</p>
 <p>그러면 점프해서 올 수 있는 곳을 구해야 한다. 조건 2와 3이 대칭이므로 조건 2에 대해서 서술하면, \(i\)번째 건물에서 올 수 있는 위치를 구하는 것을 생각해보자. \(i - 1\)번째 건물부터 \(0\)번째 건물까지 누적 최댓값을 만들게 되었을 때, 값이 변하는 위치에서만 후보가 있다. 다른 위치에서는 그 건물의 높이와 \(i\)번째 건물의 높이의 최솟값보다 큰 건물이 존재하기 때문이다.</p>
@@ -96,7 +105,7 @@ addOnload(writeTitle);
 <p>이제 점프할 수 있는 위치들을 구하자. 점프할 수 있는 위치들은 후보들 중 \(i\)보다 작은 건물들이고 나머지 후보 중 가장 작은 건물까지 점프해서 올 수 있는 건물들이다. 그 이외의 후보들에 대해서는 \(i\)번째 건물이 높이가 다른 건물보다 작은데, 그 사이에 있는 건물 중 더 큰 건물이 있기 떄문에 점프할 수 없다.</p>
 <p>따라서 스택에서 뽑아지는 원소들이 점프할 수 있는 위치들이고 위와 같은 이유로 시간복잡도는 \(O(n)\)이다. </p>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> E</h2>
-<p><a href="https://codeforces.com/contest/1407/problem/E" class="outer">E. Egor in the Republic of Dagestan</a></p>
+<p><a href="https://codeforces.com/contest/1407/problem/E" class="outer" target="_blank">E. Egor in the Republic of Dagestan</a></p>
 <p>문제에서 주어진 방향 그래프에서 모든 에지의 방향을 반대로 뒤집은 다음 \(N\)번 정점에서 색깔이 \(i\)인 \(j\)번째 정점까지 최단거리를 \(dist[i][j]\)라 하자. 최종적으로 \(i\)번째 정점의 색깔은 \(dist[0][i]\)와 \(dist[1][i]\)중 큰 값으로 정해질 것이며, 이렇게 \(i\)번째 정점의 색이 정해지면 \(N\)번 정점부터 \(i\)번 정점까지 최단 거리가 정해진 것이므로 마찬가지로 \(i\)와 이어진 정점들의 \(dist\)를 채워나갈 수 있으므로 이를 반복하면 <a href="/w/BFS">BFS</a>를 이용하여 \(dist[i][j]\) 값들을 채워나갈 수 있다. </p>
 <p><a href="/w/BFS">BFS</a>를 모두 진행하였을 때 \(1\)번 정점의 색이 정해지는 경우 \(1\)번 정점부터 \(N\)번 정점까지 최단 거리를 최대화하는 방법이 정해진 것이다. 하지만 \(1\)번 정점의 색이 정해지지 않은 경우, \(1\)번 정점에서 \(N\)번 정점까지 도달할 수 없도록 정점들의 색을 정할 수 있다는 뜻이 된다.</p>
 <p><a href="/w/BFS">BFS</a>가 끝났을 때 아직 색이 정해지지 않은 정점들은 3가지가 있을 수 있는데, \(dist[0][i]\)만 결정된 경우 그 정점의 색을 1로 정해주면 되고, 마찬가지로 \(dist[1][i]\)만 결정되었으면 그 정점의 색을 0으로 정해주면 된다. 만약 두 값이 모두 결정되어있지 않으면 정점의 색으로 아무 값을 정하여도 상관이 없다. 이렇게 색이 정해지지 않은 정점의 색을 정해주면 \(1\)번 정점부터 \(N\)번 정점까지의 최단거리를 최대화할 수 있다.</p>

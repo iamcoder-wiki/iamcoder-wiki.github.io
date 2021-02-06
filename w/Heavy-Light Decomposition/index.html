@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Heavy-Light Decomposition - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -93,7 +102,7 @@ addOnload(writeTitle);
 <p>이런 무거운 경로가 끊어지는 것은 가벼운 간선을 만날 때만이기 때문에, 아까 언급한 2번 사실에 의해 트리의 어떤 경로는 항상 \(O(\log N)\)개의 무거운 경로들의 일부의 합으로 나타내어질 수 있습니다.</p>
 <p>이 사실을 이용해서 무거운 경로들을 <a href="/w/Segment%20Tree">Segment Tree</a>를 이용해서 관리해준다면 트리의 경로에 대한 연산을 직선에 대한 연산처럼 할 수 있을 것입니다.((ex)RMQ,구간 합 쿼리)  이것이 바로 HLD입니다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 예시</h2>
-<p><a href="https://acmicpc.net/problem/13510" class="outer">HLD를 통해 풀 수 있는 쿼리 문제 하나</a>를 소개하고자 합니다. 문제를 요약하면 다음과 같습니다.</p>
+<p><a href="https://acmicpc.net/problem/13510" class="outer" target="_blank">HLD를 통해 풀 수 있는 쿼리 문제 하나</a>를 소개하고자 합니다. 문제를 요약하면 다음과 같습니다.</p>
 <blockquote>
 <p><code>N</code>개의 정점으로 이루어진 트리(무방향 사이클이 없는 연결 그래프)가 있다. 정점은 1번부터 <code>N</code>번까지 번호가 매겨져 있고, 간선은 1번부터 <code>N</code>-1번까지 번호가 매겨져 있다.</p>
 <p>아래의 두 쿼리를 수행하는 프로그램을 작성하시오.</p>

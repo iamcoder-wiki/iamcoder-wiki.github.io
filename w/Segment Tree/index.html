@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Segment Tree - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -176,7 +185,7 @@ int Sum(int x, int y){
 <h3 class="heading"><a href="#s-2-3-" id="s-2-3-">2.3.</a> 여담</h3>
 <p>Bottom-Up으로 Segment Tree를 구현한 코드가 <del>이해하기 쉽고</del> 짧아 보일 수 있지만 <a href="/w/Lazy%20Propagation">Lazy Propagation</a> 같은 방법들을 추가하기 위해서는 Top-Down 방식의 코드를 사용하는 것이 좋다.</p>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> 예시</h2>
-<p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042" class="outer">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. </p>
+<p>Segment Tree를 사용하여 <a href="https://www.acmicpc.net/problem/2042" class="outer" target="_blank">아주 기본적인 부분 합 쿼리 문제</a>를 처리해보자. </p>
 <p>간단한 구간 합 문제이므로 Segment Tree를 이용해 해결할 수 있습니다.</p>
 <p>Segment Tree를 구현할 때, 다양한 방법이 있는데, 재귀함수를 이용하는 방법은 다음과 같다.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;

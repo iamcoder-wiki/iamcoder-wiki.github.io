@@ -1,12 +1,11 @@
 @import 'variable.css';
 
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/web/JetBrainsMono-Regular.eot') format('embedded-opentype'),
-    url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/web/JetBrainsMono-Regular.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/web/JetBrainsMono-Regular.woff') format('woff'),
-    url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'JetBrainsMono';
+    src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -53,6 +52,7 @@ body {
 }
 
 .top-bar {
+    display: flex;
     height: 100%;
     margin: 0 auto;
     max-width: 100%;
@@ -74,7 +74,7 @@ body {
     margin: 2px;
     overflow: hidden;
     position: absolute;
-    right: 0;
+    right: 37px;
     transition: all 0.2s cubic-bezier(.08, .83, .53, .99);
     top: 0;
     width: 33px;
@@ -117,10 +117,15 @@ body {
 .search {
     box-sizing: border-box;
     cursor: pointer;
+    display: flex;
     height: 33px;
     margin-left: auto;
     padding: 2px;
     width: 33px;
+}
+
+.icon-w {
+    margin: auto;
 }
 
 .search-result-w {
@@ -143,64 +148,33 @@ body {
     padding: 3px;
 }
 
-.result {
-
-}
-
 .selected {
     background: var(--c-1-7);
 }
 
-.icon-w {
-    height: 25px;
+.theme-w {
+    display: flex;
+    width: 33px;
+    height: 33px;
+    background: var(--c-3-0);
+    color: var(--c-1-0);
+    border-radius: 17px;
     margin: 2px;
-    position: relative;
-    width: 25px;
-}
-
-.circle {
-    background: var(--c-3-4);
-    border-radius: 50%;
-    height: 18px;
-    left: 2px;
+    box-sizing: border-box;
     position: absolute;
-    top: 2px;
-    transition: all 0.2s ease-in-out;
-    width: 18px;
-    z-index: 100006;
+    right: 0;
+    flex-wrap: wrap;
+    transition: all 0.2s cubic-bezier(.08, .83, .53, .99);
+    cursor: pointer;
 }
 
-.circle::after {
-    background: var(--c-1-4);
-    border-radius: 50%;
-    content: '';
-    height: 14px;
-    left: 2px;
-    position: absolute;
-    top: 2px;
-    transition: all 0.2s ease-in-out;
-    width: 14px;
-    z-index: 100008;
+.theme-w:hover {
+    background: var(--c-1-0);
+    color: var(--c-3-0);
 }
 
-.stick {
-    background: var(--c-3-4);
-    border-radius: 1px;
-    height: 2px;
-    left: 14.9246212px;
-    position: absolute;
-    top: 18.9246212px;
-    transform: rotate(45deg);
-    transition: all 0.2s ease-in-out;
-    width: 10px;
-    z-index: 100007;
-}
-
-.stick.to_x {
-    left: -3px;
-    top: 11.5px;
-    transition: all 0.2s ease-in-out;
-    width: 31px;
+.theme {
+    margin: auto
 }
 
 .content-w {
@@ -213,13 +187,13 @@ body {
     display: flex;
     margin: 0 auto;
     max-width: 100%;
-    width: 880px;
+    width: 910px;
 }
 
 .main {
     margin-top: 20px;
     max-width: 100%;
-    width: 600px;
+    width: 630px;
 }
 
 .header p {
@@ -613,13 +587,13 @@ blockquote {
     transition: all 0.3s ease;
 }
 
-@media only screen and (min-width: 881px) {
+@media only screen and (min-width: 911px) {
     .hl {
         display: none !important;
     }
 }
 
-@media only screen and (max-width: 880px) and (min-width: 501px) {
+@media only screen and (max-width: 910px) and (min-width: 501px) {
     .hm {
         display: none !important;
     }

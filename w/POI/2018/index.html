@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="POI/2018 - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -78,18 +87,18 @@ addOnload(writeTitle);
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> Stage 1</h2>
 <h3 class="heading"><a href="#s-1-1-" id="s-1-1-">1.1.</a> Stone</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/NZSCUwz2ACePsBKuVCIVzrRt/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/NZSCUwz2ACePsBKuVCIVzrRt/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <p>답이 되는 벡터의 방향을 고정하고 생각하면 그 벡터의 방향 90도 이내의 벡터들을 전부 사용하고, 나머지는 사용하지 않는 경우 고정한 방향으로 가장 먼 벡터를 구할 수 있다는 것을 알 수 있다. </p>
 <p>따라서 각 벡터에 대해 시계 방향으로 180도 이내의 벡터를 모두 더한 경우를 매번 답으로 갱신해주면 되는데, 180도 이내 벡터의 경우 <a class="no-link" href="/w/Two%20Pointer">Two Pointer</a>로 관리하면 O(N)에 구할 수 있다.</p>
 <h3 class="heading"><a href="#s-1-2-" id="s-1-2-">1.2.</a> Subway Design</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/vvd6w7n7EXFVEg3nkqGxEirV/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/vvd6w7n7EXFVEg3nkqGxEirV/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <p>1번 정점과 N번 정점을 잇는 직선을 생각해 보면 그 직선 상에 존재하지 않고 1번 정점이나 N번 정점에 직선 밖 트리처럼 붙어있는 정점들의 경우 \(l_i\)와 \(d_i\)의 차가 1번 정점부터 N번 정점의 거리로 정해진다. 또 그 외의 정점들은 \(l_i\)와 \(d_i\)의 차가 1번 부터 N번 정점 사이 거리보다 클 수 없다. </p>
 <p>따라서 이때 모든 \(2\leq i \leq N-1\)에 대해 \(l_i\)와 \(d_i\)의 차 중 최댓값을 \(mx\)라 하면 \(mx\)는 1번 정점에서 N번 정점까지의 거리라고 할 수 있다. </p>
 <p>\(l_i\)와 \(d_i\)의 차가 \(mx\)인 \(i\)의 경우 \(max(l_i, d_i) - mx = k_i\)라 하면 1번 정점<sup class="footnote-reference"><a id="b-1">1</a></sup> 또는 N번 정점에<sup class="footnote-reference"><a id="b-2">2</a></sup> 길이 \(k_i\)인 간선으로 정점 \(i\)를 붙여주면 된다.</p>
 <p>\(l_i\)와 \(d_i\)의 차가 \(mx\)가 아닌 \(i\)들의의 경우 먼저 \(l_i + d_i = mx\)인 정점들의 경우 1번 정점과 N번 정점을 잇는 경로 상의 점임을 알 수 있다.  나머지 정점에서 \({{l_i + d_i - mx} \over 2 } = k_i\)라 하면 1번 정점에서 거리 \(d_i - k_i\)에 있는 정점 N과의 경로 상 정점에다가 거리 \(k_i\)로 이어주면 조건을 만족하는 그래프를 만들어낼 수 있다.</p>
 <p>경로 길이가 자연수가 아니거나, 연결할 정점이 없는 등 앞의 과정들에서 문제가 하나라도 발생하면 _NIE_를 출력하면 된다.</p>
 <h3 class="heading"><a href="#s-1-3-" id="s-1-3-">1.3.</a> Flood</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/xCiDtZ0ZX70fyac1Sav8d37J/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/xCiDtZ0ZX70fyac1Sav8d37J/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <p>같은 높이의 구역들을 그룹으로 묶어서 관리한다는 아이디어를 생각해볼 수 있다. 이때 그룹이 변경되는 횟수는 최대 \(N-1\)번이기 때문에 그룹을 합치는 것을 \(O(1)\)에 처리하면 \(O(MN)\)에 문제를 해결할 수 있다. </p>
 <p>그룹을 합치는 것에서 끝나는게 아니라 경우의 수를 세야 하기 때문에 <a class="no-link" href="/w/Union%20&amp;%20Find">Union &amp; Find</a>를 해주면서 그룹마다 <a href="/w/DP">DP</a>처럼 정보를 저장하고 있으면 된다. 각 그룹마다 그 그룹의 구역의 가능한 최소 높이 \(H_i\)와 그 그룹의 누적 경우의 수 \(C_i\)를 저장하고 있자. 처음에는 모든 구역의 \(H_i = 1, C_i = 0\)일 것이다. </p>
 <p>댐의 높이가 낮은 순서로 그룹을 합쳐주는 과정을 반복한다. 그룹 A와 그룹 B를 높이 \(h\)인 댐을 통해 합쳐주어 그룹 C를 만든다고 생각해보자. 그룹 C의 최소 높이는 \(h+1\)이기 때문에 \(H_C = h+1\)이 된다. 또, 그룹 C에는 그룹 A와 그룹 B가 각각 높이 \(h\) 이하인 경우를 \(C_C\)에 저장해야 하기 때문에 \(C_C = (C_A + h+1 - H_A) \times (C_B + h+1 - H_B)\)라고 계산해줄 수 있다. 이때 같은 높이 \(h\)에 대해 여러 그룹(그룹 A, 그룹 B, 그룹 C, ...)이 하나의 그룹(그룹 Z)으로 합쳐지는 처리를 하는 경우 \(C_Z = (C_A + h+1 - H_A) \times (C_B + h+1 - H_B) \times (C_C + h+1 - H_C) \times ...\)처럼 동시에 \(C_i\)값을 계산해줘야 한다.</p>
@@ -98,33 +107,33 @@ addOnload(writeTitle);
 <p>비슷한 방식으로 하되 \(H_i\)에 그 그룹의 가능한 최소 높이 대신 현재 그룹의 높이를 저장하고 \(C_i\)에 그 그룹에서 높이 \(H_i\) 이하로 가능한 경우의 수를 저장해 놓으면 합칠 때 쉽게 합칠 수 있으며 여러 그룹을 합치는 것도 2개의 그룹을 합치는 것 여러 번으로 처리해줄 수 있으므로 간단하다... </p>
 <p>높이 \(h\)의 댐으로 그룹 A와 그룹 B를 그룹 C로 합치면 먼저 \(C_A = C_A + h - H_A\), \(C_B = C_B + h - H_B\)라 한 다음 \(C_C = C_A * C_B, H_C = h\)라고 해주면 된다.</p>
 <h3 class="heading"><a href="#s-1-4-" id="s-1-4-">1.4.</a> Lawyers</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/KkN5UonnNGIG3AuMqoI6xr62/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/KkN5UonnNGIG3AuMqoI6xr62/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-1-5-" id="s-1-5-">1.5.</a> Diversity</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/eHGwrk9xShVF-z_2f7K4Yyb_/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/eHGwrk9xShVF-z_2f7K4Yyb_/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Stage 2 Day 1</h2>
 <h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> Bike Paths</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/aKKSmtjWTtDOEHDqnmQ3-eAA/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/aKKSmtjWTtDOEHDqnmQ3-eAA/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-2-2-" id="s-2-2-">2.2.</a> Conductor</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/lbADmW7d353d0F0iw4kXTjsl/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/lbADmW7d353d0F0iw4kXTjsl/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> Stage 2 Day 2</h2>
 <h3 class="heading"><a href="#s-3-1-" id="s-3-1-">3.1.</a> Transceivers</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/GmAagCBetbskP0qiKlgVd-6A/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/GmAagCBetbskP0qiKlgVd-6A/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-3-2-" id="s-3-2-">3.2.</a> Book of Poetry</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/Hhip15j-8Ro2dOb_4oB98C-G/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/Hhip15j-8Ro2dOb_4oB98C-G/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> Stage 3 Day 1</h2>
 <h3 class="heading"><a href="#s-4-1-" id="s-4-1-">4.1.</a> Fence</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/guoc36QCEe4q47qruYB7HBV-/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/guoc36QCEe4q47qruYB7HBV-/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-4-2-" id="s-4-2-">4.2.</a> Complete Numbers</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/GfNdWdsmfgHxoByl0ETuZW9c/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/GfNdWdsmfgHxoByl0ETuZW9c/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-4-3-" id="s-4-3-">4.3.</a> Triinformathlon</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/URPMk7vthz60i1J3MT3XbIIO/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/URPMk7vthz60i1J3MT3XbIIO/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> Stage 3 Day 2</h2>
 <h3 class="heading"><a href="#s-5-1-" id="s-5-1-">5.1.</a> Polynomial</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/9JvSAnyf5d1FlPAEXEdUAtCz/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/9JvSAnyf5d1FlPAEXEdUAtCz/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-5-2-" id="s-5-2-">5.2.</a> Taxis</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/pxbqUTPy3IuPDul9FdT2_Sth/site/?key=statement" class="outer">문제</a></p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/pxbqUTPy3IuPDul9FdT2_Sth/site/?key=statement" class="outer" target="_blank">문제</a></p>
 <h3 class="heading"><a href="#s-5-3-" id="s-5-3-">5.3.</a> Two long candy sticks</h3>
-<p><a href="https://szkopul.edu.pl/problemset/problem/Kmofhbw9cTx06gSZg-C5MiBU/site/?key=statement" class="outer">문제</a> </p>
+<p><a href="https://szkopul.edu.pl/problemset/problem/Kmofhbw9cTx06gSZg-C5MiBU/site/?key=statement" class="outer" target="_blank">문제</a> </p>
 <hr />
 <div class="footnote-definition" id="f-1"><sup class="footnote-definition-label"><a href="#b-1">1</a></sup>
 <p>\(d_i\)가 더 큰 경우

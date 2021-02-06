@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="Dijkstra Algorithm - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -118,7 +127,7 @@ void dijkstra(int v){
 }
 </code></pre>
 <h2 class="heading"><a href="#s-4-" id="s-4-">4.</a> 예시</h2>
-<p><a href="https://www.acmicpc.net/problem/5719" class="outer">거의 최단 경로 문제</a>를 Dijkstra 알고리즘을 통해 풀 수 있다.</p>
+<p><a href="https://www.acmicpc.net/problem/5719" class="outer" target="_blank">거의 최단 경로 문제</a>를 Dijkstra 알고리즘을 통해 풀 수 있다.</p>
 <p>단순한 최단 경로를 계산하려면 다익스트라 알고리즘을 한 번 사용하면 됩니다. 그러나 우리가 찾아야 하는 것은 &quot;거의 최단 경로&quot;이기 때문에, 최단 경로의 간선들을 모두 제거한 후 다시 다익스트라 알고리즘을 사용해야 합니다. 그렇다면 최단 경로의 간선을 제거하는 과정은 어떻게 구현할 수 있을까요? 다익스트라 알고리즘을 약간만 보완하면 됩니다. 각 정점에 대해서 단순히 최단경로의 길이 값만 저장하는 것이 아니라, 그 정점 직전의 정점의 번호도 저장하는 것이죠. 그 후 최단 경로의 간선들을 제거할 때는 간단한 백트래킹을 활용하면 됩니다. 예시 코드에서는 정점 번호를 -1로 바꾸는 방법으로 간선을 제거하였습니다.</p>
 <p>한 가지 주의할 점은 최단경로가 하나가 아닐 수 있다는 것입니다. 따라서 모든 최단 경로를 저장하지 않으면 정답을 내지 못할 수도 있으므로 조심하세요.</p>
 

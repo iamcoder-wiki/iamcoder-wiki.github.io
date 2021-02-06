@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/r/css/style.css">
     <link rel="stylesheet" href="/r/css/variable.css">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css">
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">-->
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
     <script>
@@ -32,14 +36,19 @@
                 <div class="logo"><a href="/"><img src="/logo.png" alt="LCS - IamCoder Wiki" height="33"/></a></div>
             
             <div class="search-w">
-                <div class="search-input-w hide"><input id="t-s-input" placeholder="Search"></div>
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
                 <div class="search" id="t-s-button">
                     <div class="icon-w">
-                        <div class="circle"></div>
-                        <div class="stick"></div>
+                        <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun" id="t-t-icon"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -102,7 +111,7 @@ addOnload(writeTitle);
 만약 LCS의 길이 뿐만이 아닌 LCS 자체를 구하고 싶다면, 위 표에서 빨간색으로 채워진 칸들을 역으로 추적하면 됩니다. 
 위 표에서 예시를 들어 보도록 하겟습니다. 선택되었기에 빨간색이 칠해진 칸들을 보면 모두 공통점이 있습니다. 같은 숫자를 가진 칸들 중 가장 왼쪽 위의 칸이라는 것입니다. 이것은 전 칸에서 넘어올 때 길이가 1 늘었다는 뜻이고, 그 칸이 LCS에 포함된다는 뜻입니다. 따라서 LCS를 구하려면, 끝에서 시작해 왼쪽이나 위에 같은 수가 있으면 그곳으로 가고, 왼쪽 칸과 윗칸이 모두 자신보다 작다면 자신을 LCS에 추가한 후 왼쪽 위에 있는 칸으로 가면 됩니다.</p>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> Code</h2>
-<p>지금까지 설명한 내용이 그대로 담겨 있는 문제가 있습니다. 따라서 구현 코드와 문제 설명을 같이 하겠습니다. <a href="https://www.acmicpc.net/problem/9252" class="outer">이 문제</a>는 두 문자열을 입력받은 후, LCS의 길이와 LCS를 출력하는 문제입니다.</p>
+<p>지금까지 설명한 내용이 그대로 담겨 있는 문제가 있습니다. 따라서 구현 코드와 문제 설명을 같이 하겠습니다. <a href="https://www.acmicpc.net/problem/9252" class="outer" target="_blank">이 문제</a>는 두 문자열을 입력받은 후, LCS의 길이와 LCS를 출력하는 문제입니다.</p>
 <pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 char A[1010], B[1010], LCS[1010];
