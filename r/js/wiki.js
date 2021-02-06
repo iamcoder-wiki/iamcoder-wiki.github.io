@@ -286,6 +286,7 @@ function changeTheme() {
         darkThemeCss.disabled = true;
         lightThemeCss.disabled = false;
         themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.remove("fa-lg");
         themeIcon.classList.add("fa-moon");
         setCookie("theme", "light", 365);
     } else {
@@ -294,6 +295,7 @@ function changeTheme() {
         lightThemeCss.disabled = true;
         themeIcon.classList.remove("fa-moon");
         themeIcon.classList.add("fa-sun");
+        themeIcon.classList.add("fa-lg");
         setCookie("theme", "dark", 365);
     }
 }
