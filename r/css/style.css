@@ -336,6 +336,7 @@ main a:target {
 }
 
 main img {
+    max-width: 100%;
 }
 
 main ol {
