@@ -63,7 +63,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BIOI 2020%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BIOI 2020%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2021-02-07 16:05:48 </p>
+                    <p> 최근 수정 시각: 2021-02-07 16:09:01 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/dsstar-codes" target="_blank"><span title="dsstar-codes"><img src="https://github.com/dsstar-codes.png?size=32" width="24" height="24" alt="@dsstar-codes"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -167,40 +167,40 @@ addOnload(writeTitle);
 <ul>
 <li>각 라운드에는 획득하는 점수는 정확히 얼마인가?
 <ul>
-<li>뽑은 카드에 적힌 숫자들을 크기 순서대로 \A_{1}, A_{2}, ... , A_{n}\이라고 하자.</li>
-<li>마스터가 항상 최적의 <code>b</code>를 선택한다면, 획득하는 점수는 \S = A_{n}+A_{n-1}+...+A_{n/2}-A{n/2-1}-...-A_{1}-A_{0}\이 된다.</li>
+<li>뽑은 카드에 적힌 숫자들을 크기 순서대로 \(A_{1}, A_{2}, ... , A_{n}\)이라고 하자.</li>
+<li>마스터가 항상 최적의 <code>b</code>를 선택한다면, 획득하는 점수는 \(S = A_{n}+A_{n-1}+...+A_{n/2}-A{n/2-1}-...-A_{1}-A_{0}\)이 된다.</li>
 </ul>
 </li>
 </ul>
 <h4 class="heading"><a href="#s-1-3-3-" id="s-1-3-3-">1.3.3.</a> 티켓 선택</h4>
 <ul>
-<li>전체 티켓 \nm\개 중, 점수가 더해지는 티켓 \nk/2\개와, 점수가 차감되는 티켓 \nk/2\개를 고르게 된다. 이상 점수가 더해지는 티켓을 P 티켓, 차감되는 티켓을 Q 티켓이라 부르겠다.</li>
+<li>전체 티켓 \(nm\)개 중, 점수가 더해지는 티켓 \(nk/2\)개와, 점수가 차감되는 티켓 \(nk/2\)개를 고르게 된다. 이상 점수가 더해지는 티켓을 P 티켓, 차감되는 티켓을 Q 티켓이라 부르겠다.</li>
 <li>또한, 한 종류의 색에서는 정확히 <code>k</code>개의 티켓을 골라야 한다.</li>
 <li>어떻게 고를 것인가?
 <ul>
 <li>
-<p>점수의 초기값은 \sum_{i=0}^{n-1} sum_{j=0}^{k-1} x(i, j)\로 놓자. (처음에는 모든 티켓이 Q티켓)</p>
+<p>점수의 초기값은 \(sum_{i=0}^{n-1} sum_{j=0}^{k-1} x(i, j)\)로 놓자. (처음에는 모든 티켓이 Q티켓)</p>
 </li>
 <li>
-<p>이제 Q 티켓 중 \nk/2\개를 P 티켓으로 교체해야 한다.</p>
+<p>이제 Q 티켓 중 \(nk/2\)개를 P 티켓으로 교체해야 한다.</p>
 </li>
 <li>
-<p>우선 max heap에  \x(i, k-1)+x(i, m-1)\들을 모두 추가한다.</p>
+<p>우선 max heap에  \(x(i, k-1)+x(i, m-1)\)들을 모두 추가한다.</p>
 </li>
 <li>
 <p>다음의 과정을 \nk/2\회 반복한다:</p>
 <ol>
-<li>max heap에서 최댓값을 확인한다.(이를 \x(i, j)+x(i, j+m-k)\라고 하자.)
-이것의 의미는, Q 티켓에서 \(i, j)\ 티켓을 삭제하고, P 티켓에 \(i, j+m-k)\ 티켓을 추가한다는 뜻이다.</li>
+<li>max heap에서 최댓값을 확인한다.(이를 \(x(i, j)+x(i, j+m-k)\)라고 하자.)
+이것의 의미는, Q 티켓에서 \((i, j)\) 티켓을 삭제하고, P 티켓에 \((i, j+m-k)\) 티켓을 추가한다는 뜻이다.</li>
 <li>확인한 최댓값을 <code>S</code>에 더해주고 pop한다.</li>
-<li>max heap에 \x(i, j-1)+x(i, j+m-k-1)\을 추가한다. 만약 \j = 0\이라면, 색 <code>i</code>에서 <code>k</code>개의 티켓을 전부 확정한 것이기 때문에 추가하지 않는다.</li>
+<li>max heap에 \(x(i, j-1)+x(i, j+m-k-1)\)을 추가한다. 만약 \(j = 0\)이라면, 색 <code>i</code>에서 <code>k</code>개의 티켓을 전부 확정한 것이기 때문에 추가하지 않는다.</li>
 </ol>
 </li>
 <li>
 <p>위의 프로세스로 티켓을 고르는 것은</p>
 <ul>
 <li>한 종류의 색 당 <code>k</code>개의 티켓 선택</li>
-<li>총 P 티켓의 개수와 Q 티켓의 개수가 각각 \nk/2\
+<li>총 P 티켓의 개수와 Q 티켓의 개수가 각각 \(nk/2\)
 의 조건을 만족하도록 티켓을 고른 경우 중 점수가 최대가 되는 경우임이 자명하다.</li>
 </ul>
 </li>
@@ -216,16 +216,16 @@ addOnload(writeTitle);
 <li><strong>있다.</strong>
 <ul>
 <li>
-<p>색 <code>i</code>의 티켓 중 P 티켓의 수를 \P_{i}\라고 하자.</p>
+<p>색 <code>i</code>의 티켓 중 P 티켓의 수를 \(P_{i}\)라고 하자.</p>
 </li>
 <li>
-<p>각 라운드에서는 \P_{i}\가 큰 순서대로 \n/2\개의 색을 골라서 이 색들에서 P 티켓을 뽑고, 나머지 색은 Q 티켓을 뽑는다.</p>
+<p>각 라운드에서는 \(P_{i}\)가 큰 순서대로 \(n/2\)개의 색을 골라서 이 색들에서 P 티켓을 뽑고, 나머지 색은 Q 티켓을 뽑는다.</p>
 </li>
 <li>
-<p>이후, 사용한 티켓을 삭제한다. \P_{i}\도 같이 갱신한다.</p>
+<p>이후, 사용한 티켓을 삭제한다. \(P_{i}\)도 같이 갱신한다.</p>
 </li>
 <li>
-<p>이렇게 배치하면 항상 한 라운드에 \n/2\개의 P 티켓과 Q 티켓을 각 색에서 하나씩 배치할 수 있다.
+<p>이렇게 배치하면 항상 한 라운드에 \(n/2\)개의 P 티켓과 Q 티켓을 각 색에서 하나씩 배치할 수 있다.
 이는 비둘기집의 원리에 의하여 간단하게 증명할 수 있다.</p>
 </li>
 </ul>
@@ -240,7 +240,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2021-02-07 16:05:48 </p>
+                <p> 최근 수정 시각: 2021-02-07 16:09:01 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/dsstar-codes" target="_blank"><span title="dsstar-codes"><img src="https://github.com/dsstar-codes.png?size=32" width="24" height="24" alt="@dsstar-codes"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ioi/ioi2020.md"><div class="button">편집</div></a>
