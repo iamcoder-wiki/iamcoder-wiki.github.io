@@ -328,7 +328,7 @@ main a:target {
 
 .outer {
     color: var(--outer-link) !important;
-    background-image: url("/r/img/link-dark.svg");
+    background-image: var(--outer-link-svg);
     background-repeat: no-repeat;
     background-position: center right;
     padding-right: 14px;
@@ -365,6 +365,10 @@ main li {
 main li + p {
     margin-block-start: 0;
     margin-block-end: 0;
+}
+
+main del {
+    color: var(--c-3-7);
 }
 
 code {
@@ -422,10 +426,11 @@ table thead th:last-child {
 
 blockquote {
     background-color: var(--quote-bg);
-    border-bottom: 1px solid var(--c-1-9);
+    border-bottom: 1px solid var(--c-1-6);
     border-left: 3px solid var(--quote-side);
-    border-right: 1px solid var(--c-1-9);
-    border-top: 1px solid var(--c-1-9);
+    border-right: 1px solid var(--c-1-6);
+    border-top: 1px solid var(--c-1-6);
+    border-radius: 0 3px 3px 0;
     color: var(--c-3-0);
     margin: 20px 0;
     padding: 0 20px;

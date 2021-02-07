@@ -36,6 +36,8 @@
     --quote-bg: #2d2d29;
     --quote-side: #a79d68;
     --outer-link: #af8754;
+
+    --outer-link-svg: url("/r/img/link-dark.svg");
 }
 
 .light {
@@ -61,19 +63,21 @@
     --c-2-8: #C2B8E7;
     --c-2-9: #D1C7F3;
 
-    --c-3-0: #212121;
-    --c-3-1: #272727;
-    --c-3-2: #2e2e2e;
-    --c-3-3: #353535;
-    --c-3-4: #3c3c3c;
-    --c-3-5: #434343;
-    --c-3-6: #4a4a4a;
-    --c-3-7: #515151;
-    --c-3-8: #595959;
-    --c-3-9: #606060;
+    --c-3-0: #262626;
+    --c-3-1: #303030;
+    --c-3-2: #3a3a3a;
+    --c-3-3: #454545;
+    --c-3-4: #4f4f4f;
+    --c-3-5: #5b5b5b;
+    --c-3-6: #666666;
+    --c-3-7: #717171;
+    --c-3-8: #7d7d7d;
+    --c-3-9: #898989;
 
-    --link: #4d83bc;
-    --quote-bg: #fffff7;
-    --quote-side: #e8da91;
-    --outer-link: #af8754;
+    --link: #2979cb;
+    --quote-bg: #fffaf1;
+    --quote-side: #ffc25e;
+    --outer-link: #d28a32;
+
+    --outer-link-svg: url("/r/img/link-light.svg");
 }

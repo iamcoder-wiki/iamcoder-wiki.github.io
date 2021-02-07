@@ -324,7 +324,7 @@ function getCookie(name) {
 themeButton.addEventListener('click', changeTheme);
 
 (function () {
-    let theme = getCookie("theme");
+    let theme = getCookie("theme") && "dark";
     if (document.getElementsByTagName("html")[0].classList[0] !== theme) {
         changeTheme();
     }
