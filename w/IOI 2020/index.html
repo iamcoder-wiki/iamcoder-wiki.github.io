@@ -63,7 +63,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BIOI 2020%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BIOI 2020%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2021-02-07 16:30:01 </p>
+                    <p> 최근 수정 시각: 2021-02-07 16:32:14 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/dsstar-codes" target="_blank"><span title="dsstar-codes"><img src="https://github.com/dsstar-codes.png?size=32" width="24" height="24" alt="@dsstar-codes"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -158,7 +158,7 @@ addOnload(writeTitle);
 <h4 class="heading"><a href="#s-1-3-1-" id="s-1-3-1-">1.3.1.</a> 문제 설명</h4>
 <ul>
 <li><code>n</code>가지 색의 티켓이 각 색마다 <code>m</code>개씩 존재하며, 티켓에는 각각 하나의 정수가 쓰여있다.</li>
-<li><code>k</code>회의 라운드마다, 하나의 색에서 하나의 카드를 선택하여 카드에 대해 점수를 받는다. 뽑은 카드에 적힌 숫자들을 크기 순서대로 (\A_{1}, A_{2}, ... , A_{m}\)이라고 하자. 마스터 또한 카드 한장을 뽑는다. 마스터가 뽑은 카드에 적힌 수가 <code>b</code>라고 하면, \(\sum |A_{i}-b|\)이 이번 라운드에 얻게 되는 점수이다.</li>
+<li><code>k</code>회의 라운드마다, 하나의 색에서 하나의 카드를 선택하여 카드에 대해 점수를 받는다. 뽑은 카드에 적힌 숫자들을 크기 순서대로 \(A_{1}, A_{2}, ... , A_{m}\)이라고 하자. 마스터 또한 카드 한장을 뽑는다. 마스터가 뽑은 카드에 적힌 수가 <code>b</code>라고 하면, \(\sum |A_{i}-b|\)이 이번 라운드에 얻게 되는 점수이다.</li>
 <li>각 라운드가 끝날때 마다 라운드에서 사용된 카드는 버려진다.</li>
 <li>마스터는 각 라운드마다 점수가 최소화되도록 <code>b</code>를 선택한다.</li>
 <li>가장 많은 점수를 얻을 수 있도록 각 라운드마다 고르는 카드를 선택하자.</li>
@@ -188,7 +188,7 @@ addOnload(writeTitle);
 <p>우선 max heap에  \(x(i, k-1)+x(i, m-1)\)들을 모두 추가한다.</p>
 </li>
 <li>
-<p>다음의 과정을 \nk/2\회 반복한다:</p>
+<p>다음의 과정을 \(nk/2\)회 반복한다:</p>
 <ol>
 <li>max heap에서 최댓값을 확인한다.(이를 \(x(i, j)+x(i, j+m-k)\)라고 하자.)
 이것의 의미는, Q 티켓에서 \((i, j)\) 티켓을 삭제하고, P 티켓에 \((i, j+m-k)\) 티켓을 추가한다는 뜻이다.</li>
@@ -240,7 +240,7 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2021-02-07 16:30:01 </p>
+                <p> 최근 수정 시각: 2021-02-07 16:32:14 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/dsstar-codes" target="_blank"><span title="dsstar-codes"><img src="https://github.com/dsstar-codes.png?size=32" width="24" height="24" alt="@dsstar-codes"/></span></a><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/ioi/ioi2020.md"><div class="button">편집</div></a>
