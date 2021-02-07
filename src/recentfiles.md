@@ -6,6 +6,8 @@
 
 [[ APIO/2019 ]]
 
+[[ BOJ/수열과 쿼리 ]]
+
 [[ Codeforces/Grakn Forces 2020 ]]
 
 [[ Codeforces/Round 669 ]]
