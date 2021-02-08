@@ -10,6 +10,9 @@ __Codeforces Round__
 ### Codeforces Round 669
 [[ Codeforces/Round 669 ]] 참고
 
+### Codeforces Round 700
+[[ Codeforces/Round 700 ]] 참고
+
 ## ECR
 
 __Educational Codeforces Round__
