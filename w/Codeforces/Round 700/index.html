@@ -63,7 +63,7 @@
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BCodeforces/Round 700%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BCodeforces/Round 700%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2021-02-08 21:20:43 </p>
+                    <p> 최근 수정 시각: 2021-02-09 23:44:18 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -97,14 +97,14 @@ addOnload(writeTitle);
 <ul>
 <li><em><strong>Alice</strong></em> <em>(최대한 사전순 최소 문자로 바꿈)</em>
 <ul>
-<li>\(s_i = 'a' \Longrightarrow s_i = 'b'\)</li>
-<li>\(s_i \neq 'a' \Longrightarrow s_i = 'a'\)</li>
+<li>\(s_i = a \Longrightarrow s_i = b\)</li>
+<li>\(s_i \neq a \Longrightarrow s_i = a\)</li>
 </ul>
 </li>
 <li><em><strong>Bob</strong></em> <em>(최대한 사전순 최대 문자로 바꿈)</em>
 <ul>
-<li>\(s_i = 'z' \Longrightarrow s_i = 'y'\)</li>
-<li>\(s_i \neq 'z' \Longrightarrow s_i = 'z'\)</li>
+<li>\(s_i = z \Longrightarrow s_i = y\)</li>
+<li>\(s_i \neq z \Longrightarrow s_i = z\)</li>
 </ul>
 </li>
 </ul>
@@ -115,16 +115,17 @@ addOnload(writeTitle);
 <ul>
 <li>모든 <em>monster</em>를 죽이고 <em>great hero</em>도 죽을 수 있기 때문에, 마지막 <em>great hero</em>의 <em>health value</em>가 0 이상인지를 통해 판별이 불가능하다.</li>
 <li>하지만, 마지막 공격 이전까지 <em>great hero</em>의 <em>health value</em>가 0보다 큰 경우 모든 <em>monster</em>를 죽일 수 있음을 알 수 있다.</li>
-<li>즉, 마지막 공격을 <code>i</code>번 <em>monster</em>에게 한 경우 \((i번\ 이외\ monster들의\ 공격) + (i번\ monster\ 최대\ 공격\ 횟수-1) \times a_i &lt; B\)인 경우 모든 <em>monster</em>를 죽일 수 있다.</li>
-<li>이때 식을 변형하면 \((모든\ monster들의\ 공격) - a_i &lt; B\)가 되기 때문에 \(a_i\)가 최대가 되도록 \(i\)를 결정하여 <code>i</code>번째 <em>monster</em>를 가장 마지막으로 공격할 때 조건을 만족하는지 판별하면 된다.</li>
+<li>즉, 마지막 공격을 <code>i</code>번 <em>monster</em>에게 한 경우 $$(i번\ 이외\ monster들의\ 공격) + (i번\ monster\ 공격\ 횟수-1) \times a_i &lt; B$$인 경우 모든 <em>monster</em>를 죽일 수 있다.</li>
+<li>이때 식을 변형하면 $$(모든\ monster들의\ 공격) - a_i &lt; B$$가 되기 때문에 \(a_i\)가 최대가 되도록 \(i\)를 결정하여 <code>i</code>번째 <em>monster</em>를 가장 마지막으로 공격할 때 조건을 만족하는지 판별하면 된다.</li>
 </ul>
 <h2 class="heading"><a href="#s-3-" id="s-3-">3.</a> Div2 C / Div1 A</h2>
 <p><a href="https://codeforces.com/contest/1479/problem/A" class="outer" target="_blank">Searching Local Minimum</a></p>
 <ul>
 <li><a href="/w/Binary%20Search">Binary Search</a>와 비슷한 방식을 사용하면 된다.</li>
-<li>다음 조건을 만족하는 <code>(s, e)</code> 구간을 계속 관리하자.
+<li>다음 조건들을 만족하는 <code>(s, e)</code> 구간을 계속 관리하자.
 <ul>
-<li>\(a_{s-1} &gt; a_{s}, a_{e} &lt; a_{e+1}\)</li>
+<li>\(a_{s-1} &gt; a_{s}\)</li>
+<li>\(a_{e} &lt; a_{e+1}\)</li>
 </ul>
 </li>
 <li>처음 <code>(s, e)</code> 구간을 <code>(1, N)</code>으로 초기화하면 조건을 만족하는 것을 알 수 있다.</li>
@@ -149,9 +150,9 @@ addOnload(writeTitle);
 <li><code>i</code>번째 원소를 보고 있을 때 <code>DP[j][k] = (x, y)</code>와 같이 <a class="no-link" href="/w/Pair">Pair</a>를 사용하여 두 값을 저장한다.
 <ul>
 <li><code>j</code> : 0인 경우 \(a_i\)는 \(a^{(0)}\)에 위치 / 1인 경우 \(a_i\)는 \(a^{(1)}\)에 위치</li>
-<li><code>k</code> : 0에 \(seg(a^{(0)}) + seg(a^{(1)})\)의 최댓값 저장, 1에 다음 \(seg(a^{(0)}) + seg(a^{(1)})\)의 최댓값 저장</li>
+<li><code>k</code> : 0에 \(seg(a^{(0)}) + seg(a^{(1)})\)의 최댓값 저장, 1에 \(seg(a^{(0)}) + seg(a^{(1)})\)의 2번째 최댓값 저장</li>
 <li><code>x</code> : 저장된 \(seg(a^{(0)}) + seg(a^{(1)})\) 값</li>
-<li><code>y</code> : 해당 \(seg(a^{(0)}) + seg(a^{(1)})\)를 갖는 경우에서 \(a^{(1-j)}\)에 위치한 마지막 원소</li>
+<li><code>y</code> : 해당 \(seg(a^{(0)}) + seg(a^{(1)})\)를 갖는 경우에서 \(a^{(1-j)}\)에 위치한 마지막 원소의 위치</li>
 </ul>
 </li>
 <li><code>i</code>번쨰 원소 \(a_i\)를 \(a^{(0)}\) 또는 \(a^{(1)}\)에 추가할 때 마지막 값이 \(a_i\)인 경우와 \(a_i\)가 아닌 경우 2가지 경우에 \(seg(a^{(0)}) + seg(a^{(1)})\)값에 다른 변화가 생긴다.</li>
@@ -164,14 +165,14 @@ addOnload(writeTitle);
 <ul>
 <li>\(k=x_0\) 또는 \(k=x_1\)
 <ul>
-<li>\(k\)와 같은 위치 반대편에 \(k\)를 추가한다.</li>
+<li>\(k\)와 같은 원소가 있는 배열과 반대인 배열에 \(k\)를 추가한다.</li>
 </ul>
 </li>
 <li>\(k \neq x_0 \) 이고 \(k \neq x_1\)
 <ul>
 <li><code>k</code> 다음으로 가장 빨리 나오는 \(x_0\)과 \(x_1\)의 위치를 \(pos_{x_0}, pos_{x_1}\)라 하면 다음 위치에 <code>k</code>를 추가</li>
-<li>\(pos_{x_0} &lt; pos_{x_1} \Longrightarrow pos_{x_0}\)</li>
-<li>\(pos_{x_0} &gt; pos_{x_1} \Longrightarrow pos_{x_1}\)</li>
+<li>\(pos_{x_0} &lt; pos_{x_1} \Longrightarrow a^{(0)}\)</li>
+<li>\(pos_{x_0} &gt; pos_{x_1} \Longrightarrow a^{(1)}\)</li>
 </ul>
 </li>
 </ul>
@@ -179,6 +180,7 @@ addOnload(writeTitle);
 </ul>
 <h2 class="heading"><a href="#s-5-" id="s-5-">5.</a> Div2 D2 / Div1 B2</h2>
 <p><a href="https://codeforces.com/contest/1479/problem/B2" class="outer" target="_blank">Painting the Array II</a></p>
+<h3 class="heading"><a href="#s-5-1-" id="s-5-1-">5.1.</a> Greedy Solution</h3>
 <h2 class="heading"><a href="#s-6-" id="s-6-">6.</a> Div2 E / Div1 C</h2>
 <p><a href="https://codeforces.com/contest/1479/problem/C" class="outer" target="_blank">Continuous City</a></p>
 <h2 class="heading"><a href="#s-7-" id="s-7-">7.</a> Div1 D</h2>
@@ -189,12 +191,12 @@ addOnload(writeTitle);
                 </main>
             </div>
             <div class="side-bar hm hs">
-                <nav class="toc"><ul><li><a href="#s-1-">1. Div2 A</a></li><li><a href="#s-2-">2. Div2 B</a></li><li><a href="#s-3-">3. Div2 C / Div1 A</a></li><li><a href="#s-4-">4. Div2 D1 / Div1 B1</a><ul><li><a href="#s-4-1-">4.1. DP Solution</a></li><li><a href="#s-4-2-">4.2. Greedy Solution</a></li></ul></li><li><a href="#s-5-">5. Div2 D2 / Div1 B2</a></li><li><a href="#s-6-">6. Div2 E / Div1 C</a></li><li><a href="#s-7-">7. Div1 D</a></li><li><a href="#s-8-">8. Div1 E</a></li></ul></nav>
+                <nav class="toc"><ul><li><a href="#s-1-">1. Div2 A</a></li><li><a href="#s-2-">2. Div2 B</a></li><li><a href="#s-3-">3. Div2 C / Div1 A</a></li><li><a href="#s-4-">4. Div2 D1 / Div1 B1</a><ul><li><a href="#s-4-1-">4.1. DP Solution</a></li><li><a href="#s-4-2-">4.2. Greedy Solution</a></li></ul></li><li><a href="#s-5-">5. Div2 D2 / Div1 B2</a><ul><li><a href="#s-5-1-">5.1. Greedy Solution</a></li></ul></li><li><a href="#s-6-">6. Div2 E / Div1 C</a></li><li><a href="#s-7-">7. Div1 D</a></li><li><a href="#s-8-">8. Div1 E</a></li></ul></nav>
                 <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2021-02-08 21:20:43 </p>
+                <p> 최근 수정 시각: 2021-02-09 23:44:18 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/codeforces/cfr700.md"><div class="button">편집</div></a>
