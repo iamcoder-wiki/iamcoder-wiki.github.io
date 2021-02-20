@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta property="og:title" content="Test - IamCoder Wiki"/>
+    <title>Test - IamCoder Wiki</title>
+    <link rel="stylesheet" href="/r/css/style.css">
+    <link rel="stylesheet" href="/r/css/variable.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
+    <script>
+        function addOnload(fun) {
+            let last = window.onload;
+            window.onload = function () {
+                if (last) last();
+                fun();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="page">
+    <div class="top-bar-w">
+        <div class="top-bar">
+            
+                <div class="logo"><a href="/"><img src="/logo.png" alt="Test - IamCoder Wiki" height="33"/></a></div>
+            
+            <div class="search-w">
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun fa-lg" id="t-t-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-w">
+        <div class="content">
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/test.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/test.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/test.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BTest%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BTest%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
+                    </div>
+                    <p> 최근 수정 시각: 2021-02-20 22:32:19 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
+                </div>
+                <main>
+                    
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["T_", "Te_", "Tes_", "Test_", "Test_", "Test_", "Test_", "Test", "Test", "Test", "Test", "Test_", "Test_", "Test_", "Test_", "Test"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+addOnload(writeTitle);
+</script>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> Day 1</h2>
+<h3 class="heading"><a href="#s-1-1-" id="s-1-1-">1.1.</a> 1. Comparing Plants</h3>
+<h3 class="heading"><a href="#s-1-2-" id="s-1-2-">1.2.</a> 2. Connecting Supertrees</h3>
+<p><a href="https://oj.uz/problem/view/IOI20_supertrees?locale=ko" class="outer" target="_blank">문제</a></p>
+<h3 class="heading"><a href="#s-1-3-" id="s-1-3-">1.3.</a> 문제 설명</h3>
+<ul>
+<li>N개의 정점이 있다</li>
+<li>정점 <code>i</code>에서 정점 <code>j</code>로 가는 서로 다른 단순경로가 정확히 <code>p(i, j)</code>개가 되도록 그래프를 설계할 것이다. (\(0 \leq p(i, j) \leq 3\))</li>
+<li>이를 만족하는 그래프가 존재하는지 판별하고, 존재한다면 그 중 하나를 구하여라.</li>
+</ul>
+<h3 class="heading"><a href="#s-1-4-" id="s-1-4-">1.4.</a> 존재성 판별</h3>
+<ul>
+<li>일단, 조건을 만족하는 그래프가 존재하는지부터 생각해보자.</li>
+<li>96점까지는 <code>0 ≤ p(i, j) ≤ 2</code>이므로, <code>0 ≤ p(i, j) ≤ 2</code>일 때를 생각해보자.
+<ul>
+<li><code>p(x, y) = 1</code>에 대한 관찰
+<ul>
+<li>정점 <code>i</code>에 대하여 <code>p(x, y) = 1</code>인 <code>j</code>들의 집합을 <code>S</code>라 하자.</li>
+<li>그러면 <code>x</code>, <code>y</code> ∈ <code>S</code>인 모든 <code>x</code>, <code>y</code>에 대하여, <code>p(x, y) = 1</code>이다.
+<ul>
+<li><em>pf)</em> <code>p(x, y) ≠ 0</code>임은 자명하다. (<code>x``i``y</code> 경로가 존재하므로 <code>x``y</code> 단순경로도 존재) <code>p(x, y) = 2</code>인 <code>(x, y)</code>가 존재한다고 가정하자.
+<ol>
+<li><code>i``x``y</code> 단순경로인 경우 <code>p(i, y)=2</code>인데, <code>S</code>의 정의에 의하여 모순이다.</li>
+<li><code>x``i``y</code> 단순경로인 경우 <code>x``i</code> 경로와 <code>i``y</code> 경로가 유일하므로, <code>p(x, y) = 2</code>인 것이 불가능하다.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>또한, <code>x</code>, <code>y</code> ∈ S인 모든 <code>x</code>, <code>y</code>와 임의의 정점 <code>k</code>에 대하여 <code>p(x, k) = p(y, k)</code>이다.</li>
+<li>따라서, 이러한 집합 <code>S</code>에 대하여, <code>S</code>의 원소들을 일직선의 체인 형태로 이어주고, <code>S</code>의 원소 중 임의의 하나를 잡아서 그 하나의 정점에 대해서만 <code>S</code> 외부의 정점과 간선을 이어주면 된다.</li>
+</ul>
+</li>
+<li><code>p(i, j) = 2</code>에 대한 관찰
+<ul>
+<li>이제 <code>p(i, j) = 1</code>인 <code>(i, j)</code>는 존재하지 않는다.</li>
+<li>정점 <code>i</code>에 대하여 <code>p(i, j) = 1</code>인 <code>j</code>들의 집합을 <code>T</code>라 하자.</li>
+<li>그러면 <code>x</code>, <code>y</code> ∈ <code>T</code>인 모든 <code>x</code>, <code>y</code>에 대하여, <code>p(x, y) = 2</code>이다.
+<ul>
+<li><em>pf)</em> <code>T</code>의 원소들은 하나의 컴포넌트에 존재하므로 <code>p(x, y) = 0</code>인 <code>(x, y)</code>는 존재하지 않는다.</li>
+</ul>
+</li>
+<li>따라서, 이러한 집합 <code>T</code>에 대하여, <code>T</code>의 모든 원소들을 하나의 사이클 형태로 이어주면 된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>따라서, 앞에서 정의한 집합 <code>S</code>, <code>T</code>에 대하여 다음 조건을 모두 만족하는지 확인한다면 주어진 입력의 조건에 맞는 그래프를 설계할 수 있는지 판별할 수 있다.
+<ul>
+<li><code>x</code>, <code>y</code> ∈ <code>S</code>인 모든 <code>x</code>, <code>y</code>에 대하여, <code>p(x, y) = 1</code></li>
+<li><code>x</code>, <code>y</code> ∈ <code>T</code>인 모든 <code>x</code>, <code>y</code>에 대하여, <code>p(x, y) = 2</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="heading"><a href="#s-1-5-" id="s-1-5-">1.5.</a> 그래프 설계</h3>
+<p>결과적으로, 앞에서 설명한 것과 같이 그래프를 설계하면, 결과 그래프는 다음과 같이 여러 개의 <strong><em>‘하나의 컴포넌트에 최대 하나의 사이클이 존재하는 선인장 그래프’</em></strong> 로 나타낼 수 있다.</p>
+<h3 class="heading"><a href="#s-1-6-" id="s-1-6-">1.6.</a> <code>p(i, j)</code> = 3 ?</h3>
+<ul>
+<li>
+<p>결과적으로 말하면, <code>p(i, j) = 3</code>인 <code>(i, j)</code>가 존재하는 경우 답은 존재하지 않는다.</p>
+</li>
+<li>
+<p>위는 <code>p(i, j) = 3</code>을 만족하게 만든 그래프이다. 위와 같이, <code>i</code>에서 <code>j</code>로 가는 같은 단순 경로 위에 존재하지 않는 두 정점 <code>x</code>, <code>y</code>가 존재하게 된다.</p>
+</li>
+<li>
+<p>이 경우, <code>p(x, y)</code> &gt; 3 (<code>x``i``y</code>, <code>x``j``y</code>, <code>x``i``j``y</code>, <code>x``j``i``y</code>)가 되기 때문에, <code>p(i, j) = 3</code>인 <code>(i, j)</code>가 존재하는 경우 조건을 만족하는 그래프는 존재하지 않는다.</p>
+</li>
+</ul>
+<h3 class="heading"><a href="#s-1-7-" id="s-1-7-">1.7.</a> 3. Carnival Tickets</h3>
+<p><a href="https://oj.uz/problem/view/IOI20_tickets" class="outer" target="_blank">문제</a></p>
+<h3 class="heading"><a href="#s-1-8-" id="s-1-8-">1.8.</a> 문제 설명</h3>
+<ul>
+<li><code>n</code>가지 색의 티켓이 각 색마다 <code>m</code>개씩 존재하며, 티켓에는 각각 하나의 정수가 쓰여있다.</li>
+<li><code>k</code>회의 라운드마다, 하나의 색에서 하나의 카드를 선택하여 카드에 대해 점수를 받는다. 뽑은 카드에 적힌 숫자들을 크기 순서대로 \(A_{1}, A_{2}, ... , A_{m}\)이라고 하자. 마스터 또한 카드 한장을 뽑는다. 마스터가 뽑은 카드에 적힌 수가 <code>b</code>라고 하면, \(\sum |A_{i}-b|\)이 이번 라운드에 얻게 되는 점수이다.</li>
+<li>각 라운드가 끝날때 마다 라운드에서 사용된 카드는 버려진다.</li>
+<li>마스터는 각 라운드마다 점수가 최소화되도록 <code>b</code>를 선택한다.</li>
+<li>가장 많은 점수를 얻을 수 있도록 각 라운드마다 고르는 카드를 선택하자.</li>
+</ul>
+<h3 class="heading"><a href="#s-1-9-" id="s-1-9-">1.9.</a> 필요한 관찰</h3>
+<ul>
+<li>각 라운드에는 획득하는 점수는 정확히 얼마인가?
+<ul>
+<li>뽑은 카드에 적힌 숫자들을 크기 순서대로 \(A_{1}, A_{2}, ... , A_{n}\)이라고 하자.</li>
+<li>마스터가 항상 최적의 <code>b</code>를 선택한다면, 획득하는 점수는 \(S = A_{n}+A_{n-1}+...+A_{n/2+1}-A_{n/2}-...-A_{2}-A_{1}\)이 된다.</li>
+</ul>
+</li>
+</ul>
+<h3 class="heading"><a href="#s-1-10-" id="s-1-10-">1.10.</a> 티켓 선택</h3>
+<ul>
+<li>전체 티켓 \(nm\)개 중, 점수가 더해지는 티켓 \(nk/2\)개와, 점수가 차감되는 티켓 \(nk/2\)개를 고르게 된다. 이상 점수가 더해지는 티켓을 P 티켓, 차감되는 티켓을 Q 티켓이라 부르겠다.</li>
+<li>또한, 한 종류의 색에서는 정확히 <code>k</code>개의 티켓을 골라야 한다.</li>
+<li>어떻게 고를 것인가?
+<ul>
+<li>점수의 초기값은 \(\sum_{i=0}^{n-1} \sum_{j=0}^{k-1} x(i, j)\)로 놓자. (처음에는 모든 티켓이 Q티켓)</li>
+<li>이제 Q 티켓 중 \(nk/2\)개를 P 티켓으로 교체해야 한다.</li>
+<li>우선 max heap에 \(x(i, k-1)+x(i, m-1)\)들을 모두 추가한다.</li>
+<li>다음의 과정을 \(nk/2\)회 반복한다:
+<ol>
+<li>max heap에서 최댓값을 확인한다.(이를 \(x(i, j)+x(i, j+m-k)\)라고 하자.) 이것의 의미는, Q 티켓에서 \((i, j)\) 티켓을 삭제하고, P 티켓에 \((i, j+m-k)\) 티켓을 추가한다는 뜻이다.</li>
+<li>확인한 최댓값을 <code>S</code>에 더해주고 pop한다.</li>
+<li>max heap에 \(x(i, j-1)+x(i, j+m-k-1)\)을 추가한다. 만약 \(j = 0\)이라면, 색 <code>i</code>에서 <code>k</code>개의 티켓을 전부 확정한 것이기 때문에 추가하지 않는다.</li>
+</ol>
+</li>
+<li>위의 프로세스로 티켓을 고르는 것은
+<ul>
+<li>한 종류의 색 당 <code>k</code>개의 티켓 선택</li>
+<li>총 P 티켓의 개수와 Q 티켓의 개수가 각각 \(nk/2\) 의 조건을 만족하도록 티켓을 고른 경우 중 점수가 최대가 되는 경우임이 자명하다.</li>
+</ul>
+</li>
+<li>또한, P 티켓 중 최솟값은 Q 티켓 중 최댓값보다 항상 크다. 만약 아니라면, 해당 두 티켓을 바꿔주면 S가 증가하게 되므로 모순이다.</li>
+</ul>
+</li>
+</ul>
+<h3 class="heading"><a href="#s-1-11-" id="s-1-11-">1.11.</a> 티켓 배치</h3>
+<ul>
+<li>이제 티켓을 배치하여야 한다. 앞에서와 같이 티켓을 고르면 항상 티켓을 배치하는 방법이 있을까?</li>
+<li><strong>있다.</strong>
+<ul>
+<li>색 <code>i</code>의 티켓 중 P 티켓의 수를 \(P_{i}\)라고 하자.</li>
+<li>각 라운드에서는 \(P_{i}\)가 큰 순서대로 \(n/2\)개의 색을 골라서 이 색들에서 P 티켓을 뽑고, 나머지 색은 Q 티켓을 뽑는다.</li>
+<li>이후, 사용한 티켓을 삭제한다. \(P_{i}\)도 같이 갱신한다.</li>
+<li>이렇게 배치하면 항상 한 라운드에 \(n/2\)개의 P 티켓과 Q 티켓을 각 색에서 하나씩 배치할 수 있다. 이는 비둘기집의 원리에 의하여 간단하게 증명할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> Day 2</h2>
+<h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> 1. Packing Biscuits</h3>
+<h3 class="heading"><a href="#s-2-2-" id="s-2-2-">2.2.</a> 문제 설명</h3>
+<ul>
+<li><code>k</code> 종류의 비스킷이 있다.
+<ul>
+<li><code>i</code>번 비스킷의 맛 점수는 \(2^i\)이다.</li>
+<li><code>i</code>번 비스킷은 \(a_i\)개가 있다.</li>
+</ul>
+</li>
+<li><code>x</code>개의 가방에 비스킷을 배분하여야 한다.
+<ul>
+<li>모든 가방에 담긴 <code>i</code>번 비스킷의 개수의 합은 \(a_i\)를 넘길 수 없다.</li>
+<li>한 가방에 담긴 모든 비스킷의 맛 점수의 합을 가방의 총 맛이라고 했을 때, 모든 가방의 총 맛은 전부 <code>y</code>로 동일해야 한다.</li>
+</ul>
+</li>
+<li>쿼리로 <code>x</code>가 주어질 때, 가능한 <code>y</code>의 개수를 구하여라.</li>
+</ul>
+<h3 class="heading"><a href="#s-2-3-" id="s-2-3-">2.3.</a> Subtask #2, #3</h3>
+<ul>
+<li>쿼리의 개수가 매우 작다.</li>
+<li><code>y</code>를 작은 비트부터 확인하자.</li>
+<li><code>DP(i, j)</code> = (<code>y</code>의 <code>i</code>번째 비트를 볼 때, 이전 단계에서 남은 비스킷 <code>i</code>가 <code>j</code>개 있는 경우 가능한 <code>y</code>의 경우의 수) 라고 정의하자.</li>
+<li>\(DP(i, j) = \sum_{k=0}^x DP(i+1, \lfloor {j+A_i-k} \over 2 \rfloor)\)</li>
+<li><code>i</code>에 대하여 가능한 <code>j</code>가 <code>[a, a+x]</code> 범위에서 나타난다면, \( \lfloor {j+A_i-k} \over 2 \rfloor\)은 \( \left[ {a+A_i-x} \over 2 , {a+A_i+x} \over 2 \right] = \left[ {a+A_i-x} \over 2 , {a+A_i-x} \over 2 + x \right] \) 범위에서 나타나게 되어 <code>j</code>의 최댓값과 최솟값의 차가 <code>x</code>로 유지된다.</li>
+<li>따라서, <a class="no-link" href="/w/map">map</a>이나 <a class="no-link" href="/w/unordered_map">unordered_map</a> 등을 이용해서 구현해준다면 \(O(KX \logK)\) 또는 \(O(KX \logK \logX ) \) 정도의 시간복잡도로 구현할 수 있다.</li>
+</ul>
+<h4 class="heading"><a href="#s-2-3-1-" id="s-2-3-1-">2.3.1.</a> Full Solution</h4>
+<ul>
+<li>앞에서와 같이 <code>DP(i, j)</code>로 두 개의 인자를 관리한다면 \(O(KX)\) 이하로 줄이기 힘들다.</li>
+<li>다음과 같이 새롭게 <a href="/w/DP">DP</a> 배열을 정의하자.
+<ul>
+<li><code>DP[i]</code> = <code>i</code>번 비스킷까지 사용했을 때 만들 수 있는 <code>y</code>의 경우의 수</li>
+</ul>
+</li>
+<li>이 때, 다음과 같은 점화식을 세울 수 있다.
+<ul>
+<li><code>y’</code> = <code>i</code>번 비스킷까지 사용했을 때 만들 수 있는 최대 <code>y</code>라고 했을 때, $$ DP[i] = \sum_{(1&lt;&lt;j)y'\ =\ true인\ 모든\ j} DP[j] + 1$$</li>
+</ul>
+</li>
+</ul>
+<h3 class="heading"><a href="#s-2-4-" id="s-2-4-">2.4.</a> 2. Counting Mushrooms</h3>
+<h3 class="heading"><a href="#s-2-5-" id="s-2-5-">2.5.</a> 3. Stations</h3>
+
+                </main>
+            </div>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. Day 1</a><ul><li><a href="#s-1-1-">1.1. 1. Comparing Plants</a></li><li><a href="#s-1-2-">1.2. 2. Connecting Supertrees</a></li><li><a href="#s-1-3-">1.3. 문제 설명</a></li><li><a href="#s-1-4-">1.4. 존재성 판별</a></li><li><a href="#s-1-5-">1.5. 그래프 설계</a></li><li><a href="#s-1-6-">1.6. <code>p(i, j)</code> = 3 ?</a></li><li><a href="#s-1-7-">1.7. 3. Carnival Tickets</a></li><li><a href="#s-1-8-">1.8. 문제 설명</a></li><li><a href="#s-1-9-">1.9. 필요한 관찰</a></li><li><a href="#s-1-10-">1.10. 티켓 선택</a></li><li><a href="#s-1-11-">1.11. 티켓 배치</a></li></ul></li><li><a href="#s-2-">2. Day 2</a><ul><li><a href="#s-2-1-">2.1. 1. Packing Biscuits</a></li><li><a href="#s-2-2-">2.2. 문제 설명</a></li><li><a href="#s-2-3-">2.3. Subtask #2, #3</a><ul><li><a href="#s-2-3-1-">2.3.1. Full Solution</a></li></ul></li><li><a href="#s-2-4-">2.4. 2. Counting Mushrooms</a></li><li><a href="#s-2-5-">2.5. 3. Stations</a></li></ul></li></ul></nav>
+                <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
+                          stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
+                </svg>
+                <p> 최근 수정 시각: 2021-02-20 22:32:19 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/test.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/test.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/test.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BTest%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BTest%5D"><div class="button">진행중인 토론</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/r/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript" src="/r/js/wiki.js"></script>
+<script>
+    function footnote() {
+        let map = {};
+        let def = document.getElementsByClassName("footnote-definition");
+
+        for (let i = 0; i < def.length; i++) {
+            let id = def[i].id.substr(2);
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
+        }
+
+        let ref = document.getElementsByClassName("footnote-reference");
+
+        for (let i = 0; i < ref.length; i++) {
+            let id = ref[i].children[0].id;
+            let content = map[id.substr(2)];
+            tippy(ref[i], {
+                theme: 'footnote',
+                content: content,
+                allowHTML: true,
+                interactive: true,
+                interactiveBorder: 5,
+            });
+        }
+    }
+
+    window.MathJax = {
+        startup: {
+            ready: () => {
+                MathJax.startup.defaultReady();
+                MathJax.startup.promise.then(footnote);
+            }
+        }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-174669347-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+</body>
+</html>
