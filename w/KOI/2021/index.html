@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta property="og:title" content="KOI/2021 - IamCoder Wiki"/>
+    <title>KOI/2021 - IamCoder Wiki</title>
+    <link rel="stylesheet" href="/r/css/style.css">
+    <link rel="stylesheet" href="/r/css/variable.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/androidstudio.min.css"
+          id="r-dark">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atelier-forest-light.min.css"
+          id="r-light" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap">
+    <script>
+        function addOnload(fun) {
+            let last = window.onload;
+            window.onload = function () {
+                if (last) last();
+                fun();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="page">
+    <div class="top-bar-w">
+        <div class="top-bar">
+            
+                <div class="logo"><a href="/"><img src="/logo.png" alt="KOI/2021 - IamCoder Wiki" height="33"/></a></div>
+            
+            <div class="search-w">
+                <div class="search-input-w hide"><label for="t-s-input"></label><input id="t-s-input" placeholder="검색">
+                </div>
+                <div class="search" id="t-s-button">
+                    <div class="icon-w">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="search-result-w hide" id="t-search-result"></div>
+            </div>
+            <div class="theme-w" id="t-t-button">
+                <div class="theme">
+                    <i class="fas fa-sun fa-lg" id="t-t-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-w">
+        <div class="content">
+            <div class="main">
+                <div class="header hl">
+                    <div class="gh-buttons">
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/document/contest/oi/koi/2021/koi-2021.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/document/contest/oi/koi/2021/koi-2021.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/document/contest/oi/koi/2021/koi-2021.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKOI/2021%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKOI/2021%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
+                    </div>
+                    <p> 최근 수정 시각: 2021-08-08 18:58:32 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
+                </div>
+                <main>
+                    
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeTitle() {
+    let s = ["K_", "KO_", "KOI_", "KOI/_", "KOI/2_", "KOI/20_", "KOI/202_", "KOI/2021_", "KOI/2021_", "KOI/2021_", "KOI/2021_", "KOI/2021", "KOI/2021", "KOI/2021", "KOI/2021", "KOI/2021_", "KOI/2021_", "KOI/2021_", "KOI/2021_", "KOI/2021"];
+    let title = document.getElementsByClassName('title')[0];
+    for(let i in s) {
+        title.innerHTML = s[i];
+        await sleep(100);
+    }
+}
+
+addOnload(writeTitle);
+</script>
+<h1 class="heading title">_</h1>
+<h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 1차 대회</h2>
+<h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 2차 대회</h2>
+<h3 class="heading"><a href="#s-2-1-" id="s-2-1-">2.1.</a> 초등부</h3>
+<h4 class="heading"><a href="#s-2-1-1-" id="s-2-1-1-">2.1.1.</a> 사각형 면적</h4>
+<p><a href="https://www.acmicpc.net/problem/22341" class="outer" target="_blank">문제</a></p>
+<p>문제에서 주어진 조건 그대로 구현하면 된다.</p>
+<p>현재 종이의 세로, 가로 길이 <code>A</code>, <code>B</code>를 갖고 있고, 새로운 점 <code>(X, Y)</code>가 입력으로 주어졌다고 하자.</p>
+<ul>
+<li>
+<p>\(A \leq X \) 또는 \(B \leq Y \)이면 이 입력은 무시하고 넘어간다.</p>
+</li>
+<li>
+<p>그렇지 않은 경우</p>
+<ul>
+<li>\(A\times Y \leq B\times X \) 인 경우 \(A = X \)</li>
+<li>\(A\times Y &gt; B\times X \) 인 경우 \(B = Y \)</li>
+</ul>
+</li>
+</ul>
+<h4 class="heading"><a href="#s-2-1-2-" id="s-2-1-2-">2.1.2.</a> 계산 로봇</h4>
+<p><a href="https://www.acmicpc.net/problem/22342" class="outer" target="_blank">문제</a></p>
+<p>2차원 <a href="/w/DP">DP</a> 테이블을 통해 해결할 수 있다.</p>
+<p>\(DP[i][j]\)를 <code>(i, j)</code>위치의 저장 값이라 정의하자.</p>
+<p>이때, \(DP[i][j]\)로 가능한 값은 \(DP[i-1][j-1] + D_{i-1, j-1}, DP[i][j-1] + D_{i, j-1}, DP[i+1][j-1] + D_{i+1, j-1} \) 중 최댓값임을 관찰할 수 있다. (그보다 먼 값들은 이미 세 DP 값 중 최소 하나의 값에 고려되어 있다.) </p>
+<p>따라서 DP 테이블을 \(O(N^2) \)에 채울 수 있으며, 답은 DP 테이블 내 최대값이 된다.</p>
+<h4 class="heading"><a href="#s-2-1-3-" id="s-2-1-3-">2.1.3.</a> 괄호의 값 비교</h4>
+<p><a href="https://www.acmicpc.net/problem/22343" class="outer" target="_blank">문제</a></p>
+<p>괄호 문자열의 길이가 최대 3,000,000 이므로 long long이나 int로 단순히 계산하기에 괄호의 값은 매우 크다.</p>
+<p>아직 닫히지 않은 여는 괄호가 <code>k</code>개 있고, <code>()</code>가 등장하면, 괄호의 값에 \(2^{k+1}\)이 더해지며, 이러한 <code>()</code> 괄호들의 값을 각각 구하여 더해주면 전체 괄호 문자열의 값을 구할 수 있다.</p>
+<p>따라서 괄호의 값은 여러 \(2^k \) 형태의 값들의 합으로 표현할 수 있다.</p>
+<p>이 값들을 이진법 표현으로 배열에 저장하고, 마지막에 받아올림을 구현해주면 두 괄호의 값의 크기 비교를 두 이진법 수의 크기 비교를 통해 구현할 수 있다.</p>
+<h4 class="heading"><a href="#s-2-1-4-" id="s-2-1-4-">2.1.4.</a> 그래프 균형 맞추기</h4>
+<p><a href="https://www.acmicpc.net/problem/22344" class="outer" target="_blank">문제</a></p>
+<p>그래프를 <a href="/w/DFS">DFS</a>하여 <a class="no-link" href="/w/DFS%20Spanning%20Tree">DFS Spanning Tree</a>를 구해주자. 또, 루트 노드에서부터 거리가 짝수인 노드는 검정색, 거리가 홀수인 노드는 흰색으로 coloring을 해주자.</p>
+<p>주어진 그래프는 양방향 그래프이기 때문에 <a class="no-link" href="/w/DFS%20Spanning%20Tree">DFS Spanning Tree</a> 에서 이 그래프의 에지는 tree edge와 back edge로 구분할 수 있다.</p>
+<p>루트 노드에 임의의 가중치(ex. 0)을 부여하고, tree edge에 주어진 간선의 가중치가 그 간선이 잇는 두 정점의 가중치 합이 되도록 정점들의 가중치를 부여해준다. 이 경우 모든 노드의 가중치가 하나로 결정된다.</p>
+<p>만약 루트 노드의 값을 <code>x</code>로 업데이트한다 가정하자. tree edge에 주어진 간선 가중치를 만족하기 위해서는 모든 검정색 노드의 가중치가 <code>x</code>만큼 증가하고, 모든 흰색 노드의 가중치는 <code>x</code>만큼 감소해야 한다.</p>
+<p>이 성질을 이용하여 back edge들도 간선 가중치를 만족하도록 하는 <code>x</code>값을 구해줘야 한다. 이때 두 가지 경우가 생긴다.</p>
+<ul>
+<li><code>x</code>값이 하나로 결정</li>
+</ul>
+<p>이는 같은 색의 노드를 연결하는 back edge가 있는 경우 발생한다.</p>
+<p>만약 두 검정 노드를 연결하는 간선의 가중치가 \( v_e \), 그 간선이 잇는 두 정점의 가중치 합이 \(v_n \)라 하면 \(x\)값은 \( {v_e-v_n}\over 2 \)로 결정된다.</p>
+<p>두 흰색 노드를 연결하는 경우도 비슷한 방식으로 <code>x</code>값을 결정해줄 수 있다.</p>
+<ul>
+<li>모든 값이 <code>x</code>값으로 가능</li>
+</ul>
+<p>같은 색의 노드를 연결하는 back edge가 없는 경우 발생한다.</p>
+<p>이 경우, <code>x</code>값은 아무런 제한이 없기 때문에 총 비용을 최소화하는 <code>x</code>값을 구해주어야 한다.</p>
+<p>이때 <code>x</code>값은 검정 노드의 가중치에 -1을 곱한 \(-v_x \), 그리고 흰 노드의 가중치 \(v_y\) 값들 중 중간값인 경우 전체 가중치 합이 최소가 된다. </p>
+<p>이렇게 <code>x</code>값을 구한 다음 마지막으로 전체 간선 가중치 조건이 맞는지 검사하여 이렇게 구한 <code>x</code>값이 유효한지 검사해주면 문제를 해결할 수 있다.</p>
+<h3 class="heading"><a href="#s-2-2-" id="s-2-2-">2.2.</a> 중등부</h3>
+<h4 class="heading"><a href="#s-2-2-1-" id="s-2-2-1-">2.2.1.</a> 계산 로봇</h4>
+<p>초등부 1번 문제와 같다.</p>
+<h4 class="heading"><a href="#s-2-2-2-" id="s-2-2-2-">2.2.2.</a> 누적 거리</h4>
+<p><a href="https://www.acmicpc.net/problem/22345" class="outer" target="_blank">문제</a></p>
+<p>누적 합 등을 전처리를 통해 <a href="/w/DP">DP</a>로 저장해 두어 각 쿼리를 \(O(\log{N}) \)에 처리할 수 있다.</p>
+<p>위치(\(x_i\)) 순서로 마을 정보를 정렬하자.</p>
+<p>1부터 <code>i</code>까지 거주 중인 사람 수의 합을 <code>DP1[i]</code>라 하자. ( \( DP1[i] = \sum_{k=1}^i a_k \) )</p>
+<p>또, 1부터 <code>i</code>까지 거주 중인 사람 수에 위치를 곱한 값의 합을 <code>DP2[i]</code>라 하자. (\(DP2[i] = \sum_{k=1}^i {a_k \times x_k} \) )</p>
+<p>후보 장소 <code>q</code>가 주어지면, <code>q</code>보다 작거나 같은 최대의 마을 위치를 \(x_i\)라 하자. 이는 <a href="/w/Binary%20Search">Binary Search</a>로 \(O(\log{N}) \)에 구할 수 있다.</p>
+<p>이때 1부터 <code>i</code>번째 장소에 사는 사람들의 누적 거리 합은 \( a_1 \times (q-x_1) + a_2 \times (q-x_2) + ... + a_i \times (q-x_i) = DP1[i] \times q - DP2[i] \)임을 알 수 있다.</p>
+<p>이와 비슷하게 <code>q</code>보다 큰 위치의 마을들에서 누적 거리 합도 비슷한 DP 배열 2개를 뒤에서부터 누적합을 계산하면 구할 수 있다. </p>
+<p>이렇게 각 쿼리에 대해 <code>q</code>보다 작은 위치의 마을과 큰 위치의 마을의 누적 거리 합을 나누어 구하면 답을 계산할 수 있다.</p>
+<h4 class="heading"><a href="#s-2-2-3-" id="s-2-2-3-">2.2.3.</a> 일이 이어져야 좋다</h4>
+<p><a href="https://www.acmicpc.net/problem/22346" class="outer" target="_blank">문제</a></p>
+<p><a class="no-link" href="/w/%EA%B8%88%EA%B4%91%20%EC%84%B8%EA%B7%B8">금광 세그</a> 에서 사용하는 아이디어를 사용하여 쿼리마다 \(O(\log{N}) \)에 처리해줄 수 있다.</p>
+<p><code>N</code>값이 주어지면 고려해야 하는 \(S_i\)의 개수는 \(O(\log{N}) \)개로 결정된다.</p>
+<p>각 \(S_i\)에 대해 내부에 연속한 1의 최대 개수, 문자열 왼쪽에서 연속한 1의 개수, 문자열 오른쪽에서 연속한 1의 개수를 구해준다. 이는 \(S_{i\over 2}\)의 값들을 이용하여 각각 O(1)에 구해줄 수 있다.</p>
+<p>각 쿼리를 처리할 때, <a class="no-link" href="/w/%EA%B8%88%EA%B4%91%20%EC%84%B8%EA%B7%B8">금광 세그</a>의 아이디어와 같이 현재 구간에 대해 마찬가지로 내부에 연속한 1의 최대 개수, 문자열 왼쪽에서 연속한 1의 개수, 문자열 오른쪽에서 연속한 1의 개수를 유지하면, Segment Tree와 같이 \(\logN \)개의 구간에 대해서만 고려하여 연속한 1의 최대 개수를 구해줄 수 있다.</p>
+<h4 class="heading"><a href="#s-2-2-4-" id="s-2-2-4-">2.2.4.</a> 공통 괄호 문자열 사전</h4>
+<p><a href="https://www.acmicpc.net/problem/22347" class="outer" target="_blank">문제</a></p>
+<p><a class="no-link" href="/w/Suffix%20Array">Suffix Array</a>를 사용하여 해결할 수 있다.</p>
+<h3 class="heading"><a href="#s-2-3-" id="s-2-3-">2.3.</a> 고등부</h3>
+<h4 class="heading"><a href="#s-2-3-1-" id="s-2-3-1-">2.3.1.</a> 헬기 착륙장</h4>
+<p><a href="https://www.acmicpc.net/problem/22348" class="outer" target="_blank">문제</a></p>
+<p>임의의 <code>A</code>, <code>B</code>에 대해 최대 원의 개수는 \(\sqrt{2A+2B} \)개, 대략 500개 이하가 된다. 이 최대 원의 개수를 <code>K</code>라 하자.</p>
+<p><a href="/w/DP">DP</a>를 통해 원 <code>i</code>개, 빨강 페인트를 <code>j</code>개 사용할 때 만들 수 있는 서로 다른 헬기 착륙장의 개수를 <code>DP[i][j]</code>라 하자.</p>
+<p><code>DP[i][j] = DP[i-1][j] + DP[i-1][j-i]</code> 점화식으로 DP 테이블을 채울 수 있다.</p>
+<p>이후 원 <code>i</code>개, 빨강 페인트를 <code>j</code>개 이하로 사용할 떄 만들 수 있는 서로 다른 헬기 착륙장의 개수를 <code>DP2[i][j]</code>라 하자. 이는 <code>DP[i][j]</code>를 이용하여 쉽게 구할 수 있다.</p>
+<p>쿼리로 <code>A</code>, <code>B</code>가 주어지면, 1부터 <code>K</code>까지의 값 <code>i</code>에 대해 원이 <code>i</code>개 있을 때 빨강 페인트 <code>A</code>개 이하, 파랑 페인트 <code>B</code>개 이하를 사용하여 만들 수 있는 서로 다른 헬기 착륙장의 개수를 구해준다.</p>
+<p>이 빨강 페인트를 \({{i\times(i+1)}\over 2} - B \)개 이상, \(A\)개 이하로 사용해야 하므로 다음 식을 통해 구할 수 있다. \(DP2[i][A] - DP2[i][{{i \times (i+1)} \over 2} - B - 1] \)</p>
+<p>이를 이용하면 각 쿼리를 \(O(K) \)안에 처리하여 문제를 해결할 수 있다.</p>
+<h4 class="heading"><a href="#s-2-3-2-" id="s-2-3-2-">2.3.2.</a> 그래프 균형 맞추기</h4>
+<p>초등부 4번 문제와 같다.</p>
+<h4 class="heading"><a href="#s-2-3-3-" id="s-2-3-3-">2.3.3.</a> 가장 긴 공통 괄호 문자열</h4>
+<p><a class="no-link" href="/w/Suffix%20Array">Suffix Array</a>를 사용하여 중등부 4번 문제와 같이 해결할 수 있으며, <a class="no-link" href="/w/Parametric%20Search">Parametric Search</a>와 <a href="/w/Hashing">Hashing</a>을 사용해서도 해결할 수 있다.</p>
+<h5 class="heading"><a href="#s-2-3-3-1-" id="s-2-3-3-1-">2.3.3.1.</a> Parametric Search + Hashing</h5>
+<p><code>S(A, B)</code>에서 가장 길이가 긴 문자열 <code>S</code>의 길이가 <code>l</code> 이상이라고 하자.</p>
+<p><code>A</code>와 <code>B</code> 각각에서 다음 처리를 해준다.</p>
+<ul>
+<li>
+<p>각 위치 <code>i</code>에 대해 <code>i</code>에서 시작하면서 길이 <code>l</code> 이상인 가장 짧은 올바른 괄호열을 <a class="no-link" href="/w/Hasing">Hasing</a>하여 저장해준다.</p>
+<ul>
+<li>이는 <a href="/w/Stack">Stack</a>을 이용하여 <code>i</code>에서 시작할때 <code>i</code>부터 <code>j</code>까지 문자열이 올바른 괄호 문자열이 되는 <code>j</code>값들을 Stack에 넣어 관리하면서 길이 <code>l</code>이상이 유지되면서 <code>i</code>부터 <code>j</code>가 최소 길이가 되도록 Stack의 원소를 제거하는 방식으로 처리할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<p>이렇게 <a href="/w/Hashing">Hashing</a>한 값들을 \(H_A, H_B \)에 저장했다고 하자.</p>
+<ul>
+<li>
+<p>만약 <code>S(A, B)</code>에서 가장 길이가 긴 문자열의 길이가 <code>l</code> 이상인 경우 \(H_A \)와 \(H_B \)는 반드시 하나 이상의 원소를 공유해야 한다. (<code>S</code>의 prefix 중 길이 <code>l</code>이상의 가장 짧은 올바른 괄호열이 \(H_A, H_B \)에 반드시 포함되어 있기 때문)</p>
+</li>
+<li>
+<p>마찬가지로 만약 <code>S(A, B)</code>에서 가장 길이가 긴 문자열의 길이가 <code>l</code>보다 작다면 \(H_A \)와 \(H_B \)는 서로 공유하는 원소가 없어야 한다.</p>
+</li>
+</ul>
+<p>따라서 <code>l</code>값을 <a href="/w/%EC%9D%B4%EB%B6%84%20%ED%83%90%EC%83%89">이분 탐색</a>하면서 답이 <code>l</code>이상인지, 그렇지 않은지 \(O((|A|+|B|)) \)시간복잡도로 계산해주면 해결할 수 있다.</p>
+<h4 class="heading"><a href="#s-2-3-4-" id="s-2-3-4-">2.3.4.</a> 맛집 추천</h4>
+
+                </main>
+            </div>
+            <div class="side-bar hm hs">
+                <nav class="toc"><ul><li><a href="#s-1-">1. 1차 대회</a></li><li><a href="#s-2-">2. 2차 대회</a><ul><li><a href="#s-2-1-">2.1. 초등부</a><ul><li><a href="#s-2-1-1-">2.1.1. 사각형 면적</a></li><li><a href="#s-2-1-2-">2.1.2. 계산 로봇</a></li><li><a href="#s-2-1-3-">2.1.3. 괄호의 값 비교</a></li><li><a href="#s-2-1-4-">2.1.4. 그래프 균형 맞추기</a></li></ul></li><li><a href="#s-2-2-">2.2. 중등부</a><ul><li><a href="#s-2-2-1-">2.2.1. 계산 로봇</a></li><li><a href="#s-2-2-2-">2.2.2. 누적 거리</a></li><li><a href="#s-2-2-3-">2.2.3. 일이 이어져야 좋다</a></li><li><a href="#s-2-2-4-">2.2.4. 공통 괄호 문자열 사전</a></li></ul></li><li><a href="#s-2-3-">2.3. 고등부</a><ul><li><a href="#s-2-3-1-">2.3.1. 헬기 착륙장</a></li><li><a href="#s-2-3-2-">2.3.2. 그래프 균형 맞추기</a></li><li><a href="#s-2-3-3-">2.3.3. 가장 긴 공통 괄호 문자열</a><ul><li><a href="#s-2-3-3-1-">2.3.3.1. Parametric Search + Hashing</a></li></ul></li><li><a href="#s-2-3-4-">2.3.4. 맛집 추천</a></li></ul></li></ul></li></ul></nav>
+                <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
+                          stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
+                </svg>
+                <p> 최근 수정 시각: 2021-08-08 18:58:32 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
+                <div class="gh-buttons">
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/document/contest/oi/koi/2021/koi-2021.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/document/contest/oi/koi/2021/koi-2021.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/document/contest/oi/koi/2021/koi-2021.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BKOI/2021%5D+"><div class="button">토론 생성하기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BKOI/2021%5D"><div class="button">진행중인 토론</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/r/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript" src="/r/js/wiki.js"></script>
+<script>
+    function footnote() {
+        let map = {};
+        let def = document.getElementsByClassName("footnote-definition");
+
+        for (let i = 0; i < def.length; i++) {
+            let id = def[i].id.substr(2);
+            map[id] = `<sup class="footnote-reference"><a href="#f-` + id + `">` + id + `</a></sup>` + def[i].children[1].innerHTML;
+        }
+
+        let ref = document.getElementsByClassName("footnote-reference");
+
+        for (let i = 0; i < ref.length; i++) {
+            let id = ref[i].children[0].id;
+            let content = map[id.substr(2)];
+            tippy(ref[i], {
+                theme: 'footnote',
+                content: content,
+                allowHTML: true,
+                interactive: true,
+                interactiveBorder: 5,
+            });
+        }
+    }
+
+    window.MathJax = {
+        startup: {
+            ready: () => {
+                MathJax.startup.defaultReady();
+                MathJax.startup.promise.then(footnote);
+            }
+        }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-174669347-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+</body>
+</html>
