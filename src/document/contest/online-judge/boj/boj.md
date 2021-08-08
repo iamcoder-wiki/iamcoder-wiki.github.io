@@ -1,7 +1,14 @@
 # BOJ
 
-## 문제
+## 소개
 
+[Baekjoon Online Judge](https://www.acmicpc.net/)
+
+## 알고리즘 분류
+
+### [[ BOJ/DP ]]
+
+### [[ BOJ/Segment Tree ]]
 
 ## 문제집
 
