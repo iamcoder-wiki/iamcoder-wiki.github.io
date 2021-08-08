@@ -57,14 +57,14 @@
             <div class="main">
                 <div class="header hl">
                     <div class="gh-buttons">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/dp.md"><div class="button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/dp.md"><div class="button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/dp.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/document/algorithm/basic/dp/dp.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/document/algorithm/basic/dp/dp.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/document/algorithm/basic/dp/dp.md"><div class="button hs">Github에서 보기</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDP%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDP%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-08 04:13:08 </p>
-                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/justiceHui" target="_blank"><span title="justiceHui"><img src="https://github.com/justiceHui.png?size=32" width="24" height="24" alt="@justiceHui"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                    <p> 최근 수정 시각: 2021-08-08 15:22:21 </p>
+                    <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
                     
@@ -100,7 +100,7 @@ addOnload(writeTitle);
 <h3 class="heading"><a href="#s-3-2-" id="s-3-2-">3.2.</a> Dijkstra Algorithm</h3>
 <p><a href="/w/Dijkstra%20Algorithm">Dijkstra Algorithm</a> 참고</p>
 <h3 class="heading"><a href="#s-3-3-" id="s-3-3-">3.3.</a> 0-1 Knapsack Problem</h3>
-<p>배낭 문제(Knapsack Problem)은 두 가지 종류가 있는데, <a href="/w/Greedy%20Algorithm">Greedy Algorithm</a>으로 해결할 수 있는 분할 가능 배낭문제(Fractional Knapsack Problem)와 달리 0-1 배낭 문제(0-1 Knapsack Problem)는 동적 계획법을 사용해서 해결해야 한다.</p>
+<p>배낭 문제(Knapsack Problem)은 두 가지 종류가 있는데, <a class="no-link" href="/w/Greedy%20Algorithm">Greedy Algorithm</a>으로 해결할 수 있는 분할 가능 배낭문제(Fractional Knapsack Problem)와 달리 0-1 배낭 문제(0-1 Knapsack Problem)는 동적 계획법을 사용해서 해결해야 한다.</p>
 <p>0-1 Knapsack Problem은 각 물건들마다 무게 \(w_i\)와 가치 \(v_i\)가 주어져 있고 가방에 담을 수 있는 최대 무게 \(S\)가 주어졌을 때, 최대 무게를 넘지 않게 가방에 물건들을 담았을 때 얻을 수 있는 가치의 합의 최댓값을 구하는 문제다.</p>
 <p>이 문제를 동적 계획법으로 풀기 위해 점화식을 세워보면 \(i\)번 물건까지 고려했을 때 총 무게가 \(j\)인 경우 가치 합의 최댓값을 \(DP(i, j)\)라 하면 \(DP(i, j) = \max(DP(i-1, j), DP(i-1, j-w_i) + v_i)\)로 표현할 수 있다. 이때 전체 문제를 해결하기 위해서는 \(N \times S\)개의 부분 문제를 해결하면 되기 때문에 \(O(NS)\) 시간복잡도로 문제를 해결할 수 있다.</p>
 
@@ -112,12 +112,12 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-08 04:13:08 </p>
-                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a><a href="https://github.com/justiceHui" target="_blank"><span title="justiceHui"><img src="https://github.com/justiceHui.png?size=32" width="24" height="24" alt="@justiceHui"/></span></a><a href="https://github.com/buttercrab" target="_blank"><span title="buttercrab"><img src="https://github.com/buttercrab.png?size=32" width="24" height="24" alt="@buttercrab"/></span></a> </div>
+                <p> 최근 수정 시각: 2021-08-08 15:22:21 </p>
+                <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/dp.md"><div class="button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/dp.md"><div class="button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/dp.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/document/algorithm/basic/dp/dp.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/document/algorithm/basic/dp/dp.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/document/algorithm/basic/dp/dp.md"><div class="button">Github에서 보기</div></a>
                     <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BDP%5D+"><div class="button">토론 생성하기</div></a>
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BDP%5D"><div class="button">진행중인 토론</div></a>
                 </div>

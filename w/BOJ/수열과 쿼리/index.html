@@ -57,13 +57,13 @@
             <div class="main">
                 <div class="header hl">
                     <div class="gh-buttons">
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/boj/array-query.md"><div class="button">편집</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/boj/array-query.md"><div class="button">역사</div></a>
-                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/boj/array-query.md"><div class="button hs">Github에서 보기</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/document/contest/online-judge/boj/array-query/array-query.md"><div class="button">편집</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/document/contest/online-judge/boj/array-query/array-query.md"><div class="button">역사</div></a>
+                        <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/document/contest/online-judge/boj/array-query/array-query.md"><div class="button hs">Github에서 보기</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBOJ/수열과 쿼리%5D+"><div class="button hs">토론 생성하기</div><div class="button hm">새 토론</div></a>
                         <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBOJ/수열과 쿼리%5D"><div class="button hs">진행중인 토론</div><div class="button hm">토론 보기</div></a>
                     </div>
-                    <p> 최근 수정 시각: 2020-09-07 15:49:55 </p>
+                    <p> 최근 수정 시각: 2021-08-08 15:22:21 </p>
                     <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 </div>
                 <main>
@@ -87,7 +87,7 @@ addOnload(writeTitle);
 <h1 class="heading title">_</h1>
 <h2 class="heading"><a href="#s-1-" id="s-1-">1.</a> 수열과 쿼리 0</h2>
 <p><a href="https://www.acmicpc.net/problem/13545" class="outer" target="_blank">문제</a></p>
-<p>\(S_i = A_1 + A_2 + ... + A_i\)로 정의하면 쿼리 \(i j\)가 주어지면 \(S_x = S_y\)이고 \(i-1 \leq x &lt; y \leq j\)인 \(x, y\)에 대해 \(y-x\)의 최댓값을 구하면 된다. 이는 <a href="/w/Mo's%20Algorithm">Mo's Algorithm</a>을 사용하여 각 \(k\)에 대해 \(S_i = k\)인 \(i\)들을 <a href="/w/Deque">Deque</a>로 저장하고 그 <a href="/w/Deque">Deque</a>들에서 가장 첫 원소와 가장 마지막 원소의 차들를 <a href="/w/Priority%20Queue">Priority Queue</a>로 관리하여 답을 구할 때마다 <a href="/w/Priority%20Queue">Priority Queue</a>에 존재하는 값들 중 최댓값을 선택하면 된다.</p>
+<p>\(S_i = A_1 + A_2 + ... + A_i\)로 정의하면 쿼리 \(i j\)가 주어지면 \(S_x = S_y\)이고 \(i-1 \leq x &lt; y \leq j\)인 \(x, y\)에 대해 \(y-x\)의 최댓값을 구하면 된다. 이는 <a href="/w/Mo's%20Algorithm">Mo's Algorithm</a>을 사용하여 각 \(k\)에 대해 \(S_i = k\)인 \(i\)들을 <a href="/w/Deque">Deque</a>로 저장하고 그 <a href="/w/Deque">Deque</a>들에서 가장 첫 원소와 가장 마지막 원소의 차들를 <a class="no-link" href="/w/Priority%20Queue">Priority Queue</a>로 관리하여 답을 구할 때마다 <a class="no-link" href="/w/Priority%20Queue">Priority Queue</a>에 존재하는 값들 중 최댓값을 선택하면 된다.</p>
 <h2 class="heading"><a href="#s-2-" id="s-2-">2.</a> 수열과 쿼리 1</h2>
 <p><a href="https://www.acmicpc.net/problem/13537" class="outer" target="_blank">문제</a></p>
 <p>같은 문제를 온라인으로 처리하는 문제가 수열과 쿼리 3번 문제이므로 수열과 쿼리 1은 오프라인 쿼리를 처리하는 풀이로 설명한다.</p>
@@ -107,7 +107,7 @@ addOnload(writeTitle);
 <p><a href="https://www.acmicpc.net/problem/13544" class="outer" target="_blank">문제</a></p>
 <p>수열과 쿼리 1과 같은 문제를 온라인 쿼리로 처리하는 문제다.</p>
 <p><a href="/w/Merge%20Sort%20Tree">Merge Sort Tree</a>를 사용하면 <a href="/w/Segment%20Tree">Segment Tree</a>와 비슷한 구조에서 특정 구간에 포함된 원소들을 정렬된 상태로 저장할 수 있다. 이를 이용하면 \(i, j, k\) 쿼리가 들어오면 \((i, j)\)를 포함하는 <a href="/w/Merge%20Sort%20Tree">Merge Sort Tree</a>의 구간 \(\log N\)개에서 <a href="/w/Binary%20Search">Binary Search</a>를 해서 \(k\)보다 큰 원소의 개수를 구할 수 있다.</p>
-<p><a href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>를 사용해서도 풀 수 있다. \(i\)번째 <a href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>에서 \(j\)번째 위치에 \(A_1\)부터 \(A_i\) 중 값이 \(j\)인 수<sup class="footnote-reference"><a id="b-1">1</a></sup>들의 개수를 저장하는 구간 합 <a href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>를 만들면 \(i, j, k\)를 처리할 때 \(j\)번째 <a href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>에서 \(k\)보다 큰 수의 개수에서 \(i-1\)번째 <a href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>에서 \(k\)보다 큰 수의 개수를 빼주면 답을 구할 수 있다.</p>
+<p><a class="no-link" href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>를 사용해서도 풀 수 있다. \(i\)번째 <a class="no-link" href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>에서 \(j\)번째 위치에 \(A_1\)부터 \(A_i\) 중 값이 \(j\)인 수<sup class="footnote-reference"><a id="b-1">1</a></sup>들의 개수를 저장하는 구간 합 <a class="no-link" href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>를 만들면 \(i, j, k\)를 처리할 때 \(j\)번째 <a class="no-link" href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>에서 \(k\)보다 큰 수의 개수에서 \(i-1\)번째 <a class="no-link" href="/w/Persistent%20Segment%20Tree">Persistent Segment Tree</a>에서 \(k\)보다 큰 수의 개수를 빼주면 답을 구할 수 있다.</p>
 <h2 class="heading"><a href="#s-6-" id="s-6-">6.</a> 수열과 쿼리 4</h2>
 <p><a href="https://www.acmicpc.net/problem/13546" class="outer" target="_blank">문제</a></p>
 <p>수열과 쿼리 0과 동일한 방법으로 풀 수 있다.</p>
@@ -116,7 +116,7 @@ addOnload(writeTitle);
 <p><a href="/w/Mo's%20Algorithm">Mo's Algorithm</a>을 기본적으로 사용해야 하며, 구간 이동 과정에서 각 \(k\)에 대해 구간 내 존재하면서 원소 값이 \(k\)인 원소 개수를 관리하면 있으면 현재 구간에 존재하는 서로 다른 수의 개수를 저장하고 있을 수 있다.</p>
 <h2 class="heading"><a href="#s-8-" id="s-8-">8.</a> 수열과 쿼리 6</h2>
 <p><a href="https://www.acmicpc.net/problem/13548" class="outer" target="_blank">문제</a></p>
-<p><a href="/w/Mo's%20Algorithm">Mo's Algorithm</a>을 사용해서 각 \(k\)에 대해 구간 내 존재하는 값이 \(k\)인 원소 개수를 관리하면 <a href="/w/Priority%20Queue">Priority Queue</a>를 통해 구간에서 가장 많이 등장하는 수가 몇번 등장하는지 구할 수 있다.</p>
+<p><a href="/w/Mo's%20Algorithm">Mo's Algorithm</a>을 사용해서 각 \(k\)에 대해 구간 내 존재하는 값이 \(k\)인 원소 개수를 관리하면 <a class="no-link" href="/w/Priority%20Queue">Priority Queue</a>를 통해 구간에서 가장 많이 등장하는 수가 몇번 등장하는지 구할 수 있다.</p>
 <h2 class="heading"><a href="#s-9-" id="s-9-">9.</a> 수열과 쿼리 7</h2>
 <p><a href="https://www.acmicpc.net/problem/13550" class="outer" target="_blank">문제</a></p>
 <p>수열과 쿼리 1.5과 동일한 방법으로 풀 수 있는데, \(S_i\)를 \(A_1 + A_2 + ... + A_i\)를 \(K\)로 나눈 나머지로 정의하면 된다.</p>
@@ -132,7 +132,7 @@ addOnload(writeTitle);
 <p>\([x1-1, y1-1]\) 구간과 \([x2, y2]\) 구간이 \([x2, y1-1]\)에서 겹치면 시작점과 끝점의 구간이 겹치지 않는 두 상태 (\(s \in [x1-1, x2-1], e\in [x2, y2]\) , \(s \in [x1-1, y1-1], e\in [y1, x2]\))에서 위와 같이 구한 다음 시작점과 끝점 모두 \([x2, y1-1]\) 안에 속하는 경우를 추가적으로 고려해주면 된다. 이는 구간 최댓값과 최솟값을 저장한 <a href="/w/Segment%20Tree">Segment Tree</a>에 현재 구간 내부에 시작점과 끝점 모두 존재할 경우 \(S_e - S_s\)의 최댓값을 추가적으로 저장하면 처리할 수 있다.</p>
 <hr />
 <div class="footnote-definition" id="f-1"><sup class="footnote-definition-label"><a href="#b-1">1</a></sup>
-<p><a href="/w/Grid%20Compression">Grid Compression</a>을 해야된다</p>
+<p><a class="no-link" href="/w/Grid%20Compression">Grid Compression</a>을 해야된다</p>
 </div>
 <div class="footnote-definition" id="f-2"><sup class="footnote-definition-label"><a href="#b-2">2</a></sup>
 <p><a href="/w/Segment%20Tree">Segment Tree</a>를 쓰면 시간 초과가 날 수 있기 때문에 <a href="/w/Fenwick%20Tree">Fenwick Tree</a>를 써야 할 수도 있다.</p>
@@ -146,12 +146,12 @@ addOnload(writeTitle);
                     <path id="toc-path" stroke-width="2" fill="transparent" stroke-dasharray="0, 0, 0, 1000"
                           stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)"/>
                 </svg>
-                <p> 최근 수정 시각: 2020-09-07 15:49:55 </p>
+                <p> 최근 수정 시각: 2021-08-08 15:22:21 </p>
                 <div class="contributors"> <div class="description"><span>기여자:&nbsp;</span></div><a href="https://github.com/retro3014" target="_blank"><span title="retro3014"><img src="https://github.com/retro3014.png?size=32" width="24" height="24" alt="@retro3014"/></span></a> </div>
                 <div class="gh-buttons">
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/boj/array-query.md"><div class="button">편집</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/boj/array-query.md"><div class="button">역사</div></a>
-                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/boj/array-query.md"><div class="button">Github에서 보기</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/edit/master/src/document/contest/online-judge/boj/array-query/array-query.md"><div class="button">편집</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/commits/master/src/document/contest/online-judge/boj/array-query/array-query.md"><div class="button">역사</div></a>
+                    <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/blob/master/src/document/contest/online-judge/boj/array-query/array-query.md"><div class="button">Github에서 보기</div></a>
                     <a target="_blank" href=https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues/new?title=%5BBOJ/수열과 쿼리%5D+"><div class="button">토론 생성하기</div></a>
                     <a target="_blank" href="https://github.com/iamcoder-wiki/iamcoder-wiki.github.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+%5BBOJ/수열과 쿼리%5D"><div class="button">진행중인 토론</div></a>
                 </div>
